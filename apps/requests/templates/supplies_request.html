@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+{% load static %}
+{% load i18n %}
+{% block menu_active_sub_requests %}
+	<li class="has-sub active">					
+{% endblock menu_active_sub_requests %}
+{% block menu_request %}
+	<ul class="sub-menu active">
+		<li class=" active"><a href="{% url 'requests:supplies_request'%}">{% blocktrans %}My Requests{% endblocktrans %}</a></li>
+		<li><a href="{% url 'requests:manage_request_list' %}">{% blocktrans %}Manage Approval{% endblocktrans %}</a></li>
+		<li><a href="{% url 'requests:my_delivered' %}">{% blocktrans %}My Delivered{% endblocktrans %} </a></li>
+	</ul>						
+{% endblock menu_request %}
+
+{% block content %}
+<div class="row">
+<div class="col-xl-12">
+	<!-- begin panel -->
+	<div class="panel panel-success">
+		<!-- begin panel-heading -->
+		<div class="panel-heading">
+			<h4 class="panel-title">{% blocktrans %}Table - {% endblocktrans %}{{ info.card_tittle }}</h4>
+			
+		</div>
+		
+		<div class="panel-body">
+			<div class="btn-group m-r-5 m-b-5 pull-right">
+				<a href="javascript:;" class="btn btn-primary">{% blocktrans %}New Request{% endblocktrans %}</a>
+				<a href="#" data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><b class="caret"></b></a>
+				<div class="dropdown-menu dropdown-menu-right">
+					{% for menu in requests %}
+						<a href="{%url 'requests:supplies_request_create'%}?RT={{menu.id}}" class="dropdown-item">{{menu}}</a>
+					{% endfor %}
+				</div>
+			</div>
+			<table id="data-table-combine" class="table table-striped table-bordered table-td-valign-middle">
+				<thead>
+					<tr>
+						<th class="text-nowrap">{% blocktrans %}Code{% endblocktrans %}</th>
+						<th class="text-nowrap">{% blocktrans %}Request Type{% endblocktrans %}</th>
+						<th class="text-nowrap">{% blocktrans %}Applicant{% endblocktrans %}</th>
+						<th class="text-nowrap">{% blocktrans %}Description{% endblocktrans %}</th>
+						<th class="text-nowrap">{% blocktrans %}Status{% endblocktrans %}</th>
+						<th class="text-nowrap">{% blocktrans %}Create Date{% endblocktrans %}</th>
+						<th class="text-nowrap">{% blocktrans %}Modified Date{% endblocktrans %}</th>
+						<th class="text-nowrap">{% blocktrans %}Actions{% endblocktrans %}</th>
+					</tr>
+				</thead>
+				<tbody id="PositionList">
+				</tbody>
+			</table>
+			
+		</div> 
+		<!-- end panel-body -->
+	</div>
+	<!-- end panel -->
+</div>			
+{% endblock content %}
+{% block custom_js %}
+<link href="{% static 'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/datatables.net-autofill-bs4/css/autofill.bootstrap4.min.css' %}"rel="stylesheet" />
+	<link href="{% static 'plugins/datatables.net-colreorder-bs4/css/colreorder.bootstrap4.min.css' %}"rel="stylesheet" />
+	<link href="{% static 'plugins/datatables.net-keytable-bs4/css/keytable.bootstrap4.min.css' %}"rel="stylesheet" />
+	<link href="{% static 'plugins/datatables.net-rowreorder-bs4/css/rowreorder.bootstrap4.min.css' %}"rel="stylesheet" />
+	<link href="{% static 'plugins/datatables.net-select-bs4/css/select.bootstrap4.min.css' %}"rel="stylesheet" />
+
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="{% static 'custom_type.js' %}"></script>
+		<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="{% static 'plugins/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-responsive/js/dataTables.responsive.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-autofill/js/dataTables.autofill.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-autofill-bs4/js/autofill.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-colreorder/js/dataTables.colreorder.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-colreorder-bs4/js/colreorder.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-keytable/js/dataTables.keytable.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-keytable-bs4/js/keytable.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-rowreorder/js/dataTables.rowreorder.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-rowreorder-bs4/js/rowreorder.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-select/js/dataTables.select.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-select-bs4/js/select.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/buttons.colVis.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/buttons.flash.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/buttons.html5.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/buttons.print.min.js' %}"></script>
+	<script src="{% static 'plugins/pdfmake/build/pdfmake.min.js' %}"></script>
+	<script src="{% static 'plugins/pdfmake/build/vfs_fonts.js' %}"></script>
+	<script src="{% static 'plugins/jszip/dist/jszip.min.js' %}"></script>
+	<script src="{% static 'js/demo/table-manage-combine.demo.js' %}"></script>
+	<script src="{% static 'plugins/highlight.js/highlight.min.js' %}"></script>
+	<script src="{% static 'js/demo/render.highlight.js' %}"></script>
+
+{% endblock custom_js %}

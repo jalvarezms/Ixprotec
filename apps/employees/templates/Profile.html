@@ -1,0 +1,614 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block page_header_title %}{% blocktrans %}My Protection{% endblocktrans %}{% endblock page_header_title %}
+{% block page_header_sm_title %} {% blocktrans %}In this page you can watch you profile information{% endblocktrans %}{% endblock page_header_sm_title %}
+{% block breadcrumb %}
+{% endblock breadcrumb %}
+{% load static %}
+
+
+{% block custom_css %}
+
+<!-- ================== BEGIN BASE CSS STYLE ================== -->
+<link href="{% static '\css\default\app.min.css' %}" rel="stylesheet" />
+<!-- ================== END BASE CSS STYLE ================== -->
+<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+<link href="{% static '\plugins\lightbox2\dist\css\lightbox.css'%}" rel="stylesheet" />
+<!-- ================== END PAGE LEVEL STYLE ================== -->
+
+<link href="{% static '\css\custom_stars.css'%}" rel="stylesheet" />
+
+<style>
+
+ </style>
+
+{% endblock custom_css %}
+
+{% block menu_active_Profile %}
+<li class="has-sub active">
+{% endblock menu_active_Profile %}
+
+{% block menu_Mydata %}
+<ul class="sub-menu active">
+    <li class="active"><a href="{% url 'employees:my_data'%}">{% blocktrans %}My Protection{% endblocktrans %}</a></li>
+    <li><a href="{% url 'employees:configure_sizes_list'%}">{% blocktrans %}Size Settings{% endblocktrans %}</a></li>
+    <li><a href="{% url 'employees:delivered_list'%}">{% blocktrans %}My Dispatch Supplies{% endblocktrans %}</a></li>
+</ul> 
+{% endblock menu_Mydata %}
+
+
+{% block content %}
+<div class="row">
+		<!-- begin col-6 -->
+		<div class="col-xl-12">
+			<!-- begin panel -->
+			<div class="panel panel-success" data-sortable-id="form-stuff-10">
+				<!-- begin panel-heading -->
+				<div class="panel-heading">
+					<h4 class="panel-title">{% blocktrans %}Personal Information{% endblocktrans %}</h4>
+					
+				</div>
+				<!-- end panel-heading -->
+				<!-- begin panel-body -->
+				<div class="panel-body">
+				<div class="row">
+					<div class="col-xl-2 col-lg-4 col-md-4 col-sm-5 ">
+						<!-- begin card -->
+						<div class="card border-0">
+							<img class="card-img-top  height-150 width-150" src="{{ employee.photo.url }}" alt="" />
+							<div class="card-body">
+								<h4 class="card-title m-t-0 m-b-0"><i class="fa fa-user" aria-hidden="true"></i> {{ employee.get_short_name|title }}</h4>
+								<p class="card-text">
+									<span >
+										<i class="fa fa-briefcase" aria-hidden="true"></i> 
+										<small  class='f-s-10'>{{employee.get_postion|title}}</small>
+									</span>	
+								</p>
+								
+							</div>
+						</div>
+						<!-- end card -->
+					</div>
+					<div class="col-xl-10 col-lg-6 col-md-6 col-sm-7 bg-grey-transparent-1">
+						<!-- begin nav-tabs -->
+					<ul class="nav nav-tabs">
+						<li class="nav-item">
+							<a href="#default-tab-1" data-toggle="tab" class="nav-link active">
+								<span class="d-sm-none">Tab 1</span>
+								<span class="d-sm-block d-none">{% blocktrans %}Personal Information{% endblocktrans %}</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="#default-tab-2" data-toggle="tab" class="nav-link">
+								<span class="d-sm-none">{% blocktrans %}Organ{% endblocktrans %}</span>
+								<span class="d-sm-block d-none">{% blocktrans %}Organizational Data{% endblocktrans %}</span>
+							</a>
+						</li>
+						
+					</ul>
+					<!-- end nav-tabs -->
+					<!-- begin tab-content -->
+					<div class="tab-content">
+						<!-- begin tab-pane -->
+						<div class="tab-pane fade active show" id="default-tab-1">
+							<div class="row">
+								<div class="col-xl-6">
+								<p></p>
+									<ul class="list-group">
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}External Number{% endblocktrans %}</span>
+											<b class="pull-right">{{ employee.code }}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Firts Name{% endblocktrans %}</span>
+											<b class="pull-right">{{ employee.firts_name|title }}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Second Name{% endblocktrans %}</span>
+											<b class="pull-right">{{ employee.second_name|title }}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}last Name{% endblocktrans %}</span>
+											<b class="pull-right">{{ employee.last_name|title }}</b>
+										</li>										
+									</ul>
+								</div>
+								<div class="col-xl-6">
+									<p></p>
+									<ul class="list-group">
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Birth Place{% endblocktrans %}</span>
+											<b class="pull-right">{{ employee.Birth_Place|title }}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Place Residence{% endblocktrans %}</span>
+											<b class="pull-right">{{ employee.Place_Residence|title }}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Address{% endblocktrans %}</span>
+											<span class="pull-right f-s-9"> {{ employee.Address|title }}</span>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Document idetification{% endblocktrans %}</span>
+											<b class="pull-right">{{ employee.number_doc }}</b> 
+										</li>										
+									</ul>
+								</div>
+							</div>							
+						</div>
+						<!-- end tab-pane -->
+						<!-- begin tab-pane -->
+						<div class="tab-pane fade" id="default-tab-2">
+							<div class="row">
+								<div class="col-xl-6">
+								<p></p>
+									<ul class="list-group">
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Entity Legal{% endblocktrans %}</span>
+											<b class="pull-right">{{ employee.get_structure_last.company }}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Division{% endblocktrans %}</span>
+											<b class="pull-right">{{ employee.get_structure_last.division }}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Location{% endblocktrans %}</span>
+											<b class="pull-right">{{ employee.get_structure_last.location }}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Business Unit{% endblocktrans %}</span>
+											<b class="pull-right">{{ employee.get_structure_last.businessUnit }}</b>
+										</li>										
+									</ul>
+								</div>
+								<div class="col-xl-6">
+									<p></p>
+									<ul class="list-group">
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Center Coste{% endblocktrans %}</span>
+											<b class="pull-right">{{ employee.get_structure_last.position.cost_center }}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Position{% endblocktrans %}</span>
+											<b class="pull-right">{{ employee.get_structure_last.position }}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Start Date{% endblocktrans %}</span>
+											<b class="pull-right "> {{ employee.get_structure_last.start_date }}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}End Date{% endblocktrans %}</span>
+											<b class="pull-right">{{ employee.get_structure_last.end_date }}</b>
+										</li>										
+									</ul>
+								</div>
+							</div>
+						</div>
+						<!-- end tab-pane -->
+						<!-- begin tab-pane -->
+						
+					</div>
+					</div>
+				</div>
+
+				 
+				</div>
+				<!-- end panel-body -->
+				
+			</div>
+			<!-- end panel -->
+		</div>
+		
+	</div>
+	<!-- end row -->
+
+<div class="panel panel-success">
+    <!-- begin panel-heading -->
+    <div class="panel-heading ">
+        <h1 class="panel-title d-flex " > {% blocktrans %}Assigned Personal Protection Items {% endblocktrans %}</h1>
+    </div>
+
+    <div class="panel-body pb-60" >                      
+
+        <div class="d-flex justify-content-end">
+            <div class="p-2 bd-highlight">
+                <button onclick="showAll()"><i class="fas fa-angle-double-down" ></i></button>
+            </div>
+            <div class="p-2 bd-highlight">
+                <button onclick="hideAll()"><i class="fas fa-angle-double-up" ></i></button>
+            </div>
+        </div>
+            <div class="mt-1 p-0 p-md-30" >
+                <!-- begin #accordion -->
+                <div id="accordion" class="accordion ">
+                        <!-- ####################################### Start Acordion ############################################## -->
+                        <!-- begin card for new element -->
+                        {% if  deliver_detail %}
+                        {% for deliver in deliver_detail %}
+                            <div class="card bg-white text-black">
+                                <!-- begin card  For create a new card you have to change the attributes "data-target="#collapse_{Number of card}" -->
+                                <div class="card-header bg-default  pointer-cursor d-flex align-items-center collapsed" data-toggle="collapse" data-target="#collapse_{{ forloop.counter }}" >
+                                    <div class="w-100 d-flex bd-highlight mb-3">                                    
+                                        <div class="p-2 bd-highlight">  
+                                            <div class=" d-flex flex-md-row flex-column mb-6">
+                                                <div class="d-flex justify-content-center">
+                                                    <img src="{{deliver.supply.equipment.image.url}}" alt="profile image" class="rounded-circle w-80" style="width: 80px;">
+                                                </div>
+                                                <div class="" >
+                                                    <h3 class="h3"><b>{{deliver.supply.name|title}}</b></h3>  
+                                                </div>
+                                            </div>                                            
+                                        </div>
+                                        <!-- arrow for open all elements -->
+                                        <div class="ml-auto p-2 bd-highlight">
+                                            <i class="fas fa-angle-double-down" ></i>
+                                        </div>
+                                        <!-- end arrow for open all elements -->
+                                    </div>
+                                </div>
+                                <!-- change this for making more cards -->
+                                <!-- you have to change the id id="collapse_{Number of card} for the acordion to working -->
+                                <div id="collapse_{{ forloop.counter }}" class="collapse  {% if forloop.counter == 1 %} show {% endif %} " data-parent="#accordion">
+                                    <div class="card-body">
+                                        <div class="d-flex flex-column">
+                                            <!-- begin nav tabs -->
+                                            <div class="" >
+                                                <!-- begin row -->
+                                                <div class="row">
+                                                    <!-- begin col-6 -->
+                                                    <div class="col-xl-12" >
+                                                        <!-- begin nav-tabs -->
+                                                        <ul class="nav nav-tabs">
+
+                                                            <li class="nav-item">
+                                                                <!-- Important!!!! this tap has to change the id for working this acording the number of the acordion card  #default-{Number of cardr}-tab-1"-->
+                                                                <a href="#default-{{forloop.counter}}-tab-1" data-toggle="tab" class="nav-link active">
+                                                                    <span class="d-sm-none"></span>
+                                                                    <span class="d-sm-block d-none">{% blocktrans %}Description{% endblocktrans %}</span>
+                                                                </a>
+                                                            </li>
+
+                                                            <li class="nav-item">
+                                                                    <!-- Important!!!! this tap has to change the id for working this acording the number of the acordion card  #default-{Number of cardr}-tab-2"-->
+                                                                <a href="#default-{{ forloop.counter }}-tab-2" data-toggle="tab" class="nav-link">
+                                                                    <span class="d-sm-none">{% blocktrans %}How to use{% endblocktrans %}</span>
+                                                                    <span class="d-sm-block d-none">{% blocktrans %}How to use{% endblocktrans %}</span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="nav-item">
+                                                                    <!-- Important!!!! this tap has to change the id for working this acording the number of the acordion card  #default-{Number of cardr}-tab-2"-->
+                                                                <a href="#default-{{ forloop.counter }}-tab-21" data-toggle="tab" class="nav-link">
+                                                                    <span class="d-sm-none">{% blocktrans %}Maintenance Cleaning{% endblocktrans %}</span>
+                                                                    <span class="d-sm-block d-none">{% blocktrans %}Maintenance Cleaning{% endblocktrans %}</span>
+                                                                </a>
+                                                            </li>
+                                
+                                                            <li class="nav-item">
+                                                                    <!-- Important!!!! this tap has to change the id for working this acording the number of the acordion card  #default-{Number of card}-tab-3"-->
+                                                                <a href="#default-{{ forloop.counter }}-tab-3" data-toggle="tab" class="nav-link">
+                                                                    <span class="d-sm-none">{% blocktrans %}Images{% endblocktrans %}</span>
+                                                                    <span class="d-sm-block d-none">{% blocktrans %}Images{% endblocktrans %}</span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="nav-item">
+                                                                    <!-- Important!!!! this tap has to change the id for working this acording the number of the acordion card  #default-{Number of card}-tab:-4"-->
+                                                                <a href="#default-{{ forloop.counter }}-tab-4" data-toggle="tab" class="nav-link">
+                                                                    <span class="d-sm-none">{% blocktrans %}Video{% endblocktrans %}</span>
+                                                                    <span class="d-sm-block d-none">{% blocktrans %}Video{% endblocktrans %}</span>
+                                                                </a>
+                                                            </li>
+                                                            <li class="nav-item">
+                                                                <!-- Important!!!! this tap has to change the id for working this acording the number of the acordion card  #default-{Number of card}-tab-5"-->
+                                                                <a href="#default-{{ forloop.counter }}-tab-5" data-toggle="tab" class="nav-link">
+                                                                    <span class="d-sm-none">{% blocktrans %}Documents{% endblocktrans %}</span>
+                                                                    <span class="d-sm-block d-none">{% blocktrans %}Documents{% endblocktrans %}</span>
+                                                                </a>
+                                                            </li>
+
+                                                        </ul>
+                                                        <!-- end nav-tabs -->
+                                                        <!-- begin tab-content -->
+                                                        <div class="tab-content" >
+                                                            <!-- begin tab-pane -->
+                                                            <!-- Important!!!! this tap has to change the id for working this acording the number of the acordion card  id="#default-{Number of card}-tab-1"-->
+                                                            <div class="tab-pane fade active show" id="default-{{forloop.counter}}-tab-1">
+                                                                <h3 class="m-t-10">  {{deliver.supply.name}} </h3> 
+                                                                <p>
+                                                                    <!-- tab content -->
+                                                                    <div class="row" >
+                                                                        <div class=" col-lg-3 col-sm-8 d-flex justify-content-center" >
+                                                                            <!-- image content -->
+                                                                            <!-- begin gallery -->
+                                                                            <div id="gallery" class="gallery" >
+                                                                                    <!-- begin image -->
+                                                                                    <div class="image w-100">
+                                                                                        <div class="image-inner">
+                                                                                            <!-- here goes url for boots -->
+                                                                                            <div class="img" style="background-image: url(/media/{{deliver.supply.equipment.image}})"></div>
+                                                                                            <!-- end url for boots -->
+                                                                                            <p class="image-caption">
+                                                                                                <!-- here goes boots size and description -->
+                                                                                                
+                                                                                                <!-- label boots -->
+                                                                                            </p>
+                                                                                        </div>
+                                                                                        <div class="image-info">
+                                                                                            <h5 class="title" style="width: 200px;"></h5>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <!-- end image -->
+                                                                            </div>
+                                                                            <!-- end galery -->
+
+                                                                        <!-- end image content -->
+                                                                        </div>
+
+                                                                        <div class="col-lg-3 col-sm-12">
+                                                                            <div class="d-flex flex-column">
+                                                                                <!-- description content -->
+                                                                                <span class="d-flex justify-content-left"><b>{% blocktrans %}Description{% endblocktrans %}</b></span>
+                                                                                <p class="mt-2"> 
+                                                                                    <!-- here goes descriptions for products assinged -->                                                                                  
+                                                                                    {{deliver.supply.equipment.description}}
+                                                                                <!-- end description products -->
+                                                                                </p> 
+                                                                                <!-- end description content      -->
+                                                                            </div>
+                                                                        </div>
+
+                                                                        
+                                                                        <div class="col-lg-2 col-sm-12 mt-3 d-flex justify-content-left">
+                                                                            <ul>
+                                                                                <li class="row"> <div class="col-md-12"><b>{% blocktrans %}Delivered date:{% endblocktrans %}</b></div><div class="col-md-12 col-lg-12" >{{deliver.create_date}}</div></li> 
+                                                                                <li class="row"> <div class="col-md-12"><b>{% blocktrans %}Change date:{% endblocktrans %}</b></div><div class="col-md-12 col-lg-12" >{{deliver.expire_date}}</div></li>
+                                                                                <li class="row"> <div class="col-md-12"><b>{% blocktrans %}Frequency of change:{% endblocktrans %}</b></div><div class="col-md-12 col-lg-12" >{{deliver.supply.equipment.frequency_of_change_text}}</div></li>
+                                                                                <li style="list-style: none;"> 
+                                                                                    <span class="d-flex justify-content-left"><b>{% blocktrans %}Percentage of use{% endblocktrans %}</b></span>
+                                                                                    <div class="progress progress-sm m-b-15 mt-2">
+                                                                    
+                                                                                        <!-- here goes progress bar -->
+                                                                                        <div class="progress-bar progress-bar-striped progress-bar-animated rounded-corner bg-green" style="width: 25%"> 25%</div>
+                                                                                        <!-- here end progress bar -->
+                                                                                    </div>
+                                                                                </li>
+                                                                            </ul>
+                                                                        </div>
+
+                                                                        <div class="col-lg-4 col-sm-12 " >
+
+                                                                            <div class="row">
+                                                                                <span class="col-4 justify-content-left pl-4" ><b>{% blocktrans %}Durability{% endblocktrans %}</b></span>
+                                                                                <ul class="col-6 pl-3">
+                                                                                    <li class="fa fa-star checked"></li>
+                                                                                    <li class="fa fa-star checked"></li>
+                                                                                    <li class="fa fa-star checked"></li>
+                                                                                    <li class="fa fa-star"></li>
+                                                                                    <li class="fa fa-star"></li>
+                                                                                </ul>
+                                                                            </div>
+
+                                                                            <div class="d-flex flex-row">
+                                                                                <span class="col-4 justify-content-left" ><b>{% blocktrans %}Material{% endblocktrans %}</b></span>
+                                                                                <ul class="col-6" >
+                                                                                    <li class="fa fa-star checked"></li>
+                                                                                    <li class="fa fa-star checked"></li>
+                                                                                    <li class="fa fa-star checked"></li>
+                                                                                    <li class="fa fa-star checked"></li>
+                                                                                    <li class="fa fa-star "></li>
+                                                                                </ul>
+                                                                            </div>
+                                                                            <div class="d-flex flex-row">
+                                                                                <span class="col-4 justify-content-left" ><b>{% blocktrans %}Satisfaction{% endblocktrans %}</b></span>
+                                                                                <ul class="col-6">
+                                                                                    <li class="fa fa-star checked"></li>
+                                                                                    <li class="fa fa-star checked"></li>
+                                                                                    <li class="fa fa-star checked"></li>
+                                                                                    <li class="fa fa-star"></li>
+                                                                                    <li class="fa fa-star"></li>
+                                                                                </ul>
+                                                                            </div>  
+                                                                            <!-- {% url 'employees:rate_it' forloop.counter as the_url%}                                                                              -->
+                                                                            <!-- <a href="{{ the_url }}" class="btn btn-primary">{% blocktrans %}Rate it{% endblocktrans %}</a> -->
+                                                                        </div>   
+                                                                    </div>
+                                                                    <!-- end tab-content -->
+                                                                </p>
+                                                            </div>
+                                                            
+                                                            <!-- end tab-pane -->
+                                                            <!-- begin tab-pane -->
+                                                            <!-- Important!!!! this tap has to change the id for working this acording the number of the acordion card id="#default-{Number of card}-tab-2"-->
+                                                            <div class="tab-pane fade" id="default-{{ forloop.counter }}-tab-2">
+                                                                <h3 class="m-t-10">{% blocktrans %}Indications and Recommendations{% endblocktrans %} </h3> 
+                                                                <p>
+                                                                    <!-- tab content -->
+                                                                    <div class="d-flex flex-column">
+                                                                        <span class="d-flex justify-content-left"><b></b></span>
+                                                                        <p class="mt-2">                                                                         
+                                                                            <ol>
+                                                                                <li>  {{deliver.supply.equipment.mode_use|safe }}</li>
+                                                                            </ol>
+
+                                                                        </p>      
+                                                                    </div>
+                                                                    <!-- end tab-content -->
+                                                                </p>
+                                                            </div>
+                                                            <!-- end tab-pane -->
+                                                            <!-- begin Image tab-pane -->
+                                                            <!-- Important!!!! this tap has to change the id for working this acording the number of the acordion card id="#default-{Number of card}-tab-3"-->
+                                                            
+                                                            <!-- end tab-pane -->
+                                                            <!-- begin tab-pane -->
+                                                            <!-- Important!!!! this tap has to change the id for working this acording the number of the acordion card id="#default-{Number of card}-tab-2"-->
+                                                            <div class="tab-pane fade" id="default-{{ forloop.counter }}-tab-21">
+                                                                <h3 class="m-t-10">{% blocktrans %}Maintenance Cleaning{% endblocktrans %} </h3> 
+                                                                <p>
+                                                                    <!-- tab content -->
+                                                                    <div class="d-flex flex-column">
+                                                                        <span class="d-flex justify-content-left"><b></b></span>
+                                                                        <p class="mt-2">                                                                         
+                                                                            <ol>
+                                                                                <li>  {{deliver.supply.equipment.mantenace_cleaning|safe }}</li>
+                                                                            </ol>
+
+                                                                        </p>      
+                                                                    </div>
+                                                                    <!-- end tab-content -->
+                                                                </p>
+                                                            </div>
+                                                            <!-- end tab-pane -->
+                                                            <!-- begin Image tab-pane -->
+                                                            <!-- Important!!!! this tap has to change the id for working this acording the number of the acordion card id="#default-{Number of card}-tab-3"-->
+                                                            
+
+                                                            <div class="tab-pane fade" id="default-{{ forloop.counter }}-tab-3" >
+                                                                
+                                                                <p>
+                                                                    <h3 class="m-t-10"><i class="fa fa-cog"></i> {% blocktrans %}Images{% endblocktrans %} </h3>
+                                                                    <!-- tab content -->
+                                                                                <!-- begin #gallery -->
+                                                                                <div id="gallery" class="gallery d-flex flex-column flex-md-row flex-lg-row flex-wrap" >
+                                                                                    {% if deliver.supply.equipment.photo_set.all|length > 0 %}
+                                                                                        {% for images in deliver.supply.equipment.photo_set.all %}
+                                                                                            <!-- begin image -->
+                                                                                            <div class="image gallery-group-1" >
+                                                                                                <div class="image-inner">
+                                                                                                        <div class="img" style="background-image: url(/media/{{images.photo}})"></div>
+                                                                                                    <p class="image-caption">
+                                                                                                        {{images.title}}
+                                                                                                    </p>
+                                                                                                </div>
+                                                                                                <div class="image-info">
+                                                                                                    <h5 class="title"></h5>
+                                                                                                    <div class="desc" style="width: 20px;">                                                                                                     
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                            </div>
+                                                                                            <!-- end image -->
+                                                                                        {% endfor %}                                                                                                                                        
+                                                                                    {% else %}
+                                                                                            <h1>{% blocktrans %}There is not information{% endblocktrans %}</h1>
+                                                                                    {% endif %}
+                                                                                </div>
+                                                                                <!-- End  #gallery -->
+                                                                    <!-- end tab-content -->
+                                                                </p>
+                                                            </div>
+                                                            <!-- end tab-pane -->
+                                                                <!-- begin tab-pane -->
+
+                                                                <!-- Important!!!! this tap has to change the id for working this acording the number of the acordion card id="#default-{Number of card}-tab-4"-->
+                                                            <div class="tab-pane fade" id="default-{{ forloop.counter }}-tab-4">
+                                                                <p>
+                                                                    <h3 class="m-t-10"> {% blocktrans %}Videos{% endblocktrans %} </h3>
+                                                                    <!-- tab content -->
+                                                                    <div class="d-flex flex-wrap">
+                                                                        {% if deliver.supply.equipment.video_set.all|length > 0 %} 
+                                                                            {% for video in deliver.supply.equipment.video_set.all   %}                                           
+                                                                                    <!-- begin card -->
+                                                                                    <div class="card border-0">
+                                                                                        <iframe width="280" height="215" 
+                                                                                            src="https://www.youtube.com/embed/{{video.video}}" frameborder="0" 
+                                                                                            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+                                                                                            allowfullscreen>
+                                                                                        </iframe>
+                                                                                        <div class="card-body">
+                                                                                            <h4 class="card-title m-t-0 m-b-10 " style="width: 280px;">{{video.title|title}}</h4>
+                                                                                            <p class="card-text " style="width: 280px;">
+                                                                                                {{video.description}}
+                                                                                            </p>
+                                                                                            <a class="btn btn-sm btn-default"  
+                                                                                                href="{% url 'equipments:equipment_video_update' video.id  %}">
+                                                                                                <i class="fas fa-edit"></i>
+                                                                                            </a>
+                                                                                            <a class="btn btn-sm btn-default" 
+                                                                                                data-toggle="modal" data-target="#delete" data-pk="{{ video.id }}" >
+                                                                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                                                                            </a>
+                                                                                            
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <!-- end card -->                                                                                   
+                                                                            {% endfor  %}	
+                                                                        {% else %}
+                                                                                 <h1>{% blocktrans %}There is not information{% endblocktrans %}</h1>
+                                                                        {% endif %}
+                                                                       
+                                                                    </div>
+                                                                    <!-- end tab-content -->
+                                                                </p>
+                                                            </div>
+                                                            <!-- end tab-pane --> 
+                                                            <!-- begin documents tab-pane -->
+                                                            <!-- Important!!!! this tap has to change the id for working this acording the number of the acordion card id="#default-{Number of card}-tab-5"-->
+                                                            <div class="tab-pane fade" id="default-{{ forloop.counter }}-tab-5">
+                                                                <h3 class="m-t-10"><i class="fa fa-cog"></i> {% blocktrans %}Documents{% endblocktrans %} </h3>
+                                                                <h4>{% blocktrans %}Manuals{% endblocktrans %}</h4>
+                                                                <p>
+                                                                    <!-- tab content -->
+                                                                    <div class="d-flex flex-column">
+
+                                                                        {% if deliver.supply.equipment.get_documents|length > 0 %}                                                                           
+                                                                            {% for doc in deliver.supply.equipment.get_documents   %}
+                                                                                <div class="row">									
+                                                                                    <div class="media media-sm col-lg-12">		
+                                                                                        <div class="media-body list-documet-div" id="div{{ forloop.counter }}">
+                                                                                            <a href="{{doc.document.url}}" target='top'>
+                                                                                            <h3 class="media-heading bg-grey-transparent-1 list-documet-title" data-index="{{ forloop.counter }}" id="doc_title{{ forloop.counter }} "
+                                                                                            value="{{doc.document}}">{{doc.title}}</h5>
+                                                                                            </a>  
+                                                                                            <p class="f-s-14">{{doc.description}}</p>
+                                                                                            
+                                                                                        </div>
+                                                                                        <div class="widget-list-action">
+                                                                                            <a href="#" data-toggle="dropdown" class="text-muted pull-right"><i class="fa fa-ellipsis-h f-s-14"></i></a>                                                                                        									
+                                                                                        </div>
+                                                                                    </div>	
+                                                                                    
+                                                                                </div>
+                                                                                <br width="100%" class="text-black">
+                                                                            {% endfor  %}
+                                                                        {% else %}
+                                                                            <h1>{% blocktrans %}There is not information{% endblocktrans %}</h1>
+                                                                        {% endif %}
+                                                                        
+                                                                    </div>
+                                                                    <!-- end tab-content -->
+                                                                </p>
+                                                            </div>
+                                                            <!-- end tab-pane -->                                                                      
+                                                        </div>
+                                                        <!-- end tab-content -->
+                                                    </div>     
+                                                    <!-- ending nav tabs -->    
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end card -->                               
+                            </div>
+                        {% endfor %}
+                         {% else %}
+                             <div class="panel-body bg-aqua-transparent-3" >
+                              <h4><b> {% blocktrans %}Por el momento, no posee asignados elementos de proteccion. Le recomendamos realizar una solicitud{% endblocktrans %} <a href="{% url 'requests:supplies_request'%}">{% blocktrans %}Aqui{% endblocktrans %}</a>  </b></h3>  
+                             </div>
+                        {% endif %}
+
+                </div> 
+                <!-- end accordion -->     
+            </div> 
+            <!-- end wrap accordion-->
+    </div>
+    <!-- end white panel -->
+</div>
+<!-- end panel succes Template -->
+{% endblock %}
+
+{% block custom_js %}
+
+<script src="{% static 'js/custom_list_all_elements.js'%}"></script>
+
+{% endblock custom_js %}

@@ -1,0 +1,332 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
+    <li class="breadcrumb-item"><a href="javascript:;">Requests</a></li>
+    <li class="breadcrumb-item"><a href="javascript:;">My Delivered</a></li>
+    <li class="breadcrumb-item active">My Delivered Items</li>
+{% endblock breadcrumb %}
+{% block page_header_title %}Delivered Items{% endblock page_header_title %}
+{% block page_header_sm_title %}In this table you can view your delivered items and aceppt or refuse them{% endblock page_header_sm_title %}
+{% block custom_css %}
+	<link href="{% static 'css/custom_css_request.css' %}" rel="stylesheet">
+{% endblock custom_css %}
+{% block menu_active_sub_requests %}<li class="has-sub active">{% endblock menu_active_sub_requests %}
+{% block menu_request %}
+<ul class="sub-menu">
+    <li><a href="{% url 'requests:supplies_request'%}">My Requests</a></li>
+    <li><a href="{% url 'requests:manage_request_list' %}">Manage Approval </a></li>
+    <li class="active"><a href="{% url 'requests:my_delivered' %}">My Delivered </a></li>
+</ul>						
+{% endblock menu_request %}
+{% block content %}
+<div class="row">
+    <div class="col-xl-12 col-md-12 ">
+        <!-- begin panel -->
+        <div class="panel panel-success" data-sortable-id="form-stuff-10">
+            <!-- begin panel-heading -->
+            <div class="panel-heading">
+                <h4 class="panel-title">Create - Details Request </h4>
+            </div>
+            <!-- end panel-heading -->
+            <!-- begin panel-body -->
+            <div class="panel-body">
+                <div class="row justify-content-between">
+                    <div class="col-xl-2 col-md-12 ">
+                        <p class="req-detail"><b>Request Code: </b>FT1232 </p>
+                        <p class="req-detail"><b>Request Type: </b>FTPPE </p>
+                        <p class="req-detail"><b>Request Date: </b>2020-01-15 </p>
+                    </div>
+                    <!--request and aprovvals site begin-->
+                    <div class="col-xl-3 col-md-12 ">
+                        <label for="id_code" class="">
+                            <strong>Requested by: </strong>
+                        </label>     
+                        <div class="form-group m-b-0">
+                            <ul class="media-list">
+                                <li class="media media-xs">
+                                    <a class="media-left" href="javascript:;">
+                                        <img src="{% static 'img/user/user-17.jpg' %}" alt="" class="media-object rounded-corner" />
+                                    </a>
+                                    <div class="media-body">
+                                        <p class='f-s-12'>
+                                            <i class="fa fa-user" aria-hidden="true"></i>Olivia Hanson                          
+                                        </p>                                        									
+                                    </div>
+                                </li>  
+                            </ul>
+                        </div>
+                        <p for="id_code " class="m-b-0">
+                            <strong>Observations: </strong>
+                        </p> 
+                        <div class="form-group d-flex justify-content-end">
+                            <p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                        </div>
+                    </div>
+                    <!--request and aprovvals site end-->
+                    <!--request and aprovvals site begin-->
+                    <div class="col-xl-3 col-md-12 ">
+                        <label for="id_code" class="">
+                            <strong>Approval 1: </strong>
+                        </label>     
+                        <div class="form-group m-b-0">
+                            <ul class="media-list">
+                                <li class="media media-xs">
+                                    <a class="media-left" href="javascript:;">
+                                        <img src="{% static 'img/user/user-18.png' %}" alt="" class="media-object rounded-corner" />
+                                    </a>
+                                    <div class="media-body">
+                                        <p class='f-s-12'>
+                                            <i class="fa fa-user" aria-hidden="true"></i>Lauren Hills                          
+                                        </p>                                        									
+                                    </div>
+                                </li>  
+                            </ul>
+                        </div>
+                        <p for="id_code " class="m-b-0">
+                            <strong>Observations: </strong>
+                        </p> 
+                        <div class="form-group d-flex justify-content-end">
+                            <p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                        </div>
+                    </div>
+                    <!--request and aprovvals site end-->
+                    <!--request and aprovvals site begin-->
+                    <div class="col-xl-3 col-md-12 ">
+                        <label for="id_code" class="">
+                            <strong>Approval 2: </strong>
+                        </label>     
+                        <div class="form-group m-b-0">
+                            <ul class="media-list">
+                                <li class="media media-xs">
+                                    <a class="media-left" href="javascript:;">
+                                        <img src="{% static 'img/user/user-19.jpeg' %}" alt="" class="media-object rounded-corner" />
+                                    </a>
+                                    <div class="media-body">
+                                        <p class='f-s-12'>
+                                            <i class="fa fa-user" aria-hidden="true"></i>Tom Yauzaki                         
+                                        </p>                                        									
+                                    </div>
+                                </li>  
+                            </ul>
+                        </div>
+                        <p for="id_code " class="m-b-0">
+                            <strong>Observations: </strong>
+                        </p> 
+                        <div class="form-group d-flex justify-content-end">
+                            <p align="justify">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+                        </div>
+                    </div>
+                    <!--request and aprovvals site end-->
+                </div>    
+            </div>
+            <!-- end panel-body -->
+        </div>
+        <!-- end panel -->
+    </div>
+    <!-- begin supplie data -->
+    <div class="col-xl-12 col-md-12">
+        <!-- begin #Data pane -->
+        <div class="panel panel-success" data-sortable-id="ui-widget-11">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xl-2 col-md-12">
+                        <h4 class="panel-title"><b>White Hard Helmet</b></h4>
+                        <img class="img_delivered" src="{% static 'img/supplies/helmet.png' %}" alt="" class="rounded" />
+                    </div>
+                    <div class="col-xl-2 col-md-12 ">
+                        <p class='m-b-0 '><b>Code: </b>HH2343</p>
+                        <p class='m-b-0'><b>Element Type: </b><span class="badge badge-success">Head Protection<span/></p>
+                        <p class='m-b-0'><b>Element Class: </b><span class="badge badge-success">Helmets<span/></p>
+                        <p class='m-b-0'><b>Provider: </b>3M</p>
+                        <p class='m-b-0'><b>Size: </b>(Md-Unisex) Extra-Small</p>
+                        <p class='m-b-0'><b>Color: </b>White</p>
+                        <p class='m-b-0'><b>Material: </b>Polycarbonate</p>
+                        <p class='m-b-0'><b>Certification: </b>ISO-12000</p>
+                        <p class='m-b-0'><b>Dispatched by: </b>Liam Nilson</p>
+                        <p ><b>Dispatched Date: </b>2020-01-15</p>
+                    </div>
+                    <div class="col-xl-6 col-md-12 m-b-10">
+                        <!-- begin #accordion -->
+                        <div id="accordion" class="accordion">
+                            <!-- begin card -->
+                            <div class="card bg-white text-dark">
+                                <div class="card-header bg-white pointer-cursor d-flex align-items-center collapsed" data-toggle="collapse" data-target="#collapseTwo">
+                                    <i class="fa fa-circle fa-fw text-indigo mr-2 f-s-8"></i> Description
+                                </div>
+                                <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                                    <div class="card-body">
+                                        Hard Helmet is a type of helmet predominantly used in workplace environments such as industrial or construction sites to protect the head from injury due to falling objects, impact with other objects, debris, rain, and electric shock. Suspension bands inside the helmet spread the helmet's weight and the force of any impact over the top of the head. A suspension also provides space of approximately 30 mm (1.2 inches) between the helmet's shell and the wearer's head, so that if an object strikes the shell, the impact is less likely to be transmitted directly to the skull. Some helmet shells have a mid-line reinforcement ridge to improve impact resistance. The rock climbing helmet fulfills a very similar role in a different context and has a very similar design.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end card -->
+                            <!-- begin card -->
+                            <div class="card bg-white text-dark">
+                                <div class="card-header bg-white pointer-cursor d-flex align-items-center collapsed" data-toggle="collapse" data-target="#collapseThree">
+                                    <i class="fa fa-circle fa-fw text-teal mr-2 f-s-8"></i>Use Mode
+                                </div>
+                                <div id="collapseThree" class="collapse" data-parent="#accordion">
+                                    <div class="card-body">
+                                        Before you use your hard hat for the first time, make sure that you have the proper type and class for your job.  Be sure to assemble your hard hat as per the manufacturer’s specifications.  Once you have your hat assembled, adjust the harness for a proper fit, ensuring that it is snug but not too tight.  Your hat should be tight enough to stay on your head without slipping, binding or irritating your skin
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end card -->
+                            <!-- begin card -->
+                            <div class="card bg-white text-dark">
+                                <div class="card-header bg-white pointer-cursor d-flex align-items-center collapsed" data-toggle="collapse" data-target="#collapseFour">
+                                    <i class="fa fa-circle fa-fw text-info mr-2 f-s-8"></i> Cleaning and Maintenance
+                                </div>
+                                <div id="collapseFour" class="collapse" data-parent="#accordion">
+                                    <div class="card-body">
+                                        Using a mild soap and some warm water is the best way to keep your hard hat clean. Using harsher or more abrasive cleaners could mar the surface, which can weaken the shell or harness.   Always store your hard hat away from contaminates that can damage it and protect it from dirt and debris. Direct sunlight and excessive heat can harm the outer shell and cause the harness to deteriorate over time.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end card -->
+                            <!-- begin card -->
+                            <div class="card bg-white text-dark">
+                                <div class="card-header bg-white pointer-cursor d-flex align-items-center collapsed" data-toggle="collapse" data-target="#collapseFive">
+                                    <i class="fa fa-circle fa-fw text-warning mr-2 f-s-8"></i> Videos
+                                </div>
+                                <div id="collapseFive" class="collapse" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <iframe width="420" height="315"
+                                            src="https://www.youtube.com/embed/UVPpYZyaW7c">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end card -->
+                        </div>
+                        <!-- end #accordion -->
+                    </div>
+                    <div class="col-xl-2 col-md-12  ">
+                        <div class="checkbox checkbox-css pt-0 checkbox-inline m-b-10">
+                            <input type="checkbox" value="" id="inlineCssCheckbox1"  />
+                            <label for="inlineCssCheckbox1">I have read and agree that the delivered supplie is in good condition, and with the correct parameters to use. Also, i have read the maintenance cleaning and the use mode of the supplie.* </label>
+                        </div>
+                        <label for="description"><b>Observations:*</b></label>
+                        <textarea id="description" class="form-control" rows="4" cols="50"></textarea>
+                        <div class="d-flex justify-content-center">
+                            <div class="row m-t-10">
+                                <div class="m-r-10 ">
+                                    <button type="button" class="btn btn-success">Accept</button>
+                                </div>
+                                <button type="button" class="btn btn-warning">Refuse</button>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end #data panel -->
+    </div>
+    <!-- end supplie data -->
+    <!-- begin supplie data -->
+    <div class="col-xl-12 col-md-12">
+        <!-- begin #Data pane -->
+        <div class="panel panel-success" data-sortable-id="ui-widget-11">
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xl-2 col-md-12">
+                        <h4 class="panel-title"><b>Black Memphis Foam Gloves</b></h4>
+                        <img class="img_delivered" src="{% static 'img/supplies/gloves.png' %}" alt="" class="rounded" />
+                    </div>
+                    <div class="col-xl-2 col-md-12 ">
+                        <p class='m-b-0 '><b>Code: </b>FG3432</p>
+                        <p class='m-b-0'><b>Element Type: </b><span class="badge badge-success">Hands Protection<span/></p>
+                        <p class='m-b-0'><b>Element Class: </b><span class="badge badge-success">Gloves<span/></p>
+                        <p class='m-b-0'><b>Provider: </b>RedLine</p>
+                        <p class='m-b-0'><b>Size: </b>(Md-Unisex) Extra-Large</p>
+                        <p class='m-b-0'><b>Color: </b>Black</p>
+                        <p class='m-b-0'><b>Material: </b>Poliester</p>
+                        <p class='m-b-0'><b>Certification: </b>ISO-12000</p>
+                        <p class='m-b-0'><b>Dispatched by: </b>Liam Nilson</p>
+                        <p ><b>Dispatched Date: </b>2020-01-15</p>
+                    </div>
+                    <div class="col-xl-6 col-md-12 m-b-10">
+                        <!-- begin #accordion -->
+                        <div id="accordionFG" class="accordion">
+                            <!-- begin card -->
+                            <div class="card bg-white text-dark">
+                                <div class="card-header bg-white pointer-cursor d-flex align-items-center collapsed" data-toggle="collapse" data-target="#collapseFGTwo">
+                                    <i class="fa fa-circle fa-fw text-indigo mr-2 f-s-8"></i> Description
+                                </div>
+                                <div id="collapseFGTwo" class="collapse" data-parent="#accordionFG">
+                                    <div class="card-body">
+                                       Cut-resistant gloves are those designed to protect the wearer's hands from cuts while working with sharp tools. They can be divided into metal mesh gloves, cut-and-sewn, and seamless knitted gloves. Metal mesh gloves are a form of chainmail, and are made of rings of stainless steel. They are typically used in food applications. Cut-and-sewn gloves can be made using a cut-resistant material or by using conventional materials with full or palm lining of cut-resistant materials. The materials are cut to shape and sewn into a glove. 
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end card -->
+                            <!-- begin card -->
+                            <div class="card bg-white text-dark">
+                                <div class="card-header bg-white pointer-cursor d-flex align-items-center collapsed" data-toggle="collapse" data-target="#collapseFGThree">
+                                    <i class="fa fa-circle fa-fw text-teal mr-2 f-s-8"></i>Use Mode
+                                </div>
+                                <div id="collapseFGThree" class="collapse" data-parent="#accordionFG">
+                                    <div class="card-body">
+                                       While wearing your gloves, extend your fingers until they are straight. You will know your gloves are too small if the nitrile or latex is stretching. Your glove is also too small if you see tears forming in the material where your thumb meets your palm.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end card -->
+                            <!-- begin card -->
+                            <div class="card bg-white text-dark">
+                                <div class="card-header bg-white pointer-cursor d-flex align-items-center collapsed" data-toggle="collapse" data-target="#FGFour">
+                                    <i class="fa fa-circle fa-fw text-info mr-2 f-s-8"></i> Cleaning and Maintenance
+                                </div>
+                                <div id="FGFour" class="collapse" data-parent="#accordionFG">
+                                    <div class="card-body">
+                                        You should put on your gloves in a clean area with clean hands. You should not be contaminating your gloves by placing them on a dirty surface. You should also never put on your nitrile or latex gloves if you have not just washed your hands. Any contaminates left on your hands, will transfer to and through the glove.
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end card -->
+                            <!-- begin card -->
+                            <div class="card bg-white text-dark">
+                                <div class="card-header bg-white pointer-cursor d-flex align-items-center collapsed" data-toggle="collapse" data-target="#FGFive">
+                                    <i class="fa fa-circle fa-fw text-warning mr-2 f-s-8"></i> Videos
+                                </div>
+                                <div id="FGFive" class="collapse" data-parent="#accordionFG">
+                                    <div class="card-body">
+                                        <iframe width="420" height="315"
+                                            src="https://www.youtube.com/embed/32OBAu44nzE">
+                                        </iframe>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end card -->
+                        </div>
+                        <!-- end #accordion -->
+                    </div>
+                    <div class="col-xl-2 col-md-12  ">
+                        <div class="checkbox checkbox-css pt-0 checkbox-inline m-b-10">
+                            <input type="checkbox" value="" id="FGcheckbox"  />
+                            <label for="FGcheckbox">I have read and agree that the delivered supplie is in good condition, and with the correct parameters to use. Also, i have read the maintenance cleaning and the use mode of the supplie.* </label>
+                        </div>
+                        <label for="description"><b>Observations:* </b></label>
+                        <textarea id="description" class="form-control" rows="4" cols="50"></textarea>
+                        <div class="d-flex justify-content-center">
+                            <div class="row m-t-10">
+                                <div class="m-r-10 ">
+                                    <button type="button" class="btn btn-success">Accept</button>
+                                </div>
+                                <button type="button" class="btn btn-warning">Refuse</button>
+                            </div>    
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end #data panel -->
+    </div>
+    <!-- end supplie data -->      
+</div>
+    
+{% endblock content%}
+{% block custom_js %}
+    <script src="{% static 'js/demo/render.highlight.js' %}"></script>
+{% endblock custom_js %}

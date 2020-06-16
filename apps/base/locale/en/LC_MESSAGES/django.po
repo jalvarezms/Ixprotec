@@ -1,0 +1,329 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-28 12:04-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\base.html:42
+msgid "IXEMA"
+msgstr ""
+
+#: .\templates\base.html:65
+msgid "NOTIFICATIONS"
+msgstr ""
+
+#: .\templates\base.html:74
+msgid "ago"
+msgstr ""
+
+#: .\templates\base.html:80
+msgid "View more"
+msgstr ""
+
+#: .\templates\base.html:109 .\templates\base.html:170
+msgid "Profile"
+msgstr ""
+
+#: .\templates\base.html:111
+msgid "Log Out"
+msgstr ""
+
+#: .\templates\base.html:141
+msgid "Helps"
+msgstr ""
+
+#: .\templates\base.html:147
+msgid "Navigation"
+msgstr ""
+
+#: .\templates\base.html:156 .\templates\base.html:334
+#: .\templates\base.html:339
+msgid "Dashboard"
+msgstr ""
+
+#: .\templates\base.html:174
+msgid "My Protective"
+msgstr ""
+
+#: .\templates\base.html:175
+msgid "Size Settings"
+msgstr ""
+
+#: .\templates\base.html:185
+msgid "Reports"
+msgstr ""
+
+#: .\templates\base.html:189
+msgid "Items Delivery"
+msgstr ""
+
+#: .\templates\base.html:190
+msgid "Requests Made"
+msgstr ""
+
+#: .\templates\base.html:191
+msgid "Storage inventory"
+msgstr ""
+
+#: .\templates\base.html:192
+msgid "Matriz PPE for Business Unit"
+msgstr ""
+
+#: .\templates\base.html:193
+msgid "Frequency of Change EPP"
+msgstr ""
+
+#: .\templates\base.html:204
+msgid "Configurations"
+msgstr ""
+
+#: .\templates\base.html:209
+msgid "Elements"
+msgstr ""
+
+#: .\templates\base.html:211
+msgid "Element Type"
+msgstr ""
+
+#: .\templates\base.html:212
+msgid "Element Class"
+msgstr ""
+
+#: .\templates\base.html:218 .\templates\base.html:221
+msgid "Sizes"
+msgstr ""
+
+#: .\templates\base.html:220
+msgid "Body Area"
+msgstr ""
+
+#: .\templates\base.html:226
+msgid "Requests"
+msgstr ""
+
+#: .\templates\base.html:230 .\templates\base.html:232
+msgid "Equipments"
+msgstr ""
+
+#: .\templates\base.html:233
+msgid "Supplies"
+msgstr ""
+
+#: .\templates\base.html:234
+msgid "Asig. Position"
+msgstr ""
+
+#: .\templates\base.html:240 .\templates\base.html:242
+#: .\templates\base.html:270
+msgid "Warehouses"
+msgstr ""
+
+#: .\templates\base.html:243
+msgid "Providers"
+msgstr ""
+
+#: .\templates\base.html:259
+msgid "My Requests"
+msgstr ""
+
+#: .\templates\base.html:260
+msgid "Manage Approval"
+msgstr ""
+
+#: .\templates\base.html:276
+msgid "Inventory"
+msgstr ""
+
+#: .\templates\base.html:279
+msgid "Entries"
+msgstr ""
+
+#: .\templates\base.html:282
+msgid "Inventory Levels"
+msgstr ""
+
+#: .\templates\base.html:285
+msgid "Movements"
+msgstr ""
+
+#: .\templates\base.html:291
+msgid "Delivery"
+msgstr ""
+
+#: .\templates\base.html:293
+msgid "Pending Request"
+msgstr ""
+
+#: .\templates\base.html:294
+msgid "Completed Request"
+msgstr ""
+
+#: .\templates\base.html:306
+msgid "Inspection"
+msgstr ""
+
+#: .\templates\base.html:310
+msgid "Make an Inspection"
+msgstr ""
+
+#: .\templates\base.html:333
+msgid "Home"
+msgstr ""
+
+#: .\templates\base.html:339
+msgid "Platform cockpit"
+msgstr ""
+
+#: .\templates\profile_base.html:10
+msgid "Information Employee"
+msgstr ""
+
+#: .\templates\profile_base.html:42
+msgid "Info"
+msgstr ""
+
+#: .\templates\profile_base.html:43
+msgid "Personal Information"
+msgstr ""
+
+#: .\templates\profile_base.html:48
+msgid "Organ"
+msgstr ""
+
+#: .\templates\profile_base.html:49
+msgid "Organizational Data"
+msgstr ""
+
+#: .\templates\profile_base.html:54
+msgid "Assigned"
+msgstr ""
+
+#: .\templates\profile_base.html:55
+msgid "Assigned Equipment"
+msgstr ""
+
+#: .\templates\profile_base.html:69
+msgid "External Number"
+msgstr ""
+
+#: .\templates\profile_base.html:73
+msgid "Firts Name"
+msgstr ""
+
+#: .\templates\profile_base.html:78
+msgid "Second Name"
+msgstr ""
+
+#: .\templates\profile_base.html:83
+msgid "Last Name"
+msgstr ""
+
+#: .\templates\profile_base.html:93
+msgid "Birth Place"
+msgstr ""
+
+#: .\templates\profile_base.html:97
+msgid "Place Residence"
+msgstr ""
+
+#: .\templates\profile_base.html:101
+msgid "Address"
+msgstr ""
+
+#: .\templates\profile_base.html:105
+msgid "Document idetification"
+msgstr ""
+
+#: .\templates\profile_base.html:120
+msgid "Entity Legal"
+msgstr ""
+
+#: .\templates\profile_base.html:124
+msgid "Division"
+msgstr ""
+
+#: .\templates\profile_base.html:128
+msgid "Location"
+msgstr ""
+
+#: .\templates\profile_base.html:132
+msgid "Business Unit"
+msgstr ""
+
+#: .\templates\profile_base.html:141
+msgid "Center Coste"
+msgstr ""
+
+#: .\templates\profile_base.html:145
+msgid "Position"
+msgstr ""
+
+#: .\templates\profile_base.html:149
+msgid "Start Date"
+msgstr ""
+
+#: .\templates\profile_base.html:153
+msgid "End Date"
+msgstr ""
+
+#: .\templates\profile_base.html:171
+msgid "Equipment"
+msgstr ""
+
+#: .\templates\profile_base.html:174
+msgid "Details"
+msgstr ""
+
+#: .\templates\profile_base.html:177
+msgid "Delivered Date"
+msgstr ""
+
+#: .\templates\profile_base.html:207
+msgid "Brand:"
+msgstr ""
+
+#: .\templates\profile_base.html:213
+msgid "Material:"
+msgstr ""
+
+#: .\templates\profile_base.html:215
+msgid "months"
+msgstr ""
+
+#: .\templates\profile_base.html:219
+msgid "Size:"
+msgstr ""
+
+#: .\templates\profile_base.html:225
+msgid "Color:"
+msgstr ""
+
+#: .\templates\profile_base.html:233
+msgid "Delivered:"
+msgstr ""
+
+#: .\templates\profile_base.html:239
+msgid "Live Time:"
+msgstr ""
+
+#: .\templates\profile_base.html:245
+msgid "Expire Date:"
+msgstr ""
+
+#: .\templates\profile_base.html:251
+msgid "Usage:"
+msgstr ""

@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block page_header_title %} Dashboard {% endblock page_header_title %}
+
+{% block custom_css %}
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/slick-jquery/css/slick.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'plugins/slick-jquery/css/slick-theme.css' %}" />
+<link href="{% static 'css/custom-dashboard.css' %}" rel="stylesheet" />
+
+{% endblock custom_css %}
+
+{% block content %}
+<div class="row">
+
+
+  <div class="col-xl-5 col-lg-8 col-md-10 col-xs-12">
+    <div class="slick_image ">
+      {% for pub in publications   %}
+      <!-- begin card -->
+      <div class="card border-0">
+          <img class="card-img-top  height-200" src="{{ pub.profile_picture.url }}" alt="" /> 
+        <div class="card-body">
+          <div class="title-imagen-display">
+            <div class="title">
+            <a href="{% url 'publications:show_news' pub.id %}" class="text-white" >
+              {{ pub.title|title|truncatechars:80}}
+            </a>  
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end card -->
+      {% endfor  %}
+    </div>
+  </div>
+</div>
+
+
+
+<div class="d-flex flex-column  ">
+  {% for row in rows %}
+  <div class=""> <strong class="f-s-20"> {{row.header}} </strong></div>
+  <div class="d-flex flex-row  flex-wrap  ">
+    {% for card in row.cards %}
+    <a href={{card.url}}>
+      <div class="card shadow m-10" style="opacity:0.9;">
+        <div class="card-body">
+          <h5 class="card-title">{{card.title}} </h5>
+          <h6 class="card-subtitle mb-2 text-muted">{{card.time}} </h6>
+          {% if card.count == -2  %}
+          <div class="d-flex justify-content-end m-10"><i class="fas fa-chart-bar  text-grey-darker fa-7x"></i></div>
+          {% else %}
+          <p class="card-text d-flex flex-row-reverse data">{{card.count}}</p>
+          {% endif %}
+          <h6 class="card-subtitle mb-2 text-muted"> {{card.footer}} </h6>
+        </div>
+      </div>
+    </a>
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>
+
+<!-- plus card -->
+
+<!-- <a href="{% url 'requests:my_delivered' %}">
+      <div class="card shadow m-10" >
+        <div class="card-body">
+          <h5 class="card-title">{% blocktrans %} New Request {% endblocktrans %}</h5>
+          <p class="card-text d-flex justify-content-center h-100" style="text-align: center;"><span class="w-100" style="padding: 50px; font-size: 20px;"><i class="fa fa-plus" aria-hidden="true"></i></span></p>
+        </div>
+      </div>
+  </a> -->
+
+{% endblock content%}
+
+{% block custom_js %}
+<script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script src="{% static 'js/articles_show.js' %}"></script>
+<script type="text/javascript" src="{% static 'plugins/slick-jquery/js/slick.js' %}"></script>
+{% endblock custom_js %}

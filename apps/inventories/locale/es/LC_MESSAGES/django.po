@@ -1,0 +1,800 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-28 12:07-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\check_entry_create.html:11
+#: .\templates\check_entry_detail_create.html:11
+#: .\templates\check_entry_detail_show.html:12
+#: .\templates\check_entry_detail_update.html:11
+#: .\templates\check_entry_list.html:15
+msgid "Entry"
+msgstr ""
+
+#: .\templates\check_entry_create.html:15
+#: .\templates\check_entry_detail_create.html:14
+#: .\templates\check_entry_detail_show.html:16
+#: .\templates\check_entry_detail_update.html:15
+#: .\templates\check_entry_list.html:19 .\templates\check_output_detail.html:5
+#: .\templates\check_output_list.html:8
+#: .\templates\completed_output_detail.html:5
+#: .\templates\completed_output_list.html:8
+#: .\templates\completed_request.html:5
+#: .\templates\inventory_movement_list.html:20
+#: .\templates\inventory_supplies_list.html:20 .\templates\output_detail.html:5
+#: .\templates\pending_request.html:4 .\templates\provider_create.html:6
+#: .\templates\provider_list.html:5 .\templates\stock_level_create.html:17
+msgid "Home"
+msgstr ""
+
+#: .\templates\check_entry_create.html:16 .\templates\check_entry_list.html:20
+#: .\templates\check_output_list.html:9
+#: .\templates\inventory_movement_list.html:21
+#: .\templates\inventory_supplies_list.html:21
+#: .\templates\stock_level_create.html:18
+msgid "Inventory"
+msgstr "inventario"
+
+#: .\templates\check_entry_create.html:17
+#: .\templates\check_entry_create.html:19 .\templates\check_entry_list.html:22
+#: .\views.py:203
+msgid "Inventory Entry"
+msgstr "Entrada de Inventario"
+
+#: .\templates\check_entry_create.html:20
+msgid "In this form you manage Inventory Entry"
+msgstr "En este formalario usted, puede gestionar entradas de inventario"
+
+#: .\templates\check_entry_create.html:30
+msgid "Manage Inventory Entry"
+msgstr "Gestion de entradas de inventario"
+
+#: .\templates\check_entry_create.html:87 .\templates\provider_create.html:71
+#: .\templates\stock_level_create.html:109
+msgid "Save"
+msgstr "Guardar"
+
+#: .\templates\check_entry_create.html:88 .\templates\provider_create.html:72
+#: .\templates\stock_level_create.html:110
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: .\templates\check_entry_detail_create.html:15
+#: .\templates\check_entry_detail_update.html:16
+msgid "Employee Request"
+msgstr "Solicitud de Empleado"
+
+#: .\templates\check_entry_detail_create.html:16
+#: .\templates\check_entry_detail_update.html:17
+#: .\templates\provider_create.html:8
+msgid "Registre"
+msgstr "Registro"
+
+#: .\templates\check_entry_detail_create.html:18
+msgid "Inventary Entry  - Detail"
+msgstr "Entrada de Inventario - Detalles"
+
+#: .\templates\check_entry_detail_create.html:19
+msgid "In this form you can create Inventary Entry  Detail"
+msgstr "In este formulario ustes puede agregar los insumos de entrada."
+
+#: .\templates\check_entry_detail_create.html:27
+#: .\templates\check_entry_detail_show.html:32
+msgid "Head - Inventary Entry"
+msgstr "Entrada de Inventario"
+
+#: .\templates\check_entry_detail_create.html:37
+#: .\templates\stock_level_create.html:76
+msgid "WareHouse"
+msgstr "Almacen"
+
+#: .\templates\check_entry_detail_create.html:51
+#: .\templates\check_entry_detail_show.html:58
+msgid "Date Entry"
+msgstr "Fecha de entrada"
+
+#: .\templates\check_entry_detail_create.html:63
+#: .\templates\check_entry_detail_show.html:70
+#: .\templates\check_entry_detail_show.html:84
+#: .\templates\check_output_detail.html:259
+#: .\templates\completed_output_detail.html:223
+#: .\templates\provider_create.html:10 .\views.py:204
+msgid "Provider"
+msgstr "Proveedor"
+
+#: .\templates\check_entry_detail_create.html:77 .\views.py:204
+msgid "Invoice"
+msgstr "Factura"
+
+#: .\templates\check_entry_detail_create.html:89
+#: .\templates\check_entry_detail_show.html:96
+msgid "Reason Entry"
+msgstr "Motivo de Entrada"
+
+#: .\templates\check_entry_detail_create.html:103
+#: .\templates\check_entry_detail_show.html:110 .\views.py:204 .\views.py:835
+#: .\views.py:1094
+msgid "Status"
+msgstr "Estado"
+
+#: .\templates\check_entry_detail_create.html:147
+msgid "Add Entry - Supplies Details"
+msgstr "Agregar Entrada - Detalles de Insumos"
+
+#: .\templates\check_entry_detail_create.html:162
+#: .\templates\check_entry_detail_update.html:51 .\views.py:317 .\views.py:424
+#: .\views.py:582 .\views.py:715
+msgid "Supply"
+msgstr "Insumos"
+
+#: .\templates\check_entry_detail_create.html:192 .\views.py:76
+msgid "Name"
+msgstr "Nombre"
+
+#: .\templates\check_entry_detail_create.html:193 .\views.py:317 .\views.py:424
+#: .\views.py:582 .\views.py:715
+msgid "Brand"
+msgstr "Marca"
+
+#: .\templates\check_entry_detail_create.html:200 .\views.py:317 .\views.py:424
+#: .\views.py:582 .\views.py:715
+msgid "Material"
+msgstr "Material"
+
+#: .\templates\check_entry_detail_create.html:201
+#: .\templates\check_output_detail.html:207
+#: .\templates\completed_output_detail.html:205 .\views.py:317 .\views.py:424
+#: .\views.py:582 .\views.py:715
+msgid "Size"
+msgstr "Talla"
+
+#: .\templates\check_entry_detail_create.html:208
+#: .\templates\check_output_detail.html:209
+#: .\templates\completed_output_detail.html:207 .\views.py:317 .\views.py:424
+#: .\views.py:582 .\views.py:715
+msgid "Color"
+msgstr "Color"
+
+#: .\templates\check_entry_detail_create.html:209
+msgid "Units"
+msgstr "Units"
+
+#: .\templates\check_entry_detail_create.html:239
+msgid "Add"
+msgstr "Agregar"
+
+#: .\templates\check_entry_detail_create.html:260
+#: .\templates\check_entry_detail_show.html:128
+msgid "Confirm Entry"
+msgstr "Confirmar Entrada"
+
+#: .\templates\check_entry_detail_create.html:262
+#: .\templates\check_entry_detail_show.html:142
+#: .\templates\check_entry_detail_update.html:129
+msgid "Back"
+msgstr "Regresar"
+
+#: .\templates\check_entry_detail_show.html:17
+msgid "inventorie Entry"
+msgstr "Entrada de Inventario"
+
+#: .\templates\check_entry_detail_show.html:18
+msgid "Show"
+msgstr "Mostrar"
+
+#: .\templates\check_entry_detail_show.html:20
+msgid "Inventary Entry  - Show"
+msgstr "Entrada de Inventario - Mostrar"
+
+#: .\templates\check_entry_detail_show.html:21
+msgid "In this form you can see Inventary Entry  Detail"
+msgstr "En este formalario usted, puede ver el detalle de entrada de inventario"
+
+#: .\templates\check_entry_detail_show.html:44
+msgid "WhareHouse"
+msgstr "Almacen"
+
+#: .\templates\check_entry_detail_update.html:19
+msgid "Inventary Entry  - Update Detail"
+msgstr "Entrada de Inventario - Actualiza detalle"
+
+#: .\templates\check_entry_detail_update.html:20
+msgid "In this form you can Update Inventary Entry  Detail"
+msgstr "En este formulario usted, podra actualizar detalles de entrada de inventario"
+
+#: .\templates\check_entry_detail_update.html:31
+msgid "Update - Inventary Entry Details"
+msgstr "Actualizar - Detalles de entrada de inventario"
+
+#: .\templates\check_entry_detail_update.html:128
+msgid "Update"
+msgstr "Actualizar"
+
+#: .\templates\check_entry_list.html:23
+msgid "Here you can view Inventory Entry List"
+msgstr "Aqui puede ver las entradas de Inventario"
+
+#: .\templates\check_entry_show_doc.html:26
+msgid "Export as PDF"
+msgstr "Exportar como PDF"
+
+#: .\templates\check_entry_show_doc.html:27
+msgid "Print"
+msgstr "Imprimir"
+
+#: .\templates\check_entry_show_doc.html:31
+msgid "Inventory Entry Report"
+msgstr "Reporte de Entrada de Inventario"
+
+#: .\templates\check_entry_show_doc.html:36 .\views.py:204 .\views.py:582
+#: .\views.py:715 .\views.py:835
+msgid "Warehouse"
+msgstr "Almacen"
+
+#: .\templates\check_entry_show_doc.html:39
+#: .\templates\check_output_detail.html:144
+msgid "Division"
+msgstr "División"
+
+#: .\templates\check_entry_show_doc.html:40
+msgid "Departament"
+msgstr "Departamento"
+
+#: .\templates\check_entry_show_doc.html:41
+#: .\templates\check_entry_show_doc.html:43
+msgid "Phone"
+msgstr "Telefono"
+
+#: .\templates\check_entry_show_doc.html:42
+#: .\templates\check_entry_show_doc.html:51
+msgid "City, Zip Code"
+msgstr "Codigo Postal"
+
+#: .\templates\check_entry_show_doc.html:47
+msgid "by Storer"
+msgstr "Por Almacenista:"
+
+#: .\templates\check_entry_show_doc.html:50
+#: .\templates\check_output_detail.html:165
+msgid "Position"
+msgstr "Posición"
+
+#: .\templates\check_entry_show_doc.html:57
+msgid "Provider / July period"
+msgstr "Proveedor"
+
+#: .\templates\check_entry_show_doc.html:62
+msgid "Services Product"
+msgstr "Servicio "
+
+#: .\templates\check_entry_show_doc.html:75
+msgid "INPUT DETAIL"
+msgstr "DETALLE DE INSUMOS"
+
+#: .\templates\check_entry_show_doc.html:76
+msgid "SIZE"
+msgstr "TALLA"
+
+#: .\templates\check_entry_show_doc.html:77
+msgid "BRAND"
+msgstr "MARCA"
+
+#: .\templates\check_entry_show_doc.html:78
+msgid "MATERIAL"
+msgstr "MATERIAL"
+
+#: .\templates\check_entry_show_doc.html:79
+msgid "COLOR"
+msgstr "COLOR"
+
+#: .\templates\check_entry_show_doc.html:80
+msgid "TOTAL ENTRY"
+msgstr "TOTAL"
+
+#: .\templates\check_entry_show_doc.html:109 .\views.py:835
+msgid "Observations"
+msgstr "Observaciones"
+
+#: .\templates\check_entry_show_doc.html:116
+msgid "THANK YOU FOR YOUR BUSINESS"
+msgstr ""
+
+#: .\templates\check_output_detail.html:6
+#: .\templates\completed_output_detail.html:6
+#: .\templates\completed_output_list.html:9
+#: .\templates\completed_request.html:6 .\templates\output_detail.html:6
+#: .\templates\pending_request.html:5 .\templates\provider_create.html:15
+#: .\templates\provider_create.html:17 .\templates\provider_list.html:13
+#: .\templates\provider_list.html:15
+msgid "Warehouses"
+msgstr "Almacenes"
+
+#: .\templates\check_output_detail.html:7
+#: .\templates\check_output_detail.html:19
+#: .\templates\check_output_list.html:18
+#: .\templates\completed_output_detail.html:19
+#: .\templates\completed_output_list.html:20 .\templates\output_detail.html:7
+#: .\templates\pending_request.html:8
+msgid "Pending Request"
+msgstr "Solicitud Pendiente"
+
+#: .\templates\check_output_detail.html:8 .\templates\output_detail.html:8
+#: .\views.py:316 .\views.py:423
+msgid "Supplies Detail"
+msgstr "Detalle de Insumo"
+
+#: .\templates\check_output_detail.html:10
+#: .\templates\check_output_detail.html:35
+#: .\templates\completed_output_detail.html:10
+#: .\templates\completed_output_detail.html:35
+#: .\templates\output_detail.html:10 .\templates\output_detail.html:23
+msgid "Dispatch Supplies"
+msgstr "Depacho de Insumos"
+
+#: .\templates\check_output_detail.html:11
+#: .\templates\completed_output_detail.html:11
+#: .\templates\output_detail.html:11
+msgid "Here you can dispatch the supplies requests and view supplies detail"
+msgstr "Aqui puede ver el despacho de solicitudes y detalles de insumos"
+
+#: .\templates\check_output_detail.html:17
+#: .\templates\check_output_list.html:16
+#: .\templates\completed_output_detail.html:7
+#: .\templates\completed_output_detail.html:17
+#: .\templates\completed_output_list.html:10
+#: .\templates\completed_output_list.html:18
+msgid "Delivery"
+msgstr "Entregas"
+
+#: .\templates\check_output_detail.html:20
+#: .\templates\check_output_list.html:19
+#: .\templates\completed_output_detail.html:8
+#: .\templates\completed_output_detail.html:20
+#: .\templates\completed_output_list.html:11
+#: .\templates\completed_output_list.html:21
+#: .\templates\completed_request.html:9
+msgid "Completed Request"
+msgstr "Solicitud Completa"
+
+#: .\templates\check_output_detail.html:60
+#: .\templates\completed_output_detail.html:60
+msgid "Dispatch status"
+msgstr "Estado de Despacho"
+
+#: .\templates\check_output_detail.html:72
+#: .\templates\completed_output_detail.html:72
+msgid "Personal Information"
+msgstr "Informacion Personal"
+
+#: .\templates\check_output_detail.html:78
+#: .\templates\completed_output_detail.html:78
+msgid "Organizational Data"
+msgstr "Informacion Organizacional"
+
+#: .\templates\check_output_detail.html:92
+#: .\templates\completed_output_detail.html:92
+msgid "External Number"
+msgstr "Numero Externo"
+
+#: .\templates\check_output_detail.html:96
+#: .\templates\completed_output_detail.html:96
+msgid "Firts Name"
+msgstr "Primer Nombre"
+
+#: .\templates\check_output_detail.html:100
+#: .\templates\completed_output_detail.html:100
+msgid "Second Name"
+msgstr "Segundo Nombre"
+
+#: .\templates\check_output_detail.html:104
+#: .\templates\completed_output_detail.html:104
+msgid "last Name"
+msgstr "Apellido"
+
+#: .\templates\check_output_detail.html:113
+#: .\templates\completed_output_detail.html:113
+msgid "Birth Place"
+msgstr "Lugar de nacimiento"
+
+#: .\templates\check_output_detail.html:117
+#: .\templates\completed_output_detail.html:117
+msgid "Place Residence"
+msgstr "Lugar de Residencia"
+
+#: .\templates\check_output_detail.html:121 .\views.py:76
+msgid "Address"
+msgstr "Direccion"
+
+#: .\templates\check_output_detail.html:125
+msgid "Document idetification"
+msgstr "Documento de Identificacion"
+
+#: .\templates\check_output_detail.html:140
+msgid "Entity Legal"
+msgstr "Entidad Legal"
+
+#: .\templates\check_output_detail.html:148 .\views.py:317
+msgid "Location"
+msgstr "Ubicación"
+
+#: .\templates\check_output_detail.html:152
+msgid "Business Unit"
+msgstr "Unidad de Negocios"
+
+#: .\templates\check_output_detail.html:161
+msgid "Center Coste"
+msgstr "Centro de costos"
+
+#: .\templates\check_output_detail.html:169
+msgid "Start Date"
+msgstr "Fecha inicio"
+
+#: .\templates\check_output_detail.html:173
+msgid "End Date"
+msgstr "Fecha fin"
+
+#: .\templates\check_output_detail.html:190
+#: .\templates\check_output_detail.html:206
+#: .\templates\completed_output_detail.html:189
+#: .\templates\completed_output_detail.html:204
+msgid "Equipment"
+msgstr "Equipo"
+
+#: .\templates\check_output_detail.html:191
+#: .\templates\completed_output_detail.html:190
+msgid "Supplies"
+msgstr "Insumo"
+
+#: .\templates\check_output_detail.html:192
+#: .\templates\completed_output_detail.html:191
+msgid "Supplie Detail"
+msgstr "Detalle de Insumo"
+
+#: .\templates\check_output_detail.html:193
+#: .\templates\completed_output_detail.html:192
+msgid "Amount"
+msgstr "Monto"
+
+#: .\templates\check_output_detail.html:194
+#: .\templates\completed_output_detail.html:193
+msgid "Dispatch"
+msgstr "Despacho"
+
+#: .\templates\check_output_detail.html:208
+#: .\templates\completed_output_detail.html:206
+msgid "Amount Requested"
+msgstr "Monto requerido"
+
+#: .\templates\check_output_detail.html:217
+msgid "Available Supplies"
+msgstr "Insumo Disponible"
+
+#: .\templates\check_output_detail.html:228
+msgid "Please Select a Supplie"
+msgstr "Selecciona un insumo"
+
+#: .\templates\check_output_detail.html:233
+#: .\templates\check_output_detail.html:265
+#: .\templates\completed_output_detail.html:229
+msgid "Amount Dispatched"
+msgstr "Monto despachado"
+
+#: .\templates\check_output_detail.html:239
+#: .\templates\check_output_detail.html:271
+#: .\templates\completed_output_detail.html:235
+msgid "Set Supplie Status as"
+msgstr "ajusta Estado de insumo como"
+
+#: .\templates\check_output_detail.html:242
+#: .\templates\check_output_detail.html:274
+#: .\templates\completed_output_detail.html:238
+msgid "Dispatched"
+msgstr "Despachado"
+
+#: .\templates\check_output_detail.html:243 .\templates\output_detail.html:37
+msgid "Pending"
+msgstr "Pendiente"
+
+#: .\templates\check_output_detail.html:250
+#: .\templates\completed_output_detail.html:214
+msgid "Selected Supply"
+msgstr "Selecciona Insumo"
+
+#: .\templates\check_output_detail.html:258
+#: .\templates\completed_output_detail.html:222
+msgid "Supplie"
+msgstr "Insumo"
+
+#: .\templates\check_output_detail.html:260
+#: .\templates\completed_output_detail.html:224
+msgid "Actual Stock"
+msgstr ""
+
+#: .\templates\check_output_detail.html:286
+#: .\templates\completed_output_detail.html:247
+msgid "General Observations"
+msgstr "Observaciones Generales"
+
+#: .\templates\check_output_detail.html:294
+#: .\templates\completed_output_detail.html:255
+msgid "Finish"
+msgstr "Finaliza"
+
+#: .\templates\check_output_list.html:23
+#: .\templates\completed_output_list.html:25 .\views.py:834 .\views.py:1093
+msgid "Inventory Output"
+msgstr "Salida de Inventario"
+
+#: .\templates\check_output_list.html:24
+#: .\templates\completed_output_list.html:26
+msgid "Here you can view Inventory Output List"
+msgstr ""
+
+#: .\templates\completed_request.html:7
+msgid "Delivery-Completed Request"
+msgstr ""
+
+#: .\templates\completed_request.html:10
+msgid "In this table you can view the completed request"
+msgstr ""
+
+#: .\templates\completed_request.html:18
+msgid "Completed requests list"
+msgstr ""
+
+#: .\templates\completed_request.html:34 .\templates\pending_request.html:34
+msgid "Request Code"
+msgstr ""
+
+#: .\templates\completed_request.html:35 .\templates\pending_request.html:35
+#: .\views.py:835 .\views.py:1094
+msgid "Employee"
+msgstr ""
+
+#: .\templates\completed_request.html:36 .\templates\pending_request.html:37
+#: .\views.py:1094
+msgid "Request Date"
+msgstr ""
+
+#: .\templates\completed_request.html:37 .\views.py:1094
+msgid "Managed Date"
+msgstr ""
+
+#: .\templates\completed_request.html:38 .\templates\pending_request.html:39
+#: .\views.py:76 .\views.py:204 .\views.py:317 .\views.py:582 .\views.py:835
+#: .\views.py:1094
+msgid "Actions"
+msgstr ""
+
+#: .\templates\inventory_movement_list.html:16
+msgid "Movements"
+msgstr ""
+
+#: .\templates\inventory_movement_list.html:23
+msgid "Inventory Movements"
+msgstr ""
+
+#: .\templates\inventory_movement_list.html:24
+msgid "Here you can view Inventory Movements List"
+msgstr ""
+
+#: .\templates\inventory_supplies_list.html:16
+#: .\templates\inventory_supplies_list.html:23
+msgid "Inventory Levels"
+msgstr ""
+
+#: .\templates\inventory_supplies_list.html:24
+msgid "Here you can view Inventory Levels List"
+msgstr ""
+
+#: .\templates\output_detail.html:36 .\templates\pending_request.html:38
+msgid "Request Status"
+msgstr ""
+
+#: .\templates\pending_request.html:6
+msgid "Delivery-Pending Request"
+msgstr ""
+
+#: .\templates\pending_request.html:9
+msgid "In this table you can view the pending request"
+msgstr ""
+
+#: .\templates\pending_request.html:17
+msgid "Pending and incompleted requests list"
+msgstr ""
+
+#: .\templates\pending_request.html:36
+msgid "Request Observations"
+msgstr ""
+
+#: .\templates\provider_create.html:7
+msgid "Provider list"
+msgstr ""
+
+#: .\templates\provider_create.html:11
+msgid "In this form you add or modify an provider"
+msgstr ""
+
+#: .\templates\provider_create.html:18 .\templates\provider_list.html:6
+#: .\templates\provider_list.html:8 .\templates\provider_list.html:16
+msgid "Providers"
+msgstr ""
+
+#: .\templates\provider_create.html:31
+msgid "Registre or modify a provider"
+msgstr ""
+
+#: .\templates\provider_list.html:9
+msgid "Here you can view the created providers"
+msgstr ""
+
+#: .\templates\stock_level_create.html:13
+msgid "Inventory Supply"
+msgstr ""
+
+#: .\templates\stock_level_create.html:21
+msgid "Inventories -  Stock Levels"
+msgstr ""
+
+#: .\templates\stock_level_create.html:22
+msgid "This is you can  Stock Levels create"
+msgstr ""
+
+#: .\templates\stock_level_create.html:33
+msgid "Inventory - Stock level Create"
+msgstr ""
+
+#: .\templates\stock_level_create.html:66
+msgid "Create Level"
+msgstr ""
+
+#: .\templates\stock_level_create.html:90
+msgid "Stock Now"
+msgstr ""
+
+#: .\views.py:63 .\views.py:304
+msgid "Edit"
+msgstr ""
+
+#: .\views.py:67 .\views.py:308
+msgid "Delete"
+msgstr ""
+
+#: .\views.py:76
+msgid "NIT"
+msgstr ""
+
+#: .\views.py:76
+msgid "Phone Number"
+msgstr ""
+
+#: .\views.py:76 .\views.py:204 .\views.py:835
+msgid "Create Date"
+msgstr ""
+
+#: .\views.py:76
+msgid "Modified Date"
+msgstr ""
+
+#: .\views.py:204
+msgid "#Code"
+msgstr ""
+
+#: .\views.py:204 .\views.py:715 .\views.py:835
+msgid "Reason"
+msgstr ""
+
+#: .\views.py:204
+msgid "Date"
+msgstr ""
+
+#: .\views.py:204 .\views.py:1094
+msgid "Observation"
+msgstr ""
+
+#: .\views.py:204
+msgid "Items Entry"
+msgstr ""
+
+#: .\views.py:204
+msgid "Storer"
+msgstr ""
+
+#: .\views.py:204
+msgid "Report"
+msgstr ""
+
+#: .\views.py:317 .\views.py:424
+msgid "Photo"
+msgstr ""
+
+#: .\views.py:317 .\views.py:424 .\views.py:715
+msgid "Total"
+msgstr ""
+
+#: .\views.py:317 .\views.py:424
+msgid "Content"
+msgstr ""
+
+#: .\views.py:317 .\views.py:424
+msgid "Warranty"
+msgstr ""
+
+#: .\views.py:317 .\views.py:424
+msgid "Expire Date"
+msgstr ""
+
+#: .\views.py:424
+msgid "Location in cellar"
+msgstr ""
+
+#: .\views.py:581
+msgid "Stock - Inventory"
+msgstr ""
+
+#: .\views.py:582
+msgid "Code"
+msgstr ""
+
+#: .\views.py:582
+msgid "Stock"
+msgstr ""
+
+#: .\views.py:582
+msgid "Min"
+msgstr ""
+
+#: .\views.py:582
+msgid "Max"
+msgstr ""
+
+#: .\views.py:582
+msgid "level"
+msgstr ""
+
+#: .\views.py:714
+msgid "Movements - Inventory"
+msgstr ""
+
+#: .\views.py:715
+msgid "Identifier"
+msgstr ""
+
+#: .\views.py:715
+msgid "Type"
+msgstr ""
+
+#: .\views.py:715
+msgid "Post Total"
+msgstr ""
+
+#: .\views.py:715
+msgid "Created"
+msgstr ""
+
+#: .\views.py:835 .\views.py:1094
+msgid "Request"
+msgstr ""
+
+#: .\views.py:835
+msgid "Out Date"
+msgstr ""
+
+#: .\views.py:835
+msgid "Pending Items"
+msgstr ""

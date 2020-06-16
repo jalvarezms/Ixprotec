@@ -1,0 +1,138 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load i18n %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Home{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Equipment{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item active">{% blocktrans %}Equipment List{% endblocktrans %}</li>
+{% endblock breadcrumb %}
+{% block page_header_title %}{% blocktrans %}Equipment -  Documents{% endblocktrans %}{% endblock page_header_title %}
+{% block page_header_sm_title %}{% blocktrans %}This is Documents equipment list{% endblocktrans %}{% endblock page_header_sm_title %}
+{% block menu_active_configuration %}<li class="has-sub active">{% endblock menu_active_configuration %}
+{% block menu_equipment %}
+<li class="has-sub active">
+	<a ><b class="caret"></b>{% blocktrans %}Equipments{% endblocktrans %}</a>
+	<ul class="sub-menu">
+		<li class="active"><a href="{% url 'equipments:equipment_list'%}">{% blocktrans %}Equipments{% endblocktrans %}</a></li>
+		<li><a href="{% url 'equipments:supply_list'%}">{% blocktrans %}Supplies{% endblocktrans %}</a></li>
+		<li><a href="{% url 'equipments:perposition_list'%}">{% blocktrans %}Asig. Position{% endblocktrans %}</a></li>
+	</ul> 
+</li>
+{% endblock menu_equipment %}
+{% block content %}
+
+<div class="row">
+<!-- begin col-6 -->
+	<div class="col-xl-12">
+		<!-- begin panel -->
+		<div class="panel panel-success" data-sortable-id="form-stuff-10">
+			<!-- begin panel-heading -->
+			<div class="panel-heading">
+				<h4 class="panel-title">{% blocktrans %}Attachment - Equipment Documents{% endblocktrans %}</h4>
+				
+			</div>
+			<!-- end panel-heading -->
+			<!-- begin panel-body -->
+			<div class="panel-body ">      
+			    <div class='row'>
+					<div>
+						<ul class="result-list">
+							<li>
+								<a href="#" class="result-image width-250 height-250" style="background-image: url({{ equipments.image.url }})"></a>
+								<div class="result-info">
+									<h1 class=""> <span class="badge badge-info">{{ equipments.code }}</span> {{ equipments.name }}</h2>
+									<p class="desc f-s-14">
+										{{ equipments.description }}
+									</p>
+									<div class="btn-row">
+										<a href="{% url 'equipments:equipment_list' %}" data-toggle="tooltip" data-container="body" data-title="Table list"><i class="fa fa-fw fa-table"></i></a>
+										<a href="{% url 'equipments:equipment_update' equipments.id  %}" data-toggle="tooltip" data-container="body" data-title="Configuration"><i class="fa fa-fw fa-cog"></i></a>
+										<a href="{% url 'equipments:equipment_img_index' equipments.id %}" data-toggle="tooltip" data-container="body" data-title="Images"><i class="fas fa-fw fa-image"></i></a>
+										<a href="{% url 'equipments:equipment_doc_show' equipments.id %}" data-toggle="tooltip" data-container="body" data-title="Documents"><i class="fas fa-fw fa-file"></i></a>
+										<a href="{% url 'equipments:equipment_video_show' equipments.id %}" data-toggle="tooltip" data-container="body" data-title="Links Videos"><i class="fab fa-youtube"></i></a>										
+									</div>
+								</div>								
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>	
+			<div class="panel-body "> 
+				<div class='row'>
+				 	<div class='col-lg-4'>
+					<!-- begin panel-body -->
+						<div class="m-b-10 f-s-12 m-t-12"><b class="text-inverse">{% blocktrans %}List of Documents{% endblocktrans %}</b></div>
+						<a href="{% url 'equipments:equipment_doc_create' equipments.id %}" class="btn btn-xs  btn-primary  m-r-5 "> 
+							<i class="fa fa-plus-circle fa-2x  " aria-hidden="true"></i> {% blocktrans %} Add Document{% endblocktrans %}
+						</a>
+						<div class="panel-body bg-white height-500" data-scrollbar="true">							
+						{% for doc in equipments.get_documents  %}
+							<div class="row">									
+								<div class="media media-sm col-lg-12">		
+									<div class="media-body list-documet-div" id="div{{ forloop.counter }}">
+										<h3 class="media-heading bg-grey-transparent-1 list-documet-title" data-index="{{ forloop.counter }}" id="doc_title{{ forloop.counter }} "
+										  value="{{doc.document.url}}">{{doc.title}}</h5>
+										<p class="f-s-14">{{doc.description}}</p>
+									</div>
+									<div class="widget-list-action">
+										<a href="#" data-toggle="dropdown" class="text-muted pull-right"><i class="fa fa-ellipsis-h f-s-14"></i></a>
+										<div class="dropdown-menu dropdown-menu-right">
+											<a href="{% url 'equipments:equipment_doc_update' doc.id  %}" class="dropdown-item">{% blocktrans %}Edit{% endblocktrans %}</a>
+											<a href="#" class="dropdown-item"  data-toggle="modal" data-target="#delete" data-pk="{{ doc.id }}">{% blocktrans %}Delete{% endblocktrans %}</a>
+										</div>									
+									</div>
+								</div>	
+								
+							</div>
+							<br width="100%" class="text-black">
+						{% endfor  %}								
+						</div>
+
+					</div>
+					<div class='col-lg-8'>					 
+				 		<div class='embed-responsive width-700 height-850' style='padding-bottom:150%' id="object_document">
+							<object data='{{equipments.get_prim_doc.document.url}}'  type='application/pdf' width='800px' height='700px'></object>
+						</div>
+					</div>
+				</div>
+			</div>	
+              <!-- begin wrapper -->
+			
+	    <!-- end panel -->
+	</div>
+	   <!-- DELETE MODAL -->
+    <div class="modal fade" id="delete">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">{% blocktrans %}Delete Confirmation{% endblocktrans %}</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body ">
+                    <div class="alert alert-danger m-b-0">
+                        <h5><i class="fa fa-info-circle"></i> {% blocktrans %}Are You Sure?{% endblocktrans %}</h5>
+                        <p>{% blocktrans %}Do you really want to delete these records? This process cannot be undone.{% endblocktrans %}</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <form action="{% url 'equipments:equipment_doc_delete'  %}" method="POST">
+                        {% csrf_token %}  
+                        <a class="btn btn-white" data-dismiss="modal">{% blocktrans %}Close{% endblocktrans %}</a>
+                        <button type="submit" class="btn btn-danger delete-button" name="delete_id" id="delete-button" value="" >{% blocktrans %}Delete{% endblocktrans %}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+	 <!-- DELETE MODAL -->			
+</div>
+			
+
+
+{% endblock %}
+
+{% block custom_js %}
+   <script src="{% static 'custom_type.js' %}"></script>
+   <script src="{% static 'js/document_show.js' %}"></script> 
+{% endblock %}

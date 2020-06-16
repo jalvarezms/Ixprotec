@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Home{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Warehouses{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item active">{% blocktrans %}Delivery-Completed Request{% endblocktrans %}</li>
+{% endblock breadcrumb %}
+{% block page_header_title %}{% blocktrans %}Completed Request{% endblocktrans %}{% endblock page_header_title %}
+{% block page_header_sm_title %}{% blocktrans %}In this table you can view the completed request{% endblocktrans %}{% endblock page_header_sm_title %}
+{% block content %}
+<div class="row">
+    <div class="col-xl-12">
+        <!-- begin panel -->
+        <div class="panel panel-success">
+            <!-- begin panel-heading -->
+            <div class="panel-heading">
+                <h4 class="panel-title">{% blocktrans %}Completed requests list{% endblocktrans %}</h4>
+                <div class="panel-heading-btn">
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                </div>
+            </div>
+            <!-- end panel-heading -->
+            <!-- begin alert -->
+            <!-- end alert -->
+            <!-- begin panel-body -->
+            <div class="panel-body">
+                <table id="data-table-buttons" class="table table-striped table-bordered table-td-valign-middle">
+                    <thead>
+                        <tr>
+                            <th class="text-nowrap">{% blocktrans %}Request Code{% endblocktrans %}</th>
+                            <th class="text-nowrap">{% blocktrans %}Employee{% endblocktrans %}</th>
+                            <th class="text-nowrap">{% blocktrans %}Request Date{% endblocktrans %}</th>
+                            <th class="text-nowrap">{% blocktrans %}Managed Date{% endblocktrans %}</th>
+                            <th class="text-nowrap">{% blocktrans %}Actions{% endblocktrans %}</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr class="odd gradeX">
+                            <td class="text-nowrap">FT32423</td>
+                            <td class="text-nowrap">Liam Nilson</td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap"><a href="{%url 'inventories:output_detail' %}" class="align-self-center"><i class="fas fa-eye text-success" style="font-size: 2em;"></i></a></td>
+                        </tr>
+                        <tr class="odd gradeX">
+                            <td class="text-nowrap">FT32424</td>
+                            <td class="text-nowrap">John Doe</td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap">2020-01-16</td>
+                            <td class="text-nowrap"><a href="{%url 'inventories:output_detail' %}" class="align-self-center"><i class="fas fa-eye text-success" style="font-size: 2em;"></i></a></td>
+                        </tr>
+                        <tr class="odd gradeX">
+                            <td class="text-nowrap">FT32425</td>
+                            <td class="text-nowrap">Sarah Pova</td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap">2020-01-17</td>
+                            <td class="text-nowrap"><a href="{%url 'inventories:output_detail' %}" class="align-self-center"><i class="fas fa-eye text-success" style="font-size: 2em;"></i></a></td>
+                        </tr>
+                        <tr class="odd gradeX">
+                            <td class="text-nowrap">FT32426</td>
+                            <td class="text-nowrap">Kaleb White</td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap"><a href="{%url 'inventories:output_detail' %}" class="align-self-center"><i class="fas fa-eye text-success" style="font-size: 2em;"></i></a></td>
+                        </tr>
+                        <tr class="odd gradeX">
+                            <td class="text-nowrap">FT32427</td>
+                            <td class="text-nowrap">Olivia Mann</td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap"><a href="{%url 'inventories:output_detail' %}" class="align-self-center"><i class="fas fa-eye text-success" style="font-size: 2em;"></i></a></td>
+                        </tr>
+                        <tr class="odd gradeX">
+                            <td class="text-nowrap">FT32428</td>
+                            <td class="text-nowrap">Neil Strydom</td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap"><a href="{%url 'inventories:output_detail' %}" class="align-self-center"><i class="fas fa-eye text-success" style="font-size: 2em;"></i></a></td>
+                        </tr>
+                        <tr class="odd gradeX">
+                            <td class="text-nowrap">FT32429</td>
+                            <td class="text-nowrap">Genevieve Slabbert</td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap"><a href="{%url 'inventories:output_detail' %}" class="align-self-center"><i class="fas fa-eye text-success" style="font-size: 2em;"></i></a></td>
+                        </tr>
+                        <tr class="odd gradeX">
+                            <td class="text-nowrap">FT32430</td>
+                            <td class="text-nowrap">Jamie Christian Vaakai</td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap"><a href="{%url 'inventories:output_detail' %}" class="align-self-center"><i class="fas fa-eye text-success" style="font-size: 2em;"></i></a></td>
+                        </tr>
+                        <tr class="odd gradeX">
+                            <td class="text-nowrap">FT32431</td>
+                            <td class="text-nowrap">Ricarda Romer</td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap"><a href="{%url 'inventories:output_detail' %}" class="align-self-center"><i class="fas fa-eye text-success" style="font-size: 2em;"></i></a></td>
+                        </tr>
+                        <tr class="odd gradeX">
+                            <td class="text-nowrap">FT32432</td>
+                            <td class="text-nowrap">Joanne Condon</td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap"><a href="{%url 'inventories:output_detail' %}" class="align-self-center"><i class="fas fa-eye text-success" style="font-size: 2em;"></i></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> 
+            <!-- end panel-body -->
+        </div>
+        <!-- end panel -->
+    </div>
+{% endblock content%}
+{% block custom_js %}
+	<link href="{% static 'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' %}" rel="stylesheet" />
+
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+		<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="{% static 'plugins/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-responsive/js/dataTables.responsive.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js' %}"></script>
+	
+	<script src="{% static 'plugins/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/buttons.colVis.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/buttons.flash.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/buttons.html5.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/buttons.print.min.js' %}"></script>
+
+	<script src="{% static 'plugins/pdfmake/build/pdfmake.min.js' %}"></script>
+	<script src="{% static 'plugins/pdfmake/build/vfs_fonts.js' %}"></script>
+	<script src="{% static 'plugins/jszip/dist/jszip.min.js' %}"></script>
+	<script src="{% static 'js/demo/table-manage-buttons.demo.js' %}"></script>
+    <script src="{% static 'plugins/highlight.js/highlight.min.js' %}"></script>
+    <script src="{% static 'js/demo/render.highlight.js' %}"></script>
+{% endblock custom_js %}

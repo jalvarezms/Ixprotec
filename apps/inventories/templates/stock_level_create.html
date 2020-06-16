@@ -1,0 +1,136 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load i18n %}
+{% block menu_active_sub_warehouse %}					
+	<li class="has-sub active">
+{% endblock menu_active_sub_warehouse %}
+{% block sub_menu_active_inventory %}
+	<li class="has-sub active ">
+{% endblock sub_menu_active_inventory %}
+
+{% block menu_active_inventory_total %}
+	<li class="active"><a href="{% url 'inventories:inventory_supply_list' 0 0 %}">{% blocktrans %}Inventory Supply{% endblocktrans %}</a></li>
+{% endblock menu_active_inventory_total %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Home{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Inventory{% endblocktrans %}</a></li>
+{% endblock breadcrumb %}
+
+{% block page_header_title %}{% blocktrans %}Inventories -  Stock Levels{% endblocktrans %}{% endblock page_header_title %}
+{% block page_header_sm_title %}{% blocktrans %}This is you can  Stock Levels create{% endblocktrans %}{% endblock page_header_sm_title %}
+
+{% block content %}
+
+<div class="row">
+<!-- begin col-6 -->
+	<div class="col-xl-12">
+		<!-- begin panel -->
+		<div class="panel panel-success" data-sortable-id="form-stuff-10">
+			<!-- begin panel-heading -->
+			<div class="panel-heading">
+				<h4 class="panel-title">{% blocktrans %}Inventory - Stock level Create{% endblocktrans %}</h4>
+				
+			</div>
+			<!-- end panel-heading -->
+			<!-- begin panel-body -->
+			<div class="panel-body ">      
+			      
+              <!-- begin wrapper -->
+				<div class="wrapper">
+					<div>
+						<ul class="result-list">
+							<li>
+								<a href="#" class="result-image width-250 height-250" style="background-image: url({{ supply.equipment.image.url }})"></a>
+								<div class="result-info">
+									<h1 class=""> <span class="badge badge-info">{{ supply.code }}</span> {{ supply.name }}</h2>
+									<p class="desc f-s-14">
+										{{ supply.description }}
+									</p>
+									<div class="btn-row">
+										<a href="{% url 'equipments:equipment_list' %}" data-toggle="tooltip" data-container="body" data-title="Table list"><i class="fa fa-fw fa-table"></i></a>
+										<a href="{% url 'equipments:equipment_update' supply.equipment.id  %}" data-toggle="tooltip" data-container="body" data-title="Configuration"><i class="fa fa-fw fa-cog"></i></a>
+										<a href="{% url 'equipments:equipment_img_index' supply.equipment.id %}" data-toggle="tooltip" data-container="body" data-title="Images"><i class="fas fa-fw fa-image"></i></a>
+										<a href="{% url 'equipments:equipment_doc_show' supply.equipment.id %}" data-toggle="tooltip" data-container="body" data-title="Documents"><i class="fas fa-fw fa-file"></i></a>
+										<a href="{% url 'equipments:equipment_video_show' supply.equipment.id %}" data-toggle="tooltip" data-container="body" data-title="Links Videos"><i class="fab fa-youtube"></i></a>
+									</div>
+								</div>								
+							</li>
+						</ul>
+					</div>
+				<div class="row">  
+					
+				   
+					<div class="col-md-12">
+					<div class="m-b-10 f-s-12 m-t-12"><b class="text-inverse">{% blocktrans %}Create Level{% endblocktrans %}</b></div>
+					<div class="panel-body panel-form bg-white">						
+							<form method="post" enctype="multipart/form-data" class="form-horizontal ">
+								 {% csrf_token %}
+								<fieldset>									
+									<div class="row">
+										<div class="col-md-3 col-md-offset-2">
+											<div class="form-group">
+												<div id="div_id_warehouse" class="form-group">        
+													<label for="id_warehouse" class="">
+														{% blocktrans %}WareHouse{% endblocktrans %}
+													</label>                                        
+													<div class="">
+														<select name="warehouse" class="form-control select form-control text-inverse" id="id_warehouse">
+															<option value="{{warehouse.id}}" selected="true"><strong>{{warehouse.name }}</strong></option>
+														</select>
+														<input name="supply" id="id_supply"   type="hidden" value="{{supply.id}}">
+													</div>
+												</div>											
+											</div>
+										</div>	
+										<div class="col-md-1 col-md-offset-2">
+											<div class="form-group">
+													<label for="id_stock" class="">
+														{% blocktrans %}Stock Now{% endblocktrans %}
+													</label> 
+												<input type="number" name="stock" value="{{stock.stock}}"  readonly class="form-control numberinput form-control" required="" id="id_stock">
+											</div>
+										</div>	
+										<div class="col-md-1 col-md-offset-2">
+											<div class="form-group">
+												{{form.minimum|as_crispy_field }}
+											</div>
+										</div>					
+										<div class="col-md-1 col-md-offset-1 ">
+											<div class="form-group">
+												{{form.maximum|as_crispy_field }}
+											</div>
+										</div>
+										 
+										 
+									</div> 	
+									<div class="pull-right">								
+										<button type="submit" class="btn btn-sm btn-primary m-r-5 ">{% blocktrans %}Save{% endblocktrans %}</button>
+										<a class="btn btn-sm btn-secondary m-r-5  " href="{% url 'inventories:inventory_supply_list' 0 0 %}">{% blocktrans %}Cancel{% endblocktrans %}</a>
+									</div>
+								</fieldset>
+							</form>
+						</div>						
+					</div>
+					
+					</div>
+					</div>
+					{% comment %}  row  {% endcomment %}
+					<!-- end wrapper -->
+				<div class='row'>
+				
+					
+				
+									
+				</div>	
+               
+			</div>
+			<!-- end panel-body -->					
+		</div>
+	    <!-- end panel -->
+	</div>
+				
+</div>	
+{% endblock %}
+

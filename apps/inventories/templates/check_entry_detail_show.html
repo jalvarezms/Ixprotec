@@ -1,0 +1,181 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% load i18n %}
+{% block menu_active_sub_warehouse %}					
+	<li class="has-sub active">
+{% endblock menu_active_sub_warehouse %}
+{% block sub_menu_active_inventory %}
+	<li class="has-sub active ">
+{% endblock sub_menu_active_inventory %}
+{% block menu_active_entry %}
+	<li class="active"><a href="{% url 'inventories:inventory_entry_list'%}">{% blocktrans %}Entry{% endblocktrans %}</a></li>	
+{% endblock menu_active_entry %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Home{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}inventorie Entry{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item active">{% blocktrans %}Show{% endblocktrans %}</li>
+{% endblock breadcrumb %}
+{% block page_header_title %}{% blocktrans %}Inventary Entry  - Show{% endblocktrans %} {% endblock page_header_title %}
+{% block page_header_sm_title %} {% blocktrans %}In this form you can see Inventary Entry  Detail{% endblocktrans %}  {% endblock page_header_sm_title %}
+
+{% block content %}
+
+			<div class="row">
+				<!-- begin col-6 -->
+				<div class="col-xl-12">
+					<!-- begin panel -->
+					<div class="panel panel-success" data-sortable-id="form-stuff-10">
+						<!-- begin panel-heading -->
+						<div class="panel-heading">
+							<h4 class="panel-title">{% blocktrans %}Head - Inventary Entry{% endblocktrans %} </h4>							
+						</div>
+						<!-- end panel-heading -->
+						<!-- begin panel-body -->
+						<div class="panel-body">
+							<form method="post" class="form-horizontal">	
+								<fieldset>									
+                                    <div class="row">										
+										<div class="col-md-2 col-md-offset-2 ">
+											<div class="form-group">
+												<div id="div_id_checkentry" class="form-group">        
+													<label for="id_checkentry" class="">
+														{% blocktrans %}WhareHouse{% endblocktrans %}
+													</label>                                        
+														<div class="">
+															<select name="checkentry" class="form-control select form-control text-inverse" id="id_checkentry">
+																<option value="{{checkentry.warehouse.id}}" selected="true"><strong>{{checkentry.warehouse.name }}</strong></option>
+															</select>
+														</div>
+												</div>											
+											</div>
+										</div>
+										<div class="col-md-2 col-md-offset-2 ">
+											<div class="form-group">
+												<div id="div_id_checkentry" class="form-group">        
+													<label for="id_checkentry" class="">
+														{% blocktrans %}Date Entry{% endblocktrans %}
+													</label>                                        
+														<div class="">
+															<input name="" id="" readonly class="form-control " type="button" value="{{checkentry.date_entry }}">															
+														</div>
+												</div>											
+											</div>
+										</div>
+										<div class="col-md-2 col-md-offset-2 ">
+											<div class="form-group">
+												<div id="div_id_checkentry" class="form-group">        
+													<label for="id_checkentry" class="">
+														{% blocktrans %}Provider{% endblocktrans %}
+													</label>                                        
+														<div class="">
+															<select name="checkentry" class="form-control select form-control text-uppercase" id="id_checkentry">
+																<option value="{{checkentry.provider.id}}" class='text-uppercase' selected="true">{{checkentry.provider.name }}</option>
+															</select>
+														</div>
+												</div>											
+											</div>
+										</div>
+										<div class="col-md-1 col-md-offset-2 ">
+											<div class="form-group">
+												<div id="div_id_checkentry" class="form-group">        
+													<label for="id_checkentry" class="">
+														{% blocktrans %}Provider{% endblocktrans %}
+													</label>                                        
+														<div class="">
+															<input name="" id="" readonly class="form-control" type="button" value="{{checkentry.bill }}">															
+														</div>
+												</div>											
+											</div>
+										</div>
+										<div class="col-md-3 col-md-offset-2 ">
+											<div class="form-group">
+												<div id="div_id_checkentry" class="form-group">        
+													<label for="id_checkentry" class="">
+														{% blocktrans %}Reason Entry{% endblocktrans %}
+													</label>                                        
+														<div class="">
+															<select name="checkentry" class="form-control select form-control text-uppercase" id="id_checkentry">
+																<option value="{{checkentry.reason_movement.id}}" class='text-uppercase' selected="true">{{checkentry.reason_movement.movement_text }}-{{checkentry.reason_movement.reason }}</option>
+															</select>
+														</div>
+												</div>											
+											</div>
+										</div>	
+										<div class="col-md-2 col-md-offset-2 ">
+											<div class="form-group">
+												<div id="div_id_checkentry" class="form-group">        
+													<label for="id_checkentry" class="">
+														{% blocktrans %}Status{% endblocktrans %}
+													</label>                                        
+														<div class="">
+														<span class='badge {{checkentry.status_badge}}'>
+															<h5 >{{checkentry.status_text}}</h3>
+														</span>
+														</div>
+												</div>											
+											</div>
+										</div>																			
+									</div>	
+									
+								</fieldset>
+							</form>
+						</div>
+						<!-- end panel-body -->
+						{% if checkentry.status == 1 %}						
+							<div class="center-block text-center">
+								<a class="btn btn-warning" href="{% url 'inventories:inventory_entry_confirm' checkentry.id %}">{% blocktrans %}Confirm Entry{% endblocktrans %}</a>
+							</div>
+							<br>
+						{% endif %}
+					</div>
+					<!-- end panel -->
+				</div>
+				
+			</div>
+			<!-- end row -->
+    
+{% include 'table_base.html' with info=dataTable %}
+
+	<div class="center-block text-center">
+			<a class="btn btn-sm btn-primary m-r-5  text-center" href="{%url 'inventories:inventory_entry_list'  %}">{% blocktrans %}Back{% endblocktrans %}</a>
+	</div>
+
+
+    
+{% endblock %}
+
+
+{% block custom_js %}
+	<link href="{% static 'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' %}" rel="stylesheet" />
+
+    <script src="{% static 'custom_type.js' %}"></script>
+	<script src="{% static 'js/ajax_check_entry_detail.js' %}"></script>
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+		<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="{% static 'plugins/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-responsive/js/dataTables.responsive.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js' %}"></script>
+	
+	<script src="{% static 'plugins/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/buttons.colVis.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/buttons.flash.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/buttons.html5.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/buttons.print.min.js' %}"></script>
+
+	<script src="{% static 'plugins/pdfmake/build/pdfmake.min.js' %}"></script>
+	<script src="{% static 'plugins/pdfmake/build/vfs_fonts.js' %}"></script>
+	<script src="{% static 'plugins/jszip/dist/jszip.min.js' %}"></script>
+	<script src="{% static 'js/demo/table-manage-buttons.demo.js' %}"></script>
+    <script src="{% static 'plugins/highlight.js/highlight.min.js' %}"></script>
+    <script src="{% static 'js/demo/render.highlight.js' %}"></script>
+	<!-- ================== END PAGE LEVEL JS ================== -->
+	<!-- ================== END PAGE LEVEL JS ================== -->
+	<!-- ================== END PAGE LEVEL JS ================== -->
+	<!-- ================== END PAGE LEVEL JS ================== -->
+{% endblock custom_js %}

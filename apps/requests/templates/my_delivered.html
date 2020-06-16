@@ -1,0 +1,191 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="javascript:;">Home</a></li>
+    <li class="breadcrumb-item"><a href="javascript:;">Requests</a></li>
+    <li class="breadcrumb-item active">My Delivered</li>
+{% endblock breadcrumb %}
+{% block page_header_title %}Delivered Requests{% endblock page_header_title %}
+{% block page_header_sm_title %}In this table you can view your delivered requests and the historical{% endblock page_header_sm_title %}
+{% block menu_active_sub_requests %}<li class="has-sub active">{% endblock menu_active_sub_requests %}
+{% block menu_request %}
+<ul class="sub-menu">
+    <li><a href="{% url 'requests:supplies_request'%}">My Requests</a></li>
+    <li><a href="{% url 'requests:manage_request_list' %}">Manage Approval </a></li>
+    <li class="active"><a href="{% url 'requests:my_delivered' %}">My Delivered </a></li>
+</ul>						
+{% endblock menu_request %}
+{% block content %}
+<div class="row">
+    <div class="col-xl-12">
+        <!-- begin panel -->
+        <div class="panel panel-success">
+            <!-- begin panel-heading -->
+            <div class="panel-heading">
+                <h4 class="panel-title">Delivered requests list</h4>
+                <div class="panel-heading-btn">
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                </div>
+            </div>
+            <!-- end panel-heading -->
+            <!-- begin alert -->
+            <div class="alert alert-secondary fade show">
+                <button type="button" class="close" data-dismiss="alert">
+                <span aria-hidden="true">&times;</span>
+                </button>
+                In the modern world of responsive web design tables can often cause a particular problem for designers due to their row based layout. Responsive is an extension for DataTables that resolves that problem by optimising the table's layout for different screen sizes through the dynamic insertion and removal of columns from the table.
+            </div>
+            <!-- end alert -->
+            <!-- begin panel-body -->
+            <div class="panel-body">
+                <table id="data-table-buttons" class="table table-striped table-bordered table-td-valign-middle">
+                    <thead>
+                        <tr>
+                            <th class="text-nowrap">Request Code</th>
+                            <th class="text-nowrap">Request Type</th>
+                            <th class="text-nowrap">Position</th>
+                            <th class="text-nowrap">Items</th>
+                            <th class="text-nowrap">Request Date</th>
+                            <th class="text-nowrap">Managed Date</th>
+                            <th class="text-nowrap">Request Status</th>
+                            <th class="text-nowrap">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody >
+                        <tr class="odd gradeX">
+                            <td class="text-nowrap"><span class="badge badge-success">FT32423<span/></td>
+                            <td class="text-nowrap"><span class="badge badge-success">FTEPP<span/></td>
+                            <td class="text-nowrap">(3000) Maintenance Engineer</td>
+                            <td class="text-nowrap"><i class="fas fa-box"><span class="badge badge-success">3<span/></i></td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap">---------------</td>
+                            <td class="text-nowrap"> <span class="badge badge-warning">Pending<span/></td>
+                            <td class="text-nowrap"><a href="{%url 'requests:delivered_items' %}" class="align-self-center"><i class="fas fa-eye text-success" style="font-size: 2em;"></i></a></td>
+                        </tr>
+                        <tr class="odd gradeX">
+                            <td class="text-nowrap"><span class="badge badge-success">FT32424<span/></td>
+                            <td class="text-nowrap"><span class="badge badge-success">RPPE<span/></td>
+                            <td class="text-nowrap">(3000) Maintenance Engineer</td>
+                            <td class="text-nowrap"><i class="fas fa-box"><span class="badge badge-success">4<span/></i></td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap">---------------</td>
+                            <td class="text-nowrap"> <span class="badge badge-red">Incompleted<span/></td>
+                            <td class="text-nowrap"><a href="{%url 'requests:delivered_items' %}" class="align-self-center"><i class="fas fa-eye text-success" style="font-size: 2em;"></i></a></td>
+                        </tr>
+                        <tr class="odd gradeX">
+                            <td class="text-nowrap"><span class="badge badge-success">FT32425<span/></td>
+                            <td class="text-nowrap"><span class="badge badge-success">RPPE<span/></td>
+                            <td class="text-nowrap">(3000) Maintenance Engineer</td>
+                            <td class="text-nowrap"><i class="fas fa-box"><span class="badge badge-success">1<span/></i></td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap">---------------</td>
+                            <td class="text-nowrap"> <span class="badge badge-warning">Pending<span/></td>
+                            <td class="text-nowrap"><a href="{%url 'requests:delivered_items' %}" class="align-self-center"><i class="fas fa-eye text-success" style="font-size: 2em;"></i></a></td>
+                        </tr>
+                        <tr class="odd gradeX">
+                            <td class="text-nowrap"><span class="badge badge-success">FT32426<span/></td>
+                            <td class="text-nowrap"><span class="badge badge-success">FTPPE<span/></td>
+                            <td class="text-nowrap">(3000) Maintenance Engineer</td>
+                            <td class="text-nowrap"><i class="fas fa-box"><span class="badge badge-success">1<span/></i></td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap"> <span class="badge badge-success">Completed<span/></td>
+                            <td class="text-nowrap"><a href="{%url 'requests:delivered_items' %}" class="align-self-center"><i class="fas fa-eye text-success" style="font-size: 2em;"></i></a></td>
+                        </tr>
+                        <tr class="odd gradeX">
+                            <td class="text-nowrap"><span class="badge badge-success">FT32427<span/></td>
+                            <td class="text-nowrap"><span class="badge badge-success">ENDOW<span/></td>
+                            <td class="text-nowrap">(2000) Maintenance Asssistant</td>
+                            <td class="text-nowrap"><i class="fas fa-box"><span class="badge badge-success">7<span/></i></td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap"> <span class="badge badge-success">Completed<span/></td>
+                            <td class="text-nowrap"><a href="{%url 'requests:delivered_items' %}" class="align-self-center"><i class="fas fa-eye text-success" style="font-size: 2em;"></i></a></td>
+                        </tr>
+                        <tr class="odd gradeX">
+                            <td class="text-nowrap"><span class="badge badge-success">FT32428<span/></td>
+                            <td class="text-nowrap"><span class="badge badge-success">ENDW01<span/></td>
+                            <td class="text-nowrap">(2000) Maintenance Asssistant</td>
+                            <td class="text-nowrap"><i class="fas fa-box"><span class="badge badge-success">6<span/></i></td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap"> <span class="badge badge-success">Completed<span/></td>
+                            <td class="text-nowrap"><a href="{%url 'requests:delivered_items' %}" class="align-self-center"><i class="fas fa-eye text-success" style="font-size: 2em;"></i></a></td>
+                        </tr>
+                        <tr class="odd gradeX">
+                            <td class="text-nowrap"><span class="badge badge-success">FT32429<span/></td>
+                            <td class="text-nowrap"><span class="badge badge-success">RENDW01<span/></td>
+                            <td class="text-nowrap">(2000) Maintenance Asssistant</td>
+                            <td class="text-nowrap"><i class="fas fa-box"><span class="badge badge-success">5<span/></i></td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap"> <span class="badge badge-success">Completed<span/></td>
+                            <td class="text-nowrap"><a href="{%url 'requests:delivered_items' %}" class="align-self-center"><i class="fas fa-eye text-success" style="font-size: 2em;"></i></a></td>
+                        </tr>
+                        <tr class="odd gradeX">
+                            <td class="text-nowrap"><span class="badge badge-success">FT32430<span/></td>
+                            <td class="text-nowrap"><span class="badge badge-success">RENDW02<span/></td>
+                            <td class="text-nowrap">(1000) Machine worker</td>
+                            <td class="text-nowrap"><i class="fas fa-box"><span class="badge badge-success">3<span/></i></td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap"> <span class="badge badge-success">Completed<span/></td>
+                            <td class="text-nowrap"><a href="{%url 'requests:delivered_items' %}" class="align-self-center"><i class="fas fa-eye text-success" style="font-size: 2em;"></i></a></td>
+                        </tr>
+                        <tr class="odd gradeX">
+                            <td class="text-nowrap"><span class="badge badge-success">FT32431<span/></td>
+                            <td class="text-nowrap"><span class="badge badge-success">PPENW<span/></td>
+                            <td class="text-nowrap">(1000) Machine worker</td>
+                            <td class="text-nowrap"><i class="fas fa-box"><span class="badge badge-success">11<span/></i></td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap"> <span class="badge badge-success">Completed<span/></td>
+                            <td class="text-nowrap"><a href="{%url 'requests:delivered_items' %}" class="align-self-center"><i class="fas fa-eye text-success" style="font-size: 2em;"></i></a></td>
+                        </tr>
+                        <tr class="odd gradeX">
+                            <td class="text-nowrap"><span class="badge badge-success">FT32432<span/></td>
+                            <td class="text-nowrap"><span class="badge badge-success">RDDEPP<span/></td>
+                            <td class="text-nowrap">(1000) Machine worker</td>
+                            <td class="text-nowrap"><i class="fas fa-box"><span class="badge badge-success">1<span/></i></td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap">2020-01-15</td>
+                            <td class="text-nowrap"> <span class="badge badge-success">Completed<span/></td>
+                            <td class="text-nowrap"><a href="{%url 'requests:delivered_items' %}" class="align-self-center"><i class="fas fa-eye text-success" style="font-size: 2em;"></i></a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div> 
+            <!-- end panel-body -->
+        </div>
+        <!-- end panel -->
+    </div>
+{% endblock content%}
+{% block custom_js %}
+	<link href="{% static 'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' %}" rel="stylesheet" />
+
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+		<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="{% static 'plugins/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-responsive/js/dataTables.responsive.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js' %}"></script>
+	
+	<script src="{% static 'plugins/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/buttons.colVis.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/buttons.flash.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/buttons.html5.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/buttons.print.min.js' %}"></script>
+
+	<script src="{% static 'plugins/pdfmake/build/pdfmake.min.js' %}"></script>
+	<script src="{% static 'plugins/pdfmake/build/vfs_fonts.js' %}"></script>
+	<script src="{% static 'plugins/jszip/dist/jszip.min.js' %}"></script>
+	<script src="{% static 'js/demo/table-manage-buttons.demo.js' %}"></script>
+    <script src="{% static 'plugins/highlight.js/highlight.min.js' %}"></script>
+    <script src="{% static 'js/demo/render.highlight.js' %}"></script>
+{% endblock custom_js %}

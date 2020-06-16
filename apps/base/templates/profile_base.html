@@ -1,0 +1,285 @@
+{% load static %} 
+{% load i18n %}
+<div class="row">
+		<!-- begin col-6 -->
+		<div class="col-xl-12">
+			<!-- begin panel -->
+			<div class="panel panel-success" data-sortable-id="form-stuff-10">
+				<!-- begin panel-heading -->
+				<div class="panel-heading">
+					<h4 class="panel-title">{% blocktrans %}Information Employee{% endblocktrans %}</h4>
+
+				</div>
+				<!-- end panel-heading -->
+				<!-- begin panel-body -->
+				<div class="panel-body">
+					<div class="row">
+						<div class="col-xl-2 col-lg-4 col-md-4 col-sm-5 ">
+							<!-- begin card -->
+							<div class="card border-0">
+								<img class="card-img-top  height-150 width-150"
+									src="{{ employee.photo.url }}" alt="" />
+								<div class="card-body">
+									<h4 class="card-title m-t-0 m-b-0"><i class="fa fa-user" aria-hidden="true"></i>
+										{{ employee.get_short_name|title }}</h4>
+									<p class="card-text">
+										<span>
+											<i class="fa fa-briefcase" aria-hidden="true"></i>
+											<small
+												class='f-s-10'>{{employee.get_postion|title}}</small>
+										</span>
+									</p>
+
+								</div>
+							</div>
+							<!-- end card -->
+						</div>
+						<div class="col-xl-10 col-lg-6 col-md-6 col-sm-7 bg-grey-transparent-1">
+							<!-- begin nav-tabs -->
+							<ul class="nav nav-tabs">
+								<li class="nav-item">
+									<a href="#default-tab-1" data-toggle="tab" class="nav-link active">
+										<span class="d-sm-none">{% blocktrans %}Info{% endblocktrans %}</span>
+										<span class="d-sm-block d-none">{% blocktrans %}Personal Information{% endblocktrans %}</span>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="#default-tab-2" data-toggle="tab" class="nav-link">
+										<span class="d-sm-none">{% blocktrans %}Organ{% endblocktrans %}</span>
+										<span class="d-sm-block d-none">{% blocktrans %}Organizational Data{% endblocktrans %}</span>
+									</a>
+								</li>
+								<li class="nav-item">
+									<a href="#default-tab-3" data-toggle="tab" class="nav-link">
+										<span class="d-sm-none">{% blocktrans %}Assigned{% endblocktrans %}</span>
+										<span class="d-sm-block d-none">{% blocktrans %}Assigned Equipment{% endblocktrans %}</span>
+									</a>
+								</li>
+							</ul>
+							<!-- end nav-tabs -->
+							<!-- begin tab-content -->
+							<div class="tab-content">
+								<!-- begin tab-pane -->
+								<div class="tab-pane fade active show" id="default-tab-1">
+									<div class="row">
+										<div class="col-xl-6">
+											<p></p>
+											<ul class="list-group">
+												<li class="list-group-item">
+													<span class="badge badge-default">{% blocktrans %}External Number{% endblocktrans %}</span>
+													<b class="pull-right">{{ employee.code }}</b>
+												</li>
+												<li class="list-group-item">
+													<span class="badge badge-default">{% blocktrans %}Firts Name{% endblocktrans %}</span>
+													<b
+														class="pull-right">{{ employee.firts_name|title }}</b>
+												</li>
+												<li class="list-group-item">
+													<span class="badge badge-default">{% blocktrans %}Second Name{% endblocktrans %}</span>
+													<b
+														class="pull-right">{{ employee.second_name|title }}</b>
+												</li>
+												<li class="list-group-item">
+													<span class="badge badge-default">{% blocktrans %}Last Name{% endblocktrans %}</span>
+													<b
+														class="pull-right">{{ employee.last_name|title }}</b>
+												</li>
+											</ul>
+										</div>
+										<div class="col-xl-6">
+											<p></p>
+											<ul class="list-group">
+												<li class="list-group-item">
+													<span class="badge badge-default">{% blocktrans %}Birth Place{% endblocktrans %}</span>
+													<b class="pull-right">{{ employee.Birth_Place|title }}</b>
+												</li>
+												<li class="list-group-item">
+													<span class="badge badge-default">{% blocktrans %}Place Residence{% endblocktrans %}</span>
+													<b class="pull-right">{{ employee.Place_Residence|title }}</b>
+												</li>
+												<li class="list-group-item">
+													<span class="badge badge-default">{% blocktrans %}Address{% endblocktrans %}</span>
+													<span class="pull-right f-s-9"> {{ employee.Address|title }}</span>
+												</li>
+												<li class="list-group-item">
+													<span class="badge badge-default">{% blocktrans %}Document idetification{% endblocktrans %}</span>
+													<b class="pull-right">{{ employee.number_doc }}</b> 
+												</li>										
+											</ul>
+										</div>
+									</div>
+								</div>
+								<!-- end tab-pane -->
+								<!-- begin tab-pane -->
+								<div class="tab-pane fade" id="default-tab-2">
+									<div class="row">
+										<div class="col-xl-6">
+										<p></p>
+											<ul class="list-group">
+												<li class="list-group-item">
+													<span class="badge badge-default">{% blocktrans %}Entity Legal{% endblocktrans %}</span>
+													<b class="pull-right">{{ employee.get_structure_last.company }}</b>
+												</li>
+												<li class="list-group-item">
+													<span class="badge badge-default">{% blocktrans %}Division{% endblocktrans %}</span>
+													<b class="pull-right">{{ employee.get_structure_last.division }}</b>
+												</li>
+												<li class="list-group-item">
+													<span class="badge badge-default">{% blocktrans %}Location{% endblocktrans %}</span>
+													<b class="pull-right">{{ employee.get_structure_last.location }}</b>
+												</li>
+												<li class="list-group-item">
+													<span class="badge badge-default">{% blocktrans %}Business Unit{% endblocktrans %}</span>
+													<b class="pull-right">{{ employee.get_structure_last.businessUnit }}</b>
+												</li>										
+											</ul>
+										</div>
+										<div class="col-xl-6">
+											<p></p>
+											<ul class="list-group">
+												<li class="list-group-item">
+													<span class="badge badge-default">{% blocktrans %}Center Coste{% endblocktrans %}</span>
+													<b class="pull-right">{{ employee.get_structure_last.position.cost_center }}</b>
+												</li>
+												<li class="list-group-item">
+													<span class="badge badge-default">{% blocktrans %}Position{% endblocktrans %}</span>
+													<b class="pull-right">{{ employee.get_structure_last.position }}</b>
+												</li>
+												<li class="list-group-item">
+													<span class="badge badge-default">{% blocktrans %}Start Date{% endblocktrans %}</span>
+													<b class="pull-right "> {{ employee.get_structure_last.start_date }}</b>
+												</li>
+												<li class="list-group-item">
+													<span class="badge badge-default">{% blocktrans %}End Date{% endblocktrans %}</span>
+													<b class="pull-right">{{ employee.get_structure_last.end_date }}</b>
+												</li>										
+											</ul>
+										</div>
+									</div>
+								</div>
+								<!-- end tab-pane -->
+								<!-- begin tab-pane -->
+								<div class="tab-pane fade" id="default-tab-3">
+									<div class="row">
+										<div class="col-xl-12">
+											<p></p>
+											<div>
+												<table
+													class='table table-striped table-bordered table-td-valign-middle '>
+													<tr>
+														<th>
+															{% blocktrans %}Equipment{% endblocktrans %}
+														</th>
+														<th>
+															{% blocktrans %}Details{% endblocktrans %}
+														</th>
+														<th>
+															{% blocktrans %}Delivered Date{% endblocktrans %}
+														</th>
+
+													</tr>
+													{% for delivered in  employee.delivered %}
+
+													{% for detail in delivered.details %}
+													<tr>
+														<td width='30%'>
+															<div class="media media-xs ">
+																<a class="text-center block-center" href="javascript:;">
+																	<img src="{{ detail.get_image.url }}" alt=""
+																		class="media-object rounded width-80 height-80" />
+																</a>
+																<div class="media-body">
+																	<p class='m-b-0 '>
+																		<strong
+																			class='f-s-10'>{{detail.supply.equipment_name |title  }}</strong>
+																	</p>
+																	<span>
+																		<small
+																			class='f-s-8'>{{detail.supply.equipment_description|truncatechars:200 }}</small>
+																	</span>
+																</div>
+															</div>
+														</td>
+														<td>
+
+															<p class='m-b-0 '>
+																<i class="fas fa-tags"></i>
+																<span class="f-s-8"> <span>{% blocktrans %}Brand:{% endblocktrans %}</span> </span>
+																<strong
+																	class='f-s-9'>{{detail.supply.brand |title }}</strong>
+															</p>
+															<p class='m-b-0 '>
+																<i class="fas fa-tshirt"></i>
+																<span class="f-s-8"> <span>{% blocktrans %}Material:{% endblocktrans %}</span> </span>
+																<strong class='f-s-9'>{{detail.supply.material |title }}
+																	{% blocktrans %}months{% endblocktrans %}</strong>
+															</p>
+															<p class='m-b-0 '>
+																<i class="fas fa-ruler-combined"></i>
+																<span class="f-s-8"> <span>{% blocktrans %}Size:{% endblocktrans %}</span> </span>
+																<strong
+																	class='f-s-9'>{{detail.supply.size |title  }}</strong>
+															</p>
+															<p class='m-b-0 '>
+																<i class="fas fa-palette"></i>
+																<span class="f-s-8"> <span>{% blocktrans %}Color:{% endblocktrans %}</span> </span>
+																<strong
+																	class='f-s-9'>{{detail.supply.color.name |title}}</strong>
+															</p>
+														</td>
+														<td>
+															<p class='m-b-0 '>
+																<i class="fas fa-calendar-check"></i>
+																<span class="f-s-8"> <span>{% blocktrans %}Delivered:{% endblocktrans %}</span> </span>
+																<strong
+																	class='f-s-9'>{{detail.create_date|date:"M d, Y" }}</strong>
+															</p>
+															<p class='m-b-0 '>
+																<i class="fas fa-hourglass-start"></i>
+																<span class="f-s-8"> <span>{% blocktrans %}Live Time:{% endblocktrans %}</span> </span>
+																<strong
+																	class='f-s-9'>{{detail.supply.equipment.frequency_of_change_text }}</strong>
+															</p>
+															<p class='m-b-0 '>
+																<i class="fas fa-calendar-times"></i>
+																<span class="f-s-8"> <span>{% blocktrans %}Expire Date:{% endblocktrans %}</span> </span>
+																<strong
+																	class='f-s-9'>{{detail.expire_date|date:"M d, Y" }}</strong>
+															</p>
+															<p class='m-b-0 '>
+																<i class="fas fa-user-clock"></i>
+																<span class="f-s-8"> <span>{% blocktrans %}Usage:{% endblocktrans %}</span> </span>
+																<strong class='f-s-9'> 12 %</strong>
+																<span>
+																	<div
+																		class="progress progress-sm rounded-corner m-b-0 width-150">
+																		<div class="progress-bar progress-bar-striped progress-bar-animated bg-green f-s-10 f-w-30 m-t-0 m-b-0"
+																			style="width: 24%;">12%</div>
+																	</div>
+																</span>
+															</p>
+
+														</td>
+													</tr>
+													{% endfor %}
+													{% endfor %}
+												</table>
+											</div>
+										</div>
+									</div>
+								</div>
+								<!-- end tab-pane -->
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+				<!-- end panel-body -->
+
+			</div>
+			<!-- end panel -->
+		</div>
+
+	</div>
+	<!-- end row -->

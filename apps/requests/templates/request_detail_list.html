@@ -1,0 +1,215 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load i18n %}
+{% block custom_css %}
+<link href="{% static 'css/default/table_base_icon_count.css' %}" rel="stylesheet" />
+{% endblock custom_css %}
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Home{% endblocktrans %}</a></li>
+<li class="breadcrumb-item"><a href="{% url 'requests:supplies_request' %}">{% blocktrans %}Employee Request{% endblocktrans %}</a></li>
+<li class="breadcrumb-item active">{% blocktrans %}Registre{% endblocktrans %}</li>
+{% endblock breadcrumb %}
+{% block page_header_title %}{% blocktrans %}Request Employee - Detail{% endblocktrans %}{% endblock page_header_title %}
+{% block page_header_sm_title %} {% blocktrans %}In this form you can view list{% endblocktrans %} {% endblock page_header_sm_title %}
+
+
+{% block menu_active_sub_requests %}
+<li class="has-sub active">
+	{% endblock menu_active_sub_requests %}
+	{% block menu_request %}
+	<ul class="sub-menu active">
+		<li class=" active"><a href="{% url 'requests:supplies_request'%}">{% blocktrans %}My Requests{% endblocktrans %}</a></li>
+		<li><a href="{% url 'requests:manage_request_list' %}">{% blocktrans %}Manage Approval{% endblocktrans %}</a></li>
+		<li><a href="{% url 'requests:my_delivered' %}">{% blocktrans %}My Delivered{% endblocktrans %} </a></li>
+	</ul>
+	{% endblock menu_request %}
+
+	{% block content %}
+		{% include 'profile_base.html' with info=employee %} 
+	
+
+	<div class="row">
+		<div class="col-xl-8">
+			<!-- begin panel -->
+			<div class="panel panel-success" data-sortable-id="form-stuff-10">
+				<!-- begin panel-heading -->
+				<div class="panel-heading">
+					<h4 class="panel-title">{% blocktrans %}Details Request{% endblocktrans %}</h4>
+				</div>
+				<!-- end panel-heading -->
+				<!-- begin panel-body -->
+				<div class="panel panel-body" >
+					<div class="row">
+						<div class="col-md-2 col-md-offset-2">
+							<label for="id_code" class="">
+								<strong>{% blocktrans %}Code{% endblocktrans %}</strong>
+							</label>
+							<div class="form-group">
+								<span class="badge badge-success">{{employee_request.code}}</span>
+							</div>
+						</div>
+						<div class="col-md-4 col-md-offset-2 ">
+							<div class="form-group">
+								<div id="div_id_request_type" class="form-group">
+									<label for="id_request_type" class="">
+										<strong>{% blocktrans %}Request Name{% endblocktrans %}</strong>
+									</label>
+									<div class="form-group">
+										<span class="badge badge-default"><b>{{employee_request.request_type.name}}</b></span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 col-md-offset-2 ">
+							<div class="form-group">
+								<div id="div_id_request_type" class="form-group">
+									<label for="id_request_type" class="">
+										<strong>{% blocktrans %}Description{% endblocktrans %}</strong>
+									</label>
+									<div class="form-group">
+										<span>{{employee_request.request_type.detail}}</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-2 col-md-offset-2">
+							<label for="id_code" class="">
+								<strong>{% blocktrans %}Date{% endblocktrans %}</strong>
+							</label>
+							<div class="form-group">
+								<span class="badge badge-success">{{employee_request.request_date|date:"M d, Y"}}</span>
+							</div>
+						</div>
+						<div class="col-md-4 col-md-offset-2 ">
+							<div class="form-group">
+								<div id="div_id_request_type" class="form-group">
+									<label for="id_request_type" class="">
+										<strong>{% blocktrans %}Applicant Observation{% endblocktrans %}</strong>
+									</label>
+									<div class="form-group">
+										<span class='f-s-10'>{{employee_request.observation}}</span>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-6 col-md-offset-2 ">
+							<div class="form-group">
+								<div id="div_id_request_type" class="form-group">
+									<label for="id_request_type" class="">
+										<strong>{% blocktrans %}Approval Flow{% endblocktrans %}</strong>
+									</label>
+									<div class="form-group">
+									<li class="media media-xs">
+									{% for approver in employee_request.get_approver_request_list %}
+										
+											<a class="media-left" href="javascript:;">
+												<img src="{{approver.principal_approver.get_ocupate.photo.url}}" alt=""
+												title="{{approver.principal_approver.get_ocupate.get_short_name}}"
+													class="media-object rounded-corner height-40 width-40" />
+											</a>
+										
+									{% endfor %}
+									</li>
+										
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-xl-4">
+		<!-- begin panel -->
+			<div class="panel panel-success" data-sortable-id="form-stuff-10">
+				<!-- begin panel-heading -->
+				<div class="panel-heading">
+					<h4 class="panel-title">{% blocktrans %}Activity Request{% endblocktrans %}</h4>					
+				</div>
+				<!-- end panel-heading -->
+				<!-- begin panel-body -->
+				<div class="panel-body bg-grey-transparent-1">
+					<div data-scrollbar="true" data-height="140px">
+						<ul class="timeline">
+							{% for status in  employee_request.get_status_list %}
+							<li>
+								<div class="timeline-time">
+									<span class=" date f-s-8">{{ status.create_date|date:" d M, Y" }}</span>
+									<span class="m-r-10 m-l-0 f-s-9">{{ status.create_date|date:"h:i a " }}</span>
+									<span class="badge  badge-{{ status.status_class}} f-s-12">{{ status.status_text }}</span>
+								</div>
+								<!-- begin timeline-icon -->
+								<div class="timeline-icon">
+									<a href="javascript:;">&nbsp;</a>
+								</div>
+								<!-- end timeline-icon -->
+								<!-- begin timeline-body -->
+								<div class="timeline-body m-r-0">
+									<div class="timeline-header">
+										<span class="userimage"><img src="{{ status.employee.photo.url }}" alt="" /></span>
+										<b class=" text-inverse f-s-10">{{ status.employee.get_short_name|title }}</b>							
+									</div>
+									<div class="timeline-content">
+										<p class='lead f-s-12'>
+											{{ status.observation }}
+										</p>
+									</div>
+								</div>
+								<!-- begin timeline-body -->					
+							</li>
+							{% endfor %}
+						</ul>
+						<!-- end timeline -->
+				   	</div>
+				</div>
+			</div>
+		</div>	
+
+</div>
+
+
+{% include 'table_base.html' with info=dataTable %}
+
+<div class="center-block text-center">
+	<a class="btn btn-sm btn-primary m-r-5  text-center" href="{%url 'requests:supplies_request'  %}">{% blocktrans %}Back{% endblocktrans %}</a>
+</div>
+
+{% endblock %}
+
+
+{% block custom_js %}
+<link href="{% static 'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}" rel="stylesheet" />
+<link href="{% static 'plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css' %}" rel="stylesheet" />
+<link href="{% static 'plugins/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' %}" rel="stylesheet" />
+
+<script src="{% static 'custom_type.js' %}"></script>
+<script src="{% static 'js/ajax_equipment.js' %}"></script>
+<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+<script src="{% static 'plugins/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+<script src="{% static 'plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+<script src="{% static 'plugins/datatables.net-responsive/js/dataTables.responsive.min.js' %}"></script>
+<script src="{% static 'plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js' %}"></script>
+
+<script src="{% static 'plugins/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
+<script src="{% static 'plugins/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js' %}"></script>
+<script src="{% static 'plugins/datatables.net-buttons/js/buttons.colVis.min.js' %}"></script>
+<script src="{% static 'plugins/datatables.net-buttons/js/buttons.flash.min.js' %}"></script>
+<script src="{% static 'plugins/datatables.net-buttons/js/buttons.html5.min.js' %}"></script>
+<script src="{% static 'plugins/datatables.net-buttons/js/buttons.print.min.js' %}"></script>
+
+<script src="{% static 'plugins/pdfmake/build/pdfmake.min.js' %}"></script>
+<script src="{% static 'plugins/pdfmake/build/vfs_fonts.js' %}"></script>
+<script src="{% static 'plugins/jszip/dist/jszip.min.js' %}"></script>
+<script src="{% static 'js/demo/table-manage-buttons.demo.js' %}"></script>
+<script src="{% static 'plugins/highlight.js/highlight.min.js' %}"></script>
+<script src="{% static 'js/demo/render.highlight.js' %}"></script>
+<!-- ================== END PAGE LEVEL JS ================== -->
+<!-- ================== END PAGE LEVEL JS ================== -->
+<!-- ================== END PAGE LEVEL JS ================== -->
+<!-- ================== END PAGE LEVEL JS ================== -->
+{% endblock custom_js %}

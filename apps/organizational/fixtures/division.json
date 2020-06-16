@@ -1,0 +1,422 @@
+[
+  {
+    "model": "organizational.division",
+    "pk": 1,
+    "fields": {
+    "name": "Consumer Experience",
+    "status": "True",
+    "code": "CEX",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 2,
+    "fields": {
+    "name": "Communication",
+    "status": "True",
+    "code": "COM",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 3,
+    "fields": {
+    "name": "Enterprice Consumerization",
+    "status": "True",
+    "code": "EC",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 4,
+    "fields": {
+    "name": "Exec Assist",
+    "status": "True",
+    "code": "EA",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 5,
+    "fields": {
+    "name": "Recruiting",
+    "status": "True",
+    "code": "RR",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 6,
+    "fields": {
+    "name": "Wae",
+    "status": "True",
+    "code": "WW",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 7,
+    "fields": {
+    "name": "People",
+    "status": "True",
+    "code": "PP",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 8,
+    "fields": {
+    "name": "Finance",
+    "status": "True",
+    "code": "FI",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 9,
+    "fields": {
+    "name": "Foundation",
+    "status": "True",
+    "code": "FO",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 10,
+    "fields": {
+    "name": "QCI",
+    "status": "True",
+    "code": "QCIQCI",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 11,
+    "fields": {
+    "name": "Digital Content",
+    "status": "True",
+    "code": "DC",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 12,
+    "fields": {
+    "name": "Financial Services",
+    "status": "True",
+    "code": "FS",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 13,
+    "fields": {
+    "name": "Legal",
+    "status": "True",
+    "code": "LEG",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 14,
+    "fields": {
+    "name": "Mobile",
+    "status": "True",
+    "code": "MM",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 15,
+    "fields": {
+    "name": "Travel",
+    "status": "True",
+    "code": "TT",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 16,
+    "fields": {
+    "name": "Ux Design",
+    "status": "True",
+    "code": "UD",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 17,
+    "fields": {
+    "name": "Ist",
+    "status": "True",
+    "code": "IST",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 18,
+    "fields": {
+    "name": "Staffing",
+    "status": "True",
+    "code": "ST",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 19,
+    "fields": {
+    "name": "Wearables & Internet of Things",
+    "status": "True",
+    "code": "WT",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 20,
+    "fields": {
+    "name": "Technology Generic",
+    "status": "True",
+    "code": "TG",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 21,
+    "fields": {
+    "name": "Cloud Ops",
+    "status": "True",
+    "code": "CO",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 22,
+    "fields": {
+    "name": "Cognitive Computing",
+    "status": "True",
+    "code": "CC",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 23,
+    "fields": {
+     "name": "BU Asia",
+    "status": "True",
+    "code": "BUA",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 24,
+    "fields": {
+    "name": "EMEA",
+    "status": "True",
+    "code": "EMEA",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 25,
+    "fields": {
+    "name": "M&A",
+    "status": "True",
+    "code": "MA",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 26,
+    "fields": {
+    "name": "Gamming",
+    "status": "True",
+    "code": "GAM",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 27,
+    "fields": {
+    "name": "Site Manager",
+    "status": "True",
+    "code": "SM",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 28,
+    "fields": {
+    "name": "Consultant",
+    "status": "True",
+    "code": "CS",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 29,
+    "fields": {
+    "name": "Quality Engineering",
+    "status": "True",
+    "code": "QE",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 30,
+    "fields": {
+    "name": "Continuous Evolution",
+    "status": "True",
+    "code": "CEV",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 31,
+    "fields": {
+     "name": "OTI",
+    "status": "True",
+    "code": "OT",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 32,
+    "fields": {
+     "name": "Big Data",
+    "status": "True",
+    "code": "BD",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 33,
+    "fields": {
+     "name": "Latam",
+    "status": "True",
+    "code": "LA",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 34,
+    "fields": {
+    "name": "WPP Group",
+    "status": "True",
+    "code": "WPPG",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  },
+  {
+    "model": "organizational.division",
+    "pk": 35,
+    "fields": {
+    "name": "Entertainment",
+    "status": "True",
+    "code": "EE",
+    "start_date": "1900-01-01",
+    "create_date": "1900-01-01 00:00:00",
+    "modified_date": "1900-01-01T00:00:00"
+  }
+  }
+]

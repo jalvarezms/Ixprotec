@@ -1,0 +1,325 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Home{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Warehouses{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Pending Request{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item active">{% blocktrans %}Supplies Detail{% endblocktrans %}</li>
+{% endblock breadcrumb %}
+{% block page_header_title %}{% blocktrans %}Dispatch Supplies{% endblocktrans %}{% endblock page_header_title %}
+{% block page_header_sm_title %}{% blocktrans %}Here you can dispatch the supplies requests and view supplies detail{% endblocktrans %}{% endblock page_header_sm_title %}
+{% block menu_active_sub_warehouse %}					
+<li class="has-sub active">
+{% endblock menu_active_sub_warehouse %}
+{% block menu_active_out %}
+<li class="has-sub active">
+    <a href="javascript:;">	<b class="caret active"></b>{% blocktrans %}Delivery{% endblocktrans %}</a>
+    <ul class="sub-menu ">
+        <li class="active"><a href="{% url 'inventories:inventory_output_list'%}">{% blocktrans %}Pending Request{% endblocktrans %}</a></li>
+        <li><a href="{% url 'inventories:inventory_output_completed'%}">{% blocktrans %}Completed Request{% endblocktrans %}</a></li>
+    </ul>
+</li>
+{% endblock menu_active_out %}
+{% block custom_css %}
+	<link href="{% static 'css/custom_delivery_css.css' %}" rel="stylesheet">
+{% endblock custom_css %}
+{% block content %}
+<div class="row">
+    <!-- begin col-6 -->
+    <div class="col-xl-12">
+        <!-- begin panel -->
+        <div class="panel panel-success" data-sortable-id="form-stuff-10">
+            <!-- begin panel-heading -->
+            <div class="panel-heading">
+                <h4 class="panel-title">{% blocktrans %}Dispatch Supplies{% endblocktrans %}</h4>
+                <div class="panel-heading-btn">
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                </div>
+            </div>
+            <!-- end panel-heading -->
+            <!-- begin panel-body -->
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-xl-2 col-lg-4 col-md-4 col-sm-5 ">
+						<!-- begin card -->
+						<div class="card border-0">
+							<img class="card-img-top  height-150 width-150" src="{{ header.employee.photo.url }}" alt="" />
+							<div class="card-body">
+								<h4 class="card-title m-t-0 m-b-0"><i class="fa fa-user" aria-hidden="true"></i> {{ header.employee.get_short_name|title }}</h4>
+								<p class="card-text m-b-0 ">
+									<span >
+										<i class="fa fa-briefcase" aria-hidden="true"></i> 
+										<small  class='f-s-10'>{{header.employee.get_postion|title}}</small>
+									</span>	
+								</p>
+                                <h5 class="card-text m-t-0 m-b-0 ">
+                                   <b> {% blocktrans %}Dispatch status{% endblocktrans %}: </b><span class="badge {{header.status_color}}">{{header.status_text}}</span>
+                                </h5>
+							</div>
+						</div>
+						<!-- end card -->
+					</div>
+					<div class="col-xl-10 col-lg-6 col-md-6 col-sm-7 bg-grey-transparent-1">
+						<!-- begin nav-tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a href="#default-tab-1" data-toggle="tab" class="nav-link active">
+                                    <span class="d-sm-none">Tab 1</span>
+                                    <span class="d-sm-block d-none">{% blocktrans %}Personal Information{% endblocktrans %}</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#default-tab-2" data-toggle="tab" class="nav-link">
+                                    <span class="d-sm-none">Tab 2</span>
+                                    <span class="d-sm-block d-none">{% blocktrans %}Organizational Data{% endblocktrans %}</span>
+                                </a>
+                            </li>
+                        </ul>
+					<!-- end nav-tabs -->
+					<!-- begin tab-content -->
+					<div class="tab-content">
+						<!-- begin tab-pane -->
+						<div class="tab-pane fade active show" id="default-tab-1">
+							<div class="row">
+								<div class="col-xl-6">
+								<p></p>
+									<ul class="list-group">
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}External Number{% endblocktrans %}</span>
+											<b class="pull-right">{{ header.employee.code }}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Firts Name{% endblocktrans %}</span>
+											<b class="pull-right">{{ header.employee.firts_name|title }}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Second Name{% endblocktrans %}</span>
+											<b class="pull-right">{{ header.employee.second_name|title }}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}last Name{% endblocktrans %}</span>
+											<b class="pull-right">{{ header.employee.last_name|title }}</b>
+										</li>										
+									</ul>
+								</div>
+								<div class="col-xl-6">
+									<p></p>
+									<ul class="list-group">
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Birth Place{% endblocktrans %}</span>
+											<b class="pull-right">Colombia</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Place Residence{% endblocktrans %}</span>
+											<b class="pull-right">Mexico DF</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Address{% endblocktrans %}</span>
+											<span class="pull-right f-s-9"> Rómulo O'Farril 520, Col. Olivar de los Padres, Alcaldía Álvaro Obregón, CDMX. C.P. 01780</span>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Document idetification{% endblocktrans %}</span>
+											<b class="pull-right">{{ header.employee.number_doc }}</b>
+										</li>										
+									</ul>
+								</div>
+							</div>							
+						</div>
+						<!-- end tab-pane -->
+						<!-- begin tab-pane -->
+						<div class="tab-pane fade" id="default-tab-2">
+							<div class="row">
+								<div class="col-xl-6">
+								<p></p>
+									<ul class="list-group">
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Entity Legal{% endblocktrans %}</span>
+											<b class="pull-right">{{ header.employee.get_structure_last.company }}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Division{% endblocktrans %}</span>
+											<b class="pull-right">{{ header.employee.get_structure_last.division }}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Location{% endblocktrans %}</span>
+											<b class="pull-right">{{ header.employee.get_structure_last.location }}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Business Unit{% endblocktrans %}</span>
+											<b class="pull-right">{{ header.employee.get_structure_last.businessUnit }}</b>
+										</li>										
+									</ul>
+								</div>
+								<div class="col-xl-6">
+									<p></p>
+									<ul class="list-group">
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Center Coste{% endblocktrans %}</span>
+											<b class="pull-right">{{ header.employee.get_structure_last.position.cost_center }}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Position{% endblocktrans %}</span>
+											<b class="pull-right">{{ header.employee.get_structure_last.position }}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Start Date{% endblocktrans %}</span>
+											<b class="pull-right "> {{ header.employee.get_structure_last.start_date }}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}End Date{% endblocktrans %}</span>
+											<b class="pull-right">{{ header.employee.get_structure_last.end_date }}</b>
+										</li>										
+									</ul>
+								</div>
+							</div>
+						</div>
+                        </div>
+                    </div>
+                </div>
+                <div class"row m-t-10">
+                    <div class"col-xl-12">
+                        <p></p>
+                        <div>
+                            <table  id='data-table' class="table table-striped table-bordered dt-responsive nowrap">
+                            <thead>
+                                <tr class="f-s-14">
+                                    <th class="f-s-14">{% blocktrans %}Equipment{% endblocktrans %}</th>
+                                    <th>{% blocktrans %}Supplies{% endblocktrans %}</th>
+                                    <th>{% blocktrans %}Supplie Detail{% endblocktrans %}</th>  
+                                    <th>{% blocktrans %}Amount{% endblocktrans %}</th>
+                                    <th>{% blocktrans %}Dispatch{% endblocktrans %}</th>
+                                </tr>
+                             </thead>   
+                                {% for equip in  obj_details %}
+                                <tr>                                
+                                    <td width='30%'>
+                                            <div class="row">    
+                                                <div class="col-lg-4">
+                                                    <img src="{{equip.equipment_url}}" alt="" class="rounded equip-photo" />
+                                                </div>
+                                                <div class=""></div> 
+                                                <div class="col-lg-8 col-md-12 m-b-10">
+                                                    <h4 class="widget-list-title equip-tittle"><b>{% blocktrans %}Equipment{% endblocktrans %}: </b>{{equip.equipment_name}}</h4>
+                                                    <p class="widget-list-desc equip-desc"><b>{% blocktrans %}Size{% endblocktrans %}:</b> {{equip.size}}</p>
+                                                    <p class="widget-list-desc equip-desc"><b>{% blocktrans %}Amount Requested{% endblocktrans %}:</b> {{equip.requested}}</p>
+                                                    <p class="widget-list-desc equip-desc"><b>{% blocktrans %}Color{% endblocktrans %}:</b> {{equip.color}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    {% if equip.status != 2 %}
+                                    <td>
+                                        <div class="col-lg-12 ml-auto "> 
+                                            <label><b>{% blocktrans %}Available Supplies{% endblocktrans %}: </b></label>
+                                            <select class="form-control select select2-data equip-ajax" data-pk="{{equip.checkout_id}}" data-url="{% url 'inventories:output_detail_ajax'%}" data-tk="{{csrf_token}}" data-ware="{{header.warehouse.id}}">
+                                                <option selected >-----------</option>
+                                                {% for supplie in  equip.supplies %}
+                                                <option value="{{supplie.id}}" >{{supplie.code}}-{{supplie.name}}-{{supplie.brand}}</option>    
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col-lg-12" id="supply_{{equip.checkout_id}}"> 
+                                            <h4 class="widget-list-title equip-tittle">{% blocktrans %}Please Select a Supplie{% endblocktrans %}</h4>
+                                        </div>
+                                    </td>
+                                    <td> 
+                                        <div class="col-lg-12">
+                                            <label><b>{% blocktrans %}Amount Dispatched{% endblocktrans %}: </b></label>
+                                            <input type="number" class="form-control" value="1" min="1" max="50" id="amount_{{equip.checkout_id}}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col-lg-12">
+                                            <label><b>{% blocktrans %}Set Supplie Status as{% endblocktrans %}: </b><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Supplie Status" data-placement="top" data-content="If you are sure that the supplie is dispatched, it will be discounted from the inventory. If you will not dispatch it, the request will be pending."></i>
+                                            </label> 
+                                            <select class="form-control status_select" name="select_{{equip.checkout_id}}" data-url="{% url 'inventories:output_detail_save'%}" data-pk="{{equip.checkout_id}}" data-tk="{{csrf_token}}" data-redir="{% url 'inventories:inventory_output_detail' header.output_id%}">
+                                                <option value="2" >{% blocktrans %}Dispatched{% endblocktrans %}</option>
+                                                <option value="1" selected="selected">{% blocktrans %}Pending{% endblocktrans %}</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    {% else %}
+                                    <td>
+                                        <div class="col-lg-12"> 
+                                            <label><b>{% blocktrans %}Selected Supply{% endblocktrans %}: </b></label>
+                                            <select class="form-control equip-ajax" disabled >
+                                                <option value="" >{{equip.supply_code}}-{{equip.supply_name}}-{{equip.supply_brand}}</option
+                                                    >    
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col-lg-12" id="supply_{{equip.checkout_id}}"> 
+                                            <h4 class="widget-list-title equip-tittle"><b>{% blocktrans %}Supplie{% endblocktrans %}: </b><span class="badge badge-success">{{equip.supply_code}}</span>{{equip.supply_name}}</h4>
+                                            <h4 class="widget-list-title equip-tittle"><b>{% blocktrans %}Provider{% endblocktrans %}: </b>{{equip.supply_brand}}</h4>
+                                            <h4 class="widget-list-title equip-tittle"><b>{% blocktrans %}Actual Stock{% endblocktrans %}: </b>{{equip.stock}}</h4>
+                                        </div>
+                                    </td> 
+                                    <td>
+                                        <div class="col-lg-12">
+                                            <label><b>{% blocktrans %}Amount Dispatched{% endblocktrans %}: </b></label>
+                                            <input type="number" class="form-control" disabled value="{{equip.total_dispatched}}" min="1" max="50" id="amount_{{equip.checkout_id}}">
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="col-lg-12">
+                                            <label><b>{% blocktrans %}Set Supplie Status as{% endblocktrans %}: </b><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Supplie Status" data-placement="top" data-content="If you are sure that the supplie is dispatched, it will be discounted from the inventory. If you will not dispatch it, the request will be pending."></i>
+                                            </label> 
+                                            <select class="form-control" disabled>
+                                                <option value="2" >{% blocktrans %}Dispatched{% endblocktrans %}</option>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    {% endif %}                                                                                                 
+                                </tr>
+                                {% endfor %}
+                            </table>
+                            <div>
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    <div class="col-lg-12">
+                                        <label for="observations"><b>{% blocktrans %}General Observations{% endblocktrans %}: </b></label>
+                                        <textarea class="form-control" name="observation" rows="2" cols="50" id="observations"></textarea>
+                                    </div>                             
+                                    <div class="list-widget">
+                                        <div class="print-button">
+                                            <a href="javascript:;"  onclick="window.print();"><i class="fas fa-print"></i></a>
+                                        </div>
+                                        <div class="finish-button">
+                                            <button type="submit" class="btn btn-success">{% blocktrans %}Finish{% endblocktrans %}</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+            </div>
+            <!-- end panel-body -->
+            
+        </div>
+        <!-- end panel -->
+    </div>
+				
+</div>
+<!-- end row -->
+{% endblock content%}
+{% block custom_js %}
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>  
+<script src="{% static 'js/custom_output_detail.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>  
+
+<script>
+$('#data-table').DataTable( {
+    responsive: true
+} );
+</script>
+
+{% endblock custom_js %}

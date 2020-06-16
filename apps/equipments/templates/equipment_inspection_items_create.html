@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+ {% load i18n %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Home{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Equipment{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item active">{% blocktrans %}Equipment List{% endblocktrans %}</li>
+{% endblock breadcrumb %}
+{% block page_header_title %}{% blocktrans %}Equipment -  Inspection Items{% endblocktrans %}{% endblock page_header_title %}
+{% block page_header_sm_title %}{% blocktrans %}This is Instection Items equipment list{% endblocktrans %}{% endblock page_header_sm_title %}
+{% block menu_active_configuration %}<li class="has-sub active">{% endblock menu_active_configuration %}
+{% block menu_equipment %}
+<li class="has-sub active">
+	<a ><b class="caret"></b>{% blocktrans %}Equipments{% endblocktrans %}</a>
+	<ul class="sub-menu">
+		<li class="active"><a href="{% url 'equipments:equipment_list'%}">{% blocktrans %}Equipments{% endblocktrans %}</a></li>
+		<li><a href="{% url 'equipments:supply_list'%}">{% blocktrans %}Supplies{% endblocktrans %}</a></li>
+		<li><a href="{% url 'equipments:perposition_list'%}">{% blocktrans %}Asig. Position{% endblocktrans %}</a></li>
+	</ul> 
+</li>
+{% endblock menu_equipment %}
+{% block content %}
+
+<div class="row">
+<!-- begin col-6 -->
+	<div class="col-xl-12">
+		<!-- begin panel -->
+		<div class="panel panel-success" data-sortable-id="form-stuff-10">
+			<!-- begin panel-heading -->
+			<div class="panel-heading">
+				<h4 class="panel-title">{% blocktrans %}Equipment - Config Checklist for Inspection{% endblocktrans %}</h4>
+				<div class="panel-heading-btn">
+					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+				</div>
+			</div>
+			<!-- end panel-heading -->
+			<!-- begin panel-body -->
+			<div class="panel-body ">      
+			      
+              <!-- begin wrapper -->
+				<div class="wrapper">
+				<div class="row">
+					<div>
+						<ul class="result-list">
+							<li>
+								<a href="#" class="result-image width-250 height-250" style="background-image: url({{ equipments.image.url }})"></a>
+								<div class="result-info">
+									<h1 class=""> <span class="badge badge-info">{{ equipments.code }}</span> {{ equipments.name }}</h2>
+									<p class="desc f-s-14">
+										{{ equipments.description }}
+									</p>
+									<div class="btn-row">
+										<a href="{% url 'equipments:equipment_list' %}" data-toggle="tooltip" data-container="body" data-title="Table list"><i class="fa fa-fw fa-table"></i></a>
+										<a href="{% url 'equipments:equipment_update' equipments.id  %}" data-toggle="tooltip" data-container="body" data-title="Configuration"><i class="fa fa-fw fa-cog"></i></a>
+										<a href="{% url 'equipments:equipment_img_index' equipments.id %}" data-toggle="tooltip" data-container="body" data-title="Images"><i class="fas fa-fw fa-image"></i></a>
+										<a href="{% url 'equipments:equipment_doc_show' equipments.id %}" data-toggle="tooltip" data-container="body" data-title="Documents"><i class="fas fa-fw fa-file"></i></a>
+										<a href="{% url 'equipments:equipment_video_show' equipments.id %}" data-toggle="tooltip" data-container="body" data-title="Links Videos"><i class="fab fa-youtube"></i></a>										
+									</div>
+								</div>								
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="row">  
+				  
+					<div class="col-md-12">
+					<div class="m-b-10 f-s-12 m-t-12"><b class="text-inverse">{% blocktrans %}Create checklist for inspection{% endblocktrans %}</b></div>
+					<div class="panel-body panel-form bg-white">						
+							<form method="post" enctype="multipart/form-data" class="form-horizontal ">
+								 {% csrf_token %}
+								<fieldset>									
+									<div class="row">
+										<div class="col-md-12 col-md-offset-2">
+											<div class="form-group">
+												{{form.check|as_crispy_field }}
+												<input name="equipment" id="eq"  type="hidden" value="{{ equipments.id }}">
+											</div>
+										</div>		
+										<div class="col-md-12 col-md-offset-2">
+											<div class="form-group">
+												{{form.corrective_action|as_crispy_field }}
+											</div>
+										</div>					
+										
+									</div> 	
+									<div class="pull-right">								
+										<button type="submit" class="btn btn-sm btn-primary m-r-5 ">{% blocktrans %}Add{% endblocktrans %}</button>
+										<a class="btn btn-sm btn-secondary m-r-5  " href="{%url 'equipments:equipment_list'  %}">{% blocktrans %}Back{% endblocktrans %}</a>
+									</div>
+								</fieldset>
+							</form>
+						</div>						
+					</div>
+					
+					</div>
+					</div>
+					{% comment %}  row  {% endcomment %}
+					<!-- end wrapper -->
+				<div class='row'>
+				<h2>{% blocktrans %}CHECKLIST FOR INSPECTIONS{% endblocktrans %}</h2>
+				<table id="data-table-buttons" class="table table-striped table-bordered table-td-valign-middle">
+					<thead>
+						<tr> 
+							<th class="text-nowrap">#</th>
+							<th class="text-nowrap">{% blocktrans %}Check Control{% endblocktrans %}</th>
+							<th class="text-nowrap">{% blocktrans %}Corrective Action{% endblocktrans %}</th>	
+							<th class="text-nowrap">{% blocktrans %}Options{% endblocktrans %}</th>							 
+						</tr>
+					</thead>
+					<tbody>
+					{% for item in equipments.get_items_inspection  %}
+						<tr>
+							<td>{{ forloop.counter }}</td>
+							<td><b>{{item.check}}</b></td>
+							<td> {{item.corrective_action}}</td>
+							<td>
+								<a class="btn btn-sm btn-default"  
+									href="{% url 'equipments:equipment_inspetion_items_update' item.id  %}">
+									<i class="fas fa-edit"></i>
+								</a>
+								<a class="btn btn-sm btn-default" 
+									data-toggle="modal" data-target="#delete" data-pk="{{ item.id }}" >
+									<i class="fa fa-trash" aria-hidden="true"></i>
+								</a>
+							</td>
+						<tr>
+					{% endfor  %}
+					</tbody>
+				</table >
+									
+				</div>	
+               
+			</div>
+			<!-- end panel-body -->					
+		</div>
+	    <!-- end panel -->
+	</div>
+		  <!-- DELETE MODAL -->
+    <div class="modal fade" id="delete">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">{% blocktrans %}Delete Confirmation{% endblocktrans %}</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-danger m-b-0">
+                        <h5><i class="fa fa-info-circle"></i> {% blocktrans %}Are You Sure?{% endblocktrans %}</h5>
+                        <p>{% blocktrans %}Do you really want to delete these records? This process cannot be undone.{% endblocktrans %}</p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <form action="{% url 'equipments:equipment_inspetion_items_delete'  %}" method="POST">
+                        {% csrf_token %}  
+                        <a class="btn btn-white" data-dismiss="modal">{% blocktrans %}Close{% endblocktrans %}</a>
+                        <button type="submit" class="btn btn-danger delete-button" name="delete_id" id="delete-button" value="" >{% blocktrans %}Delete{% endblocktrans %}</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+	 <!-- DELETE MODAL -->			
+</div>
+			
+
+
+{% endblock %}
+
+{% block custom_js %}
+   <script src="{% static 'custom_type.js' %}"></script>> 
+{% endblock %}

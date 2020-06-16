@@ -1,0 +1,222 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block breadcrumb %}
+      <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Home{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Supplies{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item active">{% blocktrans %}Registre{% endblocktrans %}</li>
+{% endblock breadcrumb %}
+{% block page_header_title %}{% blocktrans %}Supply{% endblocktrans %}{% endblock page_header_title %}
+{% block page_header_sm_title %}{% blocktrans %} In this form you can registre Supply {% endblocktrans %}{% endblock page_header_sm_title %}
+{% block menu_active_configuration %}<li class="has-sub active">{% endblock menu_active_configuration %}
+{% block menu_equipment %}
+<li class="has-sub active">
+	<a ><b class="caret"></b>{% blocktrans %}Equipments{% endblocktrans %}</a>
+	<ul class="sub-menu">
+		<li><a href="{% url 'equipments:equipment_list'%}">{% blocktrans %}Equipments{% endblocktrans %}</a></li>
+		<li class="active"><a href="{% url 'equipments:supply_list'%}">{% blocktrans %}Supplies{% endblocktrans %}</a></li>
+		<li><a href="{% url 'equipments:perposition_list'%}">{% blocktrans %}Asig. Position{% endblocktrans %}</a></li>
+	</ul> 
+</li>
+{% endblock menu_equipment %}
+{% block content %}
+
+<div class="row">
+				<!-- begin col-6 -->
+				<div class="col-xl-12">
+					<!-- begin panel -->
+					<div class="panel panel-success" data-sortable-id="form-stuff-10">
+						<!-- begin panel-heading -->
+						<div class="panel-heading">
+							<h4 class="panel-title">Registre - Supply</h4>
+							<div class="panel-heading-btn">
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+							</div>
+						</div>
+						<!-- end panel-heading -->
+						<!-- begin panel-body -->
+						<div class="panel-body">
+							<form method="post" class="form-horizontal">
+                                {% csrf_token %}
+								<fieldset>									
+                                    <div class="row">
+                                      <div class="col-md-4 col-md-offset-2">
+                                        <div class="form-group">
+                                            {{form.company|as_crispy_field }}
+                                        </div>
+                                      </div>
+                                    </div>
+                                   <div class="row"> 
+                                    <div class="col-md-6 col-md-offset-2">											    
+                                        <div class="form-group">
+                                          <div id="div_id_equipment" class="form-group">        
+                                            <label for="id_equipment" class="">
+                                              Equipment 
+                                            </label>                                        
+                                            <div class="">
+                                              <select name="equipment" class="form-control select select2-data form-control" id="id_equipment">														
+                                              {% for option  in equipment_options  %}
+                                                  <optgroup label="{{ option.group.name }}">
+                                                      {% for op  in option.options  %}
+                                                      <option value="{{op.id}}" {% if op.selected %} selected=true {% endif %} {% if op.disabled %} disabled {% endif %}  >																	
+                                                          <span>{{op.name|title }}</span>
+                                                      </option>
+                                                      {% endfor %}
+                                                  </optgroup>															
+                                              {% endfor %}	
+                                              </select>
+                                            </div>
+                                          </div>	
+                                        </div>
+                                    </div>    
+                                    </div> 
+                                    <div class="row">
+                                    <div class="col-md-1 col-sm-3 col-xs-3 col-md-offset-2 ">
+                                      <div class="form-group">
+                                        <div class="media media-sm m-t-0 ">
+                                          <a class="media center-block text-center" href="javascript:;" >
+                                            <img src="{{supply.equipment.image.url}}" id='image_equipment' alt="" class="media-object rounded height-80 width-80  center-block text-center" />
+                                          </a>
+                                        </div>  
+                                      </div>
+                                    </div>
+                                    <div class="col-md-4  col-sm-3 col-xs-3 col-md-offset-2 ">
+                                      <div class="form-group">
+                                        <ul class="list-group">
+                                          <li class="list-group-item"><span class='badge badge-lime '>{% blocktrans %}Name{% endblocktrans %}  </span>  <span id="equipment_name" >{{supply.name}}</span></li>
+                                          <li class="list-group-item"><span class='badge badge-lime'>{% blocktrans %}Description{% endblocktrans %}  </span>   <span id="equipment_description" class='f-s-10' >{{supply.description}}</span></li>												
+                                        </ul>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-4  col-sm-3 col-xs-3 col-md-offset-2 ">
+                                      <div class="form-group">
+                                        <ul class="list-group">
+                                          <li class="list-group-item"><span class='badge badge-lime '>{% blocktrans %}Type{% endblocktrans %}  </span>  <span id="equipment_type" >{{supply.equipment.get_element_type_name}}</span></li>
+                                          <li class="list-group-item"><span class='badge badge-lime'>{% blocktrans %}Class{% endblocktrans %}  </span>   <span id="equipment_class" >{{supply.equipment.get_element_class_name}}</span></li>												
+                                        </ul>
+                                      </div>
+                                    </div>	
+                                    <div class="col-md-3  col-sm-3 col-xs-3 col-md-offset-2 ">
+                                      <div class="form-group">
+                                        <ul class="list-group">
+                                          <li class="list-group-item"><span class='badge badge-lime '>{% blocktrans %}Frequency of Change{% endblocktrans %} </span>  <span id="equipment_usefull" >{{supply.equipment.frequency_of_change_text}}</span></li>
+                                          <li class="list-group-item"><span class='badge badge-lime'>{% blocktrans %}Body Part{% endblocktrans %}  </span>   <span id="equipment_area" >{{supply.equipment.area.name}}</span></li>												
+                                        </ul>
+                                      </div>
+                                    </div>                              
+                                    
+                                    </div>
+
+                                    <div class="row">
+                                      
+                                      <div class="col-md-2 col-md-offset-2 ">
+                                        <div class="form-group">
+                                            {{form.code|as_crispy_field }}
+                                        </div>
+                                      </div>
+
+                                      <div class="col-md-4 col-md-offset-1 ">
+                                        <div class="form-group">
+                                         {{form.name|as_crispy_field }}
+                                        </div>
+                                      </div>
+                                      <div class="col-md-6 col-md-offset-1 ">
+                                        <div class="form-group">
+                                         {{form.description|as_crispy_field }}
+                                        </div>
+                                      </div>
+                                                                            
+                                     </div> 
+
+                                     <div class="row">
+                                      <div class="col-md-3 col-md-offset-1 ">
+                                        <div class="form-group">
+                                         {{form.gender|as_crispy_field }}
+                                        </div>
+                                      </div>
+                                      <div class="col-md-3 col-md-offset-1 ">
+                                        <div class="form-group">
+                                            <div id="div_id_size" class="form-group">        
+                                              <label for="id_size" class="">
+                                                Size 
+                                              </label>                                        
+                                              <div class="">
+                                                <select name="size" class="form-control select select2-data form-control" id="id_size">														
+                                                {% for option  in size_options  %}
+                                                    <optgroup label="{{ option.group.name }}">
+                                                        {% for op  in option.options  %}
+                                                        <option value="{{op.id}}" {% if op.selected %} selected=true {% endif %} {% if op.disabled %} disabled {% endif %}  >																	
+                                                            <span>{{op.name|title }}</span>
+                                                        </option>
+                                                        {% endfor %}
+                                                    </optgroup>															
+                                                {% endfor %}	
+                                                </select>
+                                              </div>
+                                            </div>	
+                                        	</div>
+                                      </div>
+                                      <div class="col-md-3 col-md-offset-1 ">
+                                        <div class="form-group">
+                                         {{form.color|as_crispy_field }}
+                                        </div>
+                                      </div>
+                                      <div class="col-md-3 col-md-offset-1 ">
+                                        <div class="form-group">
+                                         {{form.brand|as_crispy_field }}
+                                        </div>
+                                      </div>                                      
+                                     </div> 
+                                     <div class="row">
+                                      <div class="col-md-4 col-md-offset-1 ">
+                                        <div class="form-group">
+                                         {{form.material|as_crispy_field }}
+                                        </div>
+                                      </div>
+                                      <div class="col-md-4 col-md-offset-1 ">
+                                        <div class="form-group">
+                                         {{form.unid_content|as_crispy_field }}
+                                        </div>
+                                      </div>
+                                                                           
+                                     </div> 
+                                      
+                                     <div class="row">                                    
+                                      <div class="col-md-6 col-md-offset-2 AdjustForm">                                          
+                                          <div class="form-group">
+                                              <div class="switcher switcher-success">
+                                                  {{form.status|as_crispy_field }}
+                                              </div>
+                                          </div>
+                                      </div>
+                                     </div> 	
+                                     <div class="pull-right">								
+                                      <button type="submit" class="btn btn-sm btn-primary m-r-5 ">{% blocktrans %}Save Change{% endblocktrans %}</button>
+                                      <a class="btn btn-sm btn-secondary m-r-5  " href="{%url 'equipments:supply_list'  %}">{% blocktrans %}Cancel{% endblocktrans %}</a>
+                                    </div>
+								</fieldset>
+							</form>
+						</div>
+						<!-- end panel-body -->
+						
+					</div>
+					<!-- end panel -->
+				</div>
+				
+			</div>
+			<!-- end row -->
+    
+    
+{% endblock %}
+
+{% block custom_js %}
+
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>  
+	<script>$(".select2-data").select2({tags: true});</script>
+  <script src="{% static 'js/supply_forms.js' %}"></script>
+{% endblock custom_js %}

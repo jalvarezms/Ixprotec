@@ -1,0 +1,54 @@
+{% load static %}
+{% load i18n %}
+<div class="col-md-12">
+    <div class="section-container">
+        <h4 class="section-title"><span>{% blocktrans %}All Comments{% endblocktrans %} ({{comments.count}})</span></h4>
+        <!-- begin comment-list -->
+        {% for comment  in  comments %}
+        <ul class="comment-list">
+            <li>
+                <!-- begin comment-avatar -->
+                <div class="comment-avatar">
+                    <img src="{{request.user.employee.photo.url}}" alt="" class=" rounded-corner width-50 height-50" />
+                </div>
+
+                <!-- end comment-avatar -->
+                <!-- begin comment-container -->
+                <div class="comment-container">
+                    <form method="post" enctype="multipart/form-data" class="form-horizontal">
+                        {% csrf_token %}
+                        <div class="pull-right">
+                            <a href="javascript:;" data-ref='{% url 'publications:delete_comments' comment.id %}'
+                                onclick="delete_comments('{% url 'publications:delete_comments' comment.id %}')"
+                                title="{% blocktrans %}Delete{% endblocktrans %}" class="delete-comments">
+                                <i class="fa fa-trash"></i> 
+                            </a>
+                        </div>
+                        <div class="comment">
+                            <b>{{comment.author.employee.get_short_name |title}}</b>
+                            <span class="comment-date">
+                                on <span class="underline"> {{comment.create_date |date:"M d, Y"  }}</span>
+                                {% blocktrans %}at{% endblocktrans %} <span
+                                    class="underline">{{comment.create_date |date:"g:i:s A"  }}</span>
+                            </span>
+                        </div>
+                        <div class="comment-content">
+                            {{comment.comment}}
+                        </div>
+                        
+                    </form>
+                </div>
+                <!-- end comment-container -->
+            </li>
+        </ul>
+        <!-- end comment-list -->
+        {% endfor %}
+
+    </div>
+</div>
+
+{% block custom_js %}
+<script>
+
+</script>
+{% endblock custom_js %}

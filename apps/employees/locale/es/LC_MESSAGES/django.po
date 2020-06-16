@@ -1,0 +1,515 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# 
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-29 13:55-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\Profile.html:4 .\templates\Profile.html:34
+#: .\templates\rate.html:7 .\templates\rate.html:21
+#: .\templates\size_employee_create.html:14
+#: .\templates\size_employee_update.html:14 .\templates\size_list.html:18
+msgid "My Protection"
+msgstr "Mi Proteccion"
+
+#: .\templates\Profile.html:5
+msgid "In this page you can watch you profile information"
+msgstr "En esta página puedes ver tu información de proteccion personal"
+
+#: .\templates\Profile.html:35 .\templates\delivered_detail.html:16
+#: .\templates\rate.html:22 .\templates\size_employee_create.html:15
+#: .\templates\size_employee_update.html:5
+#: .\templates\size_employee_update.html:15 .\templates\size_list.html:9
+#: .\templates\size_list.html:19
+msgid "Size Settings"
+msgstr "Configuracion de tallas"
+
+#: .\templates\Profile.html:48 .\templates\Profile.html:78
+msgid "Personal Information"
+msgstr "Informacion Personal"
+
+#: .\templates\Profile.html:83
+msgid "Organ"
+msgstr ""
+
+#: .\templates\Profile.html:84
+msgid "Organizational Data"
+msgstr "Info. Organizacional"
+
+#: .\templates\Profile.html:99
+msgid "External Number"
+msgstr "Numero Externo"
+
+#: .\templates\Profile.html:103
+msgid "Firts Name"
+msgstr "Primer Nombre"
+
+#: .\templates\Profile.html:107
+msgid "Second Name"
+msgstr "Segundo Nombre"
+
+#: .\templates\Profile.html:111
+msgid "last Name"
+msgstr "Apellido"
+
+#: .\templates\Profile.html:120
+msgid "Birth Place"
+msgstr "Lugar de Nacimiento"
+
+#: .\templates\Profile.html:124
+msgid "Place Residence"
+msgstr "Lugar de Residencia"
+
+#: .\templates\Profile.html:128
+msgid "Address"
+msgstr "Direccion"
+
+#: .\templates\Profile.html:132
+msgid "Document idetification"
+msgstr "Documento"
+
+#: .\templates\Profile.html:147
+msgid "Entity Legal"
+msgstr "Entidad Legal"
+
+#: .\templates\Profile.html:151
+msgid "Division"
+msgstr "Division"
+
+#: .\templates\Profile.html:155
+msgid "Location"
+msgstr "Ubicación"
+
+#: .\templates\Profile.html:159
+msgid "Business Unit"
+msgstr "Unidad de Negocios"
+
+#: .\templates\Profile.html:168
+msgid "Center Coste"
+msgstr "Centro de Costos"
+
+#: .\templates\Profile.html:172
+msgid "Position"
+msgstr "Position"
+
+#: .\templates\Profile.html:176
+msgid "Start Date"
+msgstr "Fecha Inicio"
+
+#: .\templates\Profile.html:180
+msgid "End Date"
+msgstr "Fecha Fin"
+
+#: .\templates\Profile.html:208
+msgid "Assigned Personal Protection Items "
+msgstr "Protección Personal Asigando"
+
+#: .\templates\Profile.html:267 .\templates\Profile.html:349
+#: .\templates\delivered_detail.html:64 .\templates\delivered_detail.html:191
+#: .\templates\size_employee_create.html:116
+#: .\templates\size_employee_update.html:115 .\views.py:101
+msgid "Description"
+msgstr "Descripcion"
+
+#: .\templates\Profile.html:274 .\templates\Profile.html:275
+msgid "How to use"
+msgstr "Como Usarlo"
+
+#: .\templates\Profile.html:281 .\templates\Profile.html:282
+#: .\templates\Profile.html:445
+msgid "Maintenance Cleaning"
+msgstr "Mantenimiento y Limpieza"
+
+#: .\templates\Profile.html:289 .\templates\Profile.html:290
+#: .\templates\Profile.html:468
+msgid "Images"
+msgstr "Imaganes"
+
+#: .\templates\Profile.html:296 .\templates\Profile.html:297
+msgid "Video"
+msgstr "Video"
+
+#: .\templates\Profile.html:303 .\templates\Profile.html:304
+#: .\templates\Profile.html:543
+msgid "Documents"
+msgstr "Documentos"
+
+#: .\templates\Profile.html:362
+msgid "Delivered date:"
+msgstr "Fecha de Entregado"
+
+#: .\templates\Profile.html:363
+msgid "Change date:"
+msgstr "Fecha de Cambio"
+
+#: .\templates\Profile.html:364
+msgid "Frequency of change:"
+msgstr "Frecuencia de Cambio"
+
+#: .\templates\Profile.html:366
+msgid "Percentage of use"
+msgstr "Porcentaje de Uso"
+
+#: .\templates\Profile.html:380 .\templates\rate.html:60
+msgid "Durability"
+msgstr "Drabilidad"
+
+#: .\templates\Profile.html:391 .\templates\delivered_detail.html:257
+#: .\templates\rate.html:66
+msgid "Material"
+msgstr "Material"
+
+#: .\templates\Profile.html:401 .\templates\rate.html:54
+msgid "Satisfaction"
+msgstr "Satisfacción"
+
+#: .\templates\Profile.html:411 .\templates\rate.html:8
+msgid "Rate it"
+msgstr "Puntuaje"
+
+#: .\templates\Profile.html:422
+msgid "Indications and Recommendations"
+msgstr "Indicaciones y Recomendaciones"
+
+#: .\templates\Profile.html:502 .\templates\delivered_detail.html:209
+msgid "Videos"
+msgstr "Videos"
+
+#: .\templates\Profile.html:544
+msgid "Manuals"
+msgstr "Manuales"
+
+#: .\templates\Profile.html:588
+msgid ""
+"Por el momento, no posee asignados elementos de proteccion. Le recomendamos "
+"realizar una solicitud"
+msgstr ""
+"Por el momento, no posee asignados elementos de proteccion. Le recomendamos "
+"realizar una solicitud"
+
+#: .\templates\Profile.html:588
+msgid "Aqui"
+msgstr "Aqui"
+
+#: .\templates\delivered_detail.html:6 .\templates\rate.html:6
+msgid "Home"
+msgstr "Principal"
+
+#: .\templates\delivered_detail.html:7
+msgid "Profile"
+msgstr ""
+
+#: .\templates\delivered_detail.html:8 .\templates\delivered_detail.html:17
+#, fuzzy
+#| msgid "Dispatch Status"
+msgid "My Dispatch Supplies"
+msgstr "Estado de Despacho"
+
+#: .\templates\delivered_detail.html:15
+msgid "My Avatar"
+msgstr "Mi Avatar"
+
+#: .\templates\delivered_detail.html:25
+msgid "My Dispatch Supplies Detail"
+msgstr ""
+
+#: .\templates\delivered_detail.html:26
+msgid "Here you can view the supplies dispatched by warehouse"
+msgstr ""
+
+#: .\templates\delivered_detail.html:34
+msgid "Details Request"
+msgstr ""
+
+#: .\templates\delivered_detail.html:42
+#: .\templates\size_employee_create.html:108
+#: .\templates\size_employee_update.html:107
+msgid "Code"
+msgstr "Código"
+
+#: .\templates\delivered_detail.html:52
+#, fuzzy
+#| msgid "Request Date"
+msgid "Request Name"
+msgstr "Fecha de Solicitud"
+
+#: .\templates\delivered_detail.html:76
+#, fuzzy
+#| msgid "End Date"
+msgid "Date"
+msgstr "Fecha Fin"
+
+#: .\templates\delivered_detail.html:86
+#, fuzzy
+#| msgid "Dispatch Observations"
+msgid "Applicant Observation"
+msgstr "Observaciones de despacho"
+
+#: .\templates\delivered_detail.html:98
+msgid "Approval Flow"
+msgstr ""
+
+#: .\templates\delivered_detail.html:122
+msgid "Finish"
+msgstr ""
+
+#: .\templates\delivered_detail.html:133
+msgid "Activity Request"
+msgstr ""
+
+#: .\templates\delivered_detail.html:197
+msgid "Use Mode"
+msgstr ""
+
+#: .\templates\delivered_detail.html:203
+msgid "Cleaning and Maintenance"
+msgstr ""
+
+#: .\templates\delivered_detail.html:225
+msgid "Supply Code"
+msgstr ""
+
+#: .\templates\delivered_detail.html:229
+#, fuzzy
+#| msgid "Request Type"
+msgid "Element Type"
+msgstr "Tipo de Solicitud"
+
+#: .\templates\delivered_detail.html:233
+#, fuzzy
+#| msgid "Document idetification"
+msgid "Element Classification"
+msgstr "Documento"
+
+#: .\templates\delivered_detail.html:237
+msgid "Provider"
+msgstr ""
+
+#: .\templates\delivered_detail.html:241 .\views.py:101
+msgid "Size"
+msgstr "Talla"
+
+#: .\templates\delivered_detail.html:245
+#, fuzzy
+#| msgid "Change date:"
+msgid "Change Date"
+msgstr "Fecha de Cambio"
+
+#: .\templates\delivered_detail.html:253
+msgid "Color"
+msgstr ""
+
+#: .\templates\delivered_detail.html:261
+#, fuzzy
+#| msgid "Satisfaction"
+msgid "Certification"
+msgstr "Satisfacción"
+
+#: .\templates\delivered_detail.html:265
+#, fuzzy
+#| msgid "Dispatch Status"
+msgid "Dispatched By"
+msgstr "Estado de Despacho"
+
+#: .\templates\delivered_detail.html:269
+#, fuzzy
+#| msgid "Dispatch Status"
+msgid "Dispatched Date"
+msgstr "Estado de Despacho"
+
+#: .\templates\delivered_detail.html:273
+msgid "Amount Dispatched"
+msgstr ""
+
+#: .\templates\delivered_detail.html:304
+msgid "No available videos"
+msgstr ""
+
+#: .\templates\delivered_detail.html:317
+msgid ""
+"I have read and agree that the delivered supplie is in good condition, and "
+"with the correct parameters to use. Also, i have read the maintenance "
+"cleaning and the use mode of the supplie."
+msgstr ""
+
+#: .\templates\delivered_detail.html:321
+msgid "I accept to received this supply."
+msgstr "Yo acepto que recibo este insumo."
+
+#: .\templates\delivered_detail.html:324 .\templates\delivered_detail.html:341
+#, fuzzy
+#| msgid "Dispatch Observations"
+msgid "Observations:*"
+msgstr "Observaciones de despacho"
+
+#: .\templates\delivered_detail.html:332
+#: .\templates\size_employee_create.html:154
+#: .\templates\size_employee_update.html:152
+msgid "Submit"
+msgstr "Enviar"
+
+#: .\templates\rate.html:12 .\templates\rate.html:40
+msgid "Rate element"
+msgstr "Puntaje de elemento"
+
+#: .\templates\rate.html:13
+msgid "This is for rating your element"
+msgstr "Esto es para calificar tu elemento"
+
+#: .\templates\rate.html:76
+msgid "Users opinions"
+msgstr "Opniones del usuario"
+
+#: .\templates\rate.html:158
+msgid "Write your comments"
+msgstr "Escribe tus comentarios"
+
+#: .\templates\size_employee_create.html:20
+#: .\templates\size_employee_update.html:20
+msgid "List your sizes"
+msgstr "Lista tus tallas"
+
+#: .\templates\size_employee_create.html:21
+msgid "Configure Your Sizes"
+msgstr "Config. Tallas"
+
+#: .\templates\size_employee_create.html:41
+#: .\templates\size_employee_update.html:40
+msgid "Sizes configuration"
+msgstr "Config. Tallas"
+
+#: .\templates\size_employee_create.html:51
+#: .\templates\size_employee_update.html:50 .\views.py:101
+msgid "Body Area"
+msgstr "Areas del Cuerpo"
+
+#: .\templates\size_employee_create.html:56
+#: .\templates\size_employee_update.html:55
+msgid "Select body area"
+msgstr "Selecciona Area del Cuerpo"
+
+#: .\templates\size_employee_create.html:71
+#: .\templates\size_employee_update.html:70
+msgid "Area Code"
+msgstr "Código del Area"
+
+#: .\templates\size_employee_create.html:75
+#: .\templates\size_employee_update.html:74
+msgid "Area Name"
+msgstr "Nombre del Area"
+
+#: .\templates\size_employee_create.html:79
+#: .\templates\size_employee_update.html:78
+msgid "Area Description"
+msgstr "Descripcion del Area"
+
+#: .\templates\size_employee_create.html:112
+#: .\templates\size_employee_update.html:111
+msgid "Gender"
+msgstr "Genero"
+
+#: .\templates\size_employee_create.html:120
+#: .\templates\size_employee_update.html:119
+msgid "Name"
+msgstr "Nombre"
+
+#: .\templates\size_employee_create.html:155
+#: .\templates\size_employee_update.html:153
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: .\templates\size_employee_update.html:6
+msgid "This is for configurate your sizes"
+msgstr "Esto es para configurar tus tallas"
+
+#: .\templates\size_employee_update.html:21
+msgid "Size Settings "
+msgstr "Config. Tallas"
+
+#: .\templates\size_list.html:10
+msgid "This is for configure your sizes"
+msgstr "Esto es para configurar tus tamaños"
+
+#: .\views.py:88
+msgid "Edit"
+msgstr "Editar"
+
+#: .\views.py:92
+msgid "Delete"
+msgstr "Delete"
+
+#: .\views.py:100
+msgid "Sizes"
+msgstr "Tallas"
+
+#: .\views.py:101
+msgid "Size Dimensions"
+msgstr "Dimensiones de talla"
+
+#: .\views.py:101 .\views.py:252
+msgid "Actions"
+msgstr "Opciones"
+
+#: .\views.py:244
+msgid "Show and Accept"
+msgstr "Ver y Acepta"
+
+#: .\views.py:251
+#, fuzzy
+#| msgid "Dispatch Status"
+msgid "Dispatch Supplies"
+msgstr "Estado de Despacho"
+
+#: .\views.py:252
+msgid "Request Code"
+msgstr "Codigo de solicitud"
+
+#: .\views.py:252
+msgid "Request Type"
+msgstr "Tipo de Solicitud"
+
+#: .\views.py:252
+msgid "Request Date"
+msgstr "Fecha de Solicitud"
+
+#: .\views.py:252
+msgid "Managed Date"
+msgstr "Fecha de Gestión"
+
+#: .\views.py:252
+msgid "Request Status"
+msgstr "Estado de Solicitud"
+
+#: .\views.py:252
+msgid "Dispatch Status"
+msgstr "Estado de Despacho"
+
+#: .\views.py:252
+msgid "Accepted Items"
+msgstr "Items Aceptados"
+
+#: .\views.py:252
+#, fuzzy
+#| msgid "Request Status"
+msgid "Accepted Status"
+msgstr "Estado de Solicitud"
+
+#: .\views.py:252
+msgid "Dispatch Observations"
+msgstr "Observaciones de despacho"
+
+#~ msgid "Items"
+#~ msgstr "Elementos"

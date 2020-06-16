@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+ {% load i18n %}
+{% load static %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Home{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Equipments{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item active">{% blocktrans %}Register{% endblocktrans %}</li>
+{% endblock breadcrumb %}
+{% block page_header_title %}{% blocktrans %}Equipment Create{% endblocktrans %}{% endblock page_header_title %}
+{% block page_header_sm_title %} {% blocktrans %}In this form you can create an equipment{% endblocktrans %} {% endblock page_header_sm_title %}
+{% block menu_active_configuration %}<li class="has-sub active">{% endblock menu_active_configuration %}
+{% block menu_equipment %}
+<li class="has-sub active">
+	<a ><b class="caret"></b>{% blocktrans %}Equipments{% endblocktrans %}</a>
+	<ul class="sub-menu">
+		<li class="active"><a href="{% url 'equipments:equipment_list'%}">{% blocktrans %}Equipments{% endblocktrans %}</a></li>
+		<li><a href="{% url 'equipments:supply_list'%}">{% blocktrans %}Supplies{% endblocktrans %}</a></li>
+		<li><a href="{% url 'equipments:perposition_list'%}">{% blocktrans %}Asig. Position{% endblocktrans %}</a></li>
+	</ul> 
+</li>
+{% endblock menu_equipment %}
+{% block content %}
+
+<div class="row">
+				<!-- begin col-6 -->
+				<div class="col-xl-12">
+					<!-- begin panel -->
+					<div class="panel panel-success" data-sortable-id="form-stuff-10">
+						<!-- begin panel-heading -->
+						<div class="panel-heading">
+							<h4 class="panel-title">{% blocktrans %}Create - Equipment{% endblocktrans %}</h4>
+							<div class="panel-heading-btn">
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+							</div>
+						</div>
+						<!-- end panel-heading -->
+						<!-- begin panel-body -->
+						<div class="panel-body">
+                <form method="post" enctype="multipart/form-data"  class="form-horizontal">
+                    {% csrf_token %}
+                    <fieldset>									
+                        <div class="row">                         
+                            
+                            <div class="col-md-4 col-md-offset-1 ">
+                                <div class="form-group">
+                                    {% comment %} {{form.element_classification|as_crispy_field }} {% endcomment %}
+                                    <div id="div_element_classification" class="form-group">        
+                                        <label for="id_element_classification" class="">
+                                           {% blocktrans %}Element Classification{% endblocktrans %} 
+                                        </label>                                        
+                                        <div class="">
+                                        <select name="element_classification" class="form-control select select2-data  form-control required"  id="id_element_classification" >														
+                                        {% for option  in classification_options  %}
+                                            <optgroup label="{{ option.group.name|title }}">
+                                                {% for op  in option.options  %}
+                                                <option value="{{op.id}}" {% if op.selected %} selected=true {% endif %} {% if op.disabled %} disabled {% endif %} >																	
+                                                    <span>{{op.name|title }}</span>
+                                                </option>
+                                                {% endfor %}
+                                            </optgroup>															
+                                        {% endfor %}	
+                                        </select>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-md-offset-1 ">
+                                <div class="form-group">
+                                <div id="div_id_body_area" class="form-group">        
+                                    <label for="id_body_area" class="">
+                                        {% blocktrans %}Body Part {% endblocktrans %}
+                                    </label>                                        
+                                    <div class="">
+                                        <select name="area" class="form-control select select2-data form-control" id="id_area" >														
+                                        {% for option  in body_parts_options  %}
+                                            <optgroup label="{{ option.group.name }}">
+                                                {% for op  in option.options  %}
+                                                <option value="{{op.id}}" {% if op.selected %} selected=true {% endif %} {% if op.disabled %} disabled {% endif %}  >																	
+                                                    <span>{{op.name|title }}</span>
+                                                </option>
+                                                {% endfor %}
+                                            </optgroup>															
+                                        {% endfor %}	
+                                        </select>
+                                    </div>
+                                </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 col-md-offset-2">
+                                <div class="form-group">
+                                    {{form.code|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-md-offset-1 ">
+                                <div class="form-group">
+                                {{form.name|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-md-offset-1 ">
+                                <div class="form-group">
+                                    {{form.image|as_crispy_field }}                                   
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-md-offset-1 ">
+                                <div class="form-group">
+                                <div class="media media-sm ">
+                                        <a class="media center-block text-center" href="javascript:;" >
+                                            <img src="{{image_preview}}" id='img-upload' 
+                                            alt="" class="media-object rounded height-70 width-70  center-block text-center" />
+                                        </a>
+                                    </div>                                                                     
+                                </div>
+                            </div>
+
+                            
+                            
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-1 ">
+                                <div class="form-group">
+                                {{form.description|as_crispy_field }}
+                                </div>
+                            </div> 
+                            <div class="col-md-2 col-md-offset-1 ">
+                                <div class="form-group">
+                                {{form.frequency_of_change|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-md-offset-1 ">
+                                <div class="form-group">
+                                {{form.certification|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">    
+                            <div class="col-md-2 col-md-offset-1 ">
+                                <div class="form-group">
+                                    <div class="switcher switcher-success">
+                                        {{form.required_inspection|as_crispy_field }}
+                                    </div>
+                                </div>
+                            </div> 
+                            <div class="col-md-2 col-md-offset-1 ">
+                                <div class="form-group">
+                                    <div class="switcher switcher-success">
+                                        {{form.is_disposable|as_crispy_field }}
+                                    </div>
+                                </div>
+                            </div> 
+                                                           
+                        </div> 	
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-1 ">
+                                <div class="form-group">
+                                {{form.mantenace_cleaning|as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-md-offset-1 ">
+                                <div class="form-group">
+                                {{form.mode_use|as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>     
+                        <div class="row">    
+                            <div class="col-md-2 col-md-offset-1 ">
+                                <div class="form-group">
+                                    <div class="switcher switcher-success">
+                                        {{form.status|as_crispy_field }}
+                                    </div>
+                                </div>
+                            </div> 
+                                                           
+                        </div> 	
+                            <div class="pull-right">								
+                            <button type="submit" class="btn btn-sm btn-primary m-r-5 ">{% blocktrans %}Save{% endblocktrans %}</button>
+                            <a class="btn btn-sm btn-secondary m-r-5  " href="{%url 'equipments:equipment_list'  %}">{% blocktrans %}Cancel{% endblocktrans %}</a>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+            <!-- end panel-body -->
+            
+        </div>
+        <!-- end panel -->
+    </div>
+    
+</div>
+			<!-- end row -->
+			<!-- end row -->
+    
+    
+{% endblock %}
+{% block custom_js %}
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>  
+<script src="{% static 'js/equipment_forms.js' %}"></script>
+{% endblock custom_js %}
+

@@ -1,0 +1,356 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-24 13:59-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\Profile.html:4
+msgid "My Avatar"
+msgstr ""
+
+#: .\templates\Profile.html:5
+msgid "In this page you can watch you profile information"
+msgstr ""
+
+#: .\templates\Profile.html:34 .\templates\rate.html:7 .\templates\rate.html:21
+#: .\templates\size_employee_create.html:14
+#: .\templates\size_employee_update.html:14 .\templates\size_list.html:18
+msgid "My Protection"
+msgstr ""
+
+#: .\templates\Profile.html:35 .\templates\rate.html:22
+#: .\templates\size_employee_create.html:15
+#: .\templates\size_employee_update.html:5
+#: .\templates\size_employee_update.html:15 .\templates\size_list.html:9
+#: .\templates\size_list.html:19
+msgid "Size Settings"
+msgstr ""
+
+#: .\templates\Profile.html:48 .\templates\Profile.html:78
+msgid "Personal Information"
+msgstr "Personal Information (EN)"
+
+#: .\templates\Profile.html:83
+msgid "Organ"
+msgstr ""
+
+#: .\templates\Profile.html:84
+msgid "Organizational Data"
+msgstr ""
+
+#: .\templates\Profile.html:99
+msgid "External Number"
+msgstr ""
+
+#: .\templates\Profile.html:103
+msgid "Firts Name"
+msgstr ""
+
+#: .\templates\Profile.html:107
+msgid "Second Name"
+msgstr ""
+
+#: .\templates\Profile.html:111
+msgid "last Name"
+msgstr ""
+
+#: .\templates\Profile.html:120
+msgid "Birth Place"
+msgstr ""
+
+#: .\templates\Profile.html:124
+msgid "Place Residence"
+msgstr ""
+
+#: .\templates\Profile.html:128
+msgid "Address"
+msgstr ""
+
+#: .\templates\Profile.html:132
+msgid "Document idetification"
+msgstr ""
+
+#: .\templates\Profile.html:147
+msgid "Entity Legal"
+msgstr ""
+
+#: .\templates\Profile.html:151
+msgid "Division"
+msgstr ""
+
+#: .\templates\Profile.html:155
+msgid "Location"
+msgstr ""
+
+#: .\templates\Profile.html:159
+msgid "Business Unit"
+msgstr ""
+
+#: .\templates\Profile.html:168
+msgid "Center Coste"
+msgstr ""
+
+#: .\templates\Profile.html:172
+msgid "Position"
+msgstr ""
+
+#: .\templates\Profile.html:176
+msgid "Start Date"
+msgstr ""
+
+#: .\templates\Profile.html:180
+msgid "End Date"
+msgstr ""
+
+#: .\templates\Profile.html:208
+msgid "Assigned Personal Protection Items "
+msgstr ""
+
+#: .\templates\Profile.html:267 .\templates\Profile.html:349
+#: .\templates\size_employee_create.html:116
+#: .\templates\size_employee_update.html:115 .\views.py:100
+msgid "Description"
+msgstr ""
+
+#: .\templates\Profile.html:274 .\templates\Profile.html:275
+msgid "How to use"
+msgstr ""
+
+#: .\templates\Profile.html:281 .\templates\Profile.html:282
+#: .\templates\Profile.html:445
+msgid "Maintenance Cleaning"
+msgstr ""
+
+#: .\templates\Profile.html:289 .\templates\Profile.html:290
+#: .\templates\Profile.html:468
+msgid "Images"
+msgstr ""
+
+#: .\templates\Profile.html:296 .\templates\Profile.html:297
+msgid "Video"
+msgstr ""
+
+#: .\templates\Profile.html:303 .\templates\Profile.html:304
+#: .\templates\Profile.html:543
+msgid "Documents"
+msgstr ""
+
+#: .\templates\Profile.html:362
+msgid "Delivered date:"
+msgstr ""
+
+#: .\templates\Profile.html:363
+msgid "Change date:"
+msgstr ""
+
+#: .\templates\Profile.html:364
+msgid "Frequency of change:"
+msgstr ""
+
+#: .\templates\Profile.html:366
+msgid "Percentage of use"
+msgstr ""
+
+#: .\templates\Profile.html:380 .\templates\rate.html:60
+msgid "Durability"
+msgstr ""
+
+#: .\templates\Profile.html:391 .\templates\rate.html:66
+msgid "Material"
+msgstr ""
+
+#: .\templates\Profile.html:401 .\templates\rate.html:54
+msgid "Satisfaction"
+msgstr ""
+
+#: .\templates\Profile.html:411 .\templates\rate.html:8
+msgid "Rate it"
+msgstr ""
+
+#: .\templates\Profile.html:422
+msgid "Indications and Recommendations"
+msgstr ""
+
+#: .\templates\Profile.html:502
+msgid "Videos"
+msgstr ""
+
+#: .\templates\Profile.html:544
+msgid "Manuals"
+msgstr ""
+
+#: .\templates\Profile.html:588
+msgid ""
+"Por el momento, no posee asignados elementos de proteccion. Le recomendamos "
+"realizar una solicitud"
+msgstr ""
+
+#: .\templates\Profile.html:588
+msgid "Aqui"
+msgstr ""
+
+#: .\templates\delivered_list.html:18 .\templates\rate.html:6
+msgid "Home"
+msgstr ""
+
+#: .\templates\rate.html:12 .\templates\rate.html:40
+msgid "Rate element"
+msgstr ""
+
+#: .\templates\rate.html:13
+msgid "This is for rating your element"
+msgstr ""
+
+#: .\templates\rate.html:76
+msgid "Users opinions"
+msgstr ""
+
+#: .\templates\rate.html:158
+msgid "Write your comments"
+msgstr ""
+
+#: .\templates\size_employee_create.html:20
+#: .\templates\size_employee_update.html:20
+msgid "List your sizes"
+msgstr ""
+
+#: .\templates\size_employee_create.html:21
+msgid "Configure Your Sizes"
+msgstr ""
+
+#: .\templates\size_employee_create.html:41
+#: .\templates\size_employee_update.html:40
+msgid "Sizes configuration"
+msgstr ""
+
+#: .\templates\size_employee_create.html:51
+#: .\templates\size_employee_update.html:50 .\views.py:100
+msgid "Body Area"
+msgstr ""
+
+#: .\templates\size_employee_create.html:56
+#: .\templates\size_employee_update.html:55
+msgid "Select body area"
+msgstr ""
+
+#: .\templates\size_employee_create.html:71
+#: .\templates\size_employee_update.html:70
+msgid "Area Code"
+msgstr ""
+
+#: .\templates\size_employee_create.html:75
+#: .\templates\size_employee_update.html:74
+msgid "Area Name"
+msgstr ""
+
+#: .\templates\size_employee_create.html:79
+#: .\templates\size_employee_update.html:78
+msgid "Area Description"
+msgstr ""
+
+#: .\templates\size_employee_create.html:108
+#: .\templates\size_employee_update.html:107
+msgid "Code"
+msgstr ""
+
+#: .\templates\size_employee_create.html:112
+#: .\templates\size_employee_update.html:111
+msgid "Gender"
+msgstr ""
+
+#: .\templates\size_employee_create.html:120
+#: .\templates\size_employee_update.html:119
+msgid "Name"
+msgstr ""
+
+#: .\templates\size_employee_create.html:149
+#: .\templates\size_employee_update.html:148
+msgid "Submit"
+msgstr ""
+
+#: .\templates\size_employee_create.html:150
+#: .\templates\size_employee_update.html:149
+msgid "Cancel"
+msgstr ""
+
+#: .\templates\size_employee_update.html:6
+msgid "This is for configurate your sizes"
+msgstr ""
+
+#: .\templates\size_employee_update.html:21
+msgid "Size Settings "
+msgstr ""
+
+#: .\templates\size_list.html:10
+msgid "This is for configure your sizes"
+msgstr ""
+
+#: .\views.py:87 .\views.py:240
+msgid "Edit"
+msgstr ""
+
+#: .\views.py:91 .\views.py:244
+msgid "Delete"
+msgstr ""
+
+#: .\views.py:99 .\views.py:252
+msgid "Sizes"
+msgstr ""
+
+#: .\views.py:100
+msgid "Size"
+msgstr ""
+
+#: .\views.py:100
+msgid "Size Dimensions"
+msgstr ""
+
+#: .\views.py:100 .\views.py:253
+msgid "Actions"
+msgstr ""
+
+#: .\views.py:253
+msgid "Request Code"
+msgstr ""
+
+#: .\views.py:253
+msgid "Request Type"
+msgstr ""
+
+#: .\views.py:253
+msgid "Request Date"
+msgstr ""
+
+#: .\views.py:253
+msgid "Items"
+msgstr ""
+
+#: .\views.py:253
+msgid "Managed Date"
+msgstr ""
+
+#: .\views.py:253
+msgid "Request Status"
+msgstr ""
+
+#: .\views.py:253
+msgid "Dispatch Status"
+msgstr ""
+
+#: .\views.py:253
+msgid "Dispatch Observations"
+msgstr ""

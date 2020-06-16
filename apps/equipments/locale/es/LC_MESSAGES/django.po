@@ -1,0 +1,586 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-28 12:05-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\equipment_documents_create.html:6
+#: .\templates\equipment_documents_show.html:6
+#: .\templates\equipment_documents_update.html:6
+#: .\templates\equipment_form.html:6 .\templates\equipment_img_create.html:6
+#: .\templates\equipment_img_show.html:21
+#: .\templates\equipment_img_update.html:6
+#: .\templates\equipment_inspection_items_create.html:6
+#: .\templates\equipment_list.html:5 .\templates\equipment_video_create.html:6
+#: .\templates\equipment_video_show.html:10
+#: .\templates\equipment_video_update.html:6
+#: .\templates\per_position_form.html:6 .\templates\per_position_list.html:6
+#: .\templates\per_position_update.html:6 .\templates\supplies_form.html:6
+#: .\templates\supplies_list.html:5 .\templates\supplies_update.html:6
+msgid "Home"
+msgstr ""
+
+#: .\templates\equipment_documents_create.html:7
+#: .\templates\equipment_documents_show.html:7
+#: .\templates\equipment_documents_update.html:7
+#: .\templates\equipment_img_create.html:7
+#: .\templates\equipment_img_show.html:22
+#: .\templates\equipment_img_update.html:7
+#: .\templates\equipment_img_update.html:80
+#: .\templates\equipment_inspection_items_create.html:7
+#: .\templates\equipment_list.html:6 .\templates\equipment_list.html:9
+#: .\templates\equipment_video_create.html:7
+#: .\templates\equipment_video_show.html:11
+#: .\templates\equipment_video_update.html:7
+#: .\templates\per_position_form.html:72 .\templates\per_position_form.html:151
+#: .\views.py:142 .\views.py:282 .\views.py:519
+msgid "Equipment"
+msgstr ""
+
+#: .\templates\equipment_documents_create.html:8
+#: .\templates\equipment_documents_show.html:8
+#: .\templates\equipment_documents_update.html:8
+#: .\templates\equipment_img_create.html:8
+#: .\templates\equipment_img_show.html:23
+#: .\templates\equipment_img_update.html:8
+#: .\templates\equipment_inspection_items_create.html:8
+#: .\templates\equipment_list.html:7 .\templates\equipment_video_create.html:8
+#: .\templates\equipment_video_show.html:12
+#: .\templates\equipment_video_update.html:8
+msgid "Equipment List"
+msgstr ""
+
+#: .\templates\equipment_documents_create.html:10
+#: .\templates\equipment_documents_show.html:10
+#: .\templates\equipment_documents_update.html:10
+msgid "Equipment -  Documents"
+msgstr ""
+
+#: .\templates\equipment_documents_create.html:11
+#: .\templates\equipment_documents_show.html:11
+#: .\templates\equipment_documents_update.html:11
+msgid "This is Documents equipment list"
+msgstr ""
+
+#: .\templates\equipment_documents_create.html:15
+#: .\templates\equipment_documents_create.html:17
+#: .\templates\equipment_documents_show.html:15
+#: .\templates\equipment_documents_show.html:17
+#: .\templates\equipment_documents_update.html:15
+#: .\templates\equipment_documents_update.html:17
+#: .\templates\equipment_form.html:7 .\templates\equipment_form.html:15
+#: .\templates\equipment_form.html:17 .\templates\equipment_img_create.html:15
+#: .\templates\equipment_img_create.html:17
+#: .\templates\equipment_img_show.html:12
+#: .\templates\equipment_img_show.html:14
+#: .\templates\equipment_img_update.html:15
+#: .\templates\equipment_img_update.html:17
+#: .\templates\equipment_inspection_items_create.html:15
+#: .\templates\equipment_inspection_items_create.html:17
+#: .\templates\equipment_list.html:20 .\templates\equipment_list.html:22
+#: .\templates\equipment_video_create.html:15
+#: .\templates\equipment_video_create.html:17
+#: .\templates\equipment_video_show.html:19
+#: .\templates\equipment_video_show.html:21
+#: .\templates\equipment_video_update.html:15
+#: .\templates\equipment_video_update.html:17
+#: .\templates\per_position_form.html:7 .\templates\per_position_form.html:32
+#: .\templates\per_position_form.html:34 .\templates\per_position_list.html:7
+#: .\templates\per_position_list.html:15 .\templates\per_position_list.html:17
+#: .\templates\per_position_update.html:15
+#: .\templates\per_position_update.html:17 .\templates\supplies_form.html:15
+#: .\templates\supplies_form.html:17 .\templates\supplies_list.html:14
+#: .\templates\supplies_list.html:16 .\templates\supplies_update.html:15
+#: .\templates\supplies_update.html:17
+msgid "Equipments"
+msgstr ""
+
+#: .\templates\equipment_documents_create.html:18
+#: .\templates\equipment_documents_show.html:18
+#: .\templates\equipment_documents_update.html:18
+#: .\templates\equipment_form.html:18 .\templates\equipment_img_create.html:18
+#: .\templates\equipment_img_show.html:15
+#: .\templates\equipment_img_update.html:18
+#: .\templates\equipment_inspection_items_create.html:18
+#: .\templates\equipment_list.html:23
+#: .\templates\equipment_video_create.html:18
+#: .\templates\equipment_video_show.html:22
+#: .\templates\equipment_video_update.html:18
+#: .\templates\per_position_form.html:35 .\templates\per_position_list.html:18
+#: .\templates\per_position_update.html:7
+#: .\templates\per_position_update.html:18 .\templates\supplies_form.html:7
+#: .\templates\supplies_form.html:18 .\templates\supplies_list.html:6
+#: .\templates\supplies_list.html:17 .\templates\supplies_update.html:7
+#: .\templates\supplies_update.html:18
+msgid "Supplies"
+msgstr ""
+
+#: .\templates\equipment_documents_create.html:19
+#: .\templates\equipment_documents_show.html:19
+#: .\templates\equipment_documents_update.html:19
+#: .\templates\equipment_form.html:19 .\templates\equipment_img_create.html:19
+#: .\templates\equipment_img_show.html:16
+#: .\templates\equipment_img_update.html:19
+#: .\templates\equipment_inspection_items_create.html:19
+#: .\templates\equipment_list.html:24
+#: .\templates\equipment_video_create.html:19
+#: .\templates\equipment_video_show.html:23
+#: .\templates\equipment_video_update.html:19
+#: .\templates\per_position_form.html:8 .\templates\per_position_form.html:36
+#: .\templates\per_position_list.html:8 .\templates\per_position_list.html:19
+#: .\templates\per_position_update.html:8
+#: .\templates\per_position_update.html:19 .\templates\supplies_form.html:19
+#: .\templates\supplies_list.html:18 .\templates\supplies_update.html:19
+msgid "Asig. Position"
+msgstr ""
+
+#: .\templates\equipment_documents_create.html:32
+#: .\templates\equipment_documents_show.html:32
+msgid "Attachment - Equipment Documents"
+msgstr ""
+
+#: .\templates\equipment_documents_create.html:71
+#: .\templates\equipment_documents_update.html:68
+msgid "New Attach Documents"
+msgstr ""
+
+#: .\templates\equipment_documents_create.html:99
+#: .\templates\equipment_img_create.html:98
+#: .\templates\equipment_video_create.html:97
+msgid "Upload"
+msgstr ""
+
+#: .\templates\equipment_documents_create.html:100
+#: .\templates\equipment_documents_update.html:113
+#: .\templates\equipment_form.html:187 .\templates\equipment_img_create.html:99
+#: .\templates\equipment_img_update.html:115
+#: .\templates\equipment_video_create.html:98
+#: .\templates\equipment_video_update.html:112
+#: .\templates\per_position_form.html:118
+#: .\templates\per_position_update.html:89 .\templates\supplies_form.html:199
+#: .\templates\supplies_update.html:199
+msgid "Cancel"
+msgstr ""
+
+#: .\templates\equipment_documents_show.html:65
+msgid "List of Documents"
+msgstr ""
+
+#: .\templates\equipment_documents_show.html:67
+msgid " Add Document"
+msgstr ""
+
+#: .\templates\equipment_documents_show.html:81 .\views.py:129 .\views.py:269
+#: .\views.py:506
+msgid "Edit"
+msgstr ""
+
+#: .\templates\equipment_documents_show.html:82
+#: .\templates\equipment_documents_show.html:122
+#: .\templates\equipment_img_show.html:133
+#: .\templates\equipment_inspection_items_create.html:161
+#: .\templates\equipment_video_show.html:126
+#: .\templates\per_position_form.html:186 .\views.py:133 .\views.py:273
+#: .\views.py:510
+msgid "Delete"
+msgstr ""
+
+#: .\templates\equipment_documents_show.html:109
+#: .\templates\equipment_img_show.html:120
+#: .\templates\equipment_inspection_items_create.html:148
+#: .\templates\equipment_video_show.html:113
+#: .\templates\per_position_form.html:175
+msgid "Delete Confirmation"
+msgstr ""
+
+#: .\templates\equipment_documents_show.html:114
+#: .\templates\equipment_img_show.html:125
+#: .\templates\equipment_inspection_items_create.html:153
+#: .\templates\equipment_video_show.html:118
+#: .\templates\per_position_form.html:180
+msgid "Are You Sure?"
+msgstr ""
+
+#: .\templates\equipment_documents_show.html:115
+#: .\templates\equipment_img_show.html:126
+#: .\templates\equipment_inspection_items_create.html:154
+#: .\templates\equipment_video_show.html:119
+#: .\templates\per_position_form.html:181
+msgid ""
+"Do you really want to delete these records? This process cannot be undone."
+msgstr ""
+
+#: .\templates\equipment_documents_show.html:121
+#: .\templates\equipment_img_show.html:132
+#: .\templates\equipment_inspection_items_create.html:160
+#: .\templates\equipment_video_show.html:125
+#: .\templates\per_position_form.html:185
+msgid "Close"
+msgstr ""
+
+#: .\templates\equipment_documents_update.html:32
+msgid "Update - Equipment Documents"
+msgstr ""
+
+#: .\templates\equipment_documents_update.html:112
+#: .\templates\equipment_img_update.html:114
+#: .\templates\equipment_video_update.html:111
+msgid "Update"
+msgstr ""
+
+#: .\templates\equipment_form.html:8
+msgid "Register"
+msgstr ""
+
+#: .\templates\equipment_form.html:10
+msgid "Equipment Create"
+msgstr ""
+
+#: .\templates\equipment_form.html:11
+msgid "In this form you can create an equipment"
+msgstr ""
+
+#: .\templates\equipment_form.html:32
+msgid "Create - Equipment"
+msgstr ""
+
+#: .\templates\equipment_form.html:54 .\views.py:142
+msgid "Element Classification"
+msgstr ""
+
+#: .\templates\equipment_form.html:77
+msgid "Body Part "
+msgstr ""
+
+#: .\templates\equipment_form.html:186 .\templates\per_position_form.html:117
+msgid "Save"
+msgstr ""
+
+#: .\templates\equipment_img_create.html:10
+#: .\templates\equipment_img_show.html:25
+#: .\templates\equipment_img_update.html:10
+msgid "Equipment -  Images"
+msgstr ""
+
+#: .\templates\equipment_img_create.html:11
+#: .\templates\equipment_img_update.html:11
+msgid "This is Images equipment list"
+msgstr ""
+
+#: .\templates\equipment_img_create.html:32
+#: .\templates\equipment_img_show.html:36
+msgid "Attachment - Equipment Images"
+msgstr ""
+
+#: .\templates\equipment_img_create.html:70
+#: .\templates\equipment_img_update.html:70
+msgid "New Attach Images"
+msgstr ""
+
+#: .\templates\equipment_img_show.html:26
+msgid "This is images equipment list"
+msgstr ""
+
+#: .\templates\equipment_img_show.html:67
+msgid "Equipment image gallery"
+msgstr ""
+
+#: .\templates\equipment_img_show.html:70
+#: .\templates\equipment_video_show.html:71
+msgid "Add New"
+msgstr ""
+
+#: .\templates\equipment_img_show.html:101
+#: .\templates\equipment_inspection_items_create.html:92
+#: .\templates\equipment_video_show.html:104
+msgid "Back"
+msgstr ""
+
+#: .\templates\equipment_img_update.html:32
+msgid "Update - Equipment Images"
+msgstr ""
+
+#: .\templates\equipment_inspection_items_create.html:10
+msgid "Equipment -  Inspection Items"
+msgstr ""
+
+#: .\templates\equipment_inspection_items_create.html:11
+msgid "This is Instection Items equipment list"
+msgstr ""
+
+#: .\templates\equipment_inspection_items_create.html:32
+msgid "Equipment - Config Checklist for Inspection"
+msgstr ""
+
+#: .\templates\equipment_inspection_items_create.html:71
+msgid "Create checklist for inspection"
+msgstr ""
+
+#: .\templates\equipment_inspection_items_create.html:91
+msgid "Add"
+msgstr ""
+
+#: .\templates\equipment_inspection_items_create.html:105
+msgid "CHECKLIST FOR INSPECTIONS"
+msgstr ""
+
+#: .\templates\equipment_inspection_items_create.html:110
+msgid "Check Control"
+msgstr ""
+
+#: .\templates\equipment_inspection_items_create.html:111
+msgid "Corrective Action"
+msgstr ""
+
+#: .\templates\equipment_inspection_items_create.html:112
+msgid "Options"
+msgstr ""
+
+#: .\templates\equipment_list.html:10
+msgid "This is the element equipment list"
+msgstr ""
+
+#: .\templates\equipment_video_create.html:10
+#: .\templates\equipment_video_update.html:10
+msgid "Equipment -  Video"
+msgstr ""
+
+#: .\templates\equipment_video_create.html:11
+#: .\templates\equipment_video_update.html:11
+msgid "This is Video equipment list"
+msgstr ""
+
+#: .\templates\equipment_video_create.html:32
+msgid "Attachment - Equipment Video"
+msgstr ""
+
+#: .\templates\equipment_video_create.html:69
+msgid "New Video"
+msgstr ""
+
+#: .\templates\equipment_video_show.html:14
+msgid "Equipment -  Videos"
+msgstr ""
+
+#: .\templates\equipment_video_show.html:15
+msgid "This is Videos equipment list"
+msgstr ""
+
+#: .\templates\equipment_video_show.html:36
+msgid "Gallery - Equipment Videos"
+msgstr ""
+
+#: .\templates\equipment_video_show.html:68
+msgid "Equipment Video gallery"
+msgstr ""
+
+#: .\templates\equipment_video_update.html:32
+msgid "Update - Equipment Video"
+msgstr ""
+
+#: .\templates\equipment_video_update.html:68
+msgid "New enlace Video"
+msgstr ""
+
+#: .\templates\per_position_form.html:27 .\templates\per_position_form.html:49
+#: .\templates\per_position_update.html:10
+#: .\templates\per_position_update.html:32
+msgid "Asign Equipment to Position"
+msgstr ""
+
+#: .\templates\per_position_form.html:28
+#: .\templates\per_position_update.html:11
+msgid "In this form you can asign an equipment to a position"
+msgstr ""
+
+#: .\templates\per_position_form.html:136
+msgid "Assigned equipment per position list"
+msgstr ""
+
+#: .\templates\per_position_form.html:150 .\views.py:519
+msgid "Position"
+msgstr ""
+
+#: .\templates\per_position_form.html:152 .\templates\supplies_form.html:91
+#: .\templates\supplies_update.html:91 .\views.py:142 .\views.py:282
+#: .\views.py:519
+msgid "Description"
+msgstr ""
+
+#: .\templates\per_position_form.html:153 .\views.py:519
+msgid "Max Permited"
+msgstr ""
+
+#: .\templates\per_position_form.html:154 .\views.py:519
+msgid "Start Date"
+msgstr ""
+
+#: .\templates\per_position_form.html:155 .\views.py:519
+msgid "End Date"
+msgstr ""
+
+#: .\templates\per_position_form.html:156 .\views.py:519
+msgid "Inspection Period"
+msgstr ""
+
+#: .\templates\per_position_form.html:157 .\views.py:142 .\views.py:282
+#: .\views.py:519
+msgid "Actions"
+msgstr ""
+
+#: .\templates\per_position_list.html:10
+msgid "Equipment Per Position"
+msgstr ""
+
+#: .\templates\per_position_list.html:11
+msgid "Here is the list of all the assignments of equipments to a position"
+msgstr ""
+
+#: .\templates\per_position_update.html:88 .\templates\supplies_form.html:198
+#: .\templates\supplies_update.html:198
+msgid "Save Change"
+msgstr ""
+
+#: .\templates\supplies_form.html:8 .\templates\supplies_update.html:8
+msgid "Registre"
+msgstr ""
+
+#: .\templates\supplies_form.html:10 .\templates\supplies_list.html:9
+#: .\templates\supplies_update.html:10 .\views.py:282
+msgid "Supply"
+msgstr ""
+
+#: .\templates\supplies_form.html:32
+msgid "Registre - Supply"
+msgstr ""
+
+#: .\templates\supplies_form.html:90 .\templates\supplies_update.html:90
+#: .\views.py:142 .\views.py:282
+msgid "Name"
+msgstr ""
+
+#: .\templates\supplies_form.html:98 .\templates\supplies_update.html:98
+msgid "Type"
+msgstr ""
+
+#: .\templates\supplies_form.html:99 .\templates\supplies_update.html:99
+msgid "Class"
+msgstr ""
+
+#: .\templates\supplies_form.html:106
+msgid "Usefull Life"
+msgstr ""
+
+#: .\templates\supplies_form.html:107 .\templates\supplies_update.html:107
+msgid "Body Part"
+msgstr ""
+
+#: .\templates\supplies_list.html:7
+msgid "Supplies List"
+msgstr ""
+
+#: .\templates\supplies_list.html:10
+msgid "This is the supplies list"
+msgstr ""
+
+#: .\templates\supplies_update.html:11
+msgid " In this form you can registre Supply "
+msgstr ""
+
+#: .\templates\supplies_update.html:106 .\views.py:142
+msgid "Frequency of Change"
+msgstr ""
+
+#: .\views.py:51 .\views.py:196
+msgid "Activated"
+msgstr ""
+
+#: .\views.py:53 .\views.py:198
+msgid "Deactivated"
+msgstr ""
+
+#: .\views.py:117 .\views.py:142
+msgid "Images"
+msgstr ""
+
+#: .\views.py:121 .\views.py:142
+msgid "Documents"
+msgstr ""
+
+#: .\views.py:125 .\views.py:142
+msgid "Videos"
+msgstr ""
+
+#: .\views.py:142 .\views.py:282
+msgid "Code"
+msgstr ""
+
+#: .\views.py:142
+msgid "Body Area"
+msgstr ""
+
+#: .\views.py:142
+msgid "Status Active"
+msgstr ""
+
+#: .\views.py:142
+msgid "Required Inspection"
+msgstr ""
+
+#: .\views.py:142
+msgid "Assigned"
+msgstr ""
+
+#: .\views.py:282
+msgid "Company"
+msgstr ""
+
+#: .\views.py:282
+msgid "Gender"
+msgstr ""
+
+#: .\views.py:282
+msgid "Size"
+msgstr ""
+
+#: .\views.py:282
+msgid "Color"
+msgstr ""
+
+#: .\views.py:282
+msgid "Brand"
+msgstr ""
+
+#: .\views.py:282
+msgid "Material"
+msgstr ""
+
+#: .\views.py:282
+msgid "Unids"
+msgstr ""
+
+#: .\views.py:282
+msgid "Status"
+msgstr ""
+
+#: .\views.py:282
+msgid "Create date"
+msgstr ""
+
+#: .\views.py:282
+msgid "Modified date"
+msgstr ""

@@ -1,0 +1,31 @@
+.list-widget{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.finish-button{
+    flex-basis: 7;
+}
+.print-button{
+    font-size: 3em;
+    flex-grow: 0.05;
+}
+
+.wlist{
+    margin-left: auto!important;
+}
+
+.equip-photo{
+    width: 50%;
+    height: 50%;
+}
+
+.equip-tittle{
+    font-size: 1em;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.equip-desc{
+    margin-bottom: 0;
+}

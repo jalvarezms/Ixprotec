@@ -1,0 +1,267 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load i18n %}
+{% block breadcrumb %}
+	<li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Home{% endblocktrans %}</a></li>
+	<li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Employee Request{% endblocktrans %}</a></li>
+	<li class="breadcrumb-item active">{% blocktrans %}Registre{% endblocktrans %}</li>
+{% endblock breadcrumb %}
+{% block page_header_title %}{% blocktrans %}Request Employee - Detail{% endblocktrans %}{% endblock page_header_title %}
+{% block page_header_sm_title %} {% blocktrans %}In this form you can create Request{% endblocktrans %}  {% endblock page_header_sm_title %}
+
+
+{% block menu_active_sub_requests %}
+	<li class="has-sub active">					
+{% endblock menu_active_sub_requests %}
+{% block menu_request %}
+	<ul class="sub-menu active">
+		<li class=" active"><a href="{% url 'requests:supplies_request'%}">{% blocktrans %}My Requests{% endblocktrans %}</a></li>
+		<li><a href="{% url 'requests:manage_request_list' %}">{% blocktrans %}Manage Approval{% endblocktrans %}</a></li>
+		<li><a href="{% url 'requests:my_delivered' %}">{% blocktrans %}My Delivered{% endblocktrans %} </a></li>
+	</ul>						
+{% endblock menu_request %}
+
+{% block content %}
+
+{% include 'profile_base.html' with info=employee %} 
+
+			<div class="row">
+				
+				<!-- begin col-6 -->
+				<div class="col-xl-12">
+					<!-- begin panel -->
+					<div class="panel panel-success" data-sortable-id="form-stuff-10">
+						<!-- begin panel-heading -->
+						<div class="panel-heading">
+							<h4 class="panel-title">{% blocktrans %}Create - Details Request{% endblocktrans %} </h4>
+							<div class="panel-heading-btn">
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+							</div>
+						</div>
+						<!-- end panel-heading -->
+						<!-- begin panel-body -->
+						<div class="panel-body">
+
+							<div class="row">
+								<div class="col-md-2 col-md-offset-2">
+									<label for="id_code" class="">
+										<strong>{% blocktrans %}Code{% endblocktrans %}</strong>
+									</label>     
+									<div class="form-group">
+										<span class="badge badge-success" >{{employee_request.code}}</span>
+									</div>
+								</div>
+								<div class="col-md-4 col-md-offset-2 ">
+									<div class="form-group">
+										<div id="div_id_request_type" class="form-group">        
+											<label for="id_request_type" class="">
+												<strong>{% blocktrans %}Request Name{% endblocktrans %}</strong>
+											</label>                                        
+											<div class="form-group">
+												<span class="badge badge-default" >{{employee_request.request_type.name}}</span>
+											</div>
+										</div>											
+									</div>
+								</div>
+								<div class="col-md-6 col-md-offset-2 ">
+									<div class="form-group">
+									<div id="div_id_request_type" class="form-group">        
+											<label for="id_request_type" class="">
+												<strong>{% blocktrans %}Description{% endblocktrans %}</strong>
+											</label>                                        
+											<div class="form-group">
+												<span  >{{employee_request.request_type.detail}}</span>
+											</div>
+										</div>
+									</div>
+								</div>										
+							</div>
+							<div class="row">
+								<div class="col-md-2 col-md-offset-2">
+									<label for="id_code" class="">
+										<strong>{% blocktrans %}Date{% endblocktrans %}</strong>
+									</label>     
+									<div class="form-group">
+										<span class="badge badge-success" >{{employee_request.request_date|date:"M d, Y"}}</span>
+									</div>
+								</div>
+								<div class="col-md-4 col-md-offset-2 ">
+									<div class="form-group">
+										<div id="div_id_request_type" class="form-group">        
+											<label for="id_request_type" class="">
+												<strong>{% blocktrans %}Applicant Observation{% endblocktrans %}</strong>
+											</label>                                        
+											<div class="form-group">
+												<span  class='f-s-10' >{{employee_request.observation}}</span>
+											</div>
+										</div>											
+									</div>
+								</div>	
+								<div class="col-md-6 col-md-offset-2 ">
+									<div class="form-group">
+										<div id="div_id_request_type" class="form-group">        
+											<label for="id_request_type" class="">
+												<strong>{% blocktrans %}Approval Flow{% endblocktrans %}</strong>
+											</label>                                        
+											<div class="form-group">
+												<li class="media media-xs">
+														{% for approver in employee_request.get_approver_request_list %}										
+															<a class="media-left" href="javascript:;">
+																<img src="{{approver.principal_approver.get_ocupate.photo.url}}" alt=""
+																title="{{approver.principal_approver.get_ocupate.get_short_name}}"
+																	class="media-object rounded-corner height-40 width-40" />
+															</a>															
+														{% endfor %}
+												</li>
+											</div>
+										</div>											
+									</div>
+								</div>															
+							</div>
+							<div class="row">
+								<div class="col-md-12 col-md-offset-2 ">
+									<hr width=100%>
+									<h4 class='pull-left'>{% blocktrans %}Select of Equipment  to Request{% endblocktrans %}</h4>
+									<p></p>							
+								</div>								
+							</div>
+
+						
+							<form method="post" class="form-horizontal">
+                                {% csrf_token %}
+								<fieldset>									
+                                    <div class="row">										
+																														
+									</div>	
+									<div class="row">
+										<div class="col-md-4 col-md-offset-2">											    
+                                        	<div class="form-group">
+												<div id="div_id_equipment" class="form-group">        
+													<label for="id_equipment" class="">
+														{% blocktrans %}Equipment{% endblocktrans %} 
+													</label>                                        
+													<div class="">
+													    <input name="employee_request" id="employee_request_id"  type="hidden" value="{{employee_request.id}}">
+														<select name="equipment" class="form-control select select2-data form-control" id="id_equipment">														
+														{% for option  in equipment_options  %}
+															<optgroup label="{{ option.group.name }}">
+																{% for op  in option.options  %}
+																<option value="{{op.id}}"  >																	
+																	<span>{{op.name|title }}</span>
+																</option>
+																{% endfor %}
+															</optgroup>															
+														{% endfor %}	
+														</select>
+													</div>
+												</div>	
+                                        	</div>
+                                     	</div>
+										<div class="col-md-2 col-md-offset-2 ">
+											<div class="form-group">
+												<label for="id_equipment_image" class="">
+													{% blocktrans %}Image{% endblocktrans %} 
+												</label> 
+												<div class="media media-sm ">
+													<a class="media center-block text-center" href="javascript:;" >
+														<img src="../../../../../static/img/gallery/empty.jpg" id='image_equipment' alt="" class="media-object rounded height-100 width-100  center-block text-center" />
+													</a>
+												</div>  
+											</div>
+										</div>
+										<div class="col-md-6 col-md-offset-2 ">
+											<div class="form-group">
+												<ul class="list-group">
+													<li class="list-group-item"><span class='badge badge-lime '>{% blocktrans %}Code{% endblocktrans %}  </span>  <span id="equipment_code" ></span></li>
+													<li class="list-group-item"><span class='badge badge-lime'>{% blocktrans %}Name{% endblocktrans %}  </span>   <span id="equipment_name" ></span></li>
+													<li class="list-group-item"><span class='badge badge-lime'>{% blocktrans %}Desciption{% endblocktrans %} </span>  <span id="equipment_description" ></span></li>
+													
+												</ul>
+											</div>
+										</div>
+										
+									</div>		
+									<div class="row">
+										
+										<div class="col-md-4 col-md-offset-2 ">
+											<div class="form-group">
+											{{form.assigned_size | as_crispy_field }}
+											</div>
+										</div>
+										<div class="col-md-2 col-md-offset-2 ">
+											<div class="form-group">
+											{{form.total | as_crispy_field }}
+											</div>
+										</div>
+										<div class="col-md-2 col-md-offset-2 ">
+											<div class="form-group">
+												{{form.color | as_crispy_field }}	
+											</div>
+										</div>	 
+									</div>
+
+                                     <div class="pull-right">								
+                                      <button type="submit" class="btn btn-sm btn-primary m-r-5 ">{% blocktrans %}Add{% endblocktrans %}</button>
+                                      <a class="btn btn-sm btn-secondary m-r-5  " href="{%url 'requests:supplies_request'  %}">{% blocktrans %}Back{% endblocktrans %}</a>
+                                </div>
+								</fieldset>
+							</form>
+						</div>
+						<!-- end panel-body -->
+						
+					</div>
+					<!-- end panel -->
+				</div>
+				
+			</div>
+			<!-- end row -->
+    
+	{% include 'table_base.html' with info=dataTable %}
+
+	<div class="center-block text-center">
+			<a class="btn btn-sm btn-primary m-r-5  text-center" href="{%url 'requests:employee_request_sender_approval' employee_request.id %}">{% blocktrans %}Sender Request{% endblocktrans %}</a>
+	</div>
+    
+{% endblock %}
+
+
+{% block custom_js %}
+	<link href="{% static 'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' %}" rel="stylesheet" />
+
+    <script src="{% static 'custom_type.js' %}"></script>
+	<script src="{% static 'js/ajax_equipment.js' %}"></script>
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+		<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="{% static 'plugins/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-responsive/js/dataTables.responsive.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js' %}"></script>
+	
+	<script src="{% static 'plugins/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/buttons.colVis.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/buttons.flash.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/buttons.html5.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/buttons.print.min.js' %}"></script>
+
+	<script src="{% static 'plugins/pdfmake/build/pdfmake.min.js' %}"></script>
+	<script src="{% static 'plugins/pdfmake/build/vfs_fonts.js' %}"></script>
+	<script src="{% static 'plugins/jszip/dist/jszip.min.js' %}"></script>
+	<script src="{% static 'js/demo/table-manage-buttons.demo.js' %}"></script>
+    <script src="{% static 'plugins/highlight.js/highlight.min.js' %}"></script>
+    <script src="{% static 'js/demo/render.highlight.js' %}"></script>
+	<!-- ================== END PAGE LEVEL JS ================== -->
+	<!-- ================== END PAGE LEVEL JS ================== -->
+	<!-- ================== END PAGE LEVEL JS ================== -->
+	<!-- ================== END PAGE LEVEL JS ================== -->
+
+	<link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
+	<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>  
+	<script>$(".select2-data").select2({tags: true});</script>
+{% endblock custom_js %}

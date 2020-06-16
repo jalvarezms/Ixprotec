@@ -1,0 +1,158 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% load static %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Home{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'publications:list_news'%}">{% blocktrans %}Publications{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item active">{% blocktrans %}Create{% endblocktrans %}</li>
+{% endblock breadcrumb %}
+{% block page_header_title %}{% blocktrans %}Publications{% endblocktrans %}{% endblock page_header_title %}
+{% block page_header_sm_title %} {% blocktrans %}In this form you can create a Publication{% endblocktrans %} {% endblock page_header_sm_title %}
+{% block menu_active_configuration %}<li class="has-sub active">{% endblock menu_active_configuration %}
+{% block menu_active_publications %}
+<li class="has-sub active">					
+		<a href="{% url 'publications:list_news'%}"	>							
+			<i class="far fa-comment-alt"></i>
+			<span>{% blocktrans %}Publications{% endblocktrans %}</span>
+		</a>							
+</li>
+{% endblock menu_active_publications %}
+{% block custom_css %}
+	<link href="{% static 'plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.css" rel="stylesheet' %}" />
+	<link href="{% static 'plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker3.css" rel="stylesheet' %}" />
+	<link href="{% static 'plugins/bootstrap-timepicker/css/bootstrap-timepicker.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/bootstrap-select/dist/css/bootstrap-select.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/bootstrap-daterangepicker/daterangepicker.css" rel="stylesheet' %}" />
+	<link href="{% static 'plugins/select2/dist/css/select2.min.css" rel="stylesheet' %}" />
+
+{% endblock custom_css %}
+{% block content %}
+
+<div class="row">
+    <!-- begin col-6 -->
+    <div class="col-xl-12">
+        <!-- begin panel -->
+        <div class="panel panel-success" data-sortable-id="form-stuff-10">
+            <!-- begin panel-heading -->
+            <div class="panel-heading">
+                <h4 class="panel-title">{% blocktrans %}Create - Publication{% endblocktrans %}</h4>
+                
+            </div>
+			<!-- end panel-heading -->
+			<!-- begin panel-body -->
+			<div class="panel-body">
+                <form method="post" enctype="multipart/form-data"  class="form-horizontal">
+                    {% csrf_token %}
+                    <fieldset>
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-2">
+                                <div class="form-group">
+                                   {{form.title | as_crispy_field }}
+                                   <small>{% blocktrans %}The title of the publication, It is the main thing to highlight in the news.{% endblocktrans %}</small>
+                                </div>
+                                
+                            </div>
+                           <div class="col-md-6 col-md-offset-2 ">
+                                <div class="form-group">
+                                   {{form.short_description| as_crispy_field }}
+                                   <small>{% blocktrans %}A short description of 255 characters is specified.{% endblocktrans %}</small>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                         <div class="col-md-3 col-md-offset-2">
+                                <div class="form-group">
+                                   {{form.profile_picture | as_crispy_field }}
+                                    <small>{% blocktrans %}The image will be the cover of the news, and a resolution of 900 x 400 is recommended..{% endblocktrans %}</small>
+                                </div>
+                            </div>
+                           <div class="col-md-3 col-md-offset-2 ">
+                                <div class="form-group">
+                                    <div id="id_categories" class="form-group">        
+                                        <label for="id_categories" class="">
+                                            {% blocktrans %}Categories{% endblocktrans %}
+                                        </label>                                        
+                                        <div class="">
+                                            <select name="categories" class="form-control select ec-tags  form-control" multiple="multiple"  id="id_categories">														
+                                            {% for option  in categories_options  %}
+                                                <optgroup label="{{ option.group.name|title }}">
+                                                    {% for op  in option.options  %}
+                                                    <option value="{{op.id}}" {% if op.selected %} selected=true {% endif %} >																	
+                                                        <span>{{op.name|title }}</span>
+                                                    </option>
+                                                    {% endfor %}
+                                                </optgroup>															
+                                            {% endfor %}	
+                                            </select>
+                                            <small>{% blocktrans %}The news may be classified into one or more categories{% endblocktrans %}</small>
+                                            
+                                        </div>
+                                    </div>
+                                </div>
+                                <input name="author" id="author_id" type="hidden" value="{{request.user.id}}">
+                            </div>
+                           
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2 col-md-offset-2">
+                                <div class="form-group">
+                                    {{form.start_date | as_crispy_field }}
+                                </div>
+                                <small>{% blocktrans %}Date from when the publication will be effective{% endblocktrans %}</small>
+                            </div>
+                            <div class="col-md-2 col-md-offset-2 ">
+                                <div class="form-group">
+                                    {{form.end_date | as_crispy_field }}
+                                    <small>{% blocktrans %}Date until when the publication will be effective{% endblocktrans %}</small>
+                                </div>
+                            </div>
+                            <div class="col-md-2 col-md-offset-2 ">
+                                <div class="form-group">
+                                   {{form.status | as_crispy_field }}
+                                   <small>{% blocktrans %}You can select the status of the publication. by default it is published taking into account the start date.{% endblocktrans %}</small>
+                                </div>
+                            </div>
+                         </div>
+
+                         <div class="row">
+                            <div class="col-md-12 col-md-offset-2">
+                                <div class="form-group">
+                                   {{form.body_message | as_crispy_field }}
+                                   <small>{% blocktrans %}In the body of the message you can write the news, adding multimedia content, or you can create HTML 5 code{% endblocktrans %}</small>
+                                </div>
+                            </div>
+                           
+                        </div>
+                        <div class="pull-right">								
+                            <button type="submit" class="btn btn-sm btn-primary m-r-5 ">{% blocktrans %}Save{% endblocktrans %}</button>
+                            <a class="btn btn-sm btn-secondary m-r-5  " href="{% url 'publications:list_news'%}">{% blocktrans %}Cancel{% endblocktrans %}</a>
+                            
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        <!-- end panel-body -->
+        </div>
+	<!-- end panel -->
+	</div>
+</div>
+<!-- end row -->
+
+
+{% endblock %}
+
+{% block custom_js %}
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>  
+
+<script>
+$(document).ready(function() {
+  $(".ec-tags").select2({tags: true});
+$(".select2-data").select2();
+$( ".datepicker" ).datepicker({ dateFormat: 'yy-mm-dd' });
+
+});
+</script>
+{% endblock custom_js %}

@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block custom_css %}
+
+
+{% endblock custom_css %}
+{% block page_header_title %}{% blocktrans %}Publications{% endblocktrans %}{% endblock page_header_title %}
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Home{% endblocktrans %}</a></li>
+<li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Publications{% endblocktrans %}</a></li>
+{% endblock breadcrumb %}
+{% block page_header_sm_title %}{% blocktrans %}Here you can view the created
+publications{% endblocktrans %}{% endblock page_header_sm_title %}
+
+{% block menu_active_publications %}
+<li class="has-sub active">
+    <a href="{% url 'publications:list_news'%}">
+        <i class="far fa-comment-alt"></i>
+        <span>{% blocktrans %}Publications{% endblocktrans %}</span>
+    </a>
+</li>
+{% endblock menu_active_publications %}
+{% block content %}
+
+<div class="row">
+    <!-- begin col-6 -->
+    <div class="col-xl-12">
+        <!-- begin panel -->
+        <div class="panel panel-success" data-sortable-id="form-stuff-10">
+            <!-- begin panel-heading -->
+            <div class="panel-heading">
+                <h4 class="panel-title">{% blocktrans %}Publications{% endblocktrans %}</h4>
+                <div class="panel-heading-btn">
+                        <a href="{% url 'publications:list_news_admin'%}" class="btn btn-lg btn-icon btn-circle btn-default" title="{% blocktrans %}Administrar Publications{% endblocktrans %}" ><i class="fa fa-wrench"></i></a>
+                      
+                    </div>
+            </div>
+            <!-- end panel-heading -->
+            <!-- begin panel-body -->
+            <div class="panel-body">
+                <div class="container">
+                    <div class="row justify-content-md-center">
+                        <div class="col col-lg-2 col-md-4 col-sm-4 ">
+                        </div>
+                        <div class="col-md-auto">
+                        <br><br>
+                            {% for article in articles  %}
+                            <div class="col-sm-12">
+                                <div class="card mb-3">
+                                    <a href="{% url 'publications:show_news' article.id %}" >
+                                        <img class="card-img-top img-fluid width-900"
+                                        src="{{article.profile_picture.url}}" alt="Card image cap">
+                                    </a>     
+                                    <div class="card-body">
+                                        <a href="{% url 'publications:show_news' article.id %}" >
+                                            <h2 class="card-title">{{article.title|title}}</h2>
+                                        </a>   
+                                        <div class="post-by">
+                                            {% blocktrans %}Posted By {% endblocktrans %}
+                                            <img src="{{request.user.employee.photo.url}}" class="media-object rounded-corner width-20 height-20" alt="" />
+                                            <a href="#">{{article.author}}</a>
+                                            <span class="divider">|</span>{{ article.start_date}}
+                                        </div>
+                                        <br>
+                                        <p class="card-text">{{article.short_description}}</p>
+                                                                               
+                                    </div>
+                                    <ul class="list-group list-group-flush ">
+                                        <li class="list-group-item"> 
+                                            {% for category in article.categories.all %}
+                                                <span class="badge badge-primary" title="{{category.description}}">{{category.name}}</span>
+                                            {% endfor %}
+                                        </li>
+                                        <li class="list-group-item">
+                                            <div id="footer_btn_like_{{article.id}}">
+                                                {% include 'footer_btn_like.html' with info=article %} 
+                                             </div>
+                                        </li>                                        
+                                    </ul>                                    
+                                </div>
+                            </div>
+                            <br><hr><br>
+                            {% endfor %}
+                        </div>
+                        <div class="col col-lg-2 col-md-4 col-sm-4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content%}
+{% block custom_js %}
+
+<script src="{% static 'js/article_likes.js' %}"></script>
+
+{% endblock custom_js %}

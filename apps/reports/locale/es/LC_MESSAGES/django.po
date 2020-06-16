@@ -1,0 +1,294 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-28 12:08-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\historical_recibed.html:5 .\templates\historical_recibed.html:27
+#: .\templates\historical_request.html:27
+#: .\templates\report_frequency_of_change_for_division.html:29
+#: .\templates\report_matriz_ppe_for_bu.html:29 .\views.py:65
+msgid "Items Delivery"
+msgstr ""
+
+#: .\templates\historical_recibed.html:6
+msgid "Historical elements recibed"
+msgstr ""
+
+#: .\templates\historical_recibed.html:9
+msgid "Historical Elements recibed"
+msgstr ""
+
+#: .\templates\historical_recibed.html:28 .\templates\historical_request.html:9
+#: .\templates\historical_request.html:28
+#: .\templates\historical_storage.html:28
+#: .\templates\report_frequency_of_change_for_division.html:30
+#: .\templates\report_matriz_ppe_for_bu.html:30
+msgid "Requests Made"
+msgstr ""
+
+#: .\templates\historical_recibed.html:29
+#: .\templates\historical_request.html:29
+#: .\templates\historical_storage.html:29
+#: .\templates\report_frequency_of_change_for_division.html:31
+#: .\templates\report_matriz_ppe_for_bu.html:31
+msgid "Storage inventory"
+msgstr ""
+
+#: .\templates\historical_recibed.html:30
+#: .\templates\historical_request.html:30
+#: .\templates\historical_storage.html:30
+#: .\templates\report_frequency_of_change_for_division.html:32
+#: .\templates\report_matriz_ppe_for_bu.html:32
+msgid "Matriz PPE for Business Unit"
+msgstr ""
+
+#: .\templates\historical_recibed.html:31
+#: .\templates\historical_request.html:31
+#: .\templates\historical_storage.html:31
+#: .\templates\report_frequency_of_change_for_division.html:33
+#: .\templates\report_matriz_ppe_for_bu.html:33
+msgid "Frequency of Change EPP"
+msgstr ""
+
+#: .\templates\historical_request.html:4 .\templates\historical_request.html:5
+msgid "Requests Made "
+msgstr ""
+
+#: .\templates\historical_storage.html:5 .\templates\historical_storage.html:6
+msgid "Elements in storage"
+msgstr ""
+
+#: .\templates\historical_storage.html:9 .\views.py:206
+msgid "Storage Elements"
+msgstr ""
+
+#: .\templates\notifications_list.html:6
+#: .\templates\report_frequency_of_change_for_division.html:9
+#: .\templates\report_matriz_ppe_for_bu.html:9
+msgid "Home"
+msgstr ""
+
+#: .\templates\notifications_list.html:7 .\templates\notifications_list.html:42
+msgid "Notifications"
+msgstr ""
+
+#: .\templates\notifications_list.html:8
+msgid "Inbox"
+msgstr ""
+
+#: .\templates\notifications_list.html:10
+msgid "Notifications Inbox"
+msgstr ""
+
+#: .\templates\notifications_list.html:11
+msgid "In this form you Notifications "
+msgstr ""
+
+#: .\templates\notifications_list.html:39
+msgid "FOLDERS"
+msgstr ""
+
+#: .\templates\notifications_list.html:50
+msgid "Success"
+msgstr ""
+
+#: .\templates\notifications_list.html:53
+msgid "Info"
+msgstr ""
+
+#: .\templates\notifications_list.html:55
+msgid "Warning"
+msgstr ""
+
+#: .\templates\notifications_list.html:58
+msgid "Danger"
+msgstr ""
+
+#: .\templates\notifications_list.html:163
+#: .\templates\notifications_list.html:187
+msgid "ago"
+msgstr ""
+
+#: .\templates\notifications_list.html:205
+msgid "notifications"
+msgstr ""
+
+#: .\templates\report_frequency_of_change_for_division.html:4
+msgid "Frequency of change for Divisions "
+msgstr ""
+
+#: .\templates\report_frequency_of_change_for_division.html:5
+msgid "Frequency of change personal protection elements for  Divisions "
+msgstr ""
+
+#: .\templates\report_frequency_of_change_for_division.html:10
+msgid "Frequency of change for Divisions"
+msgstr ""
+
+#: .\templates\report_frequency_of_change_for_division.html:11
+#: .\templates\report_matriz_ppe_for_bu.html:11
+msgid "Data Table"
+msgstr ""
+
+#: .\templates\report_matriz_ppe_for_bu.html:4
+msgid "Matrix of PPE  for Business Units"
+msgstr ""
+
+#: .\templates\report_matriz_ppe_for_bu.html:5
+msgid "Matrix of personal protection elements for Business Units"
+msgstr ""
+
+#: .\templates\report_matriz_ppe_for_bu.html:10
+msgid "Matriz of EPP for Business Units"
+msgstr ""
+
+#: .\views.py:66
+msgid "Photo"
+msgstr ""
+
+#: .\views.py:66 .\views.py:207
+msgid "Supply"
+msgstr ""
+
+#: .\views.py:66
+msgid "Was accepted"
+msgstr ""
+
+#: .\views.py:66 .\views.py:124
+msgid "Observation"
+msgstr ""
+
+#: .\views.py:66
+msgid "Delivered Date"
+msgstr ""
+
+#: .\views.py:66 .\views.py:207
+msgid "Expire Date"
+msgstr ""
+
+#: .\views.py:66
+msgid "Delivered By"
+msgstr ""
+
+#: .\views.py:123
+msgid "My Request Made"
+msgstr ""
+
+#: .\views.py:124
+msgid "Code"
+msgstr ""
+
+#: .\views.py:124
+msgid "Employee"
+msgstr ""
+
+#: .\views.py:124
+msgid "Request Type"
+msgstr ""
+
+#: .\views.py:124
+msgid "Status"
+msgstr ""
+
+#: .\views.py:124 .\views.py:207
+msgid "Location"
+msgstr ""
+
+#: .\views.py:124
+msgid "Create Date"
+msgstr ""
+
+#: .\views.py:207
+msgid "Warehouse"
+msgstr ""
+
+#: .\views.py:207
+msgid "Provider"
+msgstr ""
+
+#: .\views.py:207
+msgid "Invoice"
+msgstr ""
+
+#: .\views.py:207
+msgid "Reason"
+msgstr ""
+
+#: .\views.py:207
+msgid "Date"
+msgstr ""
+
+#: .\views.py:207
+msgid "Size"
+msgstr ""
+
+#: .\views.py:207
+msgid "Brand"
+msgstr ""
+
+#: .\views.py:207
+msgid "Material"
+msgstr ""
+
+#: .\views.py:207
+msgid "Color"
+msgstr ""
+
+#: .\views.py:207 .\views.py:323
+msgid "Total"
+msgstr ""
+
+#: .\views.py:207
+msgid "Storage level"
+msgstr ""
+
+#: .\views.py:227
+msgid "Business Unit"
+msgstr ""
+
+#: .\views.py:233
+msgid "Total Positions"
+msgstr ""
+
+#: .\views.py:297
+msgid "Matrix of personal protection elements"
+msgstr ""
+
+#: .\views.py:318
+msgid "Division"
+msgstr ""
+
+#: .\views.py:327
+msgid "Classication EPP"
+msgstr ""
+
+#: .\views.py:331
+msgid "Equipment EPP"
+msgstr ""
+
+#: .\views.py:335
+msgid "Total EPP"
+msgstr ""
+
+#: .\views.py:339 .\views.py:429
+msgid "Frequency of Change"
+msgstr ""
+
+#: .\views.py:343
+msgid "Annual estimate required"
+msgstr ""

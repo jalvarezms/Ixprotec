@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Home{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'warehouses:warehouse_list'%}">{% blocktrans %}warehouse responsable{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item active"><a href="{% url 'warehouses:add_responsable' storer.warehouse.id %}">{% blocktrans %}add responsable{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item active">{% blocktrans %}Update responsable{% endblocktrans %}</li>
+{% endblock breadcrumb %}
+{% block page_header_title %}{% blocktrans %}warehouse responsable{% endblocktrans %}{% endblock page_header_title %}
+{% block page_header_sm_title %} {% blocktrans %}In this form you can add a wareHouse responsable{% endblocktrans %} {% endblock page_header_sm_title %}
+{% block menu_active_configuration %}<li class="has-sub active">{% endblock menu_active_configuration %}
+{% block menu_warehouses %}							
+<li class="has-sub active">
+	<a ><b class="caret"></b>{% blocktrans %}Warehouses{% endblocktrans %}</a>
+	<ul class="sub-menu">
+		<li class="active"><a href="{% url 'warehouses:warehouse_list'%}">{% blocktrans %}Warehouses{% endblocktrans %}</a></li>
+		<li><a href="{% url 'inventories:list_providers'%}">{% blocktrans %}Providers{% endblocktrans %}</a></li>
+	</ul> 
+</li>
+{% endblock menu_warehouses %}
+{% block content %}
+
+<div class="row">
+    <!-- begin col-6 -->
+    <div class="col-xl-12">
+        <!-- begin panel -->
+        <div class="panel panel-success" data-sortable-id="form-stuff-10">
+            <!-- begin panel-heading -->
+            <div class="panel-heading">
+                <h4 class="panel-title">{% blocktrans %}Update Storer{% endblocktrans %}</h4>
+                <div class="panel-heading-btn">
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                </div>
+            </div>
+            <!-- end panel-heading -->
+            <!-- begin panel-body -->
+            <div class="panel-body">
+                <form method="post" class="form-horizontal">
+                    {% csrf_token %}
+                    <fieldset>
+                        <input type="hidden" name="warehouse_id" value="{{storer.warehouse.id}}">
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-2 ">
+                                <div class="form-group">
+                                    <div id="div_id_warehouse" class="form-group">        
+                                        <label for="id_warehouse" class="">
+                                            {% blocktrans %}Warehouse{% endblocktrans %}
+                                        </label>                                        
+                                            <div class="">
+                                                <select name="warehouse" class="form-control select form-control" id="id_warehouse">
+                                                <option value="{{storer.warehouse.id}}" selected="true">{{storer.warehouse.name}}</option>
+                                                </select>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+                           <div class="col-md-8 col-md-offset-2 ">
+                                <div class="form-group">
+                                   {{form.position| as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-2 col-md-offset-2 switcher switcher-success">
+                                <div class="form-group">
+                                   {{form.grand_input | as_crispy_field }}
+                                </div>
+                            </div>
+                           <div class="col-md-2 col-md-offset-2 switcher switcher-success">
+                                <div class="form-group">
+                                   {{form.grand_output | as_crispy_field }}
+                                </div>
+                            </div>
+                            <div class="col-md-8 col-md-offset-2 switcher switcher-success">
+                                <div class="form-group">
+                                   {{form.status | as_crispy_field }}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="pull-right">                                
+                        <button type="submit" class="btn btn-sm btn-primary m-r-5 ">{% blocktrans %}Save Change{% endblocktrans %}</button>
+                        <a class="btn btn-sm btn-secondary m-r-5  " href="{% url 'warehouses:add_responsable' storer.warehouse.id %}">{% blocktrans %}Cancel{% endblocktrans %}</a>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+        <!-- end panel-body -->
+        
+    </div>
+    <!-- end panel -->
+</div>
+
+</div>
+<!-- end row -->
+
+{% endblock %}
+
+{% block custom_js %}
+	
+
+	<link href="{% static 'plugins/datatables.net-bs4/css/dataTables.bootstrap4.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/datatables.net-responsive-bs4/css/responsive.bootstrap4.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/datatables.net-autofill-bs4/css/autofill.bootstrap4.min.css' %}"rel="stylesheet" />
+	<link href="{% static 'plugins/datatables.net-colreorder-bs4/css/colreorder.bootstrap4.min.css' %}"rel="stylesheet" />
+	<link href="{% static 'plugins/datatables.net-keytable-bs4/css/keytable.bootstrap4.min.css' %}"rel="stylesheet" />
+	<link href="{% static 'plugins/datatables.net-rowreorder-bs4/css/rowreorder.bootstrap4.min.css' %}"rel="stylesheet" />
+	<link href="{% static 'plugins/datatables.net-select-bs4/css/select.bootstrap4.min.css' %}"rel="stylesheet" />
+
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="{% static 'custom_type.js' %}"></script>
+		<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	<script src="{% static 'plugins/datatables.net/js/jquery.dataTables.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-bs4/js/dataTables.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-responsive/js/dataTables.responsive.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-autofill/js/dataTables.autofill.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-autofill-bs4/js/autofill.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-colreorder/js/dataTables.colreorder.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-colreorder-bs4/js/colreorder.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-keytable/js/dataTables.keytable.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-keytable-bs4/js/keytable.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-rowreorder/js/dataTables.rowreorder.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-rowreorder-bs4/js/rowreorder.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-select/js/dataTables.select.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-select-bs4/js/select.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/dataTables.buttons.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/buttons.colVis.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/buttons.flash.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/buttons.html5.min.js' %}"></script>
+	<script src="{% static 'plugins/datatables.net-buttons/js/buttons.print.min.js' %}"></script>
+	<script src="{% static 'plugins/pdfmake/build/pdfmake.min.js' %}"></script>
+	<script src="{% static 'plugins/pdfmake/build/vfs_fonts.js' %}"></script>
+	<script src="{% static 'plugins/jszip/dist/jszip.min.js' %}"></script>
+	<script src="{% static 'js/demo/table-manage-combine.demo.js' %}"></script>
+		<script src="{% static 'plugins/highlight.js/highlight.min.js' %}"></script>
+		<script src="{% static 'js/demo/render.highlight.js' %}"></script>
+	<!-- ================== END PAGE LEVEL JS ================== -->
+	<!-- ================== END PAGE LEVEL JS ================== -->
+{% endblock custom_js %}

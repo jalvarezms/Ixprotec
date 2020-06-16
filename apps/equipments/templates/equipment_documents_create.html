@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load i18n %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Home{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Equipment{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item active">{% blocktrans %}Equipment List{% endblocktrans %}</li>
+{% endblock breadcrumb %}
+{% block page_header_title %}{% blocktrans %}Equipment -  Documents{% endblocktrans %}{% endblock page_header_title %}
+{% block page_header_sm_title %}{% blocktrans %}This is Documents equipment list{% endblocktrans %}{% endblock page_header_sm_title %}
+{% block menu_active_configuration %}<li class="has-sub active">{% endblock menu_active_configuration %}
+{% block menu_equipment %}
+<li class="has-sub active">
+	<a ><b class="caret"></b>{% blocktrans %}Equipments{% endblocktrans %}</a>
+	<ul class="sub-menu">
+		<li class="active"><a href="{% url 'equipments:equipment_list'%}">{% blocktrans %}Equipments{% endblocktrans %}</a></li>
+		<li><a href="{% url 'equipments:supply_list'%}">{% blocktrans %}Supplies{% endblocktrans %}</a></li>
+		<li><a href="{% url 'equipments:perposition_list'%}">{% blocktrans %}Asig. Position{% endblocktrans %}</a></li>
+	</ul> 
+</li>
+{% endblock menu_equipment %}
+{% block content %}
+
+<div class="row">
+<!-- begin col-6 -->
+	<div class="col-xl-12">
+		<!-- begin panel -->
+		<div class="panel panel-success" data-sortable-id="form-stuff-10">
+			<!-- begin panel-heading -->
+			<div class="panel-heading">
+				<h4 class="panel-title">{% blocktrans %}Attachment - Equipment Documents{% endblocktrans %}</h4>
+				<div class="panel-heading-btn">
+					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+					<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+				</div>
+			</div>
+			<!-- end panel-heading -->
+			<!-- begin panel-body -->
+			<div class="panel-body ">      
+			      
+              <!-- begin wrapper -->
+				<div class="wrapper">
+				<div class="row">
+					<div>
+						<ul class="result-list">
+							<li>
+								<a href="#" class="result-image width-250 height-250" style="background-image: url({{ equipments.image.url }})"></a>
+								<div class="result-info">
+									<h1 class=""> <span class="badge badge-info">{{ equipments.code }}</span> {{ equipments.name }}</h2>
+									<p class="desc f-s-14">
+										{{ equipments.description }}
+									</p>
+									<div class="btn-row">
+										<a href="{% url 'equipments:equipment_list' %}" data-toggle="tooltip" data-container="body" data-title="Table list"><i class="fa fa-fw fa-table"></i></a>
+										<a href="{% url 'equipments:equipment_update' equipments.id  %}" data-toggle="tooltip" data-container="body" data-title="Configuration"><i class="fa fa-fw fa-cog"></i></a>
+										<a href="{% url 'equipments:equipment_img_index' equipments.id %}" data-toggle="tooltip" data-container="body" data-title="Images"><i class="fas fa-fw fa-image"></i></a>
+										<a href="{% url 'equipments:equipment_doc_show' equipments.id %}" data-toggle="tooltip" data-container="body" data-title="Documents"><i class="fas fa-fw fa-file"></i></a>
+										<a href="{% url 'equipments:equipment_video_show' equipments.id %}" data-toggle="tooltip" data-container="body" data-title="Links Videos"><i class="fab fa-youtube"></i></a>										
+									</div>
+								</div>								
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div class="row">  
+				  
+					<div class="col-md-12">
+					<div class="m-b-10 f-s-12 m-t-12"><b class="text-inverse">{% blocktrans %}New Attach Documents{% endblocktrans %}</b></div>
+					<div class="panel-body panel-form bg-white">						
+							<form method="post" enctype="multipart/form-data" class="form-horizontal ">
+								 {% csrf_token %}
+								<fieldset>									
+									<div class="row">
+										<div class="col-md-12 col-md-offset-2">
+											<div class="form-group">
+												{{form.title|as_crispy_field }}
+											</div>
+										</div>		
+										<div class="col-md-12 col-md-offset-2">
+											<div class="form-group">
+												{{form.description|as_crispy_field }}
+											</div>
+										</div>					
+										<div class="col-md-12 col-md-offset-1 ">
+											<div class="form-group">
+												{{form.document|as_crispy_field }}
+											</div>
+										</div>
+										<div class="col-md-12 col-md-offset-1 ">
+											<div class="form-group">
+											<input name="equipment_by" id="eq"  type="hidden" value="{{ equipments.id }}">
+											</div>
+										</div>
+									</div> 	
+									<div class="pull-right">								
+										<button type="submit" class="btn btn-sm btn-primary m-r-5 ">{% blocktrans %}Upload{% endblocktrans %}</button>
+										<a class="btn btn-sm btn-secondary m-r-5  " href="{%url 'equipments:equipment_doc_show' equipments.id %}">{% blocktrans %}Cancel{% endblocktrans %}</a>
+									</div>
+								</fieldset>
+							</form>
+						</div>						
+					</div>
+					
+					</div>
+					</div>
+					{% comment %}  row  {% endcomment %}
+					<!-- end wrapper -->
+				<div class='row'>
+				
+					
+				
+									
+				</div>	
+               
+			</div>
+			<!-- end panel-body -->					
+		</div>
+	    <!-- end panel -->
+	</div>
+				
+</div>
+			
+
+
+{% endblock %}
+

@@ -1,0 +1,53 @@
+[
+    {
+      "model": "organizational.position",
+      "pk": 1,
+      "fields": {
+        "company": 1,
+        "code": "2000",
+        "name": "test",
+        "parent": 1,
+        "business_unit": 1,
+        "departament": 1,
+        "cost_center": 2,
+        "status": true,
+        "start_date": "2020-02-01",
+        "create_date": "2020-02-07T20:25:15.943Z",
+        "modified_date": "2020-02-07T20:25:31.368Z"
+      }
+    },
+    {
+      "model": "organizational.position",
+      "pk": 2,
+      "fields": {
+        "company": 2,
+        "code": "3000",
+        "name": "test2",
+        "parent": null,
+        "business_unit": 2,
+        "departament": 3,
+        "cost_center": 3,
+        "status": true,
+        "start_date": "2020-02-13",
+        "create_date": "2020-02-07T20:26:48.544Z",
+        "modified_date": "2020-02-07T20:26:48.544Z"
+      }
+    },
+    {
+      "model": "organizational.position",
+      "pk": 3,
+      "fields": {
+        "company": 3,
+        "code": "4000",
+        "name": "Test3",
+        "parent": null,
+        "business_unit": 2,
+        "departament": 2,
+        "cost_center": 5,
+        "status": true,
+        "start_date": "2020-02-15",
+        "create_date": "2020-02-07T20:27:25.281Z",
+        "modified_date": "2020-02-07T20:27:25.281Z"
+      }
+    }
+  ]

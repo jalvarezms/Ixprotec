@@ -1,0 +1,110 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load i18n %}
+{% block menu_active_sub_warehouse %}					
+	<li class="has-sub active">
+{% endblock menu_active_sub_warehouse %}
+{% block sub_menu_active_inventory %}
+	<li class="has-sub active ">
+{% endblock sub_menu_active_inventory %}
+{% block menu_active_entry %}	<li class="active"><a href="{% url 'inventories:inventory_entry_list'%}">{% blocktrans %}Entry{% endblocktrans %}</a></li>	
+{% endblock menu_active_entry %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Home{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'inventories:inventory_entry_list'%}">{% blocktrans %}Inventory{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item active">{% blocktrans %}Inventory Entry{% endblocktrans %}</li>
+{% endblock breadcrumb %}
+{% block page_header_title %}{% blocktrans %}Inventory Entry{% endblocktrans %}{% endblock page_header_title %}
+{% block page_header_sm_title %} {% blocktrans %}In this form you manage Inventory Entry{% endblocktrans %} {% endblock page_header_sm_title %}
+{% block content %}
+
+<div class="row">
+				<!-- begin col-6 -->
+				<div class="col-xl-12">
+					<!-- begin panel -->
+					<div class="panel panel-success" data-sortable-id="form-stuff-10">
+						<!-- begin panel-heading -->
+						<div class="panel-heading">
+							<h4 class="panel-title">{% blocktrans %}Manage Inventory Entry{% endblocktrans %}</h4>
+							<div class="panel-heading-btn">
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+							</div>
+						</div>
+						<!-- end panel-heading -->
+						<!-- begin panel-body -->
+					<div class="panel-body">
+						<form method="post" class="form-horizontal">
+                                {% csrf_token %}
+								<fieldset>									
+                                        <div class="row">
+                                            <div class="col-md-4 col-md-offset-2">
+                                                <div class="form-group">
+                                                    {{form.warehouse|as_crispy_field }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-md-offset-2 ">
+                                                <div class="form-group">
+                                                    {{form.date_entry|as_crispy_field }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-md-offset-2 ">
+                                                <div class="form-group">
+                                                    <input name="storer" id="id_storer"  type="hidden" value="2">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4 col-md-offset-2">
+                                                <div class="form-group">
+                                                    {{form.provider|as_crispy_field }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-md-offset-2 ">
+                                                <div class="form-group">
+                                                    {{form.bill|as_crispy_field }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-md-offset-2 ">
+                                                <div class="form-group">
+                                                    {{form.reason_movement|as_crispy_field }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-8 col-md-offset-1 ">
+                                                <div class="form-group">
+                                                {{form.observation|as_crispy_field }}
+                                                </div>
+                                            </div>
+                                        </div>    
+                                           
+                                        <div class="pull-right">								
+                                                <button type="submit" class="btn btn-sm btn-primary m-r-5 ">{% blocktrans %}Save{% endblocktrans %}</button>
+                                                <a class="btn btn-sm btn-secondary m-r-5  " href="{% url 'inventories:inventory_entry_list'%}">{% blocktrans %}Cancel{% endblocktrans %}</a>
+                                        </div>
+                                            
+                                        </div>
+								    </fieldset>
+							</form>
+						</div>
+						<!-- end panel-body -->
+						
+					</div>
+					<!-- end panel -->
+				</div>
+				
+</div>
+<!-- end row -->
+    
+    
+{% endblock %}
+
+{% block custom_js %}
+   <script src="{% static 'plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js' %}"></script>
+    <script src="{% static 'js/custom_check_entry.js' %}"></script>
+{% endblock %}

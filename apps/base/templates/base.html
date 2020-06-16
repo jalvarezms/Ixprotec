@@ -1,0 +1,912 @@
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+{% get_current_language as LANGUAGE_CODE %}
+ {% get_language_info_list for LANGUAGES as languages_list %}
+
+<html lang="{{LANGUAGE_CODE}}">
+<head>
+	<meta charset="utf-8" />
+	<title>IXEMA| Dashboard</title>
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="{% static 'css/default/app.min.css' %}" rel="stylesheet" />
+	<!-- ================== END BASE CSS STYLE ================== -->
+	<link href="{% static 'plugins/flag-icon-css/css/flag-icon.min.css' %}" rel="stylesheet" />
+	<!-- ================== BEGIN PAGE LEVEL STYLE ================== -->
+	<!--<link href="{% static 'plugins/jvectormap-next/jquery-jvectormap.css'  %}" rel="stylesheet" />
+	<link href="{% static 'plugins/bootstrap-datepicker/dist/css/bootstrap-datepicker.css' %}" rel="stylesheet" />
+	<link href="{% static 'plugins/gritter/css/jquery.gritter.css' %}" rel="stylesheet" />-->
+	<!-- ================== END PAGE LEVEL STYLE ================== -->
+	{% block custom_css %}
+	
+	{% endblock custom_css %}
+
+</head>
+<body >
+	<!-- begin #page-loader -->
+	<div id="page-loader" class="fade show">
+		<span class="spinner"></span>
+	</div>
+	<div class="page-cover-img">
+	</div>
+	<!-- end #page-loader -->
+	
+	<!-- begin #page-container -->
+	<div id="page-container" class="fade page-sidebar-fixed page-header-fixed">
+		<!-- begin #header -->
+		<div id="header" class="header navbar-default">
+			<!-- begin navbar-header -->
+			<div class="navbar-header">
+				<a href="index.html" class="navbar-brand"><span class="navbar-logo"></span> <b>{% blocktrans %}IXEMA{% endblocktrans %}</b></a>
+				<button type="button" class="navbar-toggle" data-click="sidebar-toggled">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<!-- end navbar-header --><!-- begin header-nav -->
+			<ul class="navbar-nav navbar-right">
+				<li class="navbar-form">
+					<form action="" method="POST" name="search">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Enter keyword" />
+							<button type="submit" class="btn btn-search"><i class="fa fa-search"></i></button>
+						</div>
+					</form>
+				</li>
+				<li class="dropdown">
+					<a href="#" data-toggle="dropdown" class="dropdown-toggle f-s-14">
+						<i class="fa fa-bell"></i>
+						<span class="label">{{request.user.notifications.unread.count}} </span>
+					</a>
+					<div class="dropdown-menu media-list dropdown-menu-right" >					
+						<div class="dropdown-header">{% blocktrans %}NOTIFICATIONS{% endblocktrans %} ( {{request.user.notifications.unread.count}} )</div>
+						<div data-scrollbar="true" data-height="300px">
+							{% for notify in request.user.notifications.unread %}
+							<a href="{% url 'base:notification_view' notify.id %}" class="dropdown-item media">
+								<div class="media-left">
+									<i class="fa fa-envelope media-object bg-silver-darker"></i>
+								</div>
+								<div class="media-body">
+									<h6 class="media-heading">{{ notify.verb|truncatechars:40  }}<i class="fa fa-exclamation-circle text-{{ notify.level}}"></i></h6>
+									<p>{{ notify.description }}.</p>
+									<div class="text-muted f-s-10"> by {{ notify.recipient.username}} - {{ notify.timesince}} {% blocktrans %}ago{% endblocktrans %}</div>
+								</div>
+							</a>
+							{% endfor %}
+						</div>
+						<div class="dropdown-footer text-center">
+							<a href="{% url 'reports:notification_list'%}">{% blocktrans %}View more{% endblocktrans %}</a>
+						</div>
+					</div>
+				</li>
+				<li class="dropdown navbar-language">
+					<a href="#" class="dropdown-toggle pr-1 pl-1 pr-sm-3 pl-sm-3" data-toggle="dropdown">
+						<span class="flag-icon flag-icon-{% if LANGUAGE_CODE == 'en' %}us{% else %}{{ LANGUAGE_CODE}}{% endif %}" title=""></span>
+						<span class="name d-none d-sm-inline"><b>{{LANGUAGE_CODE|upper }}</b></span> <b class="caret"></b>
+					</a>
+					<div class="dropdown-menu">
+						<form action="/i18n/setlang/" method="post" name="head_form_setlang">
+							{% csrf_token %}
+								<input name="next" type="hidden" value="{{ redirect_to }}" />
+								<input name="language" id='set_language' type="hidden" value="" />
+									{% get_current_language as LANGUAGE_CODE %}
+									{% get_available_languages as LANGUAGES %}
+										{% for lang in LANGUAGES %}							
+											<a href="javascript:set_language_js('{{ lang.0 }}');"  value="{{ lang.0 }}" class="dropdown-item">
+											<span class="flag-icon flag-icon-{% if lang.0 == 'en' %}us{% else %}{{ lang.0 }}{% endif %}" title="{{ lang.1 }}"></span> {{ lang.1 }} ({{ lang.0 }})</a>
+										{% endfor %}							
+						</form>
+					</div>
+				</li>
+				<li class="dropdown navbar-user">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+						<img src="{{request.user.employee.photo.url}}" alt="" />
+						<span class="d-none d-md-inline"><b>{{request.user.employee.get_short_name| title}}</span></b> <b class="caret"></b>
+					</a>
+					<div class="dropdown-menu dropdown-menu-right">
+						<a href="javascript:;" class="dropdown-item"> {% blocktrans %}Profile{% endblocktrans %}</a>
+						<div class="dropdown-divider"></div>
+						<a href="{% url 'authenticate:logout' %}" class="dropdown-item">{% blocktrans %}Log Out{% endblocktrans %}</a>
+					</div>
+				</li>
+			</ul>
+			<!-- end header-nav -->
+		</div>
+		<!-- end #header -->
+		
+		<!-- begin #sidebar -->
+		<div id="sidebar" class="sidebar">
+			<!-- begin sidebar scrollbar -->
+			<div data-scrollbar="true" data-height="100%">
+				<!-- begin sidebar user -->
+				<ul class="nav">
+					<li class="nav-profile">
+						<a href="javascript:;" data-toggle="nav-profile">
+							<div class="cover with-shadow"></div>
+							<div class="media media-sm ">
+								<img class="media-object rounded-corner" src="{{request.user.employee.photo.url}}" alt=""  style="position: relative;"/>
+							</div>
+							<div class="info">
+								<b class="caret pull-right"></b>{{request.user.employee.get_short_name| title}}
+								<small>{{request.user.employee.get_postion| title}}</small>
+								
+							</div>
+						</a>
+					</li>
+					<li>
+						<ul class="nav nav-profile">
+							
+							<li><a href="javascript:;"><i class="fa fa-question-circle"></i> {% blocktrans %}Helps{% endblocktrans %}</a></li>
+						</ul>
+					</li>
+				</ul>
+				<!-- end sidebar user -->
+				<!-- begin sidebar nav -->
+				<ul class="nav"><li class="nav-header">{% blocktrans %}Navigation{% endblocktrans %}</li>
+					{% block sidebar_nav %}		
+
+					{% block menu_active_Dashboard %}
+					<li class="has-sub ">
+					{% endblock menu_active_Dashboard %}
+							<a href="{% url 'base:index'%}">									
+								<i class="fa fa-home"></i>
+								<span>{% blocktrans %}Dashboard{% endblocktrans %}</span>
+							</a>							
+					</li>
+					{% block menu_active_Profile %}
+					<li class="has-sub ">
+					{% endblock menu_active_Profile %}
+						<a href="javascript:;">
+							<b class="caret"></b>
+							<i class="fa fa-fw fa-user"></i>
+							<span>{% blocktrans %}Profile{% endblocktrans %}</span>
+						</a>
+						{% block menu_Mydata %}
+						<ul class="sub-menu">
+							<li><a href="{% url 'employees:my_data'%}">{% blocktrans %}My Protection{% endblocktrans %}</a></li>
+							<li><a href="{% url 'employees:configure_sizes_list'%}">{% blocktrans %}Size Settings{% endblocktrans %}</a></li>
+							<li><a href="{% url 'employees:delivered_list'%}">{% blocktrans %}My Dispatch Supplies{% endblocktrans %}</a></li>
+						</ul> 
+						{% endblock menu_Mydata %}		
+					</li>
+					{% block menu_active_Reports %}	
+					<li class="has-sub ">
+					{% endblock menu_active_Reports %}
+						<a href="javascript:;">
+							<b class="caret"></b>
+							<i class="fa fa-fw fa-chart-line"></i>
+							<span>{% blocktrans %}Reports{% endblocktrans %}</span>
+						</a>
+						{% block menu_Reports %}
+						<ul class="sub-menu active">
+							<li ><a href="{% url 'reports:Historic_recibed'%}">{% blocktrans %}Items Delivery{% endblocktrans %}</a></li>
+							<li ><a href="{% url 'reports:Historic_request'%}">{% blocktrans %}Requests Made{% endblocktrans %}</a></li>
+							<li><a href="{% url 'reports:Historic_inventory'%}">{% blocktrans %}Storage inventory{% endblocktrans %}</a></li>
+							<li><a href="{% url 'reports:report_matriz_ppe'%}">{% blocktrans %}Matriz PPE for Business Unit{% endblocktrans %}</a></li>
+							<li><a href="{% url 'reports:report_frequency_change_epp'%}">{% blocktrans %}Frequency of Change EPP{% endblocktrans %}</a></li>
+							
+						</ul> 
+						{% endblock menu_Reports %}		
+					</li>
+					{% block menu_active_publications %}
+					<li class="has-sub ">					
+							<a href="{% url 'publications:list_news'%}">									
+								<i class="far fa-comment-alt"></i>
+								<span>{% blocktrans %}Publications{% endblocktrans %}</span>
+							</a>							
+					</li>
+					{% endblock menu_active_publications %}
+					{% block menu_active_configuration %}
+						<li class="has-sub ">
+					{% endblock menu_active_configuration %}					
+						<a href="javascript:;">
+							<b class="caret"></b>
+							<i class="fa fa-fw fa-cog"></i>
+							<span>{% blocktrans %}Configurations{% endblocktrans %}</span>
+						</a>
+						<ul class="sub-menu">
+							{% block menu_element %}
+							<li class="has-sub ">
+								<a ><b class="caret"></b> {% blocktrans %}Elements{% endblocktrans %}</a>
+								<ul class="sub-menu">
+									<li><a href="{% url 'elements:type_list'%}">{% blocktrans %}Element Type{% endblocktrans %}</a></li>
+									<li><a href="{% url 'elements:classification_list'%}">{% blocktrans %}Element Class{% endblocktrans %}</a></li>
+								</ul> 
+							</li>
+							{% endblock %}
+							{% block menu_size %}
+							<li class="has-sub ">
+								<a ><b class="caret"></b>{% blocktrans %}Sizes{% endblocktrans %}</a>
+								<ul class="sub-menu">
+									<li><a href="{% url 'sizes:body_area_list'%}">{% blocktrans %}Body Area{% endblocktrans %}</a></li>
+									<li><a href="{% url 'sizes:body_size_list'%}">{% blocktrans %}Sizes{% endblocktrans %}</a></li>
+								</ul> 
+							</li>
+							{% endblock menu_size %}
+							{% block menu_request_type %}														
+							<li><a href="{% url 'requests:request_type_list'%}">{% blocktrans %}Requests{% endblocktrans %}</a></li>
+							{% endblock menu_request_type %}
+							{% block menu_equipment %}
+							<li class="has-sub ">
+								<a ><b class="caret"></b>{% blocktrans %}Equipments{% endblocktrans %}</a>
+								<ul class="sub-menu">
+									<li><a href="{% url 'equipments:equipment_list'%}">{% blocktrans %}Equipments{% endblocktrans %}</a></li>
+									<li><a href="{% url 'equipments:supply_list'%}">{% blocktrans %}Supplies{% endblocktrans %}</a></li>
+									<li><a href="{% url 'equipments:perposition_list'%}">{% blocktrans %}Asig. Position{% endblocktrans %}</a></li>
+								</ul> 
+							</li>
+							{% endblock menu_equipment %}
+							{% block menu_warehouses %}							
+							<li class="has-sub ">
+								<a ><b class="caret"></b>{% blocktrans %}Warehouses{% endblocktrans %}</a>
+								<ul class="sub-menu">
+									<li><a href="{% url 'warehouses:warehouse_list'%}">{% blocktrans %}Warehouses{% endblocktrans %}</a></li>
+									<li><a href="{% url 'inventories:list_providers'%}">{% blocktrans %}Providers{% endblocktrans %}</a></li>
+								</ul> 
+							</li>
+							{% endblock menu_warehouses %}							
+						</ul>
+					</li>
+					{% block menu_active_sub_requests %}
+					<li class="has-sub">					
+					{% endblock menu_active_sub_requests %}
+						<a href="javascript:;">			
+						   	<i class="fas fa-file"></i>							
+							<b class="caret"></b>
+							<span>{% blocktrans %}Requests{% endblocktrans %}</span>
+						</a>
+						{% block menu_request %}
+						<ul class="sub-menu">
+							<li><a href="{% url 'requests:supplies_request'%}">{% blocktrans %}My Requests{% endblocktrans %}</a></li>
+							<li><a href="{% url 'requests:manage_request_list' %}">{% blocktrans %}Manage Approval{% endblocktrans %} </a></li>
+							<li><a href="{% url 'requests:my_delivered' %}">{% blocktrans %} My Delivered {% endblocktrans %}</a></li>
+						</ul>						
+						{% endblock menu_request %}
+					</li>
+					{% block menu_active_sub_warehouse %}					
+					<li class="has-sub">
+					{% endblock menu_active_sub_warehouse %}
+						<a href="javascript:;"> 
+							<b class="caret"></b>
+							<i class="fa fa-warehouse"></i>
+							<span>{% blocktrans %}Warehouses{% endblocktrans %}</span> 
+						</a>
+						<ul class="sub-menu">
+						{% block sub_menu_active_inventory %}
+							<li class="has-sub ">						
+						{% endblock sub_menu_active_inventory %}		
+									<a ><b class="caret"></b> {% blocktrans %}Inventory{% endblocktrans %}</a>
+								<ul class="sub-menu">
+									{% block menu_active_entry %}
+										<li><a href="{% url 'inventories:inventory_entry_list'%}">{% blocktrans %}Entries{% endblocktrans %}</a></li>	
+									{% endblock menu_active_entry %}
+									{% block menu_active_inventory_total %}
+										<li><a href="{% url 'inventories:inventory_supply_list' 0 0 %}">{% blocktrans %}Inventory Levels{% endblocktrans %}</a></li>
+									{% endblock menu_active_inventory_total %}
+									{% block menu_active_inventory_movement %}
+									<li><a href="{% url 'inventories:inventory_movement_list' 0 0 %}">{% blocktrans %}Movements{% endblocktrans %}</a></li>
+									{% endblock menu_active_inventory_movement %}
+								</ul> 
+							</li>							
+							{% block menu_active_out %}	
+							<li class="has-sub">
+								<a href="javascript:;">	<b class="caret"></b>{% blocktrans %}Delivery{% endblocktrans %}</a>
+								<ul class="sub-menu">
+									<li><a href="{% url 'inventories:inventory_output_list'%}">{% blocktrans %}Pending Request{% endblocktrans %}</a></li>
+									<li><a href="{% url 'inventories:inventory_output_completed'%}">{% blocktrans %}Completed Request{% endblocktrans %}</a></li>
+								</ul>
+							</li>
+							{% endblock menu_active_out %}						
+						</ul>
+					</li>
+					{% block menu_active_inspections %}
+					<li class="has-sub">
+					{% endblock menu_active_inspections %}
+						<a href="javascript:;">			
+						   	<i class="fas fa-search"></i>							
+							<b class="caret"></b>
+							<span>{% blocktrans %}Inspection{% endblocktrans %}</span>
+						</a>
+						{% block menu_inspections %}
+						<ul class="sub-menu">
+							<li><a href="{% url 'assignments:inspection_list'%}">{% blocktrans %}Make an Inspection{% endblocktrans %}</a></li>
+						</ul>
+						{% endblock menu_inspections %}
+					</li>	
+					
+					<!-- begin sidebar minify button -->
+					<li><a href="javascript:;" class="sidebar-minify-btn" data-click="sidebar-minify"><i class="fa fa-angle-double-left"></i></a></li>
+					<!-- end sidebar minify button -->
+					{% endblock sidebar_nav %}
+				</ul>
+				<!-- end sidebar nav -->				
+					
+			</div>
+			<!-- end sidebar scrollbar -->
+		</div>
+		<div class="sidebar-bg"></div>
+		<!-- end #sidebar -->
+	
+		<!-- begin #content -->
+		<div id="content" class="content content_bgs" >
+		
+			<!-- begin breadcrumb -->
+			<ol class="breadcrumb float-xl-right">
+				{% block breadcrumb %}
+					<li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Home{% endblocktrans %}</a></li>
+					<li class="breadcrumb-item active">{% blocktrans %}Dashboard{% endblocktrans %}</li>
+				{% endblock breadcrumb %}				
+			</ol>
+			<!-- end breadcrumb -->
+			<!-- begin page-header -->
+			<h1 class="page-header"> {% block page_header_title %}{% blocktrans %}Dashboard{% endblocktrans %}{% endblock page_header_title %} <small> {% block page_header_sm_title %}{% blocktrans %}Platform cockpit{% endblocktrans %}{% endblock page_header_sm_title %} </small></h1>
+			<!-- end page-header -->
+				{% block content %}		
+				
+			<!-- begin row -->
+			<div class="row">				
+				<!-- begin col-3 -->
+				<div class="col-xl-3 col-md-6">
+					<div class="widget widget-stats bg-blue">
+						<div class="stats-icon"><i class="fa fa-desktop"></i></div>
+						<div class="stats-info">
+							<h4>AVERAGE OF ELEMENTS ASIGNED TO POSITIONS</h4>
+							<p>80%</p>	
+						</div>
+						<div class="stats-link">
+							<a href="javascript:;">View Detail <i class="fa fa-arrow-alt-circle-right"></i></a>
+						</div>
+					</div>
+				</div>
+				<!-- end col-3 -->
+				<!-- begin col-3 -->
+				<div class="col-xl-3 col-md-6">
+					<div class="widget widget-stats bg-info">
+						<div class="stats-icon"><i class="fa fa-link"></i></div>
+						<div class="stats-info">
+							<h4>AVAILABLE STOCK IN PERCENTAGE</h4>
+							<p>20.44%</p>	
+						</div>
+						<div class="stats-link">
+							<a href="javascript:;">View Detail <i class="fa fa-arrow-alt-circle-right"></i></a>
+						</div>
+					</div>
+				</div>
+				<!-- end col-3 -->
+				<!-- begin col-3 -->
+				<div class="col-xl-3 col-md-6">
+					<div class="widget widget-stats bg-orange">
+						<div class="stats-icon"><i class="fa fa-users"></i></div>
+						<div class="stats-info">
+							<h4>LAST MONTH DELIVERS</h4>
+							<p>1,291,922</p>	
+						</div>
+						<div class="stats-link">
+							<a href="javascript:;">View Detail <i class="fa fa-arrow-alt-circle-right"></i></a>
+						</div>
+					</div>
+				</div>
+				<!-- end col-3 -->
+				<!-- begin col-3 -->
+				<div class="col-xl-3 col-md-6">
+					<div class="widget widget-stats bg-red">
+						<div class="stats-icon"><i class="fa fa-clock"></i></div>
+						<div class="stats-info">
+							<h4>AVERAGE ATTENTION TIME</h4>
+							<p>00:12:23</p>	
+						</div>
+						<div class="stats-link">
+							<a href="javascript:;">View Detail <i class="fa fa-arrow-alt-circle-right"></i></a>
+						</div>
+					</div>
+				</div>
+				<!-- end col-3 -->
+			</div>
+			<!-- end row -->
+			<!-- begin row -->
+			<div class="row">
+				<!-- begin col-8 -->
+				<div class="col-xl-8">
+					<!-- begin panel -->
+					<div class="panel panel-success" data-sortable-id="index-1">
+						<div class="panel-heading">
+							<h4 class="panel-title">Storage Analytics (Last 7 Days)</h4>
+
+						</div>
+						<div class="panel-body pr-1">
+							<div id="interactive-chart" class="height-sm"></div>
+						</div>
+					</div>
+					<!-- end panel -->
+					
+					<!-- begin tabs -->
+					<ul class="nav nav-tabs nav-tabs-inverse nav-justified nav-justified-mobile" data-sortable-id="index-2">
+						<li class="nav-item"><a href="#latest-post" data-toggle="tab" class="nav-link active"><i class="fa fa-camera fa-lg m-r-5"></i> <span class="d-none d-md-inline">Latest Requirements</span></a></li>
+						<li class="nav-item"><a href="#purchase" data-toggle="tab" class="nav-link"><i class="fa fa-archive fa-lg m-r-5"></i> <span class="d-none d-md-inline">Purchase Orders</span></a></li>
+						<li class="nav-item"><a href="#email" data-toggle="tab" class="nav-link"><i class="fa fa-envelope fa-lg m-r-5"></i> <span class="d-none d-md-inline">Email</span></a></li>
+					</ul>
+					<div class="tab-content" data-sortable-id="index-3">
+						<div class="tab-pane fade active show" id="latest-post">
+							<div class="height-sm" data-scrollbar="true">
+								<ul class="media-list media-list-with-divider">
+
+									<li class="media media-lg">
+										<a href="javascript:;" class="pull-left">
+											<img class="media-object rounded" src="{% static 'img/gallery/gallery-8.jpg' %}%" alt="" />
+										</a>
+										<div class="media-body">
+											<h5 class="media-heading">Special seat for clerk with back issues</h5>
+											Physical job demands, poor supervisory support and job dissatisfaction may contribute to back pain, and an early diagnosis and intervention can be key to a full recovery.
+										</div>
+									</li>
+
+									<li class="media media-lg">
+										<a href="javascript:;" class="pull-left">
+											<img class="media-object rounded" src="{% static 'img/gallery/gallery-10.jpg' %}" alt="" />
+										</a>
+										<div class="media-body">
+											<h5 class="media-heading">Earing protection.</h5>
+											Middle and inner ear. Acute or chronic otitis media, cholesteatoma, or history of any inner or middle ear surgery excluding myringotomy or successful tympanoplasty.
+										</div>
+									</li>
+									<li class="media media-lg">
+										<a href="javascript:;" class="pull-left">
+											<img class="media-object rounded" src="{% static 'img/gallery/gallery-7.jpg' %}%" alt="" />
+										</a>
+										<div class="media-body">
+											<h5 class="media-heading">Safety Shoes.</h5>
+											is for protective footwear. Protective footwear must be fitted with toe caps and withstand impacts of 100K and compressions of at least 10 kilo newtons..
+										</div>
+									</li>
+
+
+									<li class="media media-lg">
+										<a href="javascript:;" class="pull-left">
+											<img class="media-object rounded" src="{% static 'img/gallery/gallery-1.jpg' %}" alt="" />
+										</a>
+										<div class="media-body">
+											<h5 class="media-heading">Mouth protection</h5>
+											Diseases of the jaw or associated tissues which are not easily remediable, and will incapacitate the individual or otherwise prevent the satisfactory performance of duty. This includes temporomandibular disorders and/or myofascial pain dysfunction that is not easily corrected or has the potential for significant future problems with pain and function
+										</div>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="purchase">
+							<div class="height-sm" data-scrollbar="true">
+								<table class="table">
+									<thead>
+										<tr>
+											<th>Date</th>
+											<th class="hidden-sm text-center">Product</th>
+											<th></th>
+											<th>Amount</th>
+											<th>User</th>
+										</tr>
+									</thead>
+									<tbody>
+										<tr>
+											<td class="f-w-600 text-muted">13/02/2013</td>
+											<td class="hidden-sm text-center">
+												<a href="javascript:;">
+													<img src="{% static 'img/product/product-1.png'%}" alt="" width="32px"  />
+												</a>
+											</td>
+											<td class="text-nowrap">
+												<h6><a href="javascript:;" class="text-inverse">Head protection <br />Face Shields.</a></h6>
+											</td>
+											<td class="text-blue f-w-600">$349.00</td>
+											<td class="text-nowrap"><a href="javascript:;" class="text-inverse">Derick Wong</a></td>
+										</tr>
+										<tr>
+											<td class="f-w-600 text-muted">13/02/2013</td>
+											<td class="hidden-sm text-center">
+												<a href="javascript:;">
+													<img src="{% static 'img/product/product-2.png' %}" alt="" width="32px" />
+												</a>
+											</td>
+											<td class="text-nowrap">
+												<h6><a href="javascript:;" class="text-inverse">Head protection <br />Safety Helmet</a></h6>
+											</td>
+											<td class="text-blue f-w-600">$399.00</td>
+											<td class="text-nowrap"><a href="javascript:;" class="text-inverse">Derick Wong</a></td>
+										</tr>
+										<tr>
+											<td class="f-w-600 text-muted">13/02/2013</td>
+											<td class="hidden-sm text-center">
+												<a href="javascript:;">
+													<img src="{% static 'img/product/product-3.png' %}" alt="" width="32px" />
+												</a>
+											</td>
+											<td class="text-nowrap">
+												<h6><a href="javascript:;" class="text-inverse">Head protection <br />Auto Darkening</a></h6>
+											</td>
+											<td class="text-blue f-w-600">$499.00</td>
+											<td class="text-nowrap"><a href="javascript:;" class="text-inverse">Derick Wong</a></td>
+										</tr>
+										<tr>
+											<td class="f-w-600 text-muted">13/02/2013</td>
+											<td class="hidden-sm text-center">
+												<a href="javascript:;">
+													<img src="{% static 'img/product/product-4.png' %}" alt="" width="32px" />
+												</a>
+											</td>
+											<td class="text-nowrap">
+												<h6><a href="javascript:;" class="text-inverse">Head protection <br />Welding Helmets</a></h6>
+											</td>
+											<td class="text-blue f-w-600">$230.00</td>
+											<td class="text-nowrap"><a href="javascript:;" class="text-inverse">Derick Wong</a></td>
+										</tr>
+										<tr>
+											<td class="f-w-600 text-muted">13/02/2013</td>
+											<td class="hidden-sm text-center">
+												<a href="javascript:;">
+													<img src="{% static 'img/product/product-5.png' %}" alt="" width="32px" />
+												</a>
+											</td>
+											<td class="text-nowrap">
+												<h6><a href="javascript:;" class="text-inverse">Head protection <br />Welding Handshield</a></h6>
+											</td>
+											<td class="text-blue f-w-600">$500.00</td>
+											<td class="text-nowrap"><a href="javascript:;" class="text-inverse">Derick Wong</a></td>
+										</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="tab-pane fade" id="email">
+							<div class="height-sm" data-scrollbar="true">
+								<ul class="media-list media-list-with-divider">
+									<li class="media media-sm">
+										<a href="javascript:;" class="pull-left">
+											<img src="{% static 'img/user/user-1.jpg' %}" alt="" class="media-object rounded-corner" />
+										</a>
+										<div class="media-body">
+											<a href="javascript:;" class="text-inverse"><h5 class="media-heading">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</h5></a>
+											<p class="m-b-5">
+												Aenean mollis arcu sed turpis accumsan dignissim. Etiam vel tortor at risus tristique convallis. Donec adipiscing euismod arcu id euismod. Suspendisse potenti. Aliquam lacinia sapien ac urna placerat, eu interdum mauris viverra.
+											</p>
+											<span class="text-muted f-s-11 f-w-600">Received on 04/16/2013, 12.39pm</span>
+										</div>
+									</li>
+									<li class="media media-sm">
+										<a href="javascript:;" class="pull-left">
+											<img src="{% static 'img/user/user-2.jpg' %}" alt="" class="media-object rounded-corner" />
+										</a>
+										<div class="media-body">
+											<a href="javascript:;" class="text-inverse"><h5 class="media-heading">Praesent et sem porta leo tempus tincidunt eleifend et arcu.</h5></a>
+											<p class="m-b-5">
+												Proin adipiscing dui nulla. Duis pharetra vel sem ac adipiscing. Vestibulum ut porta leo. Pellentesque orci neque, tempor ornare purus nec, fringilla venenatis elit. Duis at est non nisl dapibus lacinia.
+											</p>
+											<span class="text-muted f-s-11 f-w-600">Received on 04/16/2013, 12.39pm</span>
+										</div>
+									</li>
+									<li class="media media-sm">
+										<a href="javascript:;" class="pull-left">
+											<img src="{% static 'img/user/user-3.jpg' %}" alt="" class="media-object rounded-corner" />
+										</a>
+										<div class="media-body">
+											<a href="javascript:;" class="text-inverse"><h5 class="media-heading">Ut mi eros, varius nec mi vel, consectetur convallis diam.</h5></a>
+											<p class="m-b-5">
+												Ut mi eros, varius nec mi vel, consectetur convallis diam. Nullam eget hendrerit eros. Duis lacinia condimentum justo at ultrices. Phasellus sapien arcu, fringilla eu pulvinar id, mattis quis mauris.
+											</p>
+											<span class="text-muted f-s-11 f-w-600">Received on 04/16/2013, 12.39pm</span>
+										</div>
+									</li>
+									<li class="media media-sm">
+										<a href="javascript:;" class="pull-left">
+											<img src="{% static 'img/user/user-4.jpg '%}" alt="" class="media-object rounded-corner" />
+										</a>
+										<div class="media-body">
+											<a href="javascript:;" class="text-inverse"><h5 class="media-heading">Aliquam nec dolor vel nisl dictum ullamcorper.</h5></a>
+											<p class="m-b-5">
+												Aliquam nec dolor vel nisl dictum ullamcorper. Duis vel magna enim. Aenean volutpat a dui vitae pulvinar. Nullam ligula mauris, dictum eu ullamcorper quis, lacinia nec mauris.
+											</p>
+											<span class="text-muted f-s-11 f-w-600">Received on 04/16/2013, 12.39pm</span>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<!-- end tabs -->
+					
+					<!-- begin panel -->
+					<div class="panel panel-success" data-sortable-id="index-4">
+						<div class="panel-heading">
+							<h4 class="panel-title">Quick Post</h4>
+							<div class="panel-heading-btn">
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+							</div>
+						</div>
+						<div class="panel-toolbar">
+							<div class="btn-group m-r-5">
+								<a class="btn btn-white" href="javascript:;"><i class="fa fa-bold"></i></a>
+								<a class="btn btn-white active" href="javascript:;"><i class="fa fa-italic"></i></a>
+								<a class="btn btn-white" href="javascript:;"><i class="fa fa-underline"></i></a>
+							</div>
+							<div class="btn-group">
+								<a class="btn btn-white" href="javascript:;"><i class="fa fa-align-left"></i></a>
+								<a class="btn btn-white active" href="javascript:;"><i class="fa fa-align-center"></i></a>
+								<a class="btn btn-white" href="javascript:;"><i class="fa fa-align-right"></i></a>
+								<a class="btn btn-white" href="javascript:;"><i class="fa fa-align-justify"></i></a>
+							</div>
+						</div>
+						<textarea class="form-control rounded-0 bg-light p-15" rows="14">Enter some comment.</textarea>
+						<div class="panel-footer text-right">
+							<a href="javascript:;" class="btn btn-white btn-sm">Cancel</a>
+							<a href="javascript:;" class="btn btn-primary btn-sm m-l-5">Action</a>
+						</div>
+					</div>
+					<!-- end panel -->
+                    
+					<!-- begin panel -->
+					<div class="panel panel-success" data-sortable-id="index-5">
+						<div class="panel-heading">
+							<h4 class="panel-title">Message</h4>
+						</div>
+						<div class="panel-body">
+							<div class="height-sm" data-scrollbar="true">
+								<ul class="media-list media-list-with-divider media-messaging">
+									<li class="media media-sm">
+										<a href="javascript:;" class="pull-left">
+											<img src="{% static 'img/user/user-5.jpg' %}" alt="" class="media-object rounded-corner" />
+										</a>
+										<div class="media-body">
+											<h5 class="media-heading">John Doe</h5>
+											<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id nunc non eros fermentum vestibulum ut id felis. Nunc molestie libero eget urna aliquet, vitae laoreet felis ultricies. Fusce sit amet massa malesuada, tincidunt augue vitae, gravida felis.</p>
+										</div>
+									</li>
+									<li class="media media-sm">
+										<a href="javascript:;" class="pull-left">
+											<img src="{% static 'img/user/user-6.jpg' %}" alt="" class="media-object rounded-corner" />
+										</a>
+										<div class="media-body">
+											<h5 class="media-heading">Terry Ng</h5>
+											<p>Sed in ante vel ipsum tristique euismod posuere eget nulla. Quisque ante sem, scelerisque iaculis interdum quis, eleifend id mi. Fusce congue leo nec mauris malesuada, id scelerisque sapien ultricies.</p>
+										</div>
+									</li>
+									<li class="media media-sm">
+										<a href="javascript:;" class="pull-left">
+											<img src="{% static '/img/user/user-8.jpg' %}" alt="" class="media-object rounded-corner" />
+										</a>
+										<div class="media-body">
+											<h5 class="media-heading">Fiona Log</h5>
+											<p>Pellentesque dictum in tortor ac blandit. Nulla rutrum eu leo vulputate ornare. Nulla a semper mi, ac lacinia sapien. Sed volutpat ornare eros, vel semper sem sagittis in. Quisque risus ipsum, iaculis quis cursus eu, tristique sed nulla.</p>
+										</div>
+									</li>
+									<li class="media media-sm">
+										<a href="javascript:;" class="pull-left">
+											<img src="{% static 'img/user/user-7.jpg' %}" alt="" class="media-object rounded-corner" />
+										</a>
+										<div class="media-body">
+											<h5 class="media-heading">John Doe</h5>
+											<p>Morbi molestie lorem quis accumsan elementum. Morbi condimentum nisl iaculis, laoreet risus sed, porta neque. Proin mi leo, dapibus at ligula a, aliquam consectetur metus.</p>
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="panel-footer">
+							<form>
+								<div class="input-group">
+									<input type="text" class="form-control bg-light" placeholder="Enter message" />
+									<span class="input-group-append">
+										<button class="btn btn-primary" type="button"><i class="fa fa-pencil-alt"></i></button>
+									</span>
+								</div>
+							</form>
+						</div>
+					</div>
+					<!-- end panel -->
+				</div>
+				<!-- end col-8 -->
+				<!-- begin col-4 -->
+				<div class="col-xl-4">
+					<!-- begin panel -->
+					<div class="panel panel-success" data-sortable-id="index-6">
+						<div class="panel-heading">
+							<h4 class="panel-title">Top elements </h4>
+						</div>
+						<div class="table-responsive">
+							<table class="table table-valign-middle table-panel mb-0">
+								<thead>
+									<tr>	
+										<th>Element</th>
+										<th>Amount required</th>
+										<th>Trend</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td><label class="label label-danger">Dielectric Boots</label></td>
+										<td>13,203 <span class="text-success"><i class="fa fa-arrow-up"></i></span></td>
+										<td><div id="sparkline-unique-visitor"></div></td>
+									</tr>
+									<tr>
+										<td><label class="label label-warning">Gloves</label></td>
+										<td>28.2%</td>
+										<td><div id="sparkline-bounce-rate"></div></td>
+									</tr>
+									<tr>
+										<td><label class="label label-success">Quirurgic mask</label></td>
+										<td>1,230,030</td>
+										<td><div id="sparkline-total-page-views"></div></td>
+									</tr>
+									<tr>
+										<td><label class="label label-primary">Overalls</label></td>
+										<td>1,250,030</td>
+										<td><div id="sparkline-avg-time-on-site"></div></td>
+									</tr>
+									<tr>
+										<td><label class="label label-default">Glasses</label></td>
+										<td>1,260,030</td>
+										<td><div id="sparkline-new-visits"></div></td>
+									</tr>
+									<tr>
+										<td><label class="label label-inverse">Cover ears</label></td>
+										<td>73.4%</td>
+										<td><div id="sparkline-return-visitors"></div></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<!-- end panel -->
+					
+					<!-- begin panel -->
+					<div class="panel panel-success" data-sortable-id="index-7">
+						<div class="panel-heading">
+							<h4 class="panel-title">Warehouse equipments distribution</h4>
+						</div>
+						<div class="panel-body">
+							<div id="donut-chart" class="height-sm"></div>
+						</div>
+					</div>
+					<!-- end panel -->
+					
+					<!-- begin panel -->
+					<div class="panel panel-success" data-sortable-id="index-8">
+						<div class="panel-heading">
+							<h4 class="panel-title">Todo List</h4>
+							<div class="panel-heading-btn">
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+							</div>
+						</div>
+						<div class="panel-body p-0">
+							<ul class="todolist">
+								<li class="active">
+									<a href="javascript:;" class="todolist-container active" data-click="todolist">
+										<div class="todolist-input"><i class="fa fa-square"></i></div>
+										<div class="todolist-title">Donec vehicula pretium nisl, id lacinia nisl tincidunt id.</div>
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;" class="todolist-container" data-click="todolist">
+										<div class="todolist-input"><i class="fa fa-square"></i></div>
+										<div class="todolist-title">Duis a ullamcorper massa.</div>
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;" class="todolist-container" data-click="todolist">
+										<div class="todolist-input"><i class="fa fa-square"></i></div>
+										<div class="todolist-title">Phasellus bibendum, odio nec vestibulum ullamcorper.</div>
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;" class="todolist-container" data-click="todolist">
+										<div class="todolist-input"><i class="fa fa-square"></i></div>
+										<div class="todolist-title">Duis pharetra mi sit amet dictum congue.</div>
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;" class="todolist-container" data-click="todolist">
+										<div class="todolist-input"><i class="fa fa-square"></i></div>
+										<div class="todolist-title">Duis pharetra mi sit amet dictum congue.</div>
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;" class="todolist-container" data-click="todolist">
+										<div class="todolist-input"><i class="fa fa-square"></i></div>
+										<div class="todolist-title">Phasellus bibendum, odio nec vestibulum ullamcorper.</div>
+									</a>
+								</li>
+								<li>
+									<a href="javascript:;" class="todolist-container active" data-click="todolist">
+										<div class="todolist-input"><i class="fa fa-square"></i></div>
+										<div class="todolist-title">Donec vehicula pretium nisl, id lacinia nisl tincidunt id.</div>
+									</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!-- end panel -->
+					
+					<!-- begin panel -->
+					<div class="panel panel-success bg-dark" data-sortable-id="index-9">
+						<div class="panel-heading">
+							<h4 class="panel-title">World Visitors</h4>
+							<div class="panel-heading-btn">
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+							</div>
+						</div>
+						<div class="panel-body p-0">
+							<div id="world-map" class="height-sm width-full"></div>
+						</div>
+					</div>
+					<!-- end panel -->
+					
+					<!-- begin panel -->
+					<div class="panel panel-success" data-sortable-id="index-10">
+						<div class="panel-heading">
+							<h4 class="panel-title">Calendar</h4>
+							<div class="panel-heading-btn">
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+							</div>
+						</div>
+						<div class="panel-body">
+							<div id="datepicker-inline" class="datepicker-full-width overflow-y-scroll position-relative"><div></div></div>
+						</div>
+					</div>
+					<!-- end panel -->
+				</div>
+				<!-- end col-4 -->
+			</div>
+			<!-- end row -->
+			{% endblock content %}
+		</div>
+		<!-- end #content -->
+		
+		
+		
+		<!-- begin scroll to top btn -->
+		<a href="javascript:;" class="btn btn-icon btn-circle btn-success btn-scroll-to-top fade" data-click="scroll-top"><i class="fa fa-angle-up"></i></a>
+		<!-- end scroll to top btn -->
+	</div>
+	<!-- end page container -->
+	
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="{% static 'js/app.min.js' %}"></script>
+	<script src="{% static 'js/theme/default.min.js' %}"></script>
+	<!-- ================== END BASE JS ================== -->
+	
+	<!-- ================== BEGIN PAGE LEVEL JS ================== -->
+	{% block custom_js %}
+	<script src="{% static 'plugins/gritter/js/jquery.gritter.js' %}"></script>
+	<script src="{% static 'plugins/flot/jquery.flot.js' %}"></script>
+	<script src="{% static 'plugins/flot/jquery.flot.time.js' %}"></script>
+	<script src="{% static 'plugins/flot/jquery.flot.resize.js' %}"></script>
+	<script src="{% static 'plugins/flot/jquery.flot.pie.js' %}"></script>
+	<script src="{% static 'plugins/jquery-sparkline/jquery.sparkline.min.js' %}"></script>
+	<script src="{% static 'plugins/jvectormap-next/jquery-jvectormap.min.js' %}"></script>
+	<script src="{% static 'plugins/jvectormap-next/jquery-jvectormap-world-mill.js' %}"></script>
+	<script src="{% static 'plugins/bootstrap-datepicker/dist/js/bootstrap-datepicker.js' %}"></script>
+	<script src="{% static 'js/demo/dashboard.js' %}"></script>
+
+	
+	
+	
+	{% endblock custom_js %}
+	<!-- ================== END PAGE LEVEL JS ================== -->
+</body>
+</html>

@@ -1,0 +1,137 @@
+{% load static %}
+{% load i18n %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	
+	<!-- ================== BEGIN BASE CSS STYLE ================== -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+	<link href="{% static 'css/default/app.min.css' %}" rel="stylesheet" />
+	<!-- ================== END BASE CSS STYLE ================== -->
+	
+	<!-- ================== BEGIN PAGE LEVEL CSS STYLE ================== -->
+	<link href="{% static 'css/default/invoice-print.min.css' %}" rel="stylesheet" />
+	<!-- ================== END PAGE LEVEL CSS STYLE ================== -->
+</head>
+<body>
+
+<!-- begin invoice -->
+			<div class="invoice">
+				<!-- begin invoice-company -->
+				<div class="invoice-company">
+					<span class="pull-right hidden-print">
+						<a href="javascript:;" class="btn btn-sm btn-white m-b-10"><i class="fa fa-file-pdf t-plus-1 text-danger fa-fw fa-lg"></i> {% blocktrans %}Export as PDF{% endblocktrans %}</a>
+						<a href="javascript:;" onclick="window.print()" class="btn btn-sm btn-white m-b-10"><i class="fa fa-print t-plus-1 fa-fw fa-lg"></i> {% blocktrans %}Print{% endblocktrans %}</a>
+					</span>
+					{{company.name}}
+				</div>
+				<h3>{% blocktrans %}Inventory Entry Report{% endblocktrans %}</h3>
+				<!-- end invoice-company -->
+				<!-- begin invoice-header -->
+				<div class="invoice-header">
+					<div class="invoice-from">
+						<small>{% blocktrans %}Warehouse{% endblocktrans %}</small>
+						<address class="m-t-5 m-b-5">
+							<strong class="text-inverse">{{warehouse.name |title}}</strong><br />
+							{% blocktrans %}Division{% endblocktrans %}:{{warehouse.division.name |title}}<br />
+							{% blocktrans %}Departament{% endblocktrans %}:{{warehouse.departament.name|title}}<br />
+							{% blocktrans %}Phone{% endblocktrans %}: {{warehouse.phone_number}}<br />
+							{% blocktrans %}City, Zip Code{% endblocktrans %}<br />
+							{% blocktrans %}Phone{% endblocktrans %}:{{warehouse.phone_number}}<br />
+						</address>
+					</div>
+					<div class="invoice-to">
+						<small>{% blocktrans %}by Storer{% endblocktrans %}</small>
+						<address class="m-t-5 m-b-5">
+							<strong class="text-inverse">{{entry.storer.position.get_ocupate|title}}</strong><br />
+							{% blocktrans %}Position{% endblocktrans %}:{{entry.storer.position.name|title}} <br />
+							{% blocktrans %}City, Zip Code{% endblocktrans %}<br />
+							Phone: (123) 456-7890<br />
+							Fax: (123) 456-7890
+						</address>
+					</div>
+					<div class="invoice-date">
+						<small>{% blocktrans %}Provider / July period{% endblocktrans %}</small>
+						<div class="date text-inverse m-t-5">{{entry.date_entry |date:"D d M Y"}} </div>
+						<div class="date text-inverse m-t-5">{{entry.provider.name |title}} </div>
+						<div class="invoice-detail">
+							#0000123DSS<br />
+							{% blocktrans %}Services Product{% endblocktrans %}<br />
+							{{entry.reason_movement.reason |title}}<br />
+						</div>
+					</div>
+				</div>
+				<!-- end invoice-header -->
+				<!-- begin invoice-content -->
+				<div class="invoice-content">
+					<!-- begin table-responsive -->
+					<div class="table-responsive">
+						<table class="table table-invoice">
+							<thead>
+								<tr>
+									<th>{% blocktrans %}INPUT DETAIL{% endblocktrans %}</th>
+									<th class="text-center" width="10%">{% blocktrans %}SIZE{% endblocktrans %}</th>
+									<th class="text-center" width="10%">{% blocktrans %}BRAND{% endblocktrans %}</th>
+									<th class="text-center" width="10%">{% blocktrans %}MATERIAL{% endblocktrans %}</th>
+									<th class="text-center" width="10%">{% blocktrans %}COLOR{% endblocktrans %}</th>
+									<th class="text-right" width="20%">{% blocktrans %}TOTAL ENTRY{% endblocktrans %}</th>
+								</tr>
+							</thead>
+							<tbody>
+								{% for detail in  entry_detail %}
+								<tr>
+									<td>
+										<span class="text-inverse">{{detail.supply.code|title }} - {{detail.supply.name|title }}</span><br />
+										<small>{{detail.supply.description }}</small>
+									</td>
+									<td class="text-center">{{detail.supply.size.code|title }}</td>
+									<td class="text-center">{{detail.supply.brand|title }}</td>
+									<td class="text-center">{{detail.supply.material|title }}</td>
+									<td class="text-center">{{detail.supply.color}}</td>
+									<td class="text-right">{{detail.total }}</td>
+									
+								</tr>
+								{% endfor %}
+								
+							</tbody>
+						</table>
+					</div>
+					<!-- end table-responsive -->
+					
+				</div>
+				<!-- end invoice-content -->
+				<!-- begin invoice-note -->
+				<div class="invoice-note">
+				<div class="invoice-detail">
+							{% blocktrans %}Observations{% endblocktrans %}<br />
+					<small>{{entry.observation }}</small>
+				</div>
+				<!-- end invoice-note -->
+				<!-- begin invoice-footer -->
+				<div class="invoice-footer">
+					<p class="text-center m-b-5 f-w-600">
+						{% blocktrans %}THANK YOU FOR YOUR BUSINESS{% endblocktrans %}
+					</p>
+					<p class="text-center">
+						<span class="m-r-10"><i class="fa fa-fw fa-lg fa-globe"></i> matiasgallipoli.com</span>
+						<span class="m-r-10"><i class="fa fa-fw fa-lg fa-phone-volume"></i> T:016-18192302</span>
+						<span class="m-r-10"><i class="fa fa-fw fa-lg fa-envelope"></i> rtiemps@gmail.com</span>
+					</p>
+				</div>
+				<!-- end invoice-footer -->
+			</div>
+			<!-- end invoice -->
+
+
+	<!-- ================== BEGIN BASE JS ================== -->
+	<script src="{% static 'js/app.min.js' %}"></script>
+	<script src="{% static 'js/theme/default.min.js' %}"></script>
+	<!-- ================== END BASE JS ================== -->
+</body>
+</html>
+
+

@@ -1,0 +1,441 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-28 12:09-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\manage_request_list.html:5
+#: .\templates\manage_request_show.html:6
+#: .\templates\request_detail_create.html:6
+#: .\templates\request_detail_list.html:9
+#: .\templates\request_detail_update.html:6
+#: .\templates\request_employee_list.html:8
+#: .\templates\request_type_create.html:6 .\templates\request_type_list.html:5
+#: .\templates\supplies_request_create.html:6
+msgid "Home"
+msgstr ""
+
+#: .\templates\manage_request_list.html:6
+#: .\templates\manage_request_show.html:7
+msgid "Manage Approvals"
+msgstr ""
+
+#: .\templates\manage_request_list.html:7
+#: .\templates\request_employee_list.html:10
+#: .\templates\request_type_list.html:7
+msgid "Data Table"
+msgstr ""
+
+#: .\templates\manage_request_list.html:9
+msgid "Manage Approvals list"
+msgstr ""
+
+#: .\templates\manage_request_list.html:10
+#: .\templates\request_employee_list.html:13
+msgid "This is the request employee list"
+msgstr ""
+
+#: .\templates\manage_request_list.html:17
+#: .\templates\manage_request_show.html:18
+#: .\templates\request_detail_create.html:19
+#: .\templates\request_detail_list.html:22
+#: .\templates\request_detail_update.html:18
+#: .\templates\request_employee_list.html:20
+#: .\templates\supplies_request.html:9
+#: .\templates\supplies_request_create.html:18
+msgid "My Requests"
+msgstr ""
+
+#: .\templates\manage_request_list.html:18
+#: .\templates\manage_request_show.html:19
+#: .\templates\request_detail_create.html:20
+#: .\templates\request_detail_list.html:23
+#: .\templates\request_detail_update.html:19
+#: .\templates\request_employee_list.html:21
+#: .\templates\supplies_request.html:10
+#: .\templates\supplies_request_create.html:19
+msgid "Manage Approval"
+msgstr ""
+
+#: .\templates\manage_request_list.html:19
+#: .\templates\manage_request_show.html:20
+#: .\templates\request_detail_create.html:21
+#: .\templates\request_detail_list.html:24
+#: .\templates\request_detail_update.html:20
+#: .\templates\request_employee_list.html:22
+#: .\templates\supplies_request.html:11
+#: .\templates\supplies_request_create.html:20
+msgid "My Delivered"
+msgstr ""
+
+#: .\templates\manage_request_show.html:8
+#: .\templates\manage_request_show.html:10
+msgid "Approve Request"
+msgstr ""
+
+#: .\templates\manage_request_show.html:11
+msgid "In this view you can answer the request"
+msgstr ""
+
+#: .\templates\manage_request_show.html:34
+#: .\templates\request_detail_list.html:38
+msgid "Details Request"
+msgstr ""
+
+#: .\templates\manage_request_show.html:42
+#: .\templates\request_detail_create.html:52
+#: .\templates\request_detail_create.html:179
+#: .\templates\request_detail_list.html:46
+#: .\templates\request_detail_update.html:94
+#: .\templates\supplies_request.html:39 .\views.py:128 .\views.py:261
+#: .\views.py:621
+msgid "Code"
+msgstr ""
+
+#: .\templates\manage_request_show.html:52
+#: .\templates\request_detail_create.html:62
+#: .\templates\request_detail_list.html:56
+msgid "Request Name"
+msgstr ""
+
+#: .\templates\manage_request_show.html:64
+#: .\templates\request_detail_create.html:74
+#: .\templates\request_detail_list.html:68 .\templates\supplies_request.html:42
+#: .\views.py:128
+msgid "Description"
+msgstr ""
+
+#: .\templates\manage_request_show.html:86
+#: .\templates\request_detail_create.html:96
+#: .\templates\request_detail_list.html:90
+msgid "Applicant Observation"
+msgstr ""
+
+#: .\templates\manage_request_show.html:98
+#: .\templates\request_detail_create.html:108
+#: .\templates\request_detail_list.html:102
+msgid "Approval Flow"
+msgstr ""
+
+#: .\templates\manage_request_show.html:118
+msgid "Response Request"
+msgstr ""
+
+#: .\templates\manage_request_show.html:128
+msgid "Comments"
+msgstr ""
+
+#: .\templates\manage_request_show.html:131
+msgid "Application Approved"
+msgstr ""
+
+#: .\templates\manage_request_show.html:148
+msgid "Acepte"
+msgstr ""
+
+#: .\templates\manage_request_show.html:149
+msgid "Decline"
+msgstr ""
+
+#: .\templates\manage_request_show.html:163
+#: .\templates\request_detail_list.html:131
+msgid "Activity Request"
+msgstr ""
+
+#: .\templates\manage_request_show.html:213
+#: .\templates\request_detail_create.html:209
+#: .\templates\request_detail_list.html:178
+#: .\templates\request_detail_update.html:124
+msgid "Back"
+msgstr ""
+
+#: .\templates\request_detail_create.html:7
+#: .\templates\request_detail_list.html:10
+#: .\templates\request_detail_update.html:7
+#: .\templates\request_detail_update.html:52
+msgid "Employee Request"
+msgstr ""
+
+#: .\templates\request_detail_create.html:8
+#: .\templates\request_detail_list.html:11
+#: .\templates\request_detail_update.html:8
+msgid "Registre"
+msgstr ""
+
+#: .\templates\request_detail_create.html:10
+#: .\templates\request_detail_list.html:13
+msgid "Request Employee - Detail"
+msgstr ""
+
+#: .\templates\request_detail_create.html:11
+msgid "In this form you can create Request"
+msgstr ""
+
+#: .\templates\request_detail_create.html:37
+msgid "Create - Details Request"
+msgstr ""
+
+#: .\templates\request_detail_create.html:86
+#: .\templates\request_detail_list.html:80
+msgid "Date"
+msgstr ""
+
+#: .\templates\request_detail_create.html:128
+msgid "Select of Equipment  to Request"
+msgstr ""
+
+#: .\templates\request_detail_create.html:145
+#: .\templates\request_detail_update.html:69 .\views.py:418 .\views.py:528
+#: .\views.py:688
+msgid "Equipment"
+msgstr ""
+
+#: .\templates\request_detail_create.html:167
+#: .\templates\request_detail_update.html:82
+msgid "Image"
+msgstr ""
+
+#: .\templates\request_detail_create.html:180
+#: .\templates\request_detail_update.html:95 .\views.py:128
+msgid "Name"
+msgstr ""
+
+#: .\templates\request_detail_create.html:181
+#: .\templates\request_detail_update.html:96
+msgid "Desciption"
+msgstr ""
+
+#: .\templates\request_detail_create.html:208
+msgid "Add"
+msgstr ""
+
+#: .\templates\request_detail_create.html:226
+msgid "Sender Request"
+msgstr ""
+
+#: .\templates\request_detail_list.html:14
+msgid "In this form you can view list"
+msgstr ""
+
+#: .\templates\request_detail_update.html:10
+msgid "Request Employee - Update Detail"
+msgstr ""
+
+#: .\templates\request_detail_update.html:11
+msgid "In this form you can update detail request"
+msgstr ""
+
+#: .\templates\request_detail_update.html:33
+msgid "Update - Details Request"
+msgstr ""
+
+#: .\templates\request_detail_update.html:123
+msgid "Update"
+msgstr ""
+
+#: .\templates\request_employee_list.html:9
+#: .\templates\request_type_list.html:6 .\views.py:621
+msgid "Request"
+msgstr ""
+
+#: .\templates\request_employee_list.html:12
+msgid "Request Employee"
+msgstr ""
+
+#: .\templates\request_type_create.html:7
+#: .\templates\request_type_create.html:10 .\templates\request_type_list.html:9
+#: .\templates\supplies_request.html:40
+#: .\templates\supplies_request_create.html:7
+#: .\templates\supplies_request_create.html:53 .\views.py:261
+msgid "Request Type"
+msgstr ""
+
+#: .\templates\request_type_create.html:8
+msgid "Register"
+msgstr ""
+
+#: .\templates\request_type_create.html:11
+msgid "In this form you can create a request type"
+msgstr ""
+
+#: .\templates\request_type_create.html:21
+msgid "Request Type Register"
+msgstr ""
+
+#: .\templates\request_type_create.html:57 .\views.py:128
+msgid "Element Type"
+msgstr ""
+
+#: .\templates\request_type_create.html:80
+msgid "Element Classification"
+msgstr ""
+
+#: .\templates\request_type_create.html:111
+msgid "Save"
+msgstr ""
+
+#: .\templates\request_type_create.html:112
+#: .\templates\supplies_request_create.html:106
+msgid "Cancel"
+msgstr ""
+
+#: .\templates\request_type_list.html:10
+msgid "This is the request type list"
+msgstr ""
+
+#: .\templates\request_type_list.html:16 .\views.py:260
+msgid "Requests"
+msgstr ""
+
+#: .\templates\supplies_request.html:22
+msgid "Table - "
+msgstr ""
+
+#: .\templates\supplies_request.html:28
+msgid "New Request"
+msgstr ""
+
+#: .\templates\supplies_request.html:41 .\views.py:621
+msgid "Applicant"
+msgstr ""
+
+#: .\templates\supplies_request.html:43 .\views.py:128 .\views.py:261
+#: .\views.py:621
+msgid "Status"
+msgstr ""
+
+#: .\templates\supplies_request.html:44 .\views.py:418 .\views.py:528
+#: .\views.py:688
+msgid "Create Date"
+msgstr ""
+
+#: .\templates\supplies_request.html:45
+msgid "Modified Date"
+msgstr ""
+
+#: .\templates\supplies_request.html:46 .\views.py:128 .\views.py:261
+#: .\views.py:418 .\views.py:528 .\views.py:621
+msgid "Actions"
+msgstr ""
+
+#: .\templates\supplies_request_create.html:33
+msgid "Create - Request"
+msgstr ""
+
+#: .\templates\supplies_request_create.html:67
+msgid "Applicant Position"
+msgstr ""
+
+#: .\templates\supplies_request_create.html:96
+msgid "Observations"
+msgstr ""
+
+#: .\templates\supplies_request_create.html:105
+msgid "Next"
+msgstr ""
+
+#: .\views.py:115 .\views.py:192 .\views.py:405 .\views.py:515
+msgid "Edit"
+msgstr ""
+
+#: .\views.py:119 .\views.py:196 .\views.py:409 .\views.py:519
+msgid "Delete"
+msgstr ""
+
+#: .\views.py:128
+msgid "Classification"
+msgstr ""
+
+#: .\views.py:128 .\views.py:261 .\views.py:621
+msgid "Created date"
+msgstr ""
+
+#: .\views.py:128
+msgid "Modified date"
+msgstr ""
+
+#: .\views.py:187 .\views.py:613
+msgid "Show"
+msgstr ""
+
+#: .\views.py:261
+msgid "Position"
+msgstr ""
+
+#: .\views.py:261 .\views.py:621
+msgid "Observation"
+msgstr ""
+
+#: .\views.py:261
+msgid "Request Date"
+msgstr ""
+
+#: .\views.py:261 .\views.py:621
+msgid "Items"
+msgstr ""
+
+#: .\views.py:261 .\views.py:621
+msgid "Approvals"
+msgstr ""
+
+#: .\views.py:309
+msgid "You have created a new request"
+msgstr ""
+
+#: .\views.py:310
+msgid "You have created a new request of type"
+msgstr ""
+
+#: .\views.py:339
+msgid "There is a new request to aprove"
+msgstr ""
+
+#: .\views.py:340
+msgid "This request is type"
+msgstr ""
+
+#: .\views.py:417 .\views.py:687
+msgid "Detail Request"
+msgstr ""
+
+#: .\views.py:418
+msgid "Photo"
+msgstr ""
+
+#: .\views.py:418 .\views.py:528 .\views.py:688
+msgid "Size"
+msgstr ""
+
+#: .\views.py:418 .\views.py:528 .\views.py:688
+msgid "Total"
+msgstr ""
+
+#: .\views.py:418 .\views.py:528 .\views.py:688
+msgid "Color"
+msgstr ""
+
+#: .\views.py:527
+msgid "List of Requested Equipment"
+msgstr ""
+
+#: .\views.py:528 .\views.py:688
+msgid "Code and Name"
+msgstr ""
+
+#: .\views.py:620
+msgid "Manage Approvals Request from the Employee"
+msgstr ""

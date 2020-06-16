@@ -1,0 +1,125 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load i18n %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Home{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Request Type{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item active">Registre</li>
+{% endblock breadcrumb %}
+{% block page_header_title %}Request Employee{% endblock page_header_title %}
+{% block page_header_sm_title %} In this form you can create Request  {% endblock page_header_sm_title %}
+
+{% block menu_active_sub_requests %}
+	<li class="has-sub active">					
+{% endblock menu_active_sub_requests %}
+{% block menu_request %}
+	<ul class="sub-menu active">
+		<li class=" active"><a href="{% url 'requests:supplies_request'%}">{% blocktrans %}My Requests{% endblocktrans %}</a></li>
+		<li><a href="{% url 'requests:manage_request_list' %}">{% blocktrans %}Manage Approval{% endblocktrans %}</a></li>
+		<li><a href="{% url 'requests:my_delivered' %}">{% blocktrans %}My Delivered{% endblocktrans %} </a></li>
+	</ul>						
+{% endblock menu_request %}
+
+{% block content %}
+
+<div class="row">
+				<!-- begin col-6 -->
+				<div class="col-xl-12">
+					<!-- begin panel -->
+					<div class="panel panel-success" data-sortable-id="form-stuff-10">
+						<!-- begin panel-heading -->
+						<div class="panel-heading">
+							<h4 class="panel-title">{% blocktrans %}Create - Request{% endblocktrans %}</h4>
+							<div class="panel-heading-btn">
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+							</div>
+						</div>
+						<!-- end panel-heading -->
+						<!-- begin panel-body -->
+						<div class="panel-body">
+							<form method="post" class="form-horizontal">
+                                {% csrf_token %}
+								<fieldset>									
+                                    <div class="row">
+										
+										<div class="col-md-4 col-md-offset-2 ">
+											<div class="form-group">
+												<div id="div_id_request_type" class="form-group">        
+													<label for="id_request_type" class="">
+														{% blocktrans %}Request Type{% endblocktrans %}
+													</label>                                        
+														<div class="">
+															<select name="request_type" class="form-control select form-control" id="id_request_type">
+																<option value="{{requests.id}}" selected="true">{{requests.name}}</option>
+																<input type='hidden' name ='status_request' id='status_request' value='0'>
+															</select>
+														</div>
+												</div>											
+											</div>
+										</div>
+										<div class="col-md-4 col-md-offset-2 ">											
+												<div id="div_position" class="form-group">        
+													<label for="id_position" class="">
+														{% blocktrans %}Applicant Position{% endblocktrans %}
+													</label>
+														<select name="position" class="form-control select select2-data  required"  id="id_position" >															
+															{% for option  in position_options  %}
+																<optgroup label="{{ option.group.name|title }}">
+																{% for op  in option.options  %}
+																<option value="{{op.id}}" {% if op.selected %} selected=true {% endif %} >																	
+																	<span>{{op.name|title }}</span>
+																</option>
+																{% endfor %}
+															</optgroup>															
+															{% endfor %}
+														</select>	
+													
+												</div>											
+										</div> 
+										<div class="col-md-4 col-md-offset-2 ">
+											
+										</div>	 
+																			
+									</div>	
+									<div class="row">
+									</div>
+									<div class="row">
+										
+										
+										<div class="col-md-4 col-md-offset-2 ">
+											<div class="form-group">
+												<label for="id_observation" class="">
+													{% blocktrans %}Observations{% endblocktrans %}
+												</label>
+												<textarea class="form-control" rows="3" name="observation" id="id_observation"></textarea>
+												
+											</div>
+										</div>	 
+									</div>		
+									<div id='form-errors'>{{ form|as_crispy_errors }}</div>						 	
+                                     <div class="pull-right">								
+                                      <button type="submit" class="btn btn-sm btn-primary m-r-5 ">{% blocktrans %}Next{% endblocktrans %}</button>
+                                      <a class="btn btn-sm btn-secondary m-r-5  " href="{%url 'requests:supplies_request'  %}">{% blocktrans %}Cancel{% endblocktrans %}</a>
+                                </div>
+								</fieldset>
+							</form>
+						</div>
+						<!-- end panel-body -->
+						
+					</div>
+					<!-- end panel -->
+				</div>
+				
+			</div>
+			<!-- end row -->
+{% endblock %}
+
+{% block custom_js %}
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script>  
+<script src="{% static 'js/create_request_simple.js' %}"></script>
+{% endblock custom_js %}

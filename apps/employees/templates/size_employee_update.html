@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block page_header_title %}{% blocktrans %}Size Settings{% endblocktrans %}{% endblock page_header_title %}
+{% block page_header_sm_title %}{% blocktrans %}This is for configurate your sizes{% endblocktrans %}{% endblock page_header_sm_title %}
+
+{% block menu_active_Profile %}
+<li class="has-sub active">
+{% endblock menu_active_Profile %}
+
+{% block menu_Mydata %}
+    <ul class="sub-menu">
+        <li><a href="{% url 'employees:my_data'%}">{% blocktrans %}My Protection{% endblocktrans %}</a></li>
+		<li class="active"><a href="{% url 'employees:configure_sizes_list'%}">{% blocktrans %}Size Settings{% endblocktrans %}</a></li>
+		<li><a href="{% url 'employees:delivered_list'%}">{% blocktrans %}My Dispatch Supplies{% endblocktrans %}</a></li>
+    </ul>
+{% endblock menu_Mydata %}
+
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="{% url 'employees:configure_sizes_list'%}">{% blocktrans %}List your sizes{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item active">{% blocktrans %}Size Settings {% endblocktrans %}</li>
+{% endblock breadcrumb %}
+
+{% block custom_css %}
+<link href="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/css/select2.min.css" rel="stylesheet" />
+
+{% endblock custom_css %}
+
+
+
+{% block content %}
+	{% include 'profile_base.html' with info=employee %} 
+<div class="row">
+	<!-- begin col-6 -->
+	<div class="col-xl-12">
+		<!-- begin panel -->
+		<div class="panel panel-success" data-sortable-id="form-stuff-10">
+			<!-- begin panel-heading -->
+			<div class="panel-heading">
+				<h4 class="panel-title">{% blocktrans %}Sizes configuration{% endblocktrans %}</h4>				
+			</div>
+			<!-- end panel-heading -->
+			<!-- begin panel-body -->
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-6">
+						<div class="col-md-12">
+							<div id="div_area_body" class="form-group">        
+								<label for="id_area_body" class="">
+									<b>{% blocktrans %}Body Area{% endblocktrans %}</b>
+								</label>                                        
+									<div class="">
+										<select name="area" class="form-control select select2-data form-control" id="myArea">
+											<optgroup label="Select Your Body Area">
+											    <option  value ="" selected=selected>{% blocktrans %}Select body area{% endblocktrans %}</option>
+												{% for area in areaList %}
+													<option  data-area-id="{{area.id}}" value={{area.id}} disabled="disabled"  data-area-code="{{area.code}}" data-area-name="{{area.name}}" data-area-description="{{area.description}}" {% if actualSize.size.body_area.name == area.name %} selected=selected {% endif %} >{{area.name}}</option>				
+												{% endfor %}
+											</optgroup>
+										</select>
+									</div>
+							</div>
+						</div>	
+						<div class="col-md-12">
+							<p id="description_area">
+								<div class="col-md-12">
+									<p></p>
+										<ul class="list-group">
+											<li class="list-group-item">
+												<span class="badge badge-default"><b>{% blocktrans %}Area Code{% endblocktrans %}</b></span>
+												<b class="pull-right" id="area-code">{% if form.size.value != None %} {{actualSize.size.body_area.code}} {% endif %}</b>
+											</li>
+											<li class="list-group-item">
+												<span class="badge badge-default"><b>{% blocktrans %}Area Name{% endblocktrans %}</b></span>
+												<b class="pull-right" id="area-name">{% if form.size.value != None %} {{actualSize.size.body_area.name}} {% endif %}</b>
+											</li>
+											<li class="list-group-item">
+												<span class="badge badge-default"><b>{% blocktrans %}Area Description{% endblocktrans %}</b></span>
+												<b class="pull-right" id="area-description">{% if form.size.value != None %} {{actualSize.size.body_area.description}} {% endif %}</b>
+											</li>
+										</ul>
+									</div>
+							</p>
+						</div>	
+					</div>
+					<div class="col-md-6">
+						<div class="col-md-12">
+							<div id="div_size" class="form-group">        
+								<label for="id_size" class="">
+									<b>Size</b>
+								</label>                                        
+								<div class="">
+									<select name="size" class="form-control select select2-data form-control" id="mySizeOuter">
+										<optgroup label="Select Your Body Size" id="mySize">
+											
+										</optgroup>
+									</select>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-12">
+							<p id="description_size">
+								<div class="col-md-12">
+									<p></p>
+										<ul class="list-group">
+											<li class="list-group-item">
+												<span class="badge badge-default"><b>{% blocktrans %}Code{% endblocktrans %}</b></span>
+												<b class="pull-right" id="size-code">{% if form.size.value != None %} {{actualSize.size.code}} {% endif %}</b>
+											</li>
+											<li class="list-group-item">
+												<span class="badge badge-default"><b>{% blocktrans %}Gender{% endblocktrans %}</b></span>
+												<b class="pull-right" id="size-gender">{% if form.size.value != None %} {{actualSize.size.gender}} {% endif %}</b>
+											</li>
+											<li class="list-group-item">
+												<span class="badge badge-default"><b>{% blocktrans %}Description{% endblocktrans %}</b></span>
+												<b class="pull-right" id="size-description">{% if form.size.value != None %} {{actualSize.size.description}} {% endif %}</b>
+											</li>
+											<li class="list-group-item">
+												<span class="badge badge-default"><b>{% blocktrans %}Name{% endblocktrans %}</b></span>
+												<b class="pull-right" id="size-name">{% if form.size.value != None %} {{actualSize.size.name}} {% endif %}</b>
+											</li>										
+										</ul>
+									</div>
+							</p>
+						</div>
+					</div>
+				</div>
+				<input id="areaid_input" type="hidden" value="{{areaid}}">
+				<input id="token_input" type="hidden" value="{{csrf_token}}">
+				<input id="url_ajax" type="hidden" value="{% url 'employees:size_ajax'%}" >
+
+				<form method="post" enctype="multipart/form-data" class="form-horizontal ">
+					{% csrf_token %}
+					<fieldset>									
+						<div class="row">
+
+							<div class="col-md-12 col-md-offset-2">
+								<div class="form-group">
+									<input name="size" id="id-size" type="hidden"  value="{{actualSize.size.id}}">
+								</div>
+							</div>
+
+							<div class="col-md-12 col-md-offset-2">
+								<div class="form-group">
+									<input name="employee" id="id_employee" type="hidden" value="{{employee.id}}">
+								</div>
+							</div>
+		
+						</div> 
+							
+						<div class="pull-right">								
+							<button type="submit" class="btn btn-sm btn-primary m-r-5 ">{% blocktrans %}Submit{% endblocktrans %}</button>
+							<a class="btn btn-sm btn-secondary m-r-5  " href="{%url 'employees:configure_sizes_list'%}">{% blocktrans %}Cancel{% endblocktrans %}</a>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>			
+
+{{ form.media.css }}
+{{ form.media.js }}
+			
+
+{% endblock %}
+
+{% block custom_js %}
+{{block.super}}
+
+<script src="https://cdn.jsdelivr.net/npm/select2@4.0.12/dist/js/select2.min.js"></script> 
+<script src="{% static 'js/update_custom_js.js'%}"></script>
+
+
+{% endblock custom_js %}

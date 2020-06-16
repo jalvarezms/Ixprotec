@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>{{data.employee_name}}-FORMATO DE ENTREGA</title>
+<link href="{% static 'css/custom_detail.css' %}" rel="stylesheet" type="text/css" />
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #000000;
+  text-align: left;
+  padding: 8px;
+}
+
+</style>
+</head>
+<body>
+    <h1 align="center"><b>FORMATO DE ENTREGA DE ELEMENTOS DE PROTECCIÓN PERSONAL</b></h1>
+    <p>De acuerdo con lo estipulado en la ley 16.744, Art. 68, inciso 3 "Las empresas deberán proporcionar a sus trabajadores, los equipos e implementos de protección necesarios, no pudiendo en caso alguno cobrarles su valor".</p>
+    <div >
+        <p><b>Nombre de trabajador: </b>{{data.employee_name}}</p>
+        <p><b>Cargo: </b>{{data.position}}</p>
+        <p><b>Area: </b>{{data.area}}</p>
+    </div>
+    <div>
+        <table style="width:100%">
+            <tr>
+                <th style="width:25%">ELEMENTO ENTREGADO</th>
+                <th style="width:25%">FECHA DE RECIBIDO</th>
+                <th style="width:25%">FECHA DE DEVOLUCION/VENCIMIENTO</th>
+                <th style="width:25%">RECIBI CONFORME</th>
+            </tr>
+            {% for details in detail%}
+            <tr>
+                <td>({{details.supply.code}}) {{details.supply.name}}</td>
+                <td>{{details.modified_date}}</td>
+                <td>{{details.expire_date}}</td>
+                <td>               </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+    <div>
+        <h2 align="center">El trabajador se compromete a mantener los elementos de protección personal en buen estado y declara haberlos recibido de forma gratuita</h2>
+    </div>
+        <div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <h5 align="right">____________________________________________________</h5>
+        <h2 align="right">Firma de recibido</h2>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,373 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% load crispy_forms_tags %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Home{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'employees:delivered_list'%}">{% blocktrans %}Profile{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item active">{% blocktrans %}My Dispatch Supplies{% endblocktrans %}</li>
+{% endblock breadcrumb %}
+{% block menu_active_Profile %}
+<li class="has-sub active">
+{% endblock menu_active_Profile %}
+{% block menu_Mydata %}
+<ul class="sub-menu">
+	<li><a href="{% url 'employees:my_data'%}">{% blocktrans %}My Avatar{% endblocktrans %}</a></li>
+	<li><a href="{% url 'employees:configure_sizes_list'%}">{% blocktrans %}Size Settings{% endblocktrans %}</a></li>
+	<li class="active"><a href="{% url 'employees:delivered_list'%}">{% blocktrans %}My Dispatch Supplies{% endblocktrans %}</a></li>
+</ul> 
+{% endblock menu_Mydata %}	
+{% block custom_css %}
+	<link href="{% static '/css/stars.css' %}" rel="stylesheet" />
+    <link href="{% static '/css/custom_detail.css' %}" rel="stylesheet" />
+	<link href="{% static 'css/custom_delivery_css.css' %}" rel="stylesheet">
+{% endblock custom_css %}
+{% block page_header_title %}{% blocktrans %}My Dispatch Supplies Detail{% endblocktrans %}{% endblock page_header_title %}
+{% block page_header_sm_title %}{% blocktrans %}Here you can view the supplies dispatched by warehouse{% endblocktrans %}{% endblock page_header_sm_title %}
+{% block content %}
+<div class="row">
+		<div class="col-xl-8">
+			<!-- begin panel -->
+			<div class="panel panel-success" data-sortable-id="form-stuff-10">
+				<!-- begin panel-heading -->
+				<div class="panel-heading">
+					<h4 class="panel-title">{% blocktrans %}Details Request{% endblocktrans %}</h4>					
+				</div>
+				<!-- end panel-heading -->
+				<!-- begin panel-body -->
+				<div class="panel panel-body" >
+					<div class="row">
+						<div class="col-md-2 col-md-offset-2">
+							<label for="id_code" class="">
+								<strong>{% blocktrans %}Code{% endblocktrans %}</strong>
+							</label>     
+							<div class="form-group">
+								<span class="badge badge-success" >{{request.checkout.request.code}}</span>
+							</div>
+						</div>
+						<div class="col-md-4 col-md-offset-2 ">
+							<div class="form-group">
+								<div id="div_id_request_type" class="form-group">        
+									<label for="id_request_type" class="">
+										<strong>{% blocktrans %}Request Name{% endblocktrans %}</strong>
+									</label>                                        
+									<div class="form-group">
+										<span class="badge badge-default" >{{request.checkout.request.request_type.name}}</span>
+									</div>
+								</div>											
+							</div>
+						</div>
+						<div class="col-md-6 col-md-offset-2 ">
+							<div class="form-group">
+							<div id="div_id_request_type" class="form-group">        
+									<label for="id_request_type" class="">
+										<strong>{% blocktrans %}Description{% endblocktrans %}</strong>
+									</label>                                        
+									<div class="form-group">
+										<span  >{{request.checkout.request.request_type.detail}}</span>
+									</div>
+								</div>
+							</div>
+						</div>										
+					</div>
+					<div class="row">
+						<div class="col-md-2 col-md-offset-2">
+							<label for="id_code" class="">
+								<strong>{% blocktrans %}Date{% endblocktrans %}</strong>
+							</label>     
+							<div class="form-group">
+								<span class="badge badge-success" >{{request.checkout.request.request_date|date:"M d, Y"}}</span>
+							</div>
+						</div>
+						<div class="col-md-4 col-md-offset-2 ">
+							<div class="form-group">
+								<div id="div_id_request_type" class="form-group">        
+									<label for="id_request_type" class="">
+										<strong>{% blocktrans %}Applicant Observation{% endblocktrans %}</strong>
+									</label>                                        
+									<div class="form-group">
+										<span  class='f-s-10' >{{request.checkout.request.observation}}</span>
+									</div>
+								</div>											
+							</div>
+						</div>	
+						<div class="col-md-6 col-md-offset-2 ">
+							<div class="form-group">
+								<div id="div_id_request_type" class="form-group">        
+									<label for="id_request_type" class="">
+										<strong>{% blocktrans %}Approval Flow{% endblocktrans %}</strong>
+									</label>                                        
+									<div class="form-group">
+										<li class="media media-xs">
+											
+											{% for WorkFlowApprover in  request.checkout.request.get_approver_request_list %}
+                                                    <div class="media-left d-flex flex-column" >
+														<img src="{{ WorkFlowApprover.principal_approver.get_ocupate.photo.url }}" alt="" class="media-object rounded-corner height-40 width-40" />
+														<span>{{WorkFlowApprover.principal_approver.get_ocupate.get_short_name}}</span>
+													</div>
+													<!-- <a class="media-left" href="javascript:;">
+                                                        <img src="../../../../static/img/user/user-13.jpg" alt="" class="media-object rounded-corner height-40 width-40"/>
+                                                    </a>
+													<a class="media-left" href="javascript:;">
+                                                        <img src="../../../../static/img/user/user-11.jpg" alt="" class="media-object rounded-corner height-40 width-40" />
+                                                    </a> -->											
+											{% endfor %}		
+										</li>
+									</div>
+								</div>											
+							</div>
+						</div>														
+					</div>
+					<div class="row align-items-center">
+						<div class="col-xl-12">
+						<form method="POST" action="{% url 'employees:delivered_list' %}">
+							{% csrf_token %}
+							<p><label for="general_observations"><b>{% blocktrans %}General Observations:*{% endblocktrans %} </b></label>
+							<textarea  class="form-control" id="general_observations" name="observation" rows="4" cols="50"></textarea></p>
+							<input name="delivered_id" type="hidden" value="{{request.id}}">
+							<div class="d-flex justify-content-center">
+								<div class="row m-t-10 align-items-center">
+									<div class="print-button col-xl-6">
+										<a href="{% url 'employees:delivered_pdf' request.id%}" class="pull-right" target="_blank"><i class="fas fa-print"></i></a>
+									</div>
+									<div class="finish-button col-xl-6">
+										<button type:"submit" class="btn btn-info">{% blocktrans %}Finish{% endblocktrans %}</button>
+									</div>
+								</div>    
+							</div>
+						</form>
+						</div>
+					</div>
+			</div>
+			</div>
+		</div>
+		<div class="col-xl-4">
+		<!-- begin panel -->
+			<div class="panel panel-success" data-sortable-id="form-stuff-10">
+				<!-- begin panel-heading -->
+				<div class="panel-heading">
+					<h4 class="panel-title">{% blocktrans %}Activity Request{% endblocktrans %}</h4>					
+				</div>
+				<!-- end panel-heading -->
+				<!-- begin panel-body -->
+				<div class="panel-body bg-grey-transparent-1 heigh">
+					<div data-scrollbar="true" data-height="339px">
+					<ul class="timeline">
+						{% for status in  request.checkout.request.get_status_list %}
+						<li>
+							<div class="timeline-time">
+								<span class=" date f-s-8">{{ status.create_date|date:" d M, Y" }}</span>
+								<span class="m-r-10 m-l-0 f-s-9">{{ status.create_date|date:"h:i a " }}</span>
+								<span class="badge  badge-{{ status.status_class}} f-s-12">{{ status.status_text }}</span>
+							</div>
+							<!-- begin timeline-icon -->
+							<div class="timeline-icon">
+								<a href="javascript:;">&nbsp;</a>
+							</div>
+							<!-- end timeline-icon -->
+							<!-- begin timeline-body -->
+							<div class="timeline-body m-r-0">
+								<div class="timeline-header">
+									<span class="userimage"><img src="{{ status.employee.photo.url }}" alt="" /></span>
+									<b class=" text-inverse f-s-10">{{ status.employee.get_short_name|title }}</b>							
+								</div>
+								<div class="timeline-content">
+									<p class='lead f-s-12'>
+										{{ status.observation }}
+									</p>
+								</div>
+							</div>
+							<!-- begin timeline-body -->					
+						</li>
+						{% endfor %}
+					</ul>
+					<!-- end timeline -->
+				</div>
+			</div>
+		</div>
+        </div>
+        {% for detail in  request.delivereddetail_set.all|dictsort:"is_accept"  %}
+        <div class="col-xl-12">
+		<!-- begin panel -->
+			<div class="panel panel-success" data-sortable-id="form-stuff-10">
+				<!-- begin panel-heading -->
+				<div class="panel-heading">
+					<h4 class="panel-title">{{detail.supply.name}}</h4>					
+				</div>
+				<!-- end panel-heading -->
+				<!-- begin panel-body -->
+				<div class="panel-body">
+                    <div class="col-xl-12">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-7 bg-grey-transparent-1">
+						<!-- begin nav-tabs -->
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item">
+                                <a href="#default{{ forloop.counter }}-tab-1" data-toggle="tab" class="nav-link active">
+                                    <span class="d-sm-none">Tab 1</span>
+                                    <span class="d-sm-block d-none">{% blocktrans %}Description{% endblocktrans %}</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#default{{ forloop.counter }}-tab-2" data-toggle="tab" class="nav-link">
+                                    <span class="d-sm-none">Tab 2</span>
+                                    <span class="d-sm-block d-none">{% blocktrans %}Use Mode{% endblocktrans %}</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#default{{ forloop.counter }}-tab-3" data-toggle="tab" class="nav-link">
+                                    <span class="d-sm-none">Tab 2</span>
+                                    <span class="d-sm-block d-none">{% blocktrans %}Cleaning and Maintenance{% endblocktrans %}</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#default{{ forloop.counter }}-tab-4" data-toggle="tab" class="nav-link">
+                                    <span class="d-sm-none">Tab 2</span>
+                                    <span class="d-sm-block d-none">{% blocktrans %}Videos{% endblocktrans %}</span>
+                                </a>
+                            </li>
+                        </ul>
+					<!-- end nav-tabs -->
+					<!-- begin tab-content -->
+					<div class="tab-content">
+						<!-- begin tab-pane -->
+						<div class="tab-pane fade active show" id="default{{ forloop.counter }}-tab-1">
+							<div class="row align-items-center">
+								<div class="col-md-2">
+                                    <img src="{{detail.get_image.url}}" alt="" class="rounded equip-photo" />
+								</div>
+								<div class="col-md-5">
+									<ul class="list-group">
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Supply Code{% endblocktrans %}</span>
+											<b class="pull-right">{{ detail.supply.code }}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Element Type{% endblocktrans %}</span>
+											<b class="pull-right">{{ detail.supply.equipment.element_classification.element_type.name }}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Element Classification{% endblocktrans %}</span>
+											<b class="pull-right">{{ detail.supply.equipment.element_classification.name }}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Provider{% endblocktrans %}</span>
+											<b class="pull-right">{{ detail.supply.brand.name }}</b>
+										</li>	
+                                        <li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Size{% endblocktrans %}</span>
+											<b class="pull-right">({{detail.supply.size.code}}){{detail.supply.size.name}}</b>
+										</li>	
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Change Date{% endblocktrans %}</span>
+											<b class="pull-right">{{detail.expire_date}}</b>
+										</li>										
+									</ul>
+								</div>
+                                <div class="col-md-5">
+									<ul class="list-group">
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Color{% endblocktrans %}</span>
+											<b class="pull-right">{{detail.supply.color.name}}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Material{% endblocktrans %}</span>
+											<b class="pull-right">{{detail.supply.material}}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Certification{% endblocktrans %}</span>
+											<b class="pull-right">{{detail.supply.equipment.certification}}</b>
+										</li>
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Dispatched By{% endblocktrans %}</span>
+											<b class="pull-right">{{ detail.delivered.deliverer.employee.get_short_name }}</b>
+										</li>	
+                                        <li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Dispatched Date{% endblocktrans %}</span>
+											<b class="pull-right">{{ detail.checkout_detail.create_date }}</b>
+										</li>	
+										<li class="list-group-item">
+											<span class="badge badge-default">{% blocktrans %}Amount Dispatched{% endblocktrans %}</span>
+											<b class="pull-right">{{ detail.checkout_detail.total_dispatched}}</b>
+										</li>									
+									</ul>
+								</div>
+							</div>							
+						</div>
+						<!-- end tab-pane -->
+						<!-- begin tab-pane -->
+						<div class="tab-pane fade" id="default{{ forloop.counter }}-tab-2">
+							<div class="row">
+                                {{detail.supply.equipment.mode_use|safe}}
+							</div>
+						</div>
+                        <div class="tab-pane fade" id="default{{ forloop.counter }}-tab-3">
+							<div class="row">
+                                {{detail.supply.equipment.mantenace_cleaning|safe}}
+							</div>
+						</div>
+                        <div class="tab-pane fade" id="default{{ forloop.counter }}-tab-4">
+							<div class="row">
+                                {% if detail.supply.equipment.video_set.all %}  
+                                    {% for videos in  detail.supply.equipment.video_set.all %}
+                                        <div class="col-xl-6 col-md-6 col-sm-12">
+                                            <h5><b>Title: </b>{{videos.title}}</h5>
+                                            <iframe width="420" height="315"
+                                                src="https://www.youtube.com/embed/{{videos.video}}">
+                                            </iframe>
+                                        </div>
+                                    {% endfor %}
+                                {% else %}
+                                    {% blocktrans %}No available videos{% endblocktrans %}
+                                {% endif %}
+							</div>
+						</div>
+                        </div>
+                    </div>
+					<div class="col-xl-12 col-md-12  ">
+						{% if detail.is_accept == 1 %}
+						<form method="POST" id="form_{{detail.id}}" action="{% url 'employees:delivered_detail' request.id %}">
+							{% csrf_token %}
+							<div class="checkbox checkbox-css pt-0 checkbox-inline m-b-10">
+								<div class="col-xl-12">
+									<input type="checkbox" name="check" id="{{detail.id}}"/>
+									<label for="{{detail.id}}">{% blocktrans %}I have read and agree that the delivered supplie is in good condition, and with the correct parameters to use. Also, i have read the maintenance cleaning and the use mode of the supplie.{% endblocktrans %}</label>
+								</div>
+								<div class="col-xl-12">
+									<input type="checkbox" id="chck_{{detail.id}}" data-inp="accept_{{detail.id}}" class="alert"/>
+									<label for="chck_{{detail.id}}" class="m-t-10">{% blocktrans %}I accept to received this supply.{% endblocktrans %}</label>
+								</div>
+							</div>
+							<p><label for="description{{detail.id}}"><b>{% blocktrans %}Observations:*{% endblocktrans %} </b></label>
+							<textarea  class="form-control" id="description{{detail.id}}" name="observation" rows="4" cols="50"></textarea></p>
+							<input name="delivered_id" type="hidden" value="{{request.id}}">
+							<input name="detail_id" type="hidden" value="{{detail.id}}">
+							<input id="accept_{{detail.id}}" name="send" type="hidden" value="">
+							<div class="d-flex justify-content-center">
+								<div class="row m-t-10">
+									<div class="m-r-10 ">
+										<button type="submit" class="btn btn-success">{% blocktrans %}Submit{% endblocktrans %}</button>
+									</div>
+								</div>    
+							</div>
+						</form>
+						{% else %}
+						<form method="POST" id="form_{{detail.id}}" action="{% url 'employees:delivered_detail' request.id %}">
+							{% csrf_token %}
+							
+							<p><label for="description{{detail.id}}"><b>{% blocktrans %}Observations:*{% endblocktrans %} </b></label>
+							<textarea  disabled class="form-control" id="description{{detail.id}}" name="observation" rows="4" cols="50">{{detail.observation}}</textarea></p>
+							
+						</form>
+						{% endif %}
+                    </div>
+				</div>
+                </div>
+			</div>
+		</div>
+        {% endfor %}
+<!-- end row -->
+{% endblock content%}
+{% block custom_js %}
+<script src="{% static 'js/custom_delivered.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>  
+{% endblock custom_js %}

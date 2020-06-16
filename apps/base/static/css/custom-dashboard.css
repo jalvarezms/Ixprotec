@@ -1,0 +1,43 @@
+.content_bgs {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+a:link,
+a:visited {
+    text-decoration: inherit;
+    cursor: pointer;
+    color: black;
+}
+
+.card {
+    background-color: #FFF;
+    width: 200px;
+    height: 200px;
+}
+
+.card:hover {
+    background-color: rgba(165, 161, 161, 0.137);
+}
+
+.data {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 64px;
+}
+
+.title-imagen-display {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.65);
+    color: #fff;
+    width: 100%;
+    padding: .5rem;
+    box-sizing: border-box;
+}
+
+.title-imagen-display .title {
+    font-size: 1rem;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

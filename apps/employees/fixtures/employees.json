@@ -1,0 +1,53 @@
+[
+    {
+      "model": "employees.employee",
+      "pk": 1,
+      "fields": {
+        "code": "1000000",
+        "firts_name": "juan",
+        "second_name": "david",
+        "last_name": "gonzales",
+        "short_name": "juan gonzales",
+        "gender": 0,
+        "photo": "",
+        "document": "01",
+        "number_doc": "1234567",
+        "create_date": "2020-02-10T15:07:42.337Z",
+        "modified_date": "2020-02-10T15:07:42.337Z"
+      }
+    },
+    {
+      "model": "employees.employee",
+      "pk": 2,
+      "fields": {
+        "code": "200000",
+        "firts_name": "pedro",
+        "second_name": "elberto",
+        "last_name": "ramirez",
+        "short_name": "hernadez",
+        "gender": 0,
+        "photo": "",
+        "document": "02",
+        "number_doc": "17894567",
+        "create_date": "2020-02-10T15:08:32.291Z",
+        "modified_date": "2020-02-10T15:08:32.291Z"
+      }
+    },
+    {
+      "model": "employees.employee",
+      "pk": 3,
+      "fields": {
+        "code": "01",
+        "firts_name": "maria",
+        "second_name": "alejandra",
+        "last_name": "Hernadez",
+        "short_name": "ramirez",
+        "gender": 1,
+        "photo": "",
+        "document": "01",
+        "number_doc": "4561238",
+        "create_date": "2020-02-10T15:09:32.675Z",
+        "modified_date": "2020-02-10T15:09:32.675Z"
+      }
+    }
+  ]

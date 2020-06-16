@@ -1,0 +1,133 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-04-28 12:05-0500\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\templates\classification_form.html:6
+#: .\templates\classification_list.html:5 .\templates\type_create.html:6
+#: .\templates\type_list.html:5
+msgid "Home"
+msgstr ""
+
+#: .\templates\classification_form.html:7
+#: .\templates\classification_form.html:10
+#: .\templates\classification_list.html:6
+#: .\templates\classification_list.html:9 .\views.py:179
+msgid "Element Classification"
+msgstr ""
+
+#: .\templates\classification_form.html:8
+msgid "Register"
+msgstr ""
+
+#: .\templates\classification_form.html:11
+msgid " In this form you can create an element classification"
+msgstr ""
+
+#: .\templates\classification_form.html:15
+#: .\templates\classification_list.html:14 .\templates\type_create.html:15
+#: .\templates\type_list.html:14
+msgid "Elements"
+msgstr ""
+
+#: .\templates\classification_form.html:17
+#: .\templates\classification_form.html:56
+#: .\templates\classification_list.html:16 .\templates\type_create.html:7
+#: .\templates\type_create.html:10 .\templates\type_create.html:17
+#: .\templates\type_list.html:6 .\templates\type_list.html:9
+#: .\templates\type_list.html:16 .\views.py:87 .\views.py:180
+msgid "Element Type"
+msgstr ""
+
+#: .\templates\classification_form.html:18
+#: .\templates\classification_list.html:17 .\templates\type_create.html:18
+#: .\templates\type_list.html:17
+msgid "Element Class"
+msgstr ""
+
+#: .\templates\classification_form.html:30
+msgid "Register Element Classification"
+msgstr ""
+
+#: .\templates\classification_form.html:97 .\templates\type_create.html:65
+msgid "Save"
+msgstr ""
+
+#: .\templates\classification_form.html:98 .\templates\type_create.html:66
+msgid "Cancel"
+msgstr ""
+
+#: .\templates\classification_list.html:7 .\templates\type_list.html:7
+msgid "Data Table"
+msgstr ""
+
+#: .\templates\classification_list.html:10
+msgid "Here you can view the created element classification"
+msgstr ""
+
+#: .\templates\type_create.html:8
+msgid "Registre"
+msgstr ""
+
+#: .\templates\type_create.html:11
+msgid "In this form you can create element type"
+msgstr ""
+
+#: .\templates\type_create.html:30
+msgid "Element type register"
+msgstr ""
+
+#: .\templates\type_list.html:10
+msgid "This is the element type list"
+msgstr ""
+
+#: .\views.py:74 .\views.py:167
+msgid "Edit"
+msgstr ""
+
+#: .\views.py:78 .\views.py:171
+msgid "Delete"
+msgstr ""
+
+#: .\views.py:88 .\views.py:180
+msgid "Code"
+msgstr ""
+
+#: .\views.py:88 .\views.py:180
+msgid "Name"
+msgstr ""
+
+#: .\views.py:88 .\views.py:180
+msgid "Description"
+msgstr ""
+
+#: .\views.py:88 .\views.py:180
+msgid "Created date"
+msgstr ""
+
+#: .\views.py:88 .\views.py:180
+msgid "Modified date"
+msgstr ""
+
+#: .\views.py:88 .\views.py:180
+msgid "Actions"
+msgstr ""
+
+#: .\views.py:180
+msgid "Status"
+msgstr ""

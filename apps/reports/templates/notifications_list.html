@@ -1,0 +1,228 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load i18n %}
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Home{% endblocktrans %}</a></li>
+<li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Notifications{% endblocktrans %}</a></li>
+<li class="breadcrumb-item active">{% blocktrans %}Inbox{% endblocktrans %}</li>
+{% endblock breadcrumb %}
+{% block page_header_title %}{% blocktrans %}Notifications Inbox{% endblocktrans %}{% endblock page_header_title %}
+{% block page_header_sm_title %} {% blocktrans %}In this form you Notifications {% endblocktrans %}{% endblock page_header_sm_title %}
+
+{% block content %}
+<!-- begin vertical-box -->
+<div class="vertical-box with-grid inbox bg-light height-1000" style="height: 800px;">
+    <!-- begin vertical-box-column -->
+    <div class="vertical-box-column width-200">
+        <!-- begin vertical-box -->
+        <div class="vertical-box">
+            <!-- begin wrapper -->
+            <div class="wrapper">
+                <div class="d-flex align-items-center justify-content-center">
+                    <a href="#emailNav" data-toggle="collapse" class="btn btn-inverse btn-sm mr-auto d-block d-lg-none">
+                        <i class="fa fa-cog"></i>
+                    </a>
+                </div>
+            </div>
+            <!-- end wrapper -->
+            <!-- begin vertical-box-row -->
+            <div class="vertical-box-row collapse d-lg-table-row" id="emailNav">
+                <!-- begin vertical-box-cell -->
+                <div class="vertical-box-cell">
+                    <!-- begin vertical-box-inner-cell -->
+                    <div class="vertical-box-inner-cell">
+                        <!-- begin scrollbar -->
+                        <div data-scrollbar="true" data-height="100%">
+                            <!-- begin wrapper -->
+                            <div class="wrapper p-0">
+                                <div class="nav-title"><b>{% blocktrans %}FOLDERS{% endblocktrans %}</b></div>
+                                <ul class="nav nav-inbox">
+                                    <li class="active">
+                                        <a href="email_inbox.html"><i class="fa fa-inbox fa-fw m-r-5"></i> {% blocktrans %}Notifications{% endblocktrans %}
+                                            <span class="badge pull-right">{{notification_unread_count}}</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div class="nav-title"><b>Level</b></div>
+                                <ul class="nav nav-inbox">
+                                    <li><a href="javascript:;"><i
+                                                class="fa fa-fw f-s-10 m-r-5 fa-circle text-success"></i> {% blocktrans %}Success{% endblocktrans %}</a>
+                                    </li>
+                                    <li><a href="javascript:;"><i class="fa fa-fw f-s-10 m-r-5 fa-circle text-info"></i>
+                                            {% blocktrans %}Info{% endblocktrans %}</a></li>
+                                    <li><a href="javascript:;"><i
+                                                class="fa fa-fw f-s-10 m-r-5 fa-circle text-warning"></i> {% blocktrans %}Warning{% endblocktrans %}</a>
+                                    </li>
+                                    <li><a href="javascript:;"><i
+                                                class="fa fa-fw f-s-10 m-r-5 fa-circle text-danger"></i> {% blocktrans %}Danger{% endblocktrans %}</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- end wrapper -->
+                        </div>
+                        <!-- end scrollbar -->
+                    </div>
+                    <!-- end vertical-box-inner-cell -->
+                </div>
+                <!-- end vertical-box-cell -->
+            </div>
+            <!-- end vertical-box-row -->
+        </div>
+        <!-- end vertical-box -->
+    </div>
+    <!-- end vertical-box-column -->
+    <!-- begin vertical-box-column -->
+    <div class="vertical-box-column">
+        <!-- begin vertical-box -->
+        <div class="vertical-box">
+            <!-- begin wrapper -->
+            <div class="wrapper">
+                <!-- begin btn-toolbar -->
+                <div class="btn-toolbar align-items-center">
+                    <div class="custom-control custom-checkbox mr-2">
+                        <input type="checkbox" class="custom-control-input" data-checked="email-checkbox"
+                            id="emailSelectAll" data-change="email-select-all" />
+                        <label class="custom-control-label" for="emailSelectAll"></label>
+                    </div>
+                    <div class="dropdown mr-2">
+                        <button class="btn btn-white btn-sm" data-toggle="dropdown">
+                            View All <span class="caret m-l-3"></span>
+                        </button>
+                        <div class="dropdown-menu">
+                            <a href="javascript:;" class="dropdown-item"><i class="fa fa-circle f-s-9 fa-fw mr-2"></i>
+                                All</a>
+                            <a href="javascript:;" class="dropdown-item"><i
+                                    class="fa fa-circle f-s-9 fa-fw mr-2 text-muted"></i> Unread</a>
+                            <a href="javascript:;" class="dropdown-item"><i
+                                    class="fa fa-circle f-s-9 fa-fw mr-2 text-blue"></i> Contacts</a>
+                            <a href="javascript:;" class="dropdown-item"><i
+                                    class="fa fa-circle f-s-9 fa-fw mr-2 text-success"></i> Groups</a>
+                            <a href="javascript:;" class="dropdown-item"><i
+                                    class="fa fa-circle f-s-9 fa-fw mr-2 text-warning"></i> Newsletters</a>
+                            <a href="javascript:;" class="dropdown-item"><i
+                                    class="fa fa-circle f-s-9 fa-fw mr-2 text-danger"></i> Social updates</a>
+                            <a href="javascript:;" class="dropdown-item"><i
+                                    class="fa fa-circle f-s-9 fa-fw mr-2 text-indigo"></i> Everything else</a>
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-white mr-2"><i class="fa fa-redo"></i></button>
+                    <!-- begin btn-group -->
+                    <div class="btn-group">
+                        <button class="btn btn-sm btn-white hide" data-email-action="delete"><i
+                                class="fa fa-times mr-2"></i> <span class="hidden-xs">Delete</span></button>
+                        <button class="btn btn-sm btn-white hide" data-email-action="archive"><i
+                                class="fa fa-folder mr-2"></i> <span class="hidden-xs">Archive</span></button>
+                        <button class="btn btn-sm btn-white hide" data-email-action="archive"><i
+                                class="fa fa-trash mr-2"></i> <span class="hidden-xs">Junk</span></button>
+                    </div>
+                    <!-- end btn-group -->
+                    <!-- begin btn-group -->
+                    <div class="btn-group ml-auto">
+                        <button class="btn btn-white btn-sm">
+                            <i class="fa fa-chevron-left"></i>
+                        </button>
+                        <button class="btn btn-white btn-sm">
+                            <i class="fa fa-chevron-right"></i>
+                        </button>
+                    </div>
+                    <!-- end btn-group -->
+                </div>
+                <!-- end btn-toolbar -->
+            </div>
+            <!-- end wrapper -->
+            <!-- begin vertical-box-row -->
+            <div class="vertical-box-row">
+                <!-- begin vertical-box-cell -->
+                <div class="vertical-box-cell">
+                    <!-- begin vertical-box-inner-cell -->
+                    <div class="vertical-box-inner-cell bg-white">
+                        <!-- begin scrollbar -->
+                        <div data-scrollbar="true" data-height="100%">
+                            <!-- begin list-email -->
+                            <ul class="list-group list-group-lg no-radius list-email">
+                                {% for notify in notification_unread  %}
+                                <li class="list-group-item unread">
+                                    <div class="email-checkbox">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input"
+                                                data-checked="email-checkbox" id="emailCheckbox2">
+                                            <label class="custom-control-label" for="emailCheckbox2"></label>
+                                        </div>
+                                    </div>
+                                    <a href="{% url 'base:notification_view' notify.id %}" class="email-user bg-grey">
+                                        <i class="fab fa-github-alt text-white"></i>
+                                    </a>
+                                    <div class="email-info">
+                                        <a href="{% url 'base:notification_view' notify.id %}">
+                                            <span class="email-sender">{{ notify.recipient.username}}</span>
+                                            <h6 class='f-s-09'><span
+                                                    class="badge badge-{{ notify.level}}">{{ notify.level}}</span></h6>
+                                            <span class="email-title">{{ notify.verb}}</span>
+                                            <span class="email-desc">{{ notify.description}}</span>
+                                            <span class="email-time">{{ notify.timesince}} {% blocktrans %}ago{% endblocktrans %}</span>
+                                        </a>
+                                    </div>
+                                </li>
+                                {% endfor %}
+                                {% for notify in notification_read  %}
+                                <li class="list-group-item ">
+                                    <div class="email-checkbox">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input"
+                                                data-checked="email-checkbox" id="emailCheckbox2">
+                                            <label class="custom-control-label" for="emailCheckbox2"></label>
+                                        </div>
+                                    </div>
+                                    <a href="{% url 'base:notification_view' notify.id %}" class="email-user bg-grey">
+                                        <i class="fab fa-github-alt text-white"></i>
+                                    </a>
+                                    <div class="email-info">
+                                        <a href="{% url 'base:notification_view' notify.id %}">
+                                            <span class="email-sender">{{ notify.recipient.username}}</span>
+                                            <h6 class='f-s-09'><span
+                                                    class="badge badge-{{ notify.level}}">{{ notify.level}}</span></h6>
+                                            <span class="email-title">{{ notify.verb}}</span>
+                                            <span class="email-desc">{{ notify.description}}</span>
+                                            <span class="email-time">{{ notify.timesince}} {% blocktrans %}ago{% endblocktrans %}</span>
+                                        </a>
+                                    </div>
+                                </li>
+                                {% endfor %}
+
+                            </ul>
+                            <!-- end list-email -->
+                        </div>
+                        <!-- end scrollbar -->
+                    </div>
+                    <!-- end vertical-box-inner-cell -->
+                </div>
+                <!-- end vertical-box-cell -->
+            </div>
+            <!-- end vertical-box-row -->
+            <!-- begin wrapper -->
+            <div class="wrapper clearfix d-flex align-items-center">
+                <div class="text-inverse f-w-600">{{notification_count}} {% blocktrans %}notifications{% endblocktrans %}</div>
+                <div class="btn-group ml-auto">
+                    <button class="btn btn-white btn-sm">
+                        <i class="fa fa-fw fa-chevron-left"></i>
+                    </button>
+                    <button class="btn btn-white btn-sm">
+                        <i class="fa fa-fw fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            <!-- end wrapper -->
+        </div>
+        <!-- end vertical-box -->
+    </div>
+    <!-- end vertical-box-column -->
+</div>
+<!-- end vertical-box -->
+
+
+
+{% endblock %}
+{% block custom_js %}
+<script src="{% static 'js/demo/email-inbox.demo.js' %}"></script>
+{% endblock custom_js %}

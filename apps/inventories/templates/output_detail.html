@@ -1,0 +1,235 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load i18n %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Home{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Warehouses{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Pending Request{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item active">{% blocktrans %}Supplies Detail{% endblocktrans %}</li>
+{% endblock breadcrumb %}
+{% block page_header_title %}{% blocktrans %}Dispatch Supplies{% endblocktrans %}{% endblock page_header_title %}
+{% block page_header_sm_title %}{% blocktrans %}Here you can dispatch the supplies requests and view supplies detail{% endblocktrans %}{% endblock page_header_sm_title %}
+{% block custom_css %}
+	<link href="{% static 'css/custom_delivery_css.css' %}" rel="stylesheet">
+{% endblock custom_css %}
+{% block content %}
+<div class="row">
+    <!-- begin col-6 -->
+    <div class="col-xl-12">
+        <!-- begin panel -->
+        <div class="panel panel-success" data-sortable-id="form-stuff-10">
+            <!-- begin panel-heading -->
+            <div class="panel-heading">
+                <h4 class="panel-title">{% blocktrans %}Dispatch Supplies{% endblocktrans %}</h4>
+                <div class="panel-heading-btn">
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+                    <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+                </div>
+            </div>
+            <!-- end panel-heading -->
+            <!-- begin panel-body -->
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <label><b>{% blocktrans %}Request Status{% endblocktrans %}:</b></label>
+                        <span class="badge badge-warning">{% blocktrans %}Pending{% endblocktrans %}<span/>
+                    </div>
+                    <div class="col-md-3">
+                        <label><b>Employee:</b> Liam Nilson</label>
+                    </div>
+                    <div class="col-md-3">
+                        <label><b>Position:</b> Maintenance Engineer</label>
+                    </div>
+                    <div class="col-md-3">
+                        <label><b>Gender:</b> Male</label>
+                    </div>
+                    <div class="col-md-3">
+                        <label><b>Warehouse:</b> WARH01</label>
+                    </div>
+                    <div class="col-md-3">
+                        <label><b>Stockists ID:</b> STCK486</label>
+                    </div>
+                    <div class="col-md-3">
+                        <label><b>Stockists:</b> Tomás Gonzalez</label>
+                    </div>
+                    <div class="col-md-3">
+                        <label><b>Request Date:</b> 22-01-2020</label>
+                    </div>
+                    <div class="col-md-3">
+                        <label><b>General Observations:</b></label>
+                        <textarea name="textarea" rows="3" cols="60" class="form-control"></textarea>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <h4 class="widget-list-title m-t-15"><b>Available Dispatch Supplies</h4>
+                </div>
+                <!-- begin widget-list -->
+                <div class="widget-list widget-list-rounded m-b-30 " data-id="widget">
+                    <!-- begin widget-list-item -->
+                    <div class="widget-list-item">
+                        <div class="widget-list-content ">
+                            <div class="row align-items-center  justify-content-start"> 
+                                <div class="col-lg-2 col-md-12">
+                                    <div class="row">    
+                                        <div class="widget-list-media ">
+                                            <img src="{% static 'img/supplies/helmet.png' %}" alt="" class="rounded" />
+                                        </div>
+                                        <div class=""></div> 
+                                        <div class="col-lg-8 col-md-12 m-b-10">
+                                            <h4 class="widget-list-title"><b>Equipment:</b> Hard Helmet</h4>
+                                            <p class="widget-list-desc"><b>Size:</b> XL</p>
+                                            <p class="widget-list-desc"><b>Amount Requested:</b> 1</p>
+                                            <p class="widget-list-desc"><b>Color:</b> White</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-12 m-b-10 ml-auto "> 
+                                    <label><b>Available Supplies: </b></label>
+                                    <select class="form-control">
+                                        <option value="value2" >245454-White Hard Helmet-3M</option>
+                                        <option value="value2" >545412-White Helmet-EPPC</option>
+                                        <option value="value2" >987987-Soldering White Helmet- EPP</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-2 col-md-12 m-b-10 ml-auto"> 
+                                    <h4 class="widget-list-title"><b>Supplie: </b>White Hard Helmet</h4>
+                                    <h4 class="widget-list-title"><b>Provider: </b> 3M</h4>
+                                    <h4 class="widget-list-title"><b>Actual Stock: </b>25</h4>
+                                    <h4 class="widget-list-title"><b>Location: </b>A564</h4>
+                                </div>
+                                <div class="col-lg-1 col-md-12 m-b-10 ml-auto">
+                                    <label><b>Amount Dispatched: </b></label>
+                                    <input type="number" class="form-control" value="1" min="1" max="50">
+                                </div>
+                                <div class="col-lg-2 col-md-12 m-b-10 ml-auto">
+                                    <label><b>Set Supplie Status as: </b><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Supplie Status" data-placement="top" data-content="If you are sure that the supplie is dispatched, it will be discounted from the inventory. If you will not dispatch it, the request will be pending."></i>
+									</label>
+                                    <select class="form-control">
+                                        <option value="value2" >Dispatched</option>
+                                        <option value="value2" >Not Dispatched</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end widget-list-item -->
+                    <!-- begin widget-list-item -->
+                    <div class="widget-list-item">
+                        <div class="widget-list-content">
+                            <div class="row align-items-center  justify-content-start"> 
+                                <div class="col-lg-2 col-md-12">
+                                    <div class="row">    
+                                        <div class="widget-list-media ">
+                                            <img src="{% static 'img/supplies/gloves.png' %}" alt="" class="rounded" />
+                                        </div>
+                                        <div class=""></div> 
+                                        <div class="col-lg-8 col-md-12 m-b-10">
+                                            <h4 class="widget-list-title"><b>Equipment:</b> Memphis Foam Gloves</h4>
+                                            <p class="widget-list-desc"><b>Size:</b> 28</p>
+                                            <p class="widget-list-desc"><b>Amount Requested:</b> 4</p>
+                                            <p class="widget-list-desc"><b>Color:</b> Black</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-2 col-md-12 m-b-10 ml-auto">
+                                    <label><b>Available Supplies: </b></label>
+                                    <select class="form-control">
+                                        <option value="value2" >245454-White Hard Helmet-3M</option>
+                                        <option value="value2" >545412-White Helmet-EPPC</option>
+                                        <option value="value2" >987987-Soldering White Helmet- EPP</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-2 col-md-12 m-b-10 ml-auto"> 
+                                    <h4 class="widget-list-title"><b>Supplie: </b>White Hard Helmet</h4>
+                                    <h4 class="widget-list-title"><b>Provider: </b> 3M</h4>
+                                    <h4 class="widget-list-title"><b>Actual Stock: </b>25</h4>
+                                    <h4 class="widget-list-title"><b>Location: </b>A564</h4>
+                                </div>
+                                <div class="col-lg-1 col-md-12 m-b-10 ml-auto">
+                                    <label><b>Amount Dispatched: </b></label>
+                                    <input type="number" class="form-control" value="1" min="1" max="50">
+                                </div>
+                                <div class="col-lg-2 col-md-12 m-b-10 ml-auto">
+                                    <label><b>Set Supplie Status as: </b><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Supplie Status" data-placement="top" data-content="If you are sure that the supplie is dispatched, it will be discounted from the inventory. If you will not dispatch it, the request will be pending."></i>
+									</label>
+                                    <select class="form-control">
+                                        <option value="value2" >Dispatched</option>
+                                        <option value="value2" >Not Dispatched</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end widget-list-item -->
+                    <!-- begin widget-list-item -->
+                    <div class="widget-list-item">
+                        <div class="widget-list-content">
+                            <div class="row align-items-center  justify-content-start"> 
+                                <div class="col-lg-2 col-md-12">
+                                    <div class="row"> 
+                                        <div class="widget-list-media">
+                                            <img src="{% static 'img/supplies/boots.png' %}" alt="" class="rounded" />
+                                        </div>
+                                        <div class=""></div> 
+                                        <div class="col-lg-8 col-md-12 m-b-10">   
+                                            <h4 class="widget-list-title"><b>Equipment:</b> Steel Toe Boots</h4>
+                                            <p class="widget-list-desc"><b>Size:</b> 40</p>
+                                            <p class="widget-list-desc"><b>Amount Requested:</b> 2</p>
+                                            <p class="widget-list-desc"><b>Color:</b>Black</p>
+                                        </div> 
+                                    </div> 
+                                </div>
+                                <div class="col-lg-2 col-md-12 m-b-10 ml-auto">
+                                    <label><b>Available Supplies: </b></label>
+                                    <select class="form-control">
+                                        <option value="value2" >245454-White Hard Helmet-3M</option>
+                                        <option value="value2" >545412-White Helmet-EPPC</option>
+                                        <option value="value2" >987987-Soldering White Helmet- EPP</option>
+                                    </select>
+                                </div>
+                                <div class="col-lg-2 col-md-12 m-b-10 ml-auto"> 
+                                    <h4 class="widget-list-title"><b>Supplie: </b>White Hard Helmet</h4>
+                                    <h4 class="widget-list-title"><b>Provider: </b> 3M</h4>
+                                    <h4 class="widget-list-title"><b>Actual Stock: </b>25</h4>
+                                    <h4 class="widget-list-title"><b>Location: </b>A564</h4>
+                                </div>
+                                <div class="col-lg-1 col-md-12 m-b-10 ml-auto">
+                                    <label><b>Amount Dispatched: </b></label>
+                                    <input type="number" class="form-control" value="1" min="1" max="50">
+                                </div>
+                                <div class="col-lg-2 col-md-12 m-b-10 ml-auto">
+                                    <label><b>Set Supplie Status as: </b><i class="fa fa-info-circle" data-toggle="popover" data-trigger="hover" data-title="Supplie Status" data-placement="top" data-content="If you are sure that the supplie is dispatched, it will be discounted from the inventory. If you will not dispatch it, the request will be pending."></i>
+									</label>											
+                                    <select class="form-control">
+                                        <option value="value2" >Dispatched</option>
+                                        <option value="value2" >Not Dispatched</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end widget-list-item -->
+                </div>
+                <div class="list-widget">
+                    <div class="print-button">
+                        <a href="javascript:;"  onclick="window.print();"><i class="fas fa-print"></i></a>
+                    </div>
+                    <div class="finish-button">
+                        <a class="btn btn-success" href="{% url 'inventories:inventory_output_list'%}">Finish</a>
+                    </div>
+                </div>
+            </div>
+            <!-- end panel-body -->
+            
+        </div>
+        <!-- end panel -->
+    </div>
+				
+</div>
+<!-- end row -->
+{% endblock content%}
+{% block custom_js %}
+
+{% endblock custom_js %}

@@ -1,0 +1,38 @@
+[
+  {
+    "model": "organizational.company",
+    "pk": 1,
+    "fields": {
+      "code": "CO10",
+      "name": "Sistemas Colombia SAS",
+      "start_date": "1900-01-01",
+      "country_code": "COL",
+      "create_date": "1900-01-01T00:00:00.000Z",
+      "modified_date": "1900-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "model": "organizational.company",
+    "pk": 2,
+    "fields": {
+      "code": "CO20",
+      "name": "Avanxo Colombia",
+      "start_date": "1900-01-01",
+      "country_code": "COL",
+      "create_date":   "2020-01-30T23:39:19.606Z",
+      "modified_date": "1900-01-01T00:00:00.000Z"
+    }
+  },
+  {
+    "model": "organizational.company",
+    "pk": 3,
+    "fields": {
+      "code": "CO30",
+      "name": "Belatrix Colombia S.A.S.",
+      "start_date": "1900-01-01",
+      "country_code": "COL",
+      "create_date": "1900-01-01T00:00:00.000Z",
+      "modified_date": "1900-01-01T00:00:00.000Z"
+    }
+  }
+]

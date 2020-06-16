@@ -1,0 +1,12 @@
+
+---
+applications:
+- name: ixema_demo
+  host: ixema
+  path: .
+  memory: 256M
+  timeout: 600
+  buildpack: https://github.com/cloudfoundry/python-buildpack
+  command: sh run.sh
+  services:
+    - ixemaDb

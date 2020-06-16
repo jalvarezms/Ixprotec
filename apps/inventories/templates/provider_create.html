@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Home{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'inventories:list_providers'%}">{% blocktrans %}Provider list{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item active">{% blocktrans %}Registre{% endblocktrans %}</li>
+{% endblock breadcrumb %}
+{% block page_header_title %}{% blocktrans %}Provider{% endblocktrans %}{% endblock page_header_title %}
+{% block page_header_sm_title %} {% blocktrans %}In this form you add or modify an provider{% endblocktrans %} {% endblock page_header_sm_title %}
+{% block menu_active_configuration %}<li class="has-sub active">{% endblock menu_active_configuration %}
+{% block menu_warehouses %}							
+<li class="has-sub active">
+	<a ><b class="caret"></b>{% blocktrans %}Warehouses{% endblocktrans %}</a>
+	<ul class="sub-menu">
+		<li><a href="{% url 'warehouses:warehouse_list'%}">{% blocktrans %}Warehouses{% endblocktrans %}</a></li>
+		<li class="active"><a href="{% url 'inventories:list_providers'%}">{% blocktrans %}Providers{% endblocktrans %}</a></li>
+	</ul> 
+</li>
+{% endblock menu_warehouses %}
+{% block content %}
+
+<div class="row">
+				<!-- begin col-6 -->
+				<div class="col-xl-12">
+					<!-- begin panel -->
+					<div class="panel panel-success" data-sortable-id="form-stuff-10">
+						<!-- begin panel-heading -->
+						<div class="panel-heading">
+							<h4 class="panel-title">{% blocktrans %}Registre or modify a provider{% endblocktrans %}</h4>
+							<div class="panel-heading-btn">
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+								<a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-danger" data-click="panel-remove"><i class="fa fa-times"></i></a>
+							</div>
+						</div>
+						<!-- end panel-heading -->
+						<!-- begin panel-body -->
+					<div class="panel-body">
+						<form method="post" class="form-horizontal">
+                                {% csrf_token %}
+								<fieldset>									
+                                        <div class="row">
+                                            <div class="col-md-4 col-md-offset-2">
+                                                <div class="form-group">
+                                                    {{form.name|as_crispy_field }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-md-offset-2 ">
+                                                <div class="form-group">
+                                                    {{form.NIT|as_crispy_field }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4 col-md-offset-2 ">
+                                                <div class="form-group">
+                                                    {{form.Address|as_crispy_field }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-4 col-md-offset-1 ">
+                                                <div class="form-group">
+                                                {{form.PhoneNumber|as_crispy_field }}
+                                                </div>
+                                            </div>
+                                        </div>    
+                                           
+                                        <div class="pull-right">								
+                                                <button type="submit" class="btn btn-sm btn-primary m-r-5 ">{% blocktrans %}Save{% endblocktrans %}</button>
+                                                <a class="btn btn-sm btn-secondary m-r-5  " href="{%url 'inventories:list_providers'%}">{% blocktrans %}Cancel{% endblocktrans %}</a>
+                                        </div>
+                                            
+                                        </div>
+								    </fieldset>
+							</form>
+						</div>
+						<!-- end panel-body -->
+						
+					</div>
+					<!-- end panel -->
+				</div>
+				
+</div>
+<!-- end row -->
+    
+    
+{% endblock %}

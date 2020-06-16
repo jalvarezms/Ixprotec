@@ -1,0 +1,38 @@
+{% load static %}
+{% load i18n %}
+<form method="post" enctype="multipart/form-data" class="form-horizontal">
+    {% csrf_token %}
+    <div class="pull-left">
+        <a href="javascript:;" data-href={% url 'publications:create_like_news' article.id %}
+            data-pk={{ article.id }} onclick="create_like('{% url 'publications:create_like_news' article.id %}','{{ article.id }}')"
+            class="btn btn-default m-r-5  text-success create-like-news">
+            <i class="fa fa-thumbs-up  fa-fw fa-lg m-r-3"></i>
+            <b>{% blocktrans %}Like{% endblocktrans %}</b>
+        </a>
+    </div>
+    <div class="pull-right">
+        <a href="javascript:;">
+            <span class="fa-stack fa-fw stats-icon">
+                <i class="fa fa-circle fa-stack-2x text-primary"></i>
+                <i class="fa fa-thumbs-up fa-stack-1x fa-inverse"></i>
+            </span>
+            <span class="stats-total">{{article.count_likes}} {% blocktrans %}likes{% endblocktrans %}
+            </span>
+        </a>
+
+        <span class="fa-stack fa-fw stats-icon">
+            <i class="fa fa-circle fa-stack-2x text-success"></i>
+            <i class="fa fa-comments fa-stack-1x fa-inverse"></i>
+        </span>
+        <span class="stats-total">{{article.count_comments}}</span> {% blocktrans %}comments{% endblocktrans %}
+        <span class="fa-stack fa-fw stats-icon">
+            <i class="fa fa-circle fa-stack-2x text-success"></i>
+            <i class="fa fa-eye fa-stack-1x fa-inverse"></i>
+        </span>
+        <span class="stats-total">{{article.visits}} {% blocktrans %}visits{% endblocktrans %}</span>
+    </div>
+</form>
+
+{% block custom_js %}
+
+{% endblock custom_js %}

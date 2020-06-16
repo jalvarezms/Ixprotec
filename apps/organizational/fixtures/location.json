@@ -1,0 +1,119 @@
+[
+    {
+      "model": "organizational.location",
+      "pk": 1,
+      "fields": {
+        "code": "CO/BOG/CorpCenter",
+        "name": "Bogota",
+        "status": true,
+        "start_date": "1900-01-01",
+        "group": "BOG",
+        "create_date": "2020-01-30T14:54:10.060Z",
+        "modified_date": "2020-01-30T14:54:10.060Z"
+      }
+    },
+    {
+      "model": "organizational.location",
+      "pk": 2,
+      "fields": {
+        "code": "CO/MED/Medellin",
+        "name": "Medellin",
+        "status": true,
+        "start_date": "1900-01-01",
+        "group": "MED",
+        "create_date": "2020-01-30T14:54:30.322Z",
+        "modified_date": "2020-01-30T14:54:30.322Z"
+      }
+    },
+    {
+      "model": "organizational.location",
+      "pk": 3,
+      "fields": {
+        "code": "CO/Bogota/Site 97 Sq",
+        "name": "Bogota",
+        "status": true,
+        "start_date": "1900-01-01",
+        "group": "BOG",
+        "create_date": "2020-01-30T14:54:48.459Z",
+        "modified_date": "2020-01-30T14:54:48.459Z"
+      }
+    },
+    {
+      "model": "organizational.location",
+      "pk": 4,
+      "fields": {
+        "code": "CO/MED/AVX",
+        "name": "Medellin",
+        "status": true,
+        "start_date": "1900-01-01",
+        "group": "MED",
+        "create_date": "2020-01-30T14:55:07.566Z",
+        "modified_date": "2020-01-30T14:55:07.566Z"
+      }
+    },
+    {
+      "model": "organizational.location",
+      "pk": 5,
+      "fields": {
+        "code": "CO/BOG/HW",
+        "name": "Home Working",
+        "status": true,
+        "start_date": "1900-01-01",
+        "group": "CO",
+        "create_date": "2020-01-30T14:55:24.058Z",
+        "modified_date": "2020-01-30T14:55:24.058Z"
+      }
+    },
+    {
+      "model": "organizational.location",
+      "pk": 6,
+      "fields": {
+        "code": "CO/MED/One Plaza",
+        "name": "Medellin",
+        "status": true,
+        "start_date": "1900-01-01",
+        "group": "MED",
+        "create_date": "2020-01-30T14:55:41.192Z",
+        "modified_date": "2020-01-30T14:55:41.192Z"
+      }
+    },
+    {
+      "model": "organizational.location",
+      "pk": 7,
+      "fields": {
+        "code": "CO/MED/HW",
+        "name": "Home Working",
+        "status": true,
+        "start_date": "1900-01-01",
+        "group": "CO",
+        "create_date": "2020-01-30T14:56:00.571Z",
+        "modified_date": "2020-01-30T14:56:00.571Z"
+      }
+    },
+    {
+      "model": "organizational.location",
+      "pk": 8,
+      "fields": {
+        "code": "CO/Bogota/AVX",
+        "name": "Bogota",
+        "status": true,
+        "start_date": "1900-01-01",
+        "group": "BOG",
+        "create_date": "2020-01-30T14:56:20.238Z",
+        "modified_date": "2020-01-30T14:56:20.238Z"
+      }
+    },
+    {
+      "model": "organizational.location",
+      "pk": 9,
+      "fields": {
+        "code": "CO/Bogota/Belatrix",
+        "name": "Bogota/Belatrix",
+        "status": true,
+        "start_date": "1900-01-01",
+        "group": "BOG",
+        "create_date": "2020-01-30T15:00:17.437Z",
+        "modified_date": "2020-01-30T15:00:17.437Z"
+      }
+    }
+  ]

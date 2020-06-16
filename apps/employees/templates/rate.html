@@ -1,0 +1,612 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% load i18n %}
+{% block breadcrumb %}
+    <li class="breadcrumb-item"><a href="javascript:;">{% blocktrans %}Home{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item"><a href="{% url 'employees:my_data'%}">{% blocktrans %}My Protection{% endblocktrans %}</a></li>
+    <li class="breadcrumb-item active">{% blocktrans %}Rate it{% endblocktrans %}</li>
+{% endblock breadcrumb %}
+
+
+{% block page_header_title %}{% blocktrans %}Rate element{% endblocktrans %}{% endblock page_header_title %}
+{% block page_header_sm_title %}{% blocktrans %}This is for rating your element{% endblocktrans %}{% endblock page_header_sm_title %}
+
+{% block menu_active_Profile %}
+<li class="has-sub active">
+{% endblock menu_active_Profile %}
+
+{% block menu_Mydata %}
+<ul class="sub-menu">
+    <li><a href="{% url 'employees:my_data'%}">{% blocktrans %}My Protection{% endblocktrans %}</a></li>
+    <li><a href="{% url 'employees:configure_sizes_list'%}">{% blocktrans %}Size Settings{% endblocktrans %}</a></li>
+    <li><a href="{% url 'employees:delivered_list'%}">{% blocktrans %}My Dispatch Supplies{% endblocktrans %}</a></li>
+</ul>
+{% endblock menu_Mydata %}
+
+{% block custom_css %}
+<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="{% static '\css\custom_stars.css'%}" rel="stylesheet" />
+{% endblock custom_css %}
+
+
+{% block content %}
+<div class="row">
+    <!-- begin panel -->
+    <div class="col-xl-12">
+        <!-- begin panel -->
+        <div class="panel panel-success">
+            <!-- begin header -->
+            <div class="panel-heading justify-content-center">
+                <h1 class="panel-title d-flex justify-content-center" >{% blocktrans %}Rate element{% endblocktrans %} </h1>
+            </div>
+            <!-- end header -->
+            <!-- content card -->
+            <div class="panel-body pb-60" >
+			<!-- begin row -->
+			<div class="row">
+				<!-- begin col-6 -->
+				<div class="col-xl-12">
+					<!-- begin nav-tabs -->
+					<ul class="nav nav-tabs">
+						<li class="nav-item">
+							<a href="#default-pills-tab-1" data-toggle="tab" class="nav-link active">
+								<span class="d-sm-none">Tab 1</span>
+								<span class="d-sm-block d-none">{% blocktrans %}Satisfaction{% endblocktrans %}</span>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="#default-pills-tab-2" data-toggle="tab" class="nav-link">
+								<span class="d-sm-none">Tab 2</span>
+								<span class="d-sm-block d-none">{% blocktrans %}Durability{% endblocktrans %}</span>
+							</a>
+                        </li>
+                        <li class="nav-item">
+							<a href="#default-pills-tab-3" data-toggle="tab" class="nav-link">
+								<span class="d-sm-none">Tab 2</span>
+								<span class="d-sm-block d-none">{% blocktrans %}Material{% endblocktrans %}</span>
+							</a>
+						</li>
+					</ul>
+					<!-- end nav-tabs -->
+                    <!-- begin tab-content -->
+                    <!-- ############################ diferent tap ############################## -->
+					<div class="tab-content">
+						<!-- begin tab-pane -->
+						<div class="tab-pane fade active show" id="default-pills-tab-1">
+                            <h3 class="m-t-10 mb-10" > {% blocktrans %}Users opinions{% endblocktrans %} </h3>
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-12">
+
+                                        <div class="d-flex flex-column" >
+                                             <!-- start percentage for the diferents posibilities for stars -->
+                                            <div class="d-flex flex-row">
+                                                <div><b>5 Stars</b></div>
+                                                <div class="progress rounded-corner progress-striped active m-4 width-200"  >
+                                                    <div class="progress-bar bg-warning" style="width: 75%">
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div>75%</div>
+                                            </div>
+                                            <!-- end for diferents posibilities for stars -->
+                                            <!-- start for diferents posibilities for stars -->
+                                            <div class="d-flex flex-row">
+                                                <div><b>4 Stars</b></div>
+                                                <div class="progress rounded-corner progress-striped active m-4 width-200" >
+                                                    <div class="progress-bar bg-warning" style="width: 13%">
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div>13%</div>
+                                            </div>
+                                            <!-- end for diferents posibilities for stars -->
+                                            <!-- start for diferents posibilities for stars -->
+                                            <div class="d-flex flex-row">
+                                                <div><b>3 Stars</b></div>
+                                                <div class="progress rounded-corner progress-striped active m-4 width-200"  >
+                                                    <div class="progress-bar bg-warning" style="width: 6%">
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div>6%</div>
+                                            </div>
+                                            <!-- end for diferents posibilities for stars -->
+                                            <!-- start for diferents posibilities for stars -->
+                                            <div class="d-flex flex-row">
+                                                <div><b>2 Stars</b></div>
+                                                <div class="progress rounded-corner progress-striped active m-4 width-200" >
+                                                    <div class="progress-bar bg-warning" style="width: 3%">
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div>3%</div>
+                                            </div>
+                                            <!-- end for diferents posibilities for stars -->
+                                            <!-- start for diferents posibilities for stars -->
+                                            <div class="d-flex flex-row">
+                                                <div><b>1 Stars</b></div>
+                                                <div class="progress rounded-corner progress-striped active m-4 width-200">
+                                                    <div class="progress-bar bg-warning" style="width: 3%">
+                                                        
+                                                    </div>
+                                                </div>
+                                                <div>3%</div>
+                                            </div>
+                                            <!-- end for diferents posibilities for stars -->
+                                        </div>
+                                    </div>
+                                    <!-- start for element image -->
+                                    <div class="col-md-4 col-sm-12" >
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <img src="/media/{{deliver.supply.equipment.image}}" alt="boots image" class="width-150">
+                                            </div>
+                                            <div class="col-lg-5 ml-1">
+                                                <h3 class="ml-3"> {{deliver.supply.equipment.name}} </h3>
+                                                <h6 class="ml-3"> PPE </h6>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <button class="btn btn-info col-lg-4 btn-success Green-template-color"> comment</button>
+                                        </div>
+                                    </div>
+                                    <!-- end for element image -->
+                                <!-- end header row where you find opinion and element image -->
+                                </div>
+                                <div class="toAppend">
+                                    <div class="mt-5 mb-5 d-flex flex-column comment">
+                                        <h5>{% blocktrans %}Write your comments{% endblocktrans %}</h5>
+
+                                        <div>
+                                            <fieldset class="rating">
+                                                <input type="radio" id="star5_only_1" name="final_evaluation" value="5"         /> <label class = "full" for="star5_only_1"    title="Awesome - 5 stars">       </label>
+                                                <input type="radio" id="star4half_only_1" name="final_evaluation" value="4.5"   /> <label class="half" for="star4half_only_1"  title="Pretty good - 4.5 stars"> </label>
+                                                <input type="radio" id="star4_only_1" name="final_evaluation" value="4"        />  <label class = "full" for="star4_only_1"    title="Pretty good - 4 stars">   </label>
+                                                <input type="radio" id="star3half_only_1" name="final_evaluation" value="3.5"  />  <label class="half" for="star3half_only_1"  title="So so - 3.5 stars">       </label>
+                                                <input type="radio" id="star3_only_1" name="final_evaluation" value="3"        />  <label class = "full" for="star3_only_1"    title="So so - 3 stars">         </label>
+                                                <input type="radio" id="star2half_only_1" name="final_evaluation" value="2.5"  />  <label class="half" for="star2half_only_1"  title="Kinda bad - 2.5 stars">   </label>
+                                                <input type="radio" id="star2_only_1" name="final_evaluation" value="2"        />  <label class = "full" for="star2_only_1"    title="Kinda bad - 2 stars">     </label>
+                                                <input type="radio" id="star1half_only_1" name="final_evaluation" value="1.5"  />  <label class="half" for="star1half_only_1"  title="Meh - 1.5 stars">         </label>
+                                                <input type="radio" id="star1_only_1" name="final_evaluation" value="1"        />  <label class = "full" for="star1_only_1"    title="Pretty bad - 1 star">     </label>
+                                                <input type="radio" id="starhalf_only_1" name="final_evaluation" value="0.5"   />  <label class="half" for="starhalf_only_1"   title="Pretty bad - 0.5 stars">  </label>
+                                            </fieldset>
+                                        </div>
+
+                                        <textarea class="form-control" rows="3"></textarea>
+                                        <div class="d-flex justify-content-center">
+                                            <button type="submit" class="btn ml-5 mt-2 col-lg-2 btn-success Green-template-color">Send</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- start for top best and top bad comments -->
+                                <div class="row mt-4 p-2">
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="card border-0">
+                                            <img src="{% static '\img\user\user-6.jpg'%}" alt="profile image" class="rounded-circle card-img-top width-40" >
+                                            <h5 class="title m-t-20">Adolph</h5>
+                                            <div class="card-body">
+                                                <h4 class="card-title m-t-0 m-b-10">Top best comment</h4>
+                                                <p class="card-text">I like the sesation in my feet, they are very conftable you don't feel too much weigth when you walk.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="card border-0">
+                                            <img src="{% static '\img\user\user-7.jpg'%}" alt="profile image" class="rounded-circle card-img-top width-40">
+                                            <h5 class="title m-t-20">Donald</h5>
+                                            <div class="card-body">
+                                                <h4 class="card-title m-t-0 m-b-10">Top bad Comment</h4>
+                                                <p class="card-text">I barely can walk they are so heavy for my height, you have to redesing it!!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end for top best and top bad comments -->
+                               	<!-- begin comments #gallery -->
+                                <div id="gallery" class="gallery">
+                                    <!-- begin coment -->
+                                    <div class="image gallery-group-1">
+                                        <img src="{% static '\img\user\user-5.jpg'%}" alt="profile image" class="rounded-circle card-img-top width-40 height-40">
+                                        <div class="image-info">
+                                            <h5 class="title">Peter</h5>
+                                            <div class="rating">
+                                                <span class="star active"></span>
+                                                <span class="star active"></span>
+                                                <span class="star active"></span>
+                                                <span class="star active"></span>
+                                                <span class="star active"></span>
+                                            </div>
+                                            <div class="desc">
+                                                I'm giving 5 stars because the description was accurate and so far it has filled my expectations and works great.
+                                                But when I first received the package I must say I was very discouraged.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end comment -->
+                                    <!-- begin comment -->
+                                    <div class="image gallery-group-1">
+                                        <div class="image-info">
+                                            <img src="{% static '\img\user\user-4.jpg'%}" alt="profile image" class="rounded-circle card-img-top width-40 height-40">
+                                            <h5 class="title">James</h5>
+                                            <div class="rating">
+                                                <span class="star active"></span>
+                                                <span class="star active"></span>
+                                                <span class="star active"></span>
+                                                <span class="star active"></span>
+                                                <span class="star"></span>
+                                            </div>
+                                            <div class="desc">
+                                                WORKS WITH TMOBILE IF UNLOCKED. I've been using this phone as a daily driver for a month. I love it. It does everything perfectly, minus games. Battery is the only concern
+                                                (you'll get used to the small keyboard) but it's exactly what I wanted (though the original 350$ price was a joke, I got it for 93$). I made the phone last 2 days once BUT
+                                                the screen on time was 30min (usually 630am - 700pm is ends around 25-40% with very minimal usage - screen on time from 15min-1hr). It's a good daily driver for the limited
+                                                market of people like me: full smartphone capabilities with limited use imposed. I can use navigation if I need to, I can email, I can call and web browse, but I know if
+                                                I'm doing it I don't have all day. It's a great little phone
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end comment -->
+                                </div>
+                                <!-- end comments #gallery -->
+						</div>
+                        <!-- end tab-pane -->
+                        <!-- ############################### diferent tap ################################# -->
+                        <!-- begin tab-pane -->
+                        <div class="tab-pane fade" id="default-pills-tab-2">
+                            <h3 class="m-t-10 m-b-10" > Users opinions </h3>
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-12">
+                                        <div class="d-flex flex-column" >
+                                             <!-- start percentage for the diferents posibilities for stars -->
+                                            <div class="d-flex flex-row">
+                                                <div><b>5 Stars</b></div>
+                                                <div class="progress rounded-corner progress-striped active m-4 width-200" >
+                                                    <div class="progress-bar bg-warning" style="width: 75%">
+                                                    </div>
+                                                </div>
+                                                <div>75%</div>
+                                            </div>
+                                            <!-- end for diferents posibilities for stars -->
+                                            <!-- start for diferents posibilities for stars -->
+                                            <div class="d-flex flex-row">
+                                                <div><b>4 Stars</b></div>
+                                                <div class="progress rounded-corner progress-striped active m-4 width-200" >
+                                                    <div class="progress-bar bg-warning" style="width: 13%">                                                      
+                                                    </div>
+                                                </div>
+                                                <div>13%</div>
+                                            </div>
+                                            <!-- end for diferents posibilities for stars -->
+                                            <!-- start for diferents posibilities for stars -->
+                                            <div class="d-flex flex-row">
+                                                <div><b>3 Stars</b></div>
+                                                <div class="progress rounded-corner progress-striped active m-4 width-200"  >
+                                                    <div class="progress-bar bg-warning" style="width: 6%">
+                                                    </div>
+                                                </div>
+                                                <div>6%</div>
+                                            </div>
+                                            <!-- end for diferents posibilities for stars -->
+                                            <!-- start for diferents posibilities for stars -->
+                                            <div class="d-flex flex-row">
+                                                <div><b>2 Stars</b></div>
+                                                <div class="progress rounded-corner progress-striped active m-4 width-200" >
+                                                    <div class="progress-bar bg-warning" style="width: 3%">
+                                                    </div>
+                                                </div>
+                                                <div>3%</div>
+                                            </div>
+                                            <!-- end for diferents posibilities for stars -->
+                                            <!-- start for diferents posibilities for stars -->
+                                            <div class="d-flex flex-row">
+                                                <div><b>1 Stars</b></div>
+                                                <div class="progress rounded-corner progress-striped active m-4 w-200 width-200" >
+                                                    <div class="progress-bar bg-warning" style="width: 3%">
+                                                    </div>
+                                                </div>
+                                                <div>3%</div>
+                                            </div>
+                                            <!-- end for diferents posibilities for stars -->
+                                        </div>
+                                    </div>
+                                    <!-- start for element image -->
+                                    <div class="col-md-4 col-sm-12" >
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <img src="/media/{{deliver.supply.equipment.image}}" alt="boots image" class="width-150">
+                                            </div>
+                                            <div class="col-lg-5 ml-1">
+                                                <h3 class="ml-3"> {{deliver.supply.equipment.name}} </h3>
+                                                <h6 class="ml-3"> PPE </h6>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <button class="btn btn-info col-lg-4 btn-success Green-template-color"> comment</button>
+                                        </div>
+                                    </div>
+                                    <!-- end for element image -->
+                                <!-- end header row where you find opinion and element image -->
+                                </div>
+                                <div class="toAppend">
+                                    <div class="mt-5 mb-5 d-flex flex-column comment">
+                                        <h5>Write your comments</h5>
+                                        <div>
+                                            <fieldset class="rating">
+                                                <input type="radio" id="star5_only_2" name="final_evaluation" value="5"         /> <label class = "full" for="star5_only_2"    title="Awesome - 5 stars">       </label>
+                                                <input type="radio" id="star4half_only_2" name="final_evaluation" value="4.5"   /> <label class="half" for="star4half_only_2"  title="Pretty good - 4.5 stars"> </label>
+                                                <input type="radio" id="star4_only_2" name="final_evaluation" value="4"        />  <label class = "full" for="star4_only_2"    title="Pretty good - 4 stars">   </label>
+                                                <input type="radio" id="star3half_only_2" name="final_evaluation" value="3.5"  />  <label class="half" for="star3half_only_2"  title="So so - 3.5 stars">       </label>
+                                                <input type="radio" id="star3_only_2" name="final_evaluation" value="3"        />  <label class = "full" for="star3_only_2"    title="So so - 3 stars">         </label>
+                                                <input type="radio" id="star2half_only_2" name="final_evaluation" value="2.5"  />  <label class="half" for="star2half_only_2"  title="Kinda bad - 2.5 stars">   </label>
+                                                <input type="radio" id="star2_only_2" name="final_evaluation" value="2"        />  <label class = "full" for="star2_only_2"    title="Kinda bad - 2 stars">     </label>
+                                                <input type="radio" id="star1half_only_2" name="final_evaluation" value="1.5"  />  <label class="half" for="star1half_only_2"  title="Meh - 1.5 stars">         </label>
+                                                <input type="radio" id="star1_only_2" name="final_evaluation" value="1"        />  <label class = "full" for="star1_only_2"    title="Pretty bad - 1 star">     </label>
+                                                <input type="radio" id="starhalf_only_2" name="final_evaluation" value="0.5"   />  <label class="half" for="starhalf_only_2"   title="Pretty bad - 0.5 stars">  </label>
+                                            </fieldset>
+                                        </div>
+                                        <textarea class="form-control" rows="3"></textarea>
+                                        <div class="d-flex justify-content-center">
+                                            <button type="submit" class="btn ml-5 mt-2 col-lg-2 btn-success Green-template-color">Send</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- start for top best and top bad comments -->
+                                <div class="row mt-4 p-2">
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="card border-0">
+                                            <img src="{% static '\img\user\user-6.jpg'%}" alt="profile image" class="rounded-circle card-img-top width-40">
+                                            <div class="card-body">
+                                                <h4 class="card-title m-t-0 m-b-10">Top best comment</h4>
+                                                <p class="card-text">I like the sesation in my feet, they are very conftable you don't feel too much weigth when you walk.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="card border-0">
+                                            <img src="{% static '\img\user\user-7.jpg'%}" alt="profile image" class="rounded-circle card-img-top width-40" >
+                                            <div class="card-body">
+                                                <h4 class="card-title m-t-0 m-b-10">Top bad Comment</h4>
+                                                <p class="card-text">I barely can walk they are so heavy for my height, you have to redesing it!!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end for top best and top bad comments -->
+                               	<!-- begin comments #gallery -->
+                                <div id="gallery" class="gallery">
+                                    <!-- begin coment -->
+                                    <div class="image gallery-group-1">
+                                        <img src="{% static '\img\user\user-2.jpg'%}" alt="profile image" class="rounded-circle card-img-top height-40 width-40">
+                                        <div class="image-info">
+                                            <h5 class="title">Peter</h5>
+                                            <div class="rating">
+                                                <span class="star active"></span>
+                                                <span class="star active"></span>
+                                                <span class="star active"></span>
+                                                <span class="star active"></span>
+                                                <span class="star active"></span>
+                                            </div>
+                                            <div class="desc">
+                                                I'm giving 5 stars because the description was accurate and so far it has filled my expectations and works great.
+                                                But when I first received the package I must say I was very discouraged.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end comment -->
+                                    <!-- begin comment -->
+                                    <div class="image gallery-group-1">
+                                        <div class="image-info">
+                                            <img src="{% static '\img\user\user-4.jpg'%}" alt="profile image" class="rounded-circle card-img-top height-40 width-40">
+                                            <h5 class="title">James</h5>
+                                            <div class="rating">
+                                                <span class="star active"></span>
+                                                <span class="star active"></span>
+                                                <span class="star active"></span>
+                                                <span class="star active"></span>
+                                                <span class="star"></span>
+                                            </div>
+                                            <div class="desc">
+                                                WORKS WITH TMOBILE IF UNLOCKED. I've been using this phone as a daily driver for a month. I love it. It does everything perfectly, minus games. Battery is the only concern
+                                                (you'll get used to the small keyboard) but it's exactly what I wanted (though the original 350$ price was a joke, I got it for 93$). I made the phone last 2 days once BUT
+                                                the screen on time was 30min (usually 630am - 700pm is ends around 25-40% with very minimal usage - screen on time from 15min-1hr). It's a good daily driver for the limited
+                                                market of people like me: full smartphone capabilities with limited use imposed. I can use navigation if I need to, I can email, I can call and web browse, but I know if
+                                                I'm doing it I don't have all day. It's a great little phone
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end comment -->
+                                </div>
+                                <!-- end comments #gallery -->
+						</div>
+                        <!-- end tab-pane -->
+                        <!-- ############################ diferent tap############################ -->
+                        <!-- begin tab-pane -->
+                        <div class="tab-pane fade" id="default-pills-tab-3">
+                            <h3 class="m-t-10" > Users opinions </h3>
+                                <div class="row">
+                                    <div class="col-md-4 col-sm-12">
+                                        <div class="d-flex flex-column" >
+                                             <!-- start percentage for the diferents posibilities for stars -->
+                                            <div class="d-flex flex-row">
+                                                <div><b>5 Stars</b></div>
+                                                <div class="progress rounded-corner progress-striped active m-4 width-200">
+                                                    <div class="progress-bar bg-warning" style="width: 75%">
+                                                    </div>
+                                                </div>
+                                                <div>75%</div>
+                                            </div>
+                                            <!-- end for diferents posibilities for stars -->
+                                            <!-- start for diferents posibilities for stars -->
+                                            <div class="d-flex flex-row">
+                                                <div><b>4 Stars</b></div>
+                                                <div class="progress rounded-corner progress-striped active m-4 width-200">
+                                                    <div class="progress-bar bg-warning" style="width: 13%">
+                                                    </div>
+                                                </div>
+                                                <div>13%</div>
+                                            </div>
+                                            <!-- end for diferents posibilities for stars -->
+                                            <!-- start for diferents posibilities for stars -->
+                                            <div class="d-flex flex-row">
+                                                <div><b>3 Stars</b></div>
+                                                <div class="progress rounded-corner progress-striped active m-4 width-200">
+                                                    <div class="progress-bar bg-warning" style="width: 6%">
+                                                    </div>
+                                                </div>
+                                                <div>6%</div>
+                                            </div>
+                                            <!-- end for diferents posibilities for stars -->
+                                            <!-- start for diferents posibilities for stars -->
+                                            <div class="d-flex flex-row">
+                                                <div><b>2 Stars</b></div>
+                                                <div class="progress rounded-corner progress-striped active m-4 width-200">
+                                                    <div class="progress-bar bg-warning" style="width: 3%">
+                                                    </div>
+                                                </div>
+                                                <div>3%</div>
+                                            </div>
+                                            <!-- end for diferents posibilities for stars -->
+                                            <!-- start for diferents posibilities for stars -->
+                                            <div class="d-flex flex-row">
+                                                <div><b>1 Stars</b></div>
+                                                <div class="progress rounded-corner progress-striped active m-4 width-200">
+                                                    <div class="progress-bar bg-warning" style="width: 3%">
+                                                    </div>
+                                                </div>
+                                                <div>3%</div>
+                                            </div>
+                                            <!-- end for diferents posibilities for stars -->
+                                        </div>
+                                    </div>
+                                    <!-- start for element image -->
+                                    <div class="col-md-4 col-sm-12" >
+                                        <div class="row">
+                                            <div class="col-lg-6">
+                                                <img src="/media/{{deliver.supply.equipment.image}}" alt="boots image" class="width-150">
+                                            </div>
+                                            <div class="col-lg-5 ml-1">
+                                                <h3 class="ml-3"> {{deliver.supply.equipment.name}}</h3>
+                                                <h6 class="ml-3"> PPE </h6>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <button class="btn btn-info col-lg-4 btn-success Green-template-color"> comment</button>
+                                        </div>
+                                    </div>
+                                    <!-- end for element image -->
+                                <!-- end header row where you find opinion and element image -->
+                                </div>
+                                <div class="toAppend">
+                                    <div class="mt-5 mb-5 d-flex flex-column comment">
+                                        <h5>Write your comments</h5>
+                                        <div>
+                                            <fieldset class="rating">
+                                                <input type="radio" id="star5_only_3" name="final_evaluation" value="5"         /> <label class = "full" for="star5_only_3"    title="Awesome - 5 stars">       </label>
+                                                <input type="radio" id="star4half_only_3" name="final_evaluation" value="4.5"   /> <label class="half" for="star4half_only_3"  title="Pretty good - 4.5 stars"> </label>
+                                                <input type="radio" id="star4_only_3" name="final_evaluation" value="4"        />  <label class = "full" for="star4_only_3"    title="Pretty good - 4 stars">   </label>
+                                                <input type="radio" id="star3half_only_3" name="final_evaluation" value="3.5"  />  <label class="half" for="star3half_only_3"  title="So so - 3.5 stars">       </label>
+                                                <input type="radio" id="star3_only_3" name="final_evaluation" value="3"        />  <label class = "full" for="star3_only_3"    title="So so - 3 stars">         </label>
+                                                <input type="radio" id="star2half_only_3" name="final_evaluation" value="2.5"  />  <label class="half" for="star2half_only_3"  title="Kinda bad - 2.5 stars">   </label>
+                                                <input type="radio" id="star2_only_3" name="final_evaluation" value="2"        />  <label class = "full" for="star2_only_3"    title="Kinda bad - 2 stars">     </label>
+                                                <input type="radio" id="star1half_only_3" name="final_evaluation" value="1.5"  />  <label class="half" for="star1half_only_3"  title="Meh - 1.5 stars">         </label>
+                                                <input type="radio" id="star1_only_3" name="final_evaluation" value="1"        />  <label class = "full" for="star1_only_3"    title="Pretty bad - 1 star">     </label>
+                                                <input type="radio" id="starhalf_only_3" name="final_evaluation" value="0.5"   />  <label class="half" for="starhalf_only_3"   title="Pretty bad - 0.5 stars">  </label>
+                                            </fieldset>
+                                        </div>
+                                        <textarea class="form-control" rows="3"></textarea>
+                                        <div class="d-flex justify-content-center">
+                                            <button type="submit" class="btn ml-5 mt-2 col-lg-2 btn-success Green-template-color">Send</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- start for top best and top bad comments -->
+                                <div class="row mt-4 p-2">
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="card border-0">
+                                            <img src="{% static '\img\user\user-6.jpg'%}" alt="profile image" class="rounded-circle card-img-top width-40" >
+                                            <div class="card-body">
+                                                <h4 class="card-title m-t-0 m-b-10">Top best comment</h4>
+                                                <p class="card-text">I like the sesation in my feet, they are very conftable you don't feel too much weigth when you walk.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 col-sm-12">
+                                        <div class="card border-0">
+                                            <img src="{% static '\img\user\user-7.jpg'%}" alt="profile image" class="rounded-circle card-img-top width-40">
+                                            <div class="card-body">
+                                                <h4 class="card-title m-t-0 m-b-10">Top bad Comment</h4>
+                                                <p class="card-text">I barely can walk they are so heavy for my height, you have to redesing it!!</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- end for top best and top bad comments -->
+                               	<!-- begin comments #gallery -->
+                                <div id="gallery" class="gallery">
+                                    <!-- begin coment -->
+                                    <div class="image gallery-group-1">
+                                        <img src="{% static '\img\user\user-2.jpg'%}" alt="profile image" class="rounded-circle card-img-top height-40 width-40">
+                                        <div class="image-info">
+                                            <h5 class="title">Peter</h5>
+                                            <div class="rating">
+                                                <span class="star active"></span>
+                                                <span class="star active"></span>
+                                                <span class="star active"></span>
+                                                <span class="star active"></span>
+                                                <span class="star active"></span>
+                                            </div>
+                                            <div class="desc">
+                                                I'm giving 5 stars because the description was accurate and so far it has filled my expectations and works great.
+                                                But when I first received the package I must say I was very discouraged.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end comment -->
+                                    <!-- begin comment -->
+                                    <div class="image gallery-group-1">
+                                        <div class="image-info">
+                                            <img src="{% static '\img\user\user-4.jpg'%}" alt="profile image" class="rounded-circle card-img-top height-40 width-40">
+                                            <h5 class="title">James</h5>
+                                            <div class="rating">
+                                                <span class="star active"></span>
+                                                <span class="star active"></span>
+                                                <span class="star active"></span>
+                                                <span class="star active"></span>
+                                                <span class="star"></span>
+                                            </div>
+                                            <div class="desc">
+                                                WORKS WITH TMOBILE IF UNLOCKED. I've been using this phone as a daily driver for a month. I love it. It does everything perfectly, minus games. Battery is the only concern
+                                                (you'll get used to the small keyboard) but it's exactly what I wanted (though the original 350$ price was a joke, I got it for 93$). I made the phone last 2 days once BUT
+                                                the screen on time was 30min (usually 630am - 700pm is ends around 25-40% with very minimal usage - screen on time from 15min-1hr). It's a good daily driver for the limited
+                                                market of people like me: full smartphone capabilities with limited use imposed. I can use navigation if I need to, I can email, I can call and web browse, but I know if
+                                                I'm doing it I don't have all day. It's a great little phone
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- end comment -->
+                                </div>
+                                <!-- end comments #gallery -->
+						</div>
+					    <!-- end tab-pane -->
+                    </div>
+                    <!-- end tab-content -->
+            </div>
+            <!-- end content card -->
+        </div>
+        <!-- end panel    -->
+    </div>
+    <!-- end panel-body -->
+</div>
+<!-- end panel -->
+
+
+{% endblock content %}
+
+
+{% block custom_js %}
+
+
+
+<script src="{% static 'js/custom_animation.js'%}"></script>
+
+{% endblock custom_js %}
