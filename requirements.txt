@@ -7,7 +7,7 @@ colorama==0.4.3
 defusedxml==0.6.0
 diff-match-patch==20181111
 dj-database-url==0.5.0
-Django==3.0.7
+Django==3.1.13
 django-crispy-forms==1.8.1
 -e git+https://github.com/jazzband/django-debug-toolbar.git@fb4ffee379f93c861d2a2cf836656e5388eb1d41#egg=django_debug_toolbar
 django-import-export==2.1.0
